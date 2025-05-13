@@ -2,6 +2,8 @@ site_name: API Deployment
 site_url: https://sitename.example
 theme:
   name: material
+#  features:
+#    - navigation.tabs  # THIS enables top nav bar (as tabs)
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:

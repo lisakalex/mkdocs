@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://sitename.example/road-tax-for-elcectirc-vihecle/">
+        <link rel="canonical" href="https://sitename.example/MkDocs-web-server/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Road tax for elcectirc vihecle - API Deployment</title>
+        <title>MkDocs web server - API Deployment</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#why-the-c-300-e-stands-out" class="md-skip">
+        <a href="#does-mkdocs-material-need-a-web-server" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Road tax for elcectirc vihecle
+              MkDocs web server
             
           </span>
         </div>
@@ -550,9 +550,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-the-c-300-e-stands-out" class="md-nav__link">
+  <a href="#does-mkdocs-material-need-a-web-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Why the C 300 e Stands Out
+      🏆 Does MkDocs + Material need a web server?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-you-want-to-host-it-internally-on-your-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      💥 If you want to host it internally on your server:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-you-dont-want-apache2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏃‍♂️ If you don’t want Apache2:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-ways-to-host-without-apache2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Alternative ways to host without Apache2:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-you-should-use-apache2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 When you should use Apache2:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-you-dont-need-apache2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚫 When you don’t need Apache2:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bottom-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Bottom line:
     </span>
   </a>
   
@@ -574,27 +628,117 @@
 
 
 
-  <h1>Road tax for elcectirc vihecle</h1>
+  <h1>MkDocs web server</h1>
 
-<p><a href="https://www.youtube.com/watch?v=M0eXnDhZAYs"><img alt="NEW 2025 Mercedes C Class Model - Official Reveal | FIRST LOOK! - YouTube" src="https://tse3.mm.bing.net/th?id=OIP.cvcpbzTsHGGfm2gL1QXuHAHaEK\&amp;pid=Api" /></a></p>
-<p>As of 2024, the most popular Mercedes-Benz C-Class model in the UK is the <strong>C 300 e</strong>, a plug-in hybrid electric vehicle (PHEV). This model has been recognized for its blend of performance and efficiency, winning the <strong>What Car? Hybrid Car of the Year 2024</strong> award .(<a href="https://www.mercedes-benz.co.uk/passengercars/models/saloon/c-class/overview.html?utm_source=chatgpt.com" title="C-Class Saloon | Mercedes-Benz">Mercedes-Benz</a>)</p>
-<h3 id="why-the-c-300-e-stands-out">Why the C 300 e Stands Out</h3>
+<p>✅ <strong>Great question! Short answer: no, you don’t <em>need</em> Apache2—but you <em>can</em> use it.</strong></p>
+<p>Let me explain in detail:</p>
+<hr />
+<h2 id="does-mkdocs-material-need-a-web-server">🏆 <strong>Does MkDocs + Material need a web server?</strong></h2>
+<p>👉 MkDocs builds your documentation into a <strong>static HTML website</strong> (no backend processing, no PHP, no Python running server-side).</p>
+<p>After you run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdocs<span class="w"> </span>build
+</span></code></pre></div>
+<p>it generates a <code>/site/</code> folder containing <strong>only static files:</strong></p>
 <ul>
-<li>
-<p><strong>Hybrid Powertrain</strong>: Combines a petrol engine with an electric motor, offering the flexibility of electric-only driving for short trips and the range of a petrol engine for longer journeys.</p>
-</li>
-<li>
-<p><strong>Fuel Efficiency</strong>: Delivers impressive fuel economy, making it an attractive option for those looking to reduce running costs.</p>
-</li>
-<li>
-<p><strong>Tax Benefits</strong>: As a PHEV, it benefits from lower Vehicle Excise Duty (VED) rates compared to standard petrol or diesel models.</p>
-</li>
-<li>
-<p><strong>Environmental Impact</strong>: Offers reduced CO₂ emissions, appealing to environmentally conscious drivers.</p>
-</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>images</li>
 </ul>
-<p>For those interested in a fully electric option, Mercedes-Benz also offers the <strong>EQC</strong> and <strong>EQA</strong> models, which provide zero-emission driving experiences.</p>
-<p>If you're considering a C-Class, the C 300 e presents a compelling balance of performance, efficiency, and tax advantages, making it a popular choice among UK buyers.(<a href="https://www.mercedes-benz.co.uk/passengercars/models/saloon/c-class/overview.html?utm_source=chatgpt.com" title="C-Class Saloon | Mercedes-Benz">Mercedes-Benz</a>)</p>
+<p>✅ These files can be served by <strong>any static file server</strong>, including:</p>
+<ul>
+<li>Apache2</li>
+<li>Nginx</li>
+<li>Caddy</li>
+<li>Python’s built-in HTTP server</li>
+<li>GitHub Pages</li>
+<li>Netlify / Vercel</li>
+<li>Or even just opening <code>index.html</code> in a browser locally</li>
+</ul>
+<hr />
+<h2 id="if-you-want-to-host-it-internally-on-your-server">💥 <strong>If you want to host it internally on your server:</strong></h2>
+<p>👉 You can use <strong>Apache2</strong>, <strong>Nginx</strong>, or any other web server to point to the <code>/site/</code> directory:</p>
+<p>For <strong>Apache2:</strong></p>
+<ol>
+<li>Build docs:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdocs<span class="w"> </span>build
+</span></code></pre></div>
+<ol>
+<li>Copy <code>/site/</code> to your Apache’s web directory:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>site/*<span class="w"> </span>/var/www/html/
+</span></code></pre></div>
+<ol>
+<li>Done! Now accessible at <code>http://your-server/</code></li>
+</ol>
+<p>✅ Apache will simply serve the static HTML like any normal website.</p>
+<hr />
+<h2 id="if-you-dont-want-apache2">🏃‍♂️ <strong>If you don’t want Apache2:</strong></h2>
+<p>👉 You can run a lightweight server just for testing:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdocs<span class="w"> </span>serve
+</span></code></pre></div>
+<p>⚠️ This command launches a <strong>temporary dev server (localhost:8000)</strong> but <strong>should not be used in production.</strong></p>
+<hr />
+<h2 id="alternative-ways-to-host-without-apache2">📝 <strong>Alternative ways to host without Apache2:</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Hosting Option</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Pages</td>
+<td>Free, auto-deploy from repo</td>
+<td>Public by default</td>
+</tr>
+<tr>
+<td>Netlify / Vercel</td>
+<td>Free tier, CI/CD built-in</td>
+<td>Public by default</td>
+</tr>
+<tr>
+<td>Python HTTP server</td>
+<td>Quick test</td>
+<td>Not for prod</td>
+</tr>
+<tr>
+<td>Nginx</td>
+<td>Lightweight, faster than Apache</td>
+<td>More config needed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="when-you-should-use-apache2">🎯 <strong>When you should use Apache2:</strong></h2>
+<p>✅ If you already use Apache2 for other sites on that server
+✅ If you want to integrate docs under an existing Apache virtual host
+✅ If you need <code>.htaccess</code> rules or authentication</p>
+<hr />
+<h2 id="when-you-dont-need-apache2">🚫 <strong>When you don’t need Apache2:</strong></h2>
+<p>✅ If you’re publishing on GitHub Pages / Netlify / external host
+✅ If docs are just for personal use or team-internal use behind VPN (can even use <code>mkdocs serve</code> casually)</p>
+<hr />
+<h2 id="bottom-line">🔍 <strong>Bottom line:</strong></h2>
+<p>✅ <strong>MkDocs + Material does not require Apache2—it only needs any static file server to serve the <code>/site/</code> folder.</strong>
+✅ Apache2 is fine if you’re already using it.
+✅ Can skip Apache2 if hosting with Nginx, GitHub Pages, or cloud platforms.</p>
+<hr />
+<p>👉 <strong>Are you planning to:</strong></p>
+<ul>
+<li>Host docs <strong>publicly online?</strong></li>
+<li>Serve them <strong>inside a company intranet?</strong></li>
+<li>Need <strong>user authentication or access control?</strong></li>
+</ul>
+<p>Let me know, I can guide you with more tailored hosting advice! 😄</p>
+<p>References:</p>
+<ul>
+<li><a href="https://www.mkdocs.org/user-guide/deploying-your-docs/">MkDocs official docs</a></li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/publishing-your-site/">Material for MkDocs deploy guide</a></li>
+</ul>
 
 
 

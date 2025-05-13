@@ -2,42 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sitename.example/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/Comparison-of-Class-1.5-C200/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/MkDocs-Setup/</loc>
+         <lastmod>2025-05-11</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/MkDocs-web-server/</loc>
+         <lastmod>2025-05-11</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/Suspension-arm/</loc>
+         <lastmod>2025-05-11</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/admonitions/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/code-examples/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/content-tabs/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/diagram-examples/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/documentation-sites/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/line-endings/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/mercedes-benz/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/road-tax-for-elcectirc-vihecle/</loc>
-         <lastmod>2025-05-10</lastmod>
+         <lastmod>2025-05-11</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/blog/</loc>
+         <lastmod>2025-05-11</lastmod>
     </url>
 </urlset>
