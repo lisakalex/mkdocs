@@ -24,3 +24,8 @@ markdown_extensions:
       alternate_style: true
   - admonition
   - pymdownx.details
+#nav:
+#  - Home: index.md
+#  - Docs: docs.md
+#  - About: about.md
+#  - Blog: blog.md
