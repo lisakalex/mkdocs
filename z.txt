@@ -9,3 +9,11 @@ mkdocs build
 Then deploy via mkdocs build → static HTML → serve with Nginx/Apache.
 
 ➡️ Docs: https://squidfunk.github.io/mkdocs-material/
+
+~~~
+create .md file from template using python
+./generate_markdown.py --filename "gaga Lady" --author "Huykin"
+
+~~~
+
+
