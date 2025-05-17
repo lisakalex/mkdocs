@@ -12,7 +12,7 @@ theme:
     # Dark Mode
     - scheme: slate
       toggle:
-        icon: material/weather-sunny
+        icon: material/toggle-switch-off-outline
         name: Dark mode
       primary: green
       accent: deep purple
@@ -20,14 +20,14 @@ theme:
     # Light Mode
     - scheme: default
       toggle:
-        icon: material/weather-night
+        icon: material/toggle-switch
         name: Light mode
       primary: blue
 #      accent: deep orange
-      accent: cyan
+      accent: blue
   #    code: Red Hat Mono
   features:
-    #    - navigation.tabs  # THIS enables top nav bar (as tabs)
+    - navigation.tabs  # THIS enables top nav bar (as tabs)
     - content.tooltips
 markdown_extensions:
   - abbr

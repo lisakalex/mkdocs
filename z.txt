@@ -15,5 +15,27 @@ create .md file from template using python
 ./generate_markdown.py --filename "gaga Lady" --author "Huykin"
 
 ~~~
+This doesn't quite work because the structure is broken.
+The phrase "I have had with travellers..." is missing a noun (like ‘conversations’) that the sentence refers to.
 
+Correct version
+I can't tell you how many conversations I have had with travellers dressed head-to-toe in North Face gear:"
+"Where are you going hiking?" or "What summit are you going to tackle while you're here?"
 
+Here’s why it's correct:
+"conversations I have had" is the object.
+"with travellers dressed..." is describing who the conversations were with.
+The colon introduces what those conversations sounded like.
+
+~~~
+Це не зовсім правильно, тому що структура речення порушена.
+У фразі "I have had with travellers..." бракує іменника (наприклад, ‘conversations’), на який посилається речення.
+
+правильний варіант
+I can't tell you how many conversations I have had with travellers dressed head-to-toe in North Face gear:"
+"Where are you going hiking?" or "What summit are you going to tackle while you're here?"
+Ось чому правильний варіант виглядає так:
+
+"conversations I have had" — це додаток (тобто те, що я мав).
+"with travellers dressed..." — описує, з ким були ці розмови.
+Двокрапка (:) вводить приклади того, як саме звучали ці розмови.
