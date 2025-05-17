@@ -4,6 +4,7 @@ pip install mkdocs-material
 mkdocs new mydocs
 cd mydocs
 mkdocs serve
+mkdocs build
 
 Then deploy via mkdocs build → static HTML → serve with Nginx/Apache.
 
