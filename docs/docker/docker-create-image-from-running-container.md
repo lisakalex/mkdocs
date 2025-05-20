@@ -1,3 +1,8 @@
+---
+title: Docker create image from running container
+---
+
+
 To create a Docker image from a running container, you can use the `docker commit` command. This allows you to capture the current state of a running container and save it as a new image.
 
 Here’s a step-by-step guide on how to create an image from a running Docker container:

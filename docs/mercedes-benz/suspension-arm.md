@@ -1,3 +1,8 @@
+---
+title: Suspension arm
+---
+
+
 [![Mercedes Benz Front Suspension Diagram](https://tse3.mm.bing.net/th/id/OIP.zsiP1KgjfeGYdDxUkEBWLgHaFd?pid=Api)](https://stewart-switch.com/mercedes-benz-front-suspension-diagram)
 
 The issue you've mentioned—**"Suspension arm pin or bush excessively worn Offside Front Lower (front)"**—refers to wear in the **front portion of the lower control arm's bushing or pin** on the **front right (offside) side** of your Mercedes C230.

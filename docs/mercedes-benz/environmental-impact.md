@@ -1,3 +1,8 @@
+---
+title: Environmental Impact
+---
+
+
 [![NEW 2025 Mercedes C Class Model - Official Reveal | FIRST LOOK! - YouTube](https://tse3.mm.bing.net/th?id=OIP.cvcpbzTsHGGfm2gL1QXuHAHaEK\&pid=Api)](https://www.youtube.com/watch?v=M0eXnDhZAYs)
 
 As of 2024, the most popular Mercedes-Benz C-Class model in the UK is the **C 300 e**, a plug-in hybrid electric vehicle (PHEV). This model has been recognized for its blend of performance and efficiency, winning the **What Car? Hybrid Car of the Year 2024** award .([Mercedes-Benz][1])

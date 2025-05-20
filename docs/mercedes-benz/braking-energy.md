@@ -1,3 +1,7 @@
+---
+title: The braking energy recovery (regenerative braking)
+---
+
 Awesome question—you're thinking like an engineer 🔍🚗!
 
 In the **Mercedes-Benz C200 MHEV EQ Boost (48V mild hybrid)** system, the braking energy recovery (regenerative braking) works by **capturing kinetic energy** that would otherwise be lost as heat, and converting it into electrical energy to recharge the battery and assist the engine.

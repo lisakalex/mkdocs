@@ -1,3 +1,7 @@
+---
+title: Connect to MySQL Database with PDO
+---
+
 To connect to a MySQL database using PHP's PDO (PHP Data Objects), you need to follow these steps. PDO is a flexible and secure way to interact with databases and is highly recommended for use in modern PHP applications.
 
 Here’s a basic example of how to connect to a MySQL database using PDO:
@@ -45,12 +49,14 @@ try {
 In a Docker environment, if you're trying to connect to a MySQL container from a PHP container (e.g., in your `docker-compose.yml` setup), you need to ensure the `host` is the service name of the MySQL container. For your setup, it would likely look like this:
 
 ```php
+<?php
 $host = 'mysql'; // Service name from docker-compose.yml
 ```
 
 So your connection string might look like this:
 
 ```php
+<?php
 $host = 'mysql'; // Service name from docker-compose.yml
 $db = 'dashboard';
 $user = 'jenkins';

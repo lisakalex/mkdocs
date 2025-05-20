@@ -1,6 +1,6 @@
 # Diagram Examples
 
-## Flowcharts
+## Flowcharts
 
 ```mermaid
 graph LR

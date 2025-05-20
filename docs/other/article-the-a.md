@@ -1,9 +1,3 @@
-Here's a short worksheet to help you practice using **"a," "the,"** and **no article** (∅). The answers and explanations are at the bottom.
-
----
-
-### 📝 **Worksheet: "a" vs "the" vs no article**
-
 #### **Part 1: Fill in the blanks with *a*, *the*, or leave it blank (∅)**
 
 1. I saw \_\_\_ cat in the garden. \_\_\_ cat was chasing a butterfly.

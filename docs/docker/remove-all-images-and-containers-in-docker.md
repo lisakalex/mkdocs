@@ -1,3 +1,9 @@
+---
+title: Remove all Docker images and containers
+
+---
+
+
 To remove all Docker images and containers, you can follow these steps:
 
 ### 1. **Stop and remove all containers:**

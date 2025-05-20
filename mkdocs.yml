@@ -1,9 +1,23 @@
 site_name: Documentation
 site_url: https://sitename.example
+# Repository
+#repo_url: https://calendar.google.com
+#repo_name: Google Calendar  # <- This is the visible text
 watch:
   - includes
 theme:
   name: material
+  features:
+    #    - navigation.tabs  # THIS enables top nav bar (as tabs)
+    - content.tooltips
+    - content.code.copy
+    - content.code.annotate
+  #    - navigation.footer
+  #    - navigation.instant
+  #    - navigation.tracking
+  #    - navigation.indexes
+  #    - navigation.expand
+  #    - navigation.sections
   font:
   #    text: Inter
   #    text: Montserrat
@@ -14,21 +28,19 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Dark mode
-      primary: green
-      accent: deep purple
+      primary: black
+    #      accent: deep purple
 
     # Light Mode
     - scheme: default
       toggle:
         icon: material/toggle-switch
         name: Light mode
-      primary: blue
-#      accent: deep orange
-      accent: blue
+  #      primary: deep orange
+  #      accent: deep orange
+  #      accent: blue
   #    code: Red Hat Mono
-  features:
-    - navigation.tabs  # THIS enables top nav bar (as tabs)
-    - content.tooltips
+
 markdown_extensions:
   - abbr
   - attr_list
@@ -60,6 +72,10 @@ markdown_extensions:
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+#  - https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js
+#  - js/calendar-setup.js
+#extra_css:
+#  - https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css
 
 plugins:
   - search
@@ -80,9 +96,26 @@ plugins:
       background: white
       shadow: true
       manual: false
-
-#nav:
-#  - Home: index.md
-#  - Docs: docs.md
-#  - About: about.md
-#  - Blog: blog.md
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-repo
+      name: GitHub
+#    - icon: destinations/_ui/mobile/th/images/logo/TUI-Logo.svg
+#      link: https://www.tui.co.uk/
+#      name: TUI
+nav:
+  - Home: index.md
+  - Mercedes-Benz:
+      - Mercedes-Benz C-Class: mercedes-benz/comparison-of-class.md
+      - The most popular: mercedes-benz/most-popular.md
+      - The braking energy: mercedes-benz/braking-energy.md
+      - Environmental Impact: mercedes-benz/environmental-impact.md
+      - C-Class models: https://www.mercedes-benz.co.uk/passengercars/models/saloon/c-class/overview.html
+      - Suspension arm: mercedes-benz/suspension-arm.md
+  - About: about.md
+  - Blog: blog.md
+  - GitHub: https://github.com
+#  - Community:
+#    - Contributing:
+#      - Asking a question: https://github.com/squidfunk/mkdocs-material/discussions

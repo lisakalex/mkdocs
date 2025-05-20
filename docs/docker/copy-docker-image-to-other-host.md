@@ -1,3 +1,7 @@
+---
+title: Copy Docker image to other host
+---
+
 To copy a Docker image from one host to another, you can follow these steps. The general process involves saving the Docker image as a `.tar` file, transferring it to the other host, and then loading the image on the destination host.
 
 ### **1. Save the Docker Image as a `.tar` File:**

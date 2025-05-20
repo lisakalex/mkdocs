@@ -1,7 +1,3 @@
----
-title: Mercedes-Benz
----
-
 ![th.jpeg](img/th.jpeg){ width="100"}
 ![th (1).jpeg](img/th%20%281%29.jpeg){ width="100"}
 ![th (2).jpeg](img/th%20%282%29.jpeg){ width="100"}
