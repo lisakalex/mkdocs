@@ -1,7 +1,4 @@
----
-title: Mercedes-Benz C-Class 1.5 C200
----
-
+# Mercedes-Benz C-Class 1.5 C200
 Here's a comparison of the **Mercedes-Benz C-Class 1.5 C200 MHEV EQ Boost AMG Line G-Tronic+ Euro 6** with other models in the C-Class lineup and similar vehicles from competitors:
 
 ---
