@@ -17,7 +17,7 @@ theme:
   #    - navigation.tracking
   #    - navigation.indexes
   #    - navigation.expand
-  #    - navigation.sections
+#    - navigation.sections
   font:
   #    text: Inter
   #    text: Montserrat
@@ -79,6 +79,9 @@ extra_javascript:
 
 plugins:
   - search
+  - blog
+  - meta
+  - blogging
   - glightbox:
       touchNavigation: true
       loop: false
