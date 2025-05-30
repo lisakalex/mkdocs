@@ -10,6 +10,13 @@ Then deploy via mkdocs build → static HTML → serve with Nginx/Apache.
 
 ➡️ Docs: https://squidfunk.github.io/mkdocs-material/
 
+To stop all Python-based web servers:
+pkill -f mkdocs
+mkdocs serve --dev-addr=127.0.0.1:8001
+
+sudo lsof -i :8000
+kill -9 12345
+
 ~~~
 create .md file from template using python
 ./generate_markdown.py --filename "gaga Lady" --author "Huykin"
