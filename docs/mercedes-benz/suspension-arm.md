@@ -56,6 +56,7 @@ components.
 [2]: https://www.youtube.com/watch?v=rKo-waAacs4&utm_source=chatgpt.com "How to change front suspension arm on MERCEDES-BENZ W203 C ..."
 
 ### Code of Conduct
+![ku](img/merc.jpg){ width="30%" align=right}
 
 Our [Code of Conduct] outlines the expectation for all community members to
 treat one another with respect, employing inclusive and welcoming language. Our
@@ -94,6 +95,7 @@ violations:
     and mutual respect. It aims to protect our community members and team.
 
 ### Incomplete issues and duplicates
+![ku](img/merc.jpg){ width="30%" align=right}
 
 We have invested significant time and effort in the setup of our contribution
 process, ensuring that we assess the essential requirements for reviewing and

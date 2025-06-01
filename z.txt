@@ -50,3 +50,11 @@ The most popular Mercedes-Benz C-Class.md
 
 ~~~
     font-family: TUITypeLight, tuitypelightregular, tui-type, tuitype, arial, sans-serif;
+
+~~~
+th.jpeg
+http://localhost:8000/mercedes-benz/img/th.jpeg
+/var/www/mkdocs/docs/mercedes-benz/img/th.jpeg
+
+
+
