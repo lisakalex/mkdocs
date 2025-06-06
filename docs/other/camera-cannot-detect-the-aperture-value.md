@@ -1,8 +1,9 @@
+# Camera cannot detect the aperture value
 
 ![d-80-nikon.jpeg](img/d-80-nikon.jpeg){ width="300" align=right}
 
-
-In the image you shared, the camera display shows `F--`, which means the camera **cannot detect the aperture value** of the lens.
+In the image you shared, the camera display shows `F--`, which means the camera **cannot detect the aperture value** of
+the lens.
 
 This usually happens for one of these reasons:
 :material-information-outline:{ title="This is the main reason" }
@@ -36,7 +37,8 @@ This usually happens for one of these reasons:
 
 ### **4. Lens aperture ring not locked**
 
-* Some Nikon lenses have a physical aperture ring. Make sure it's set to the **highest f-number (smallest aperture)** and locked there — usually with a switch.
+* Some Nikon lenses have a physical aperture ring. Make sure it's set to the **highest f-number (smallest aperture)**
+  and locked there — usually with a switch.
 * If it’s not locked, `F--` can appear.
 
 ---

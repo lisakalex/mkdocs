@@ -10,6 +10,11 @@ Then deploy via mkdocs build → static HTML → serve with Nginx/Apache.
 
 ➡️ Docs: https://squidfunk.github.io/mkdocs-material/
 
+after the computer restarts,
+cd /home/al/mkdocs
+source ~/.venv/bin/activate
+mkdocs serve
+
 To stop all Python-based web servers:
 pkill -f mkdocs
 mkdocs serve --dev-addr=127.0.0.1:8001
