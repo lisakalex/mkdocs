@@ -2,13 +2,13 @@ site_name: Documentation
 site_url: https://sitename.example
 # Repository
 #repo_url: https://calendar.google.com
-#repo_name: Google Calendar  # <- This is the visible text
+#repo_name: Google Calendar # <- This is the visible text
 watch:
   - includes
 theme:
   name: material
   features:
-    #    - navigation.tabs  # THIS enables top nav bar (as tabs)
+    #    - navigation.tabs # THIS enables the top nav bar (as tabs)
     - content.tooltips
     - content.code.copy
     - content.code.annotate
@@ -22,27 +22,28 @@ theme:
   #    - navigation.indexes
   #    - navigation.expand
   font:
-  #    text: Inter
+#      text: Inter
   #    text: Montserrat
   #    text: Lato
+      text: ubuntu
   palette:
-    # Dark Mode
-    - scheme: slate
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Dark mode
-    #      primary: black
-    #      accent: deep purple
-
+    - primary: white
     # Light Mode
     - scheme: default
       toggle:
         icon: material/toggle-switch
         name: Light mode
-  #      primary: deep orange
-  #      accent: deep orange
-  #      accent: blue
-  #    code: Red Hat Mono
+    #        primary: white
+    #      accent: deep orange
+    #      accent: blue
+    #    code: Red Hat Mono
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Dark mode
+  #      primary: black
+  #      accent: deep purple
 
 markdown_extensions:
   - abbr
