@@ -25,7 +25,7 @@ theme:
 #      text: Inter
   #    text: Montserrat
   #    text: Lato
-      text: ubuntu
+#      text: ubuntu
   palette:
     - primary: white
     # Light Mode

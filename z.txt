@@ -15,6 +15,11 @@ cd /home/al/mkdocs
 source ~/.venv/bin/activate
 mkdocs serve
 
+~~
+after the computer restarts,
+cd /home/al/mkdocs && source ~/.venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8009
+~~
+
 To stop all Python-based web servers:
 pkill -f mkdocs
 mkdocs serve --dev-addr=127.0.0.1:8001
@@ -65,6 +70,27 @@ http://localhost:8000/mercedes-benz/img/th.jpeg
 mkdocs serve -a 0.0.0.0:8081
 
 ~~~
+hide all
+
+<link rel="stylesheet" href="../../mkdocs/assets/stylesheets/main.2afb09e1.min.css">
+<link rel="stylesheet" href="../../mkdocs/assets/stylesheets/palette.06af60db.min.css">
+
+    <style>
+        .md-header {
+            display: none;
+        }
+
+        .md-nav {
+            display: none;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+
+~~~
+
 
 
 
