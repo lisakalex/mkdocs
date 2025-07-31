@@ -11,9 +11,7 @@ Then deploy via mkdocs build → static HTML → serve with Nginx/Apache.
 ➡️ Docs: https://squidfunk.github.io/mkdocs-material/
 
 after the computer restarts,
-cd /home/al/mkdocs
-source ~/.venv/bin/activate
-mkdocs serve
+cd /home/al/mkdocs && source ~/.venv/bin/activate && mkdocs serve
 
 ~~
 after the computer restarts,
@@ -90,7 +88,7 @@ hide all
     </style>
 
 ~~~
-
+class-signinviaemailform.md
 
 
 
