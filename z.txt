@@ -1,11 +1,13 @@
 MkDocs + Material Theme
 
+python3 -m venv .venv
+source .venv/bin/activate
 pip install mkdocs-material
 mkdocs new mydocs
 cd mydocs
 mkdocs serve
 mkdocs build
-
+Test Drive Cheat Sheet
 Then deploy via mkdocs build → static HTML → serve with Nginx/Apache.
 
 ➡️ Docs: https://squidfunk.github.io/mkdocs-material/
@@ -15,7 +17,7 @@ cd /home/al/mkdocs && source ~/.venv/bin/activate && mkdocs serve
 
 ~~
 after the computer restarts,
-cd /home/al/mkdocs && source ~/.venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8009
+cd /var/www/mkdocs && source ~/.venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8009
 ~~
 
 To stop all Python-based web servers:

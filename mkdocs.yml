@@ -23,8 +23,8 @@ theme:
   #    - navigation.expand
   font:
 #      text: Inter
-  #    text: Montserrat
-  #    text: Lato
+#      text: Montserrat
+#      text: Lato
 #      text: ubuntu
   palette:
     - primary: white
