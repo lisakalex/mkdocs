@@ -1,8 +1,9 @@
-#!/home/al/.venv/bin/python3
 import argparse
 from jinja2 import Environment, FileSystemLoader
-import os
+import time
 
+
+time.sleep(0.5)  # Polling interval
 
 def render_template(data, template_name, filename):
     env = Environment(loader=FileSystemLoader('templates'))

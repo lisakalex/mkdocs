@@ -12,8 +12,9 @@ Then deploy via mkdocs build → static HTML → serve with Nginx/Apache.
 
 ➡️ Docs: https://squidfunk.github.io/mkdocs-material/
 
+cd ~/IdeaProjects/mkdocs
 after the computer restarts,
-cd /home/al/mkdocs && source ~/.venv/bin/activate && mkdocs serve
+cd ~/IdeaProjects/mkdocs && source ~/.venv/bin/activate && mkdocs serve
 
 ~~
 after the computer restarts,
@@ -93,9 +94,20 @@ hide all
 class-signinviaemailform.md
 
 ~~~
+python3 -m venv ~/.venv
+source ~/.venv/bin/activate
+python3 -m pip install package
+python3 -m pip install --upgrade package
+python3 -m pip install package==2.6.0
+python3 -m pip uninstall package
+pip freeze > requirements.txt
+python3 -m pip install -r /var/www/requirements.txt
+deactivate
 
+~~~
+import sys; print(sys.executable)
 
-
+~~~
 /home/al2/IdeaProjects/mkdocs/.venv/bin/activate
 
 
