@@ -1,4 +1,5 @@
 MkDocs + Material Theme
+Docs: https://squidfunk.github.io/mkdocs-material/
 
 python3 -m venv .venv
 source .venv/bin/activate
@@ -7,19 +8,9 @@ mkdocs new mydocs
 cd mydocs
 mkdocs serve
 mkdocs build
-Test Drive Cheat Sheet
-Then deploy via mkdocs build → static HTML → serve with Nginx/Apache.
 
-➡️ Docs: https://squidfunk.github.io/mkdocs-material/
-
-cd ~/IdeaProjects/mkdocs
-after the computer restarts,
-cd ~/IdeaProjects/mkdocs && source ~/.venv/bin/activate && mkdocs serve
-
-~~
-after the computer restarts,
-cd /var/www/mkdocs && source ~/.venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002
-~~
+after the computer restarts
+cd ~/IdeaProjects/mkdocs && source ~/.venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002
 
 To stop all Python-based web servers:
 pkill -f mkdocs
@@ -28,49 +19,9 @@ mkdocs serve --dev-addr=127.0.0.1:8001
 sudo lsof -i :8000
 kill -9 12345
 
-~~~
 create .md file from template using python
 ./generate_markdown.py --filename "gaga Lady" --author "Huykin"
 
-~~~
-This doesn't quite work because the structure is broken.
-The phrase "I have had with travellers..." is missing a noun (like ‘conversations’) that the sentence refers to.
-
-Correct version
-I can't tell you how many conversations I have had with travellers dressed head-to-toe in North Face gear:"
-"Where are you going hiking?" or "What summit are you going to tackle while you're here?"
-
-Here’s why it's correct:
-"conversations I have had" is the object.
-"with travellers dressed..." is describing who the conversations were with.
-The colon introduces what those conversations sounded like.
-
-~~~
-Це не зовсім правильно, тому що структура речення порушена.
-У фразі "I have had with travellers..." бракує іменника (наприклад, ‘conversations’), на який посилається речення.
-
-правильний варіант
-I can't tell you how many conversations I have had with travellers dressed head-to-toe in North Face gear:"
-"Where are you going hiking?" or "What summit are you going to tackle while you're here?"
-Ось чому правильний варіант виглядає так:
-
-"conversations I have had" — це додаток (тобто те, що я мав).
-"with travellers dressed..." — описує, з ким були ці розмови.
-Двокрапка (:) вводить приклади того, як саме звучали ці розмови.
-The most popular Mercedes-Benz C-Class.md
-
-~~~
-    font-family: TUITypeLight, tuitypelightregular, tui-type, tuitype, arial, sans-serif;
-
-~~~
-th.jpeg
-http://localhost:8000/mercedes-benz/img/th.jpeg
-/var/www/mkdocs/docs/mercedes-benz/img/th.jpeg
-
-~~~
-mkdocs serve -a 0.0.0.0:8081
-
-~~~
 hide all
 
 <link rel="stylesheet" href="../../mkdocs/assets/stylesheets/main.2afb09e1.min.css">
@@ -91,24 +42,10 @@ hide all
     </style>
 
 ~~~
-class-signinviaemailform.md
 
-~~~
-python3 -m venv ~/.venv
-source ~/.venv/bin/activate
-python3 -m pip install package
-python3 -m pip install --upgrade package
-python3 -m pip install package==2.6.0
-python3 -m pip uninstall package
-pip freeze > requirements.txt
-python3 -m pip install -r /var/www/requirements.txt
-deactivate
-
-~~~
+check what venv is in python console
 import sys; print(sys.executable)
 
 ~~~
-/home/al2/IdeaProjects/mkdocs/.venv/bin/activate
-
 
 
