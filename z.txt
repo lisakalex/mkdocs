@@ -9,6 +9,12 @@ cd mydocs
 mkdocs serve
 mkdocs build
 
+To use GitHub Pages copy all the site dir contents to doc repo, commit and push.
+MkDocs cannot be used directly because it requires a docs directory, which conflicts with GitHub Pages.
+When GitHub Pages builds with Jekyll, it raises errors about the docs folder.
+The issue may also be related to symlinks.
+
+~~~
 after the computer restarts
 cd ~/IdeaProjects/mkdocs && source ~/.venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002
 
@@ -19,9 +25,11 @@ mkdocs serve --dev-addr=127.0.0.1:8001
 sudo lsof -i :8000
 kill -9 12345
 
+~~~
 create .md file from template using python
 ./generate_markdown.py --filename "gaga Lady" --author "Huykin"
 
+~~~
 hide all
 
 <link rel="stylesheet" href="../../mkdocs/assets/stylesheets/main.2afb09e1.min.css">
@@ -47,5 +55,4 @@ check what venv is in python console
 import sys; print(sys.executable)
 
 ~~~
-
 
