@@ -1,6 +1,37 @@
+Install uv
+sudo apt install curl
+curl -LsSf https://astral.sh/uv/install.sh | sh
+Then restart your terminal
+
+uv venv --python 3.13 /home/al/IdeaProjects/btc_payments/.venv
+uv venv --python 3.13 .venv
+source /home/al/IdeaProjects/btc_payments/.venv/bin/activate
+source .venv/bin/activate
+uv pip install -r requirements.txt
+uv pip install package
+uv pip install --upgrade package
+uv pip install package==2.6.0
+uv pip uninstall package
+uv pip freeze > requirements.txt
+deactivate
+
+standard venv + pip (classic & compatible)
+sudo apt install python3.12-venv
+python3 -m venv ~/.venv
+source ~/.venv/bin/activate
+python -m pip install package
+python -m pip install --upgrade package
+python -m pip install package==2.6.0
+python -m pip uninstall package
+pip freeze > requirements.txt
+python -m pip install -r /var/www/requirements.txt
+deactivate
+
+~~~
 MkDocs + Material Theme
 Docs: https://squidfunk.github.io/mkdocs-material/
 
+sudo apt install python3.12-venv
 python3 -m venv .venv
 source .venv/bin/activate
 pip install mkdocs-material
@@ -8,7 +39,6 @@ mkdocs new mydocs
 cd mydocs
 mkdocs serve
 mkdocs build
-
 To use GitHub Pages copy all the site dir contents to doc repo, commit and push.
 MkDocs cannot be used directly because it requires a docs directory, which conflicts with GitHub Pages.
 When GitHub Pages builds with Jekyll, it raises errors about the docs folder.
@@ -17,6 +47,7 @@ The issue may also be related to symlinks.
 ~~~
 after the computer restarts
 cd ~/IdeaProjects/mkdocs && source ~/.venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002
+cd ~/IdeaProjects/mkdocs && source .venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002
 
 To stop all Python-based web servers:
 pkill -f mkdocs
