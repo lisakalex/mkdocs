@@ -2,7 +2,7 @@ Install uv
 sudo apt install curl
 curl -LsSf https://astral.sh/uv/install.sh | sh
 Then restart your terminal
-do-not-re-building-the-source-code.md
+
 uv venv --python 3.13 /home/al/IdeaProjects/btc_payments/.venv
 uv venv --python 3.13 .venv
 source /home/al/IdeaProjects/btc_payments/.venv/bin/activate
@@ -46,8 +46,10 @@ The issue may also be related to symlinks.
 
 ~~~
 after the computer restarts
-cd ~/IdeaProjects/mkdocs && source ~/.venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002
 cd ~/IdeaProjects/mkdocs && source .venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002
+it stopped livereloading so now do
+cd ~/IdeaProjects/mkdocs && source .venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002 --livereload
+
 
 To stop all Python-based web servers:
 pkill -f mkdocs
