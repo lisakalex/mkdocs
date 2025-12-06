@@ -1,11 +1,12 @@
-Here are **four brand-new, 100 % HTML-safe flowcharts** that will render perfectly everywhere — no `<br>` tags inside Mermaid labels (that’s what was breaking your page).
+---
+hide:
+  - navigation
+  - toc
+  - header
+  - footer
+---
 
-Just copy the one you like best.
-
-### 1. Clean & Professional (most used in 2025 architecture docs)
-
-
-### 3. Swimlane (shows who owns what)
+# Swimlane (shows who owns what)
 
 ```mermaid
 flowchart LR
@@ -36,9 +37,4 @@ flowchart LR
 %%    style H fill:#a99045,color:black
 %%    style I fill:#4a7e56,color:white
 ```
-
-
-All four are **guaranteed to work** in Confluence, Notion, GitHub, GitLab, Obsidian, SharePoint, and any other tool — no HTML errors.
-
-Just copy-paste the one you like and you’re done.  
-Want a PNG version of any of them? Just say which number!
+![mermaid-diagram.svg](img/mermaid-diagram.svg)
