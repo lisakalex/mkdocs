@@ -9,25 +9,25 @@ This is what every mature team (Google, Netflix, Amazon, Salesforce, MuleSoft, e
 
 ```yaml
 # Jenkinsfile (or .github/workflows/deploy.yml)
-  pipeline {
-    stages {
-    stage('Build & Test') { … }                     # runs on every commit
-    stage('Upload Artifact') { … }                  # to Artifactory/Nexus
-    stage('Deploy to Dev') { … }                    # auto
-    stage('Integration Tests in Dev') { … }         # auto
-    stage('Deploy to Test') {
-    when { expression { env.BRANCH_NAME == 'main' } }
-    input { message "Promote to Test?" }        # manual approval
-    steps { … }                                 # same artifact!
-    }
-    stage('Deploy to Prod') {
-    input { message "Promote to Production?" }
-    steps { … }                                 # same artifact again!
-    }
-    }
-    post {
-    always { cleanWs() }
-    }
+pipeline {
+stages {
+stage('Build & Test') { … }                     # runs on every commit
+stage('Upload Artifact') { … }                  # to Artifactory/Nexus
+stage('Deploy to Dev') { … }                    # auto
+stage('Integration Tests in Dev') { … }         # auto
+stage('Deploy to Test') {
+when { expression { env.BRANCH_NAME == 'main' } }
+input { message "Promote to Test?" }        # manual approval
+steps { … }                                 # same artifact!
+}
+stage('Deploy to Prod') {
+input { message "Promote to Production?" }
+steps { … }                                 # same artifact again!
+}
+}
+post {
+always { cleanWs() }
+}
 }
 ```
 
@@ -67,33 +67,4 @@ Key points:
 
 ### 3. Swimlane (shows who owns what)
 
-```mermaid
-flowchart LR
-    subgraph Developer
-        A["git push (AWS CodeCommit)"]
-    end
-    subgraph Jenkins Pipeline
-        B["Build Once"]
-        C["Upload to Artifactory"]
-        D["Deploy Dev"]
-        E["Deploy Test"]
-        F["Deploy Prod"]
-    end
-    subgraph Jfrog Artifactory
-        G["Immutable JAR v1.2.3"]
-    end
-    subgraph Approvers
-        H[Approve Test]
-        I[Approve Prod]
-    end
-
-    A --> B --> C --> G
-    G --> D --> H --> E --> I --> F
-    G -.-> E
-    G -.-> F
-%%    style G fill:#aa6770,color:white
-%%    style H fill:#a99045,color:black
-%%    style I fill:#4a7e56,color:white
-```
 ![mermaid-diagram.svg](img/mermaid-diagram.svg)
-
