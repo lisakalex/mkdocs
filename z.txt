@@ -43,12 +43,13 @@ To use GitHub Pages copy all the site dir contents to doc repo, commit and push.
 MkDocs cannot be used directly because it requires a docs directory, which conflicts with GitHub Pages.
 When GitHub Pages builds with Jekyll, it raises errors about the docs folder.
 The issue may also be related to symlinks.
-
+promote-mule-platform-again-deploy-jenkins
 ~~~
 after the computer restarts
 cd ~/IdeaProjects/mkdocs && source .venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002
 it stopped livereloading so now do
 cd ~/IdeaProjects/mkdocs && source .venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002 --livereload
+
 
 
 To stop all Python-based web servers:
@@ -88,4 +89,8 @@ check what venv is in python console
 import sys; print(sys.executable)
 
 ~~~
+1. we decided not to encrypt creds in prod, but we did manually encrypt
+2. credentials in pom instead of settings.xml
+3. use mule's secrets manager
+3. Jenkins deployment
 

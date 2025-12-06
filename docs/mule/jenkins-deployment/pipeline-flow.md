@@ -6,6 +6,6 @@ hide:
   - footer
 ---
 
-# Swimlane
+# Jenkins deployment
 
 ![mermaid-diagram.svg](img/mermaid-diagram.svg)

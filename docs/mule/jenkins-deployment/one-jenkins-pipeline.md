@@ -65,6 +65,6 @@ Key points:
 4. Change the higher-environment stages to **download the artifact from Artifactory** instead of git-clone + rebuild.
 5. Delete the custom text file logic (JFrog already stores git commit, build number, etc.).
 
-### 3. Swimlane (shows who owns what)
+### Jenkins deployment
 
 ![mermaid-diagram.svg](img/mermaid-diagram.svg)
