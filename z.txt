@@ -2,7 +2,7 @@ Install uv
 sudo apt install curl
 curl -LsSf https://astral.sh/uv/install.sh | sh
 Then restart your terminal
-
+plan-to-maximise-your-leverage.md
 uv venv --python 3.13 /home/al/IdeaProjects/btc_payments/.venv
 uv venv --python 3.13 .venv
 source /home/al/IdeaProjects/btc_payments/.venv/bin/activate
