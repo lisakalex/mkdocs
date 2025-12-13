@@ -1,0 +1,42 @@
+I have a problem at work. I have a bachelor's degree in computer science,
+I have been in IT industry for nine years. First two years I worked for other 
+company as Java developer. The last six years I've worked and still working for the current company - Total energies.
+When I joined Total energies in 2019 I was given ecommerce engineer job title, 
+this is what they called DevOps engineer at the time. 
+But because I didn't have any DevOps experience I was given grade C job level,
+normally it would've been grade NP-10. The salary I was given was 30000 also because I had no DevOps experience.
+I spent one year doing this job and then my manager suggested 
+I take one additional work which is not related to DevOps the task was coordinating 
+releases basically making records in a spreadsheet.  He said we need to help to free
+someone so they can do what ever is required. I was told I'll be doing the same job plus 
+this additionally task. But when I agreed suddenly someone from service desk contacted me
+about moving my desk and then my manager told me that I will no longer be doing DevOps 
+but this new task pluse another task called applying data patches which is a primitive
+task no skills required. Also, the manage told me that I will join the developers
+team and in the future will be doing developer job, so I agreed. Someone took my place the DevOps job.
+I spent three years doing  this - release coordinator and applying datapatch, 
+I did not get any new skills and my salary  did not change because of low skilled job only inflation increase so after four years the
+salary I got was 34k.
+I consider these three years a waist of time. Also, my job title was change to "release coordinator".
+The developers job that I was promised did not materialise.
+Now I can see they used me to do just to coordinate releases and apply data patches.
+After these three years someone who took my job as DevOps engineer left the company and my manage at the time
+suggested I move back to do the DevOps job, so I agreed. And   DevOps team  got more work so the company
+decided to get one more additional DevOps engineer.  So the devops team now would become three people - me,
+devops team leader and one more member, three members  would share all the work equally.
+The company advertised for DevOps engineer with at least four years experience and the salary 55000.
+They found new devops engineer his name is Khalid.  I expected that I would get my job title
+back and having spent one year doing DevOps I should have a salary increase. Now two years
+passed and now I have three years DevOps experience. My manage is happy with me, he even said that
+I'm doing better than Khalid.  but my job title is now downgraded it is DevOps technician
+and the salary is still the same 34k. So the situation
+now is my job title downgraded compare to when I started working for the company -
+six years ago and the salary considering inflation is less than six years ago.
+Last month I had a meeting with my manager Prakash and told him that I want my
+job title  back, and now I deserve grade NP-10 because I have now tree year DevOps experience.
+The salary when you look at market average 35k is junior position or entry level and 45k -55k 
+is experience devops positon. Considering  Khalid's salary 55k or so, me having now three years experience should be
+somewhere close to 55k anyway I said that I think 45k would be reasonable. It has been now one month since the meeting
+I did not get any updated until I asked and Prakash said  the update is "it did not happen". Prakash said that he spoke to
+his boss - Andrew and Andrew spoke to his boss Cedric - the IT department director. Even Prakash said he himself spoke to Cedric
+which to me seems like a lie.
