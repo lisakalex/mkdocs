@@ -1,6 +1,7 @@
 #
 
-**Alexander Lisak**  
+### **Alexander Lisak**
+
 **DevOps Engineer | Java Developer**
 
 ### **Professional Summary**
@@ -14,12 +15,12 @@ experience when required.
 
 ### **Core Competencies**
 
-- **CI/CD & Automation:** Jenkins, Groovy, Ansible
-- **Cloud & Infrastructure:** AWS, Docker, Mule
-- **Version Control & Tools:** Git, Maven, Swagger
-- **Scripting & Programming:** Python, Groovy, Java, PHP
-- **Operating Systems & Security:** Linux, System Hardening, Monitoring & Logging
-- **Soft Skills:** Problem-solving, adaptability, strong communication, teamwork
+- CI/CD & Automation: Jenkins, Groovy, Ansible
+- Cloud & Infrastructure: AWS, Docker, Mule
+- Version Control & Tools: Git, Maven, Swagger
+- Scripting & Programming: Python, Groovy, Java, PHP
+- Operating Systems & Security: Linux, System Hardening, Monitoring & Logging
+- Soft Skills: Problem-solving, adaptability, strong communication, teamwork
 
 ### **Education**
 
@@ -34,79 +35,77 @@ The Open University | 2011 – 2015 | 2:2
 
 **Final Year Project:**
 
-- **Project:** Development of an E-Commerce Website
-- **Technologies Used:** Java EE, JSP, MySQL, HTML5, CSS, Visual Paradigm, Intellij Idea
-- **Timeframe:** 3 months
-- **Role:** Lead Developer
+- Project: Development of an E-Commerce Website
+- Technologies Used: Java EE, JSP, MySQL, HTML5, CSS, Visual Paradigm, Intellij Idea
+- Timeframe: 3 months
+- Role: Lead Developer
 
 ### **Professional Experience**
 
-#### **Ecommerce Engineer (DevOps Engineer)**
+**Ecommerce Engineer (DevOps Engineer)**
 
 TotalEnergies Gas & Power | October 2019 – 2020  
 Redhill, UK
 
-**Key Responsibilities:**
+Key Responsibilities:
 
 - Designing and implementing CI/CD pipelines using Jenkins and Groovy scripting
 - Managing cloud-based and on-premises infrastructure, focusing on scalability and security
 - Automating deployment and configuration management with Ansible
-- Monitoring and optimizing system performance using Prometheus and Grafana, ensuring high availability and reliability
 - Developing containerized applications using Docker and orchestrating with Kubernetes
 - Working closely with development teams to streamline software release processes
-- Implementing logging, monitoring, and alerting systems using Prometheus and Grafana
-- Enhancing security and compliance through IAM policies, role-based access control (RBAC), and automated patching
+- Implementing logging, monitoring, and alerting systems
+- Enhancing security and compliance
 
-**Technologies:** Jenkins, Ansible, Groovy, Python, Linux, Docker, AWS, Mule anypoint platform
+Technologies: Jenkins, Ansible, Groovy, Python, Linux, Docker, AWS, Mule anypoint platform
 
-#### **Release coordinator**
+**Release coordinator**
 
 TotalEnergies Gas & Power | October 2021 – 2023   
 Redhill, UK
 
-**Key Responsibilities:**
+Key Responsibilities:
 
 - Managing release
 
-**Technologies:** Spreadsheets
+Technologies: Spreadsheets
 
-#### **DevOps Technician**
+**DevOps Technician**
 
 TotalEnergies Gas & Power | October 2024 – present  
 Tadworth, UK
 
-**Key Responsibilities:**
+Key Responsibilities:
 
 - Designing and implementing CI/CD pipelines using Jenkins and Groovy scripting
 - Managing cloud-based and on-premises infrastructure, focusing on scalability and security
 - Automating deployment and configuration management with Ansible
-- Monitoring and optimizing system performance using Prometheus and Grafana, ensuring high availability and reliability
 - Developing containerized applications using Docker and orchestrating with Kubernetes
 - Working closely with development teams to streamline software release processes
-- Implementing logging, monitoring, and alerting systems using Prometheus and Grafana
-- Enhancing security and compliance through IAM policies, role-based access control (RBAC), and automated patching
+- Implementing logging, monitoring, and alerting systems
+- Enhancing security and compliance
 
-**Technologies:** Jenkins, Ansible, Groovy, Python, Linux, Docker, AWS, Mule anypoint platform
+Technologies: Jenkins, Ansible, Groovy, Python, Linux, Docker, AWS, Mule anypoint platform
 
-#### **Java Developer**
+**Java Developer**
 
 Esure Group plc | August 2017 – June 2019  
 Reigate, UK
 
-**Key Responsibilities:**
+Key Responsibilities:
 
 - Developed and maintained RESTful web services in an Agile environment
 - Led research efforts for migrating existing systems to a microservices architecture
 - Implemented unit and component testing using the Mockito framework
 - Worked within Scrum teams using Continuous Integration practices
 
-**Technologies:** Java 8, Spring Boot, Microservices, Maven, Git, Apache Camel, Swagger, Docker, AWS, Travis CI
+Technologies: Java 8, Spring Boot, Microservices, Maven, Git, Apache Camel, Swagger, Docker, AWS, Travis CI
 
-**Selected Projects:**
+Selected Projects:
 
-- **Motor Pricing Orchestration:** Designed API-driven architecture leveraging Apache Camel for external service calls,
+- Motor Pricing Orchestration: Designed API-driven architecture leveraging Apache Camel for external service calls,
   facilitating motor policy premium calculations
-- **Midterm Adjustment (MTA) Application:** Enabled customers to modify vehicle details, home addresses, and personal
+- Midterm Adjustment (MTA) Application: Enabled customers to modify vehicle details, home addresses, and personal
   data via a self-service portal
 
 ### **Key Technical Skills & Competencies**
@@ -115,11 +114,10 @@ Reigate, UK
 - Cloud Infrastructure Management (AWS)
 - Infrastructure as Code (Ansible)
 - Java Web Application Development (Spring Boot, Microservices)
-- System Monitoring & Performance Optimization
 - Security Best Practices & Compliance
 
 ### **Personal Information**
 
-- **Location:** Crawley, UK
-- **Mobile:** +44 7531 953527
-- **Email:** alexlisak@hotmail.com
+- Location: Crawley, UK
+- Mobile: +44 7531 953527
+- Email: alexlisak@hotmail.com
