@@ -112,4 +112,6 @@ check what venv is in python console
 import sys; print(sys.executable)
 
 ~~~
+studenfinancialevidence@chigroup.ac.uk
+studentfinancialevidence@chigroup.ac.uk
 
