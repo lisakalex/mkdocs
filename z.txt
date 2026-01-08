@@ -2,7 +2,14 @@ Install uv
 sudo apt install curl
 curl -LsSf https://astral.sh/uv/install.sh | sh
 Then restart your terminal
-plan-to-maximise-your-leverage.md
+
+uv venv --python 3.13
+uv pip install mkdocs-material
+uv run mkdocs serve --dev-addr=127.0.0.1:8004
+
+after restart
+cd ~/IdeaProjects/mkdocs && uv run mkdocs serve --dev-addr=127.0.0.1:8004 --livereload
+
 uv venv --python 3.13 /home/al/IdeaProjects/btc_payments/.venv
 uv venv --python 3.13 .venv
 source /home/al/IdeaProjects/btc_payments/.venv/bin/activate
@@ -50,8 +57,24 @@ cd ~/IdeaProjects/mkdocs && source .venv/bin/activate && mkdocs serve --dev-addr
 it stopped livereloading so now do
 cd ~/IdeaProjects/mkdocs && source .venv/bin/activate && mkdocs serve --dev-addr=127.0.0.1:8002 --livereload
 
+~~~
+Create a new virtual environment
+uv venv --python 3.13
 
+To install everything from your pyproject.toml:
+uv sync
 
+or from requirements.txt:
+uv pip install -r requirements.txt
+
+You can skip manual activation completely and use uv run:
+uv run python source/manage.py runserver
+uv pip install -r requirements.txt
+uv pip install -r requirements-dev.txt
+
+uv pip install python-decouple
+python source/manage.py migrate
+python source/manage.py runserver 0.0.0.0:8003
 To stop all Python-based web servers:
 pkill -f mkdocs
 mkdocs serve --dev-addr=127.0.0.1:8001
@@ -89,8 +112,4 @@ check what venv is in python console
 import sys; print(sys.executable)
 
 ~~~
-1. we decided not to encrypt creds in prod, but we did manually encrypt
-2. credentials in pom instead of settings.xml
-3. use mule's secrets manager
-3. Jenkins deployment
 
