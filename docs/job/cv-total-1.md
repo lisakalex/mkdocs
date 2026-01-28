@@ -69,7 +69,7 @@ Redhill, UK
 *   Drove compliance and data quality in the Release Note process on SharePoint by producing developer guidance, monitoring accuracy, and correcting misapplied or mis‑dated entries.
 *   Coordinated multi‑team cutovers (DevOps, DBA & UNIX, Infrastructure Windows, Application Support) and expedited production changes by tracking approvals and prompting timely updates.
 *   Engaged stakeholders and improved tooling by leading working sessions on release management processes and driving adoption of enhancements.
-*   **Tools & Ecosystems:** SharePoint Release Management, Marval ITSM, Microsoft Teams/Outlook, DevOps/CI pipelines (Unix/Solaris & Linux deployers), DBA & infrastructure coordination.
+*   Tools & Ecosystems: SharePoint Release Management, Marval ITSM, Microsoft Teams/Outlook, DevOps/CI pipelines (Unix/Solaris & Linux deployers), DBA & infrastructure coordination.
 
 
 **DevOps Technician**
