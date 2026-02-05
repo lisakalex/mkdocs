@@ -59,43 +59,46 @@ Key Responsibilities:
 
 Technologies: Jenkins, Ansible, Groovy, Python, Linux, Docker, AWS, Mule anypoint platform
 
-**Release coordinator**
+**Release manager**
 
 TotalEnergies Gas & Power | October 2021 – 2023   
 Redhill, UK
 
-* Owned the enterprise release calendar and managed change windows across environments, ensuring alignment with bank
+Key Responsibilities:
+
+- Owned the enterprise release calendar and managed change windows across environments, ensuring alignment with bank
   holidays and year‑end freezes; co‑authored and maintained annual calendars.
-* Standardized release governance by creating an operational checklist for development, infrastructure, and DBA teams
+- Standardized release governance by creating an operational checklist for development, infrastructure, and DBA teams
   covering approvals, Marval call validation, backups, SharePoint entries, environment/version controls, and additional
   compliance steps.
-* Drove compliance and data quality in the Release Note process on SharePoint by producing developer guidance,
+- Drove compliance and data quality in the Release Note process on SharePoint by producing developer guidance,
   monitoring accuracy, and correcting misapplied or mis‑dated entries.
-* Coordinated multi‑team cutovers (DevOps, DBA & UNIX, Infrastructure Windows, Application Support) and expedited
+- Coordinated multi‑team cutovers (DevOps, DBA & UNIX, Infrastructure Windows, Application Support) and expedited
   production changes by tracking approvals and prompting timely updates.
-* Engaged stakeholders and improved tooling by leading working sessions on release management processes and driving
+- Engaged stakeholders and improved tooling by leading working sessions on release management processes and driving
   adoption of enhancements.
-* **Tools & Ecosystems:** SharePoint Release Management, Marval ITSM, Microsoft Teams/Outlook, DevOps/CI pipelines (
+
+Tools & Ecosystems: SharePoint Release Management, Marval ITSM, Microsoft Teams/Outlook, DevOps/CI pipelines (
   Unix/Solaris & Linux deployers), DBA & infrastructure coordination.
 
-**DevOps Technician**
+**DevOps Technician  (DevOps Engineer)**
 
 TotalEnergies Gas & Power | October 2024 – present  
 Tadworth, UK
 
 Key Responsibilities:
 
-* Designing, developing, and optimizing CI/CD pipelines using Jenkins and Groovy to automate build, test, and
+- Designing, developing, and optimizing CI/CD pipelines using Jenkins and Groovy to automate build, test, and
   deployment workflows.
-* Managing and scaling hybrid cloud and on‑premises infrastructure, ensuring high availability, security, and
+- Managing and scaling hybrid cloud and on‑premises infrastructure, ensuring high availability, security, and
   cost‑efficient operations.
-* Automating deployments, configuration management, and environment provisioning with Ansible following
+- Automating deployments, configuration management, and environment provisioning with Ansible following
   Infrastructure‑as‑Code best practices.
-* Building and maintaining containerized applications using Docker and orchestrating workloads with Kubernetes to
+- Building and maintaining containerized applications using Docker and orchestrating workloads with Kubernetes to
   improve reliability and scalability.
-* Collaborating closely with development teams to streamline release cycles, reduce deployment friction, and enforce
+- Collaborating closely with development teams to streamline release cycles, reduce deployment friction, and enforce
   consistent delivery practices.
-* Implementing centralized logging, monitoring, and alerting systems to enhance visibility, reliability, and
+- Implementing centralized logging, monitoring, and alerting systems to enhance visibility, reliability, and
   proactive issue detection.
 
 Technologies: Jenkins, Ansible, Groovy, Python, Linux, Docker, AWS, Mule anypoint platform
