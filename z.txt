@@ -115,3 +115,18 @@ import sys; print(sys.executable)
 studenfinancialevidence@chigroup.ac.uk
 studentfinancialevidence@chigroup.ac.uk
 
+~~~
+print whole site
+
+add plugin
+plugins:
+  - print-site
+
+install python dependency
+uv pip install mkdocs-print-site-plugin
+
+go to
+http://127.0.0.1:8005/print_page/
+
+
+
