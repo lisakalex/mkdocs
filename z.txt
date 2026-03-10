@@ -128,5 +128,7 @@ uv pip install mkdocs-print-site-plugin
 go to
 http://127.0.0.1:8005/print_page/
 
-
+/home/al/IdeaProjects/mkdocs/docs/print-site/cover.html
+/home/al/IdeaProjects/mkdocs/print-site/cover.html
+/home/al/IdeaProjects/mkdocs/docs/print-site
 
