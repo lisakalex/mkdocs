@@ -114,6 +114,10 @@ extra:
     - icon: fontawesome/brands/web-awesome
       link: https://www.tui.co.uk/
 #      name: TUI
+
+not_in_nav: |
+  _hidden/*
+
 #nav:
 #  - Home: index.md
 #  - Mercedes-Benz:

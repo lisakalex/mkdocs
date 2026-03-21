@@ -7,7 +7,8 @@ the lens.
 
 This usually happens for one of these reasons:
 :material-information-outline:{ title="This is the main reason" }
-
+[➔ Open full-width](../_hidden/d-80-nikon.jpeg)  
+[cam](../_hidden/cam.md)
 ---
 
 ### **1. The lens isn’t properly connected**
