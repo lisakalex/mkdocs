@@ -1,0 +1,17798 @@
+AWS DevOps
+Engineer Professional
+Certification Guide
+Hands-on guide to understand, analyze, and
+solve 150 scenario-based questions
+Sumit Kapoor
+www.bpbonline.com
+First Edition 2024
+Copyright © BPB Publications, India
+```
+ISBN: 978-93-55516-657
+```
+All Rights No part of this publication may be reproduced, distributed or
+transmitted in any form or by any means or stored in a database or
+retrieval system, without the prior written permission of the publisher with
+the exception to the program listings which may be entered, stored and
+executed in a computer system, but they can not be reproduced by the
+means of publication, photocopy, recording, or by any electronic and
+mechanical means.
+LIMITS OF LIABILITY AND DISCLAIMER OF WARRANTY
+The information contained in this book is true to correct and the best of
+author’s and publisher’s knowledge. The author has made every effort to
+ensure the accuracy of these publications, but publisher cannot be held
+responsible for any loss or damage arising from any information in this
+book.
+All trademarks referred to in the book are acknowledged as properties of
+their respective owners but BPB Publications cannot guarantee the
+accuracy of this information.
+www.bpbonline.com
+Dedicated to
+My beloved wife:
+Joohi
+and
+My daughters Khushi and Avni
+About the Author
+With over 20 years of experience in software development and cloud
+infrastructure, Sumit Kapoor is a Lead DevOps Engineer at Clarivate, a
+global leader in providing trusted insights and analytics to accelerate the
+pace of innovation. Sumit is an AWS Certified Architect, a Certified
+```
+Kubernetes Application Developer (CKAD), and a skilled practitioner of
+```
+```
+cloud-native architecture, infrastructure as code (IaC), and continuous
+```
+```
+integration and delivery (CI/CD).
+```
+Sumit has a proven track record of delivering consistently on both large-
+scale and start-up environments, leveraging his expertise in Kubernetes,
+Docker, Terraform, Jenkins, and other cutting-edge technologies. Sumit is
+passionate about enabling and empowering teams to build, deploy, and
+operate scalable, reliable, and secure applications on the cloud, while
+optimizing performance, efficiency, and cost. Sumit is always eager to
+learn new skills, explore new challenges, and contribute to the
+advancement of the DevOps community.
+About the Reviewer
+Arvind Singh is an accomplished DevOps engineer with comprehensive
+expertise in cloud-native solutions and a broad spectrum of tools,
+including AWS, Azure, Ansible, Kubernetes, and Terraform. His profound
+```
+knowledge of cloud technologies and Infrastructure as Code (IaC)
+```
+empowers him to catalyze organizational changes. Arvind is committed to
+operational excellence, focusing on automating workflows to enhance
+efficiency and productivity. In addition to his professional endeavors, he
+actively engages in non-fiction and IT literature, serving as a technical
+reviewer for publications focusing on DevOps, CI/CD, and Kubernetes.
+Acknowledgement
+I want to express my deepest gratitude to my family and friends for their
+unwavering support and encouragement throughout this book’s writing,
+especially my wife Joohi and my daughters Khushi and Avni.
+I am also grateful to BPB Publications for their guidance and expertise in
+bringing this book to fruition. It was a long journey of revising this book,
+with valuable participation and collaboration of reviewers, technical
+experts, and editors.
+I would also like to acknowledge the valuable contributions of my
+colleagues and co-worker during many years working in the tech industry,
+who have taught me so much and provided valuable feedback on my
+work. Special thanks to my ex-colleague, Chaitanya Tirumala, and my
+current colleagues, Mohit Raina and Nilesh Patil, for their support and
+insights that have been instrumental in my professional growth.
+I would also like to acknowledge the valuable contribution of the technical
+reviewer of this book, Arvind Singh. He has reviewed the book for
+technical errors and has given important suggestions to improve quality of
+this book.
+Finally, I would like to thank all the readers who have taken an interest in
+my book and for their support in making it a reality. Your encouragement
+has been invaluable.
+Preface
+DevOps is the combination of cultural philosophies, engineering practices,
+and tools that increase an organization’s ability to deliver applications and
+services at high velocity and better quality. Over time, several essential
+practices have emerged when adopting DevOps: continuous integration
+continuous delivery Infrastructure as Code and monitoring and logging.
+AWS DevOps Engineer Professional Certification Guide is one of the
+more elaborate and demanding cloud certifications. Organizations with
+these qualified professionals can ensure speedy delivery of secure,
+compliant, systems that are highly available and scalable. Moreover, job
+listings requiring this certification have significantly increased over the
+past few years.
+This book is designed to provide a comprehensive guide to provisioning,
+operating, and managing distributed systems and services on AWS. It
+covers a wide range of topics, including implementing and managing
+continuous delivery systems and methodologies on AWS, implementing
+and automating security controls, governance processes, and compliance
+validation, defining and deploying monitoring, metrics, and logging
+systems on AWS, and implementing systems that are highly available,
+scalable, and self-healing on AWS. Additionally, it addresses designing,
+managing, and maintaining tools to automate operational processes on
+AWS.
+This book is intended for all IT professionals who have a basic
+understanding and experience of the AWS environment and looking
+forward to stepping into the DevOps domain as an AWS Certified DevOps
+Engineer. Its particularly attractive to candidates who have failed in the
+1st and 2nd attempts of the exams, which comprise more than 50% of the
+candidates.
+Chapter 1: Continuous Integration with CodeCommit and CodeBuild -
+The chapter explains everything needed for the reader to create a
+CodeCommit repository to store the code and files securely for the
+project, including the usage of different CodeCommit CLI commands
+such as clone a repository, tag repository, create pull request, list pull
+requests, creating an approval rule for pull request by taking different
+examples. The chapter also goes into greater detail about AWS CodeBuild
+service by taking two real-world use-cases. Furthermore, the chapter
+highlights the benefits of integrating AWS CodeGuru, AWS App Runner,
+AWS CloudShell, and AWS CodeArtifact services into our projects to
+enhance our DevOps capabilities.
+Chapter 2: Continuous Delivery with CodeDeploy and CodePipeline - The
+chapter presents a detailed overview of the concepts and principles behind
+AWS CodeDeploy, its various deployment strategies, and how it
+simplifies the software deployment process to EC2 instances and AWS
+ECS services. The chapter emphasizes the importance of implementing a
+blue/green deployment strategy using AWS CodeDeploy to ensure zero
+downtime and seamless deployment to Amazon ECS. Additionally, the
+chapter explains everything to develop a CI/CD pipeline with AWS
+CodePipeline for S3 websites, integrating AWS CodeCommit, AWS
+CodeBuild, and AWS CodeDeploy services to produce fast and reliable
+application and infrastructure software releases.
+Chapter 3: Cross-Account CI/CD Pipelines and Testing - The chapter
+covers how to construct a cross-account CI/CD pipeline, showcasing how
+AWS services can be utilized in a multi-account setup to streamline
+deployment processes across distinct environments. The chapter guides us
+through building golden images with EC2 Image Builder, simplifying the
+```
+creation and management of Amazon Machine Images (AMIs).
+```
+Furthermore, the chapter demonstrates automating unit tests and code
+coverage analysis using AWS CodeBuild and Codecov to ensure our
+application meets the necessary standards before deployment.
+Chapter 4: Infrastructure as Code Using CloudFormation - The chapter
+allows the readers
+```
+to learn practical understanding of Infrastructure as Code (IaC) using
+```
+AWS CloudFormation, enabling them to efficiently create, manage, and
+update the infrastructure in AWS. Furthermore, the chapter explores
+various features and techniques, such as nested stacks, Lambda-backed
+custom resource deployment, differences between CreationPolicy and
+WaitCondition, cross stack references, stack updates, and drift detection
+and remediation.
+Chapter 5: Automated Account Management and Security in AWS - The
+chapter provides a comprehensive understanding of deploying automation
+to create, onboard, and secure AWS accounts in a multi-account/multi-
+region environment. The readers will gain hands-on experience and in-
+depth knowledge of various AWS DevOps tools and services, including
+CloudFormation StackSets, AWS AppConfig, AWS App2Container, AWS
+Copilot, and AWS Control Tower.
+Chapter 6: Automation Using OpsWorks and Elastic Beanstalk - The
+chapter explains basic concepts of deploying multi-container Docker apps
+on Elastic Beanstalk, setting them up using .ebextensions, and employing
+blue/green deployment methods. The readers will also explore AWS API
+Gateway to create user-friendly interfaces. Through creating an HTTP API
+using Lambda, DynamoDB, and AWS SAM, the readers will grasp the
+concept of managing updates via Lambda-based canary deployments.
+Additionally, the readers will also learn how to handle the deployment of
+Node.js apps on AWS ECS, refining their skills across a variety of AWS
+deployment scenarios and boosting your deployment capabilities.
+Chapter 7: Implement High Availability, Scalability, and Fault Tolerance -
+The chapter explains with details and numerous practical examples for
+setting up and testing RDS Multi-AZ, exploring High Availability in
+Aurora DB, and creating scalable and load-balanced applications. This
+chapter also allows the reader to learn the basics of AWS EC2 Auto
+Scaling LifeCycle hooks and its interaction with Lambda functions. By
+the end of this chapter, the readers will have an in-depth knowledge of
+these key AWS features and services, empowering them to create more
+resilient and scalable applications.
+Chapter 8: Design and Automate Disaster Recovery Strategies - The
+chapter is dedicated to the design and automation of disaster recovery
+strategies on AWS. This chapter covers practical examples of managing
+data replication across regions with S3 Cross-Region Replication,
+deploying web applications using AWS EKS, and designing robust
+disaster recovery strategies with AWS DRS. The chapter also explores
+how to ensure high availability using CloudFront Origin Failover and
+Route 53. By the end of this chapter, readers will have developed a
+comprehensive understanding of these critical AWS features and services,
+empowering them to create applications that are not only resilient but also
+capable of quick recovery in the face of disasters.
+Chapter 9: Automate Monitoring and Event Management - The chapter
+focuses on enhancing monitoring and logging in AWS. The chapter
+explores how to integrate AWS CloudTrail with CloudWatch for improved
+tracking, and how to use AWS EventBridge with SNS for event-driven
+applications. Additionally, the readers will learn to publish VPC Flow
+Logs to S3 and use Athena for querying these logs. By the end of the
+chapter, the readers will have a solid understanding of these AWS services
+and how to utilize them for effective log management and event-driven
+computing in AWS.
+Chapter 10: Auditing, Logging and Monitoring Containers and
+Applications - The chapter covers about Auditing infrastructure using
+AWS Config, AWS Inspector and assessment templates, analyze logs with
+CloudWatch logs insights, remediate issues using AWS Config and
+configure X-Ray for Lambda.
+Chapter 11: Troubleshooting and Restoring Operations - The chapter
+covers strategies for effectively addressing incidents and events across
+various AWS services. Topics include handling failed deployments,
+utilizing OpsCenter for streamlined operational tasks, implementing auto-
+healing in AWS OpsWorks, automating responses to AWS Health events,
+uncovering root causes using AWS X-Ray, leveraging S3 event
+notifications, optimizing event distribution with AWS SQS fanout, and
+establishing robust dead-letter queues in SQS.
+Chapter 12: Setup Event-Driven Automated Actions - The chapter
+explains with details and numerous practical examples about AWS’s
+event-driven automation using Kinesis Firehose, teaching them to
+integrate CloudWatch logs with DataDog for enhanced monitoring. This
+chapter also allows the reader to learn about security with AWS Inspector,
+guiding them through automated vulnerability scans in your AWS account
+and immediate alerts via AWS SNS. By the end of the chapter, the readers
+will grasp AWS’s automation, security scanning, and threat detection
+processes.
+Chapter 13: Implement Governance Strategies and Cost Optimization -
+The chapter covers how to perform sensitive data discovery using AWS
+Macie, integrated AWS WAF integration with AWS CloudFront, automate
+administrative tasks using AWS Systems Manager and Patch manager. In
+this chapter, the readers will also learn how to optimize the infrastructure
+with AWS Trusted advisor and create an AWS organization.
+Chapter 14: Advanced Security, Access Control, and Identity Management
+- The chapter explores advanced security and identity management topics
+in AWS. The readers will learn how to secure sensitive data using AWS
+CloudHSM, gain insights into AWS Directory Services, and understand
+the intricacies of sharing resources through AWS RAM. The readers will
+also take a deeper dive into the world of intrusion detection using AWS
+Network Firewall and analyze the differences between RBAC and ABAC.
+By the end of this chapter, the readers will have a comprehensive grasp of
+advanced security practices and identity management principles in the
+AWS cloud environment.
+Chapter 15: Mock Exam: 1 – The chapter covers 75 scenario-based
+questions and their answers with explanations.
+Chapter 16: Mock Exam: 2 – The chapter covers 75 scenario-based
+questions and their answers with explanations.
+Code Bundle and Coloured Images
+Please follow the link to download the
+Code Bundle and the Coloured Images of the book:
+```
+https://rebrand.ly/sjmb5f8
+```
+The code bundle for the book is also hosted on GitHub at In case there’s
+an update to the code, it will be updated on the existing GitHub repository.
+We have code bundles from our rich catalogue of books and videos
+available at Check them out!
+Errata
+We take immense pride in our work at BPB Publications and follow best
+practices to ensure the accuracy of our content to provide with an
+indulging reading experience to our subscribers. Our readers are our
+mirrors, and we use their inputs to reflect and improve upon human errors,
+if any, that may have occurred during the publishing processes involved.
+To let us maintain the quality and help us reach out to any readers who
+might be having difficulties due to any unforeseen errors, please write to
+us at :
+errata@bpbonline.com
+Your support, suggestions and feedbacks are highly appreciated by the
+BPB Publications’ Family.
+Did you know that BPB offers eBook versions of every book published,
+with PDF and ePub files available? You can upgrade to the eBook version
+at www.bpbonline.com and as a print book customer, you are entitled to a
+discount on the eBook copy. Get in touch with us at :
+business@bpbonline.com for more details.
+At you can also read a collection of free technical articles, sign up for a
+range of free newsletters, and receive exclusive discounts and offers on
+BPB books and eBooks.
+Piracy
+If you come across any illegal copies of our works in any form on the
+internet, we would be grateful if you would provide us with the location
+address or website name. Please contact us at business@bpbonline.com
+with a link to the material.
+If you are interested in becoming an author
+If there is a topic that you have expertise in, and you are interested in
+either writing or contributing to a book, please visit We have worked with
+thousands of developers and tech professionals, just like you, to help them
+share their insights with the global tech community. You can make a
+general application, apply for a specific hot topic that we are recruiting an
+author for, or submit your own idea.
+Reviews
+Please leave a review. Once you have read and used this book, why not
+leave a review on the site that you purchased it from? Potential readers
+can then see and use your unbiased opinion to make purchase decisions.
+We at BPB can understand what you think about our products, and our
+authors can see your feedback on their book. Thank you!
+For more information about BPB, please visit
+Join our book’s Discord space
+Join the book’s Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+Table of Contents
+1. Continuous Integration with CodeCommit and CodeBuild
+Introduction
+Structure
+Objectives
+Setup AWS CodeCommit repository
+Creating a Repository using console
+Creating a repository using AWS CLI
+Creating a commit
+Cloning a repository
+Security requirements for AWS CodeCommit repository
+Tagging repositories in CodeCommit
+Setting up CodeCommit trigger for SNS topic
+Setting up CodeCommit trigger for Lambda function
+Creating a pull request in AWS CodeCommit
+Creating an approver rule for pull request
+AWS CloudShell for DevOps tasks
+Working with private NPM packages in CodeArtifact
+Automated code review with AWS CodeGuru
+Building and deploying source code with AWS CodeBuild and S3
+Building and pushing Docker image to AWS ECR
+Configure an App Runner service
+Prerequisites
+Conclusion
+Points to remember
+Questions
+Answers
+2. Continuous Delivery with CodeDeploy and CodePipeline
+Introduction
+Structure
+Objectives
+Deploy website to EC2 with CodeDeploy
+Prerequisites
+Deploy the code to EC2 instance
+Provision an AWS EC2 instance
+Blue/Green deployment to ECS with CodeDeploy
+Prerequisites
+Using AWS CodeDeploy
+CI/CD Pipeline with CodePipeline for S3 Website
+Prerequisites
+Deploying static contents in S3 Website
+Conclusion
+Points to remember
+Questions
+Answers
+3. Cross-Account CI/CD Pipelines and Testing
+Introduction
+Structure
+Objectives
+Building a cross-account CI/CD pipeline
+Automating unit tests and code coverage
+Prerequisites
+Build golden image using EC2 Image Builder
+Conclusion
+Points to remember
+Questions
+Answers
+4. Infrastructure as Code Using CloudFormation
+Introduction
+Structure
+Objectives
+CloudFormation nested stacks pipeline
+Prerequisites
+Creating a pipeline using AWS CodePipeline
+Lambda-backed custom resource deployment
+Create CloudFormation template
+Create CloudFormation stack
+Differences between WaitCondition and CreationPolicy
+Cross stack references
+CloudFormation stack updates
+Create CloudFormation template
+Create CloudFormation stack
+Create change set
+View change set
+Execute Change Set
+Drift detection and remediation
+Creating CloudFormation template
+Creating stack and detect drift
+Modifying resource and detecting Drift
+Remediation
+Conclusion
+Points to remember
+Questions
+Answers
+5. Automated Account Management and Security in AWS
+Introduction
+Structure
+Objectives
+CloudFormation StackSets
+Creating an S3 Bucket with AWS CDK
+Implementing feature flags using AWS AppConfig
+Deploying API with AWS Copilot
+Containerizing legacy apps using AWS App2Container
+Key components of the AWS Control Tower
+Enhancing security analysis with AWS Detective
+Conclusion
+Points to remember
+Questions
+Answers
+6. Automation Using OpsWorks and Elastic Beanstalk
+Introduction
+Structure
+Objectives
+Deploy multi-container Docker to Elastic Beanstalk
+Step 1: Create Elastic Beanstalk Environment
+Step 2: Create CodeCommit repository
+Step 3: Add Source Code to CodeCommit repository
+Step 4: Deploy application to Elastic Beanstalk
+Configure Elastic Beanstalk using .ebextensions
+Blue/Green deployment in Elastic Beanstalk
+Using Elastic Beanstalk with AWS RDS
+AWS API gateway essentials
+Building HTTP API using Lambda, DynamoDB and AWS SAM
+Lambda based canary deployment using AWS SAM
+Deploying application using AWS OpsWorks
+Creating a custom cookbook using AWS OpsWorks
+AWS OpsWorks Stacks lifecycle events
+Deployment strategy in AWS OpsWorks
+Deploy Node.js application in AWS ECS
+Conclusion
+Points to remember
+Questions
+Answers
+7. Implement High Availability, Scalability, and Fault Tolerance
+Introduction
+Structure
+Objectives
+RDS multi-AZ setup and failover test
+Prerequisites
+High availability in Aurora DB
+Prerequisites
+Setting up a scalable and load-balanced application
+Prerequisites
+Stress testing the auto scaling group
+Lifecycle hook invoking Lambda function
+Prerequisites
+Conclusion
+Points to remember
+Questions
+Answers
+8. Design and Automate Disaster Recovery Strategies
+Introduction
+Structure
+Objectives
+Suspend auto scaling processes
+Termination policies in auto scaling group
+S3 Cross-Region Replication
+Prerequisites
+Deploy a web application on AWS EKS
+Prerequisites
+Disaster Recovery with AWS DRS
+High Availability with CloudFront origin failover
+Disaster recovery in AWS DynamoDB
+DynamoDB Accelerator
+DynamoDB Time to Live
+Scaling based on Simple Queue Service
+High Availability with Route 53
+AWS Auto Scaling
+Conclusion
+Points to remember
+Questions
+Answers
+9. Automate Monitoring and Event Management
+Introduction
+Structure
+Objectives
+Implementing Custom AWS CloudWatch Metrics
+Prerequisites
+Implementing AWS CloudWatch logs subscription filter with lambda
+Prerequisites
+AWS EventBridge integration with SNS
+AWS CloudTrail integration with CloudWatch
+Publish VPC Flow Logs to S3 and Query in Athena
+Conclusion
+Points to remember
+Questions
+Answers
+10. Auditing, Logging and Monitoring Containers and Applications
+Introduction
+Structure
+Integration of AWS X-Ray with Lambda
+Integration of AWS Kinesis Data Stream with Lambda
+Prerequisites
+Analyzing CloudWatch logs data in CloudWatch Logs Insights
+CloudWatch log retention
+Prerequisites
+Configuring encryption of log data
+Running security assessment on EC2 using AWS Inspector
+Prerequisites
+Configuring AWS Config rule to remediate an issue
+Prerequisites
+AWS ECS monitoring
+Conclusion
+Points to remember
+Questions
+Answers
+11. Troubleshooting and Restoring Operations
+Introduction
+Structure
+Objectives
+Troubleshooting failed deployments
+Aggregate operational tasks using OpsCenter
+Prerequisites
+Auto Healing in AWS OpsWorks
+Automating responses to AWS Health events
+Analyzing root cause using X-Ray
+Fanout to AWS SQS Queues
+Implementing Dead-Letter Queues in SQS
+S3 event notification
+Troubleshooting CloudFormation stacks
+Conclusion
+Points to remember
+Questions
+Answers
+12. Setup Event-Driven Automated Actions
+Introduction
+Structure
+Objectives
+Event-driven automation with Kinesis
+Prerequisites
+AWS Inspector overview
+Automated security scan using AWS Inspector
+Prerequisites
+AWS GuardDuty overview
+Visualize AWS GuardDuty findings
+Prerequisites
+Conclusion
+Points to remember
+Questions
+Answers
+13. Implement Governance Strategies and Cost Optimization
+Introduction
+Structure
+Sensitive data discovery job using AWS Macie
+Protect AWS CloudFront distribution with AWS WAF
+Store configuration in AWS SSM Parameter Store
+Automating administrative task using AWS SSM
+Patching using SSM Patch Manager
+Prerequisites
+Automatic Rotation of Secret in AWS Secret Manager
+Optimizing AWS Infrastructure with AWS Trusted Advisor
+Creating an AWS organization and an account
+Conclusion
+Points to remember
+Questions
+Answers
+14. Advanced Security, Access Control, and Identity Management
+Introduction
+Structure
+Objectives
+Security data with AWS CloudHSM
+AWS Directory Service overview
+Sharing a CodeBuild project using AWS RAM
+Pre-requisites
+Intrusion detection with AWS Network Firewall
+Pre-requisites
+RBAC versus ABAC
+Identity Federation Techniques
+Conclusion
+Points to remember
+Questions
+Answers
+15. Mock Exam: 1
+Questions
+Answers
+16. Mock Exam: 2
+Questions
+Answers
+Index
+C
+HAPTER
+1
+Continuous Integration with CodeCommit and CodeBuild
+Introduction
+Continuous Integration and Continuous Delivery/Deployment are two
+important parts of DevOps. In this process, when commit or changes
+happen in source code, they go through automated stage gates, all the way
+from building, testing, deploying the applications from development to
+production environments, across cloud accounts.
+In this chapter, we learn how AWS CodeCommit makes it easy for
+developers to collaborate on code using secure code repositories and AWS
+CodeBuild compiles source code, runs tests and produces software
+packages that are ready to deploy, on a dynamically created build server.
+Structure
+In this chapter, we will discuss about the following topics in AWS
+```
+CodeCommit:
+```
+Setup AWS CodeCommit repository
+Security requirements for AWS CodeCommit repository
+Tagging repositories in CodeCommit
+Setting up CodeCommit trigger for SNS Topic
+Setting up CodeCommit trigger for Lambda Function
+Creating a pull request in AWS CodeCommit
+Creating an approver rule for pull request
+AWS CloudShell for DevOps tasks
+Working with private NPM packages in CodeArtifact
+Automated code review with AWS CodeGuru
+Here are the topics that we will cover in AWS CodeBuild:
+Building and deploying source code with AWS CodeBuild and S3,
+building and pushing docker images to AWS Elastic Container Registry
+and configuring an App Runner service
+Objectives
+After reading this chapter, we will be able to efficiently set up and manage
+an AWS CodeCommit repository, implement security measures, and
+utilize various features like tagging and triggers. We will gain a deep
+understanding of how to create and manage pull requests and approver
+rules, as well as how to leverage AWS CloudShell and CodeArtifact for
+DevOps tasks. Additionally, we will master the art of building and
+deploying source code with AWS CodeBuild and S3, working with
+Docker images and AWS ECR, and configuring an App Runner Service.
+By the end of this chapter, we will have acquired the essential skills and
+knowledge to implement a seamless CI process using AWS CodeCommit
+and CodeBuild, ultimately enhancing your proficiency in DevOps and
+cloud-based development practices.
+Setup AWS CodeCommit repository
+This section discusses the key features of AWS CodeCommit such as
+creating a repository, commit files to the repository, cloning a repository,
+pushing files to the repository, creating pull requests, tagging repositories
+and adding triggers into the repository.
+Creating a Repository using console
+We can either use AWS Console or AWS Command Line Interface to
+create an empty repository. Go to the Repositories page from CodeCommit
+```
+console and click on Create Enter the name of description (optional), add
+```
+```
+tags (optional), select Enable Amazon CodeGuru Reviewer for Java and
+```
+```
+Python (optional), and click Create as shown in Figure
+```
+Figure 1.1: Create a repository
+Creating a repository using AWS CLI
+Use create-repository command to create a repository from AWS CLI by
+```
+providing a unique name for the repository (with –repository-name
+```
+```
+option), and some optional comments about the repository (with –
+```
+```
+repository-description option):
+```
+1. aws codecommit create-repository --repository-name MyFirstRepo \
+2. --repository-description "My First CodeCommit Repository"
+If the command is successful, it displays the following output:
+3. {
+4. "repositoryMetadata": {
+5. "accountId": "958651443844",
+6. "repositoryId": "8d9914d9-bcb1-4f3a-bbd5-62320273a956",
+7. "repositoryName": "MyFirstRepo",
+8. "repositoryDescription": "My First CodeCommit Repository",
+9. "lastModifiedDate": "2022-10-13T21:32:10.432000+00:00",
+10. "creationDate": "2022-10-13T21:32:10.432000+00:00",
+11. "cloneUrlHttp": "https://git-codecommit.us-east-
+1.amazonaws.com/v1/repos/MyFirstRepo",
+12. "cloneUrlSsh": "ssh://git-codecommit.us-east-
+1.amazonaws.com/v1/repos/MyFirstRepo",
+13. "Arn": "arn:aws:codecommit:us-east-
+1:958651443844:MyFirstRepo"
+14. }
+15. }
+Creating a commit
+We can use Git client, AWS CLI or CodeCommit Console to create a
+commit in CodeCommit repository. In this example, we will show how to
+commit using Git client which is the most preferred method used by the
+developers to push the changes in AWS CodeCommit repository.
+Use the following steps to commit a file in MyFirstRepo CodeCommit
+Ensure you are on the right branch otherwise, run git branch which will
+display the list of branches. If you are not in the right branch run git
+checkout branch-name to switch to the intended branch.
+Make a change to the branch like adding, updating, or deleting a file. For
+example, create a test file with some text: Hello to DevOps
+Run git status command and it will alert you that there are some untracked
+files.
+Run git add This command will include a change in the working directory
+to the staging area.
+If we run git it will alert that there are some changes to be committed.
+Finally run git commit -m "Some comments to the If we run git status now
+git will alert that commit is ready to be pushed from local repo to
+CodeCommit repository.
+If the changes in the file look good, then run git push origin remote-
+branch which will push the file to CodeCommit repository
+Cloning a repository
+Select the repository which you want to connect and choose one of the
+following methods shown in the following drop-down populated:
+Figure 1.2: Clone a repository
+Clone Use this option if you want to use your git credentials obtained along
+with your IAM user details from AWS Administrator:
+Clone Use this option if you want to use SSH public/private key pair with
+your IAM User:
+```
+ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/MyFirstRepo
+```
+Clone HTTPS Use this option if you want to use your local machine. This
+method is recommended if you want to support connections made with
+federated access, identity providers, and temporary credentials:
+```
+codecommit::us-east-1://MyFirstRepo
+```
+Security requirements for AWS CodeCommit repository
+CodeCommit repositories are automatically encrypted at rest. No action is
+needed from the customer in this regard. CodeCommit also encrypts data
+in transit automatically. The first time we create a repository in
+CodeCommit, CodeCommit creates an AWS-managed key
+```
+(aws/codecommit) in the same region and stores it in your AWS account.
+```
+CodeCommit uses this key to encrypt and decrypt the data in this and
+other repositories in the same AWS account. Please note that we cannot
+use a customer-managed key created in AWS KMS Service to encrypt or
+decrypt data in CodeCommit repositories.
+We are allowed to create our own custom IAM policies by allowing
+permissions to CodeCommit actions and resources.
+In this section, we will show how to create a Deny policy that prevents
+```
+users from making changes (Push/DeleteBranch/PutFileMerge) to a
+```
+particular branch named master in a repository By attaching the following
+```
+IAM policy, we can prevent the users from pushing any commit(s) to the
+```
+master branch.
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [{
+4. "Effect": "Deny",
+5. "Action": [
+6. "codecommit:GitPush",
+7. "codecommit:DeleteBranch",
+8. "codecommit:PutFile",
+9. "codecommit:Merge*"
+10. ],
+11. "Resource": "arn:aws:codecommit:us-east-
+1:111111111111:MyDemoRepo",
+12. "Condition": {
+13. "StringEqualsIfExists": {
+14. "codecommit:References": [
+15. "refs/heads/master"
+16. ]
+17. },
+18. "Null": {
+19. "codecommit:References": "false"
+20. }
+21. }
+22. }]
+23. }
+Tagging repositories in CodeCommit
+Tags are custom key-value pairs that are assigned to any AWS resource.
+These are different from Git tags that are applied to any commit. For
+example, we can use tag-resource AWS CLI to add a tag to the
+CodeCommit repository.
+1. aws codecommit tag-resource --resource-arn arn:aws:codecommit:us-
+east-1:111111111111:MyFirstRepo \
+2. --tags
+If the command is successful, it will not return nothing as on output. You
+can use list-tags-for-resource AWS CLI to return the tag which was added
+earlier.
+3. aws codecommit list-tags-for-resource \
+4. –resource-arn arn:aws:codecommit:us-east-
+1:111111111111:MyFirstRepo
+The output will display the tags that have been added:
+1. {
+2. "tags": {
+3. "Status": "Alert",
+4. "Team": "Snowflake"
+5. }
+6. }
+Setting up CodeCommit trigger for SNS topic
+Using CodeCommit Triggers, we can capture certain events that occur in the
+repository and launch an action in other AWS services.
+In general, triggers are configured in CodeCommit to:
+• Send emails to subscribed users when the developer pushes the code to the
+repository
+• Notify to external build system to start a build when a developer merges
+code from one branch to another branch in CodeCommit repository
+• Invoke an AWS lambda function
+In this section, we will provide you with a step-by-step procedure using AWS
+CLI commands to create a trigger for a CodeCommit repository so that events
+in repository trigger notification from a SNS topic. The users who have
+subscribed to that SNS topic are notified via an email about the creation of
+new branches in the repository.
+We have created two shell scripts to automate this entire process. The
+architecture diagram of this example is illustrated in Figure
+The first shell script create-repo-and-snstopic.sh creates a CodeCommit
+repository and an SNS topic with email subscription.
+Figure CodeCommit Integration with AWS Simple Notification Service
+```
+(SNS)
+```
+create-repo-and-snstopic.sh
+1. #!/bin/sh
+2. #
+3. # create-repo-and-snstopic.sh
+4. #
+5. # Create a new codecommit repository
+6. create-repository --repository-name MySecondRepo \
+7. --repository-description "My Second CodeCommit Repository"
+8.
+9. # Create a new SNS topic with an email subscription
+10. create-topic \
+11. --name \
+12. --tags \
+13. --query \
+14. --output text)
+15.
+16. # create a sns topic email subscription
+17. subscribe \
+18. \
+19. --protocol email \
+20. --notification-endpoint xyz@gmail.com
+21. {
+22. "repositoryMetadata": {
+23. "accountId": "958651443844",
+24. "repositoryId": "a01a65ae-7175-42cb-aa87-92e49e5ee04d",
+25. "repositoryName": "MySecondRepo",
+26. "repositoryDescription": "My Second CodeCommit Repository",
+27. "lastModifiedDate": "2022-10-15T16:11:10.516000+00:00",
+28. "creationDate": "2022-10-15T16:11:10.516000+00:00",
+29. "cloneUrlHttp": "https://git-codecommit.us-east-
+1.amazonaws.com/v1/repos/MySecondRepo",
+30. "cloneUrlSsh": "ssh://git-codecommit.us-east-
+1.amazonaws.com/v1/repos/MySecondRepo",
+31. "Arn": "arn:aws:codecommit:us-east-
+1:111111111111:MySecondRepo"
+32. }
+33. }
+34. {
+35. "SubscriptionArn": "pending confirmation"
+36. }
+After we run the script, we receive an email notification to confirm the email
+subscription. Click on Confirm Subscription as shown in Figure
+Figure subscription email notification
+After we confirm the subscription, we receive a pop-up confirmation that
+subscription has been confirmed as shown in Figure
+Figure subscription confirmation email
+The other shell script sns_trigger_for_codecommit_repo.sh creates a SNS
+trigger for your CodeCommit repository
+sns_trigger_for_codecommit_repo.sh:
+1. #!/bin/sh
+2. #
+3. # sns_trigger_for_codecommit_repo.sh
+4. #
+5. # Get previous created SNS topic ARN
+6. AWS_SNS_TOPIC_ARN=$(aws sns list-topics | jq -r
+```
+'.Topics[].TopicArn')
+```
+7.
+8. # create the trigger definition
+9. cat <> my_trigger_def.json
+10. {
+11. "MySecondRepo",
+12. "triggers": [
+13. {
+14. "$AWS_SNS_TOPIC_ARN",
+15. "branches": [],
+16. "name":
+17. "SNS Trigger
+18. "events": [
+19.
+20. ]
+21. }
+22. ]
+23. }
+24. EOF
+25.
+26. ## create the trigger
+27. put-repository-triggers \
+28. --repository-name MySecondRepo" \
+29. --cli-input-son
+30.
+31. ## get trigger details
+32. get-repository-triggers \
+33. --repository-name MySecondRepo"
+34.
+35. ## perform a test trigger
+36. test-repository-triggers \
+37. --repository-name MySecondRepo" \
+38. --cli-input-son
+```
+Output:
+```
+1. {
+2. "configurationId": "d8e4a5b2-38d8-4ea3-9b39-2b6ed9716d6d"
+3. }
+4. {
+5. "configurationId": "d8e4a5b2-38d8-4ea3-9b39-2b6ed9716d6d",
+6. "triggers": [
+7. {
+8. "name": "test_sns_trigger",
+9. "destinationArn": "arn:aws:sns:us-east-
+1:958651443844:my_sns_topic",
+10. "customData": "SNS Trigger For CodeCommit",
+11. "branches": [],
+12. "events": [
+13. "createReference"
+14. ]
+15. }
+16. ]
+17. }
+18. {
+19. "successfulExecutions": [
+20. "test_sns_trigger"
+21. ],
+22. "failedExecutions": []
+23. }
+So far, we have completed all the setup to complete this automation now is
+the time to test our trigger. Go to AWS CLI and create a new git branch by
+executing the following commands:
+1. git checkout -b new_branch
+2. touch test_file
+3. touch test_file.txt
+4. echo hello > test_file.txt
+5. git add test_file.txt
+6. git commit -m "Added test file"
+7. git push origin new_branch
+Upon successful completion of preceding command, we will receive the
+following email notification that new branch has been created successfully as
+illustrated in Figure
+Figure 1.6: SNS trigger for CodeCommit repository events
+Setting up CodeCommit trigger for Lambda function
+We can also invoke lambda function for certain events which occur on AWS
+CodeCommit repository. In this section, we will create a lambda function that
+returns the commit ID of the push event to the AWS CloudWatch logs.
+Follow the given steps to create AWS Lambda function from AWS Console:
+Figure 1.7: AWS CodeCommit Integration with AWS Lambda
+Sign-in to AWS Management Console and go to AWS Lambda Console.
+On Lambda function page, choose Create On the Create function, choose
+Author from In function name, provide a name for the function
+On Configuration tab, choose Add
+In Trigger choose CodeCommit from the services drop-down menu as shown
+in the following screenshot:
+Figure an AWS CodeCommit trigger for an AWS Lambda function
+In Repository name, provide the name of the repository: MyFirstRepo
+In Trigger name, provide the name for the trigger: TriggerLambdaFunc
+In events, choose Push to existing branch event and click on
+Choose Python 3.9 as the Runtime for Lambda
+Go to Code tab and replace hello world code with the following code and
+deploy the lambda function:
+1. import json
+2. import os
+3. import boto3
+4. codecommit = boto3.client('codecommit')
+5. def lambda_handler(event, context):
+6. try:
+7. repo_name = event['Records'][0]['eventSourceARN'].split(':')[-1]
+8. commit_hash = event['Records'][0]['codecommit']['references'][0]
+['commit']
+9. branchName = os.path.basename(
+10. str(event['Records'][0]['codecommit']['references'][0]['ref']))
+11. print("Commit hash is: " + commit_hash)
+12. except Exception as e:
+13. print(f"Error processing event: {e}")
+Go to AWS CLI and clone the MyFirstRepo Repository and push an empty
+file to the repository as shown below:
+1. git clone
+2. cd MyFirstRepo/
+3. touch newfile
+4. git add newfile
+5. git commit -m "added new file"
+6. git push origin test_branch
+Go to AWS CloudWatch logs and check the timestamp of the log stream and
+you will notice commit id of git push event in the logs. Refer to Figure
+Figure logs showing the commit id
+Grab the commit ID from Step 11 and pass it to the next CLI command
+1. aws codecommit get-commit –repository-name MyFirstRepo \
+2. –commit-id fd46e59f4a250f6d1e0c9cb9082793ce46c6090c
+If you look at the output, you will notice that the value for message field, that
+is, added new file is the same as it was provided in step 10: for git
+1. {
+2. "commit": {
+3. "commitId": "fd46e59f4a250f6d1e0c9cb9082793ce46c6090c",
+4. "treeId": "3c22ead769a428098f713faee5fcd47ec981d8ed",
+5. "parents": [
+6. "5ccd628c11c947d43f559fe09462268985f20f98"
+7. ],
+8. "message": "added new file\n",
+9. "author": {
+10. "name": "abc def",
+11. "email": "abcdef2008@gmail.com",
+12. "date": "1666059317 +0000"
+13. },
+14. "committer": {
+15. "name": "abc def",
+16. "email": "abcdef2008@gmail.com",
+17. "date": "1666059317 +0000"
+18. },
+19. "additionalData": ""
+20. }
+21. }
+Creating a pull request in AWS CodeCommit
+By creating a pull request, users can collaborate. They can review code,
+provide comments, and merge changes from one branch to another. We
+can also create approver rules for the pull request. For example, we can
+create an approver rule where at least two users need to approve the pull
+request before the code is merged from one branch to another. Now, we
+will show you an example where we will create a pull request in an AWS
+CodeCommit repository using AWS CLI.
+In this section, we will provide you with two examples. In the first
+example, Example-1 we create a pull request named My Test Pull Request
+with a valid description that targets new_branch source branch and is to be
+merged in the default branch in the AWS Code Repository named
+Example 1:
+1. aws codecommit create-pull-request \
+2. --title "My Test Pull Request" \
+3. --description "Please review these changes by COB today" \
+4. --client-request-token testtoken١2٣ \
+5. --targets
+```
+repositoryName=MySecondRepo,sourceReference=new_branch
+```
+6. {
+7. "pullRequest": {
+8. "pullRequestId": "4",
+9. "title": "My Test Pull Request",
+10. "description": "Please review this changes by COB today",
+11. "lastActivityDate": "2022-10-18T21:21:59.912000+00:00",
+12. "creationDate": "2022-10-18T21:21:59.912000+00:00",
+13. "pullRequestStatus": "OPEN",
+14. "authorArn": "arn:aws:iam::111111111111:user/testuser",
+15. "pullRequestTargets": [
+16. {
+17. "repositoryName": "MySecondRepo",
+18. "sourceReference": "refs/heads/new_branch",
+19. "destinationReference": "refs/heads/test_branch",
+20. "destinationCommit":
+"7a88cec01c6a4e3394cdf7634a9adf64cb275b94",
+21. "sourceCommit":
+"355dda141c36c73ee1daa65a3bb17afc64817f2a",
+22. "mergeBase":
+"78f5bbf8f48d367adddbc3011c41f38269edbdbb",
+23. "mergeMetadata": {
+24. "isMerged": false
+25. }
+26. }
+27. ],
+28. "clientRequestToken": "testtoken123",
+29. "revisionId":
+"7fd367432e80521fec28f7ff8955e6cc611df4a47da2595c3a0df6796db8c2f
+0",
+30. "approvalRules": []
+31. }
+32. }
+Creating an approver rule for pull request
+In the next example, we will create an approver rule for pull request using
+AWS CLI.
+To create the approver rule, first we need to find out how many pull
+requests are currently OPEN by running the following AWS CLI:
+1. aws codecommit list-pull-requests --author-arn
+```
+arn:aws:iam::111111111111:user/testuser \
+```
+2. --pull-request-status OPEN --repository-name MySecondRepo
+```
+Output:
+```
+1. { [ "4", "3" ] }
+Now, we pick one pull request ID and pass it to the next AWS CLI to
+create an approver rule:
+1. aws codecommit create-pull-request-approval-rule \
+2. --pull-request-id 4 \
+3. --approval-rule-name "We need two approver to approve the pull
+request" \
+4. --approval-rule-content "{\"Version\": \"2018-11-08\",\"Statements\":
+```
+[{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\":
+```
+2,\"ApprovalPoolMembers\":
+[\"CodeCommitApprovers:111111111111:xyz\",
+```
+\"arn:aws:sts::111111111111:assumed-role/CodeCommitReview/*\"]}]}"
+```
+1. {
+2. "approvalRule": {
+3. "approvalRuleId": "3f95dfd5-add7-4fbf-8b39-4602bafa6b9f",
+4. "approvalRuleName": "We need two approver to approve the pull
+request",
+5. "approvalRuleContent": "{\"Version\":\"2018-11-
+08\",\"Statements\":
+```
+[{\"Type\":\"Approvers\",\"NumberOfApprovalsNeeded\":2,\"ApprovalPo
+```
+olMembers\":
+[\"CodeCommitApprovers:111111111111:xyz\",\"arn:aws:sts::1111111111
+```
+11:assumed-role/CodeCommitReview/*\"]}]}",
+```
+6. "ruleContentSha256":
+"ae4ab7001045fc5415a366e88021c8dbe56173434a9ce226ea06b6b71d20
+d134",
+7. "lastModifiedDate": "2022-10-18T22:07:36.976000+00:00",
+8. "creationDate": "2022-10-18T22:07:36.976000+00:00",
+9. "lastModifiedUser": "arn:aws:iam::111111111111:user/testuser"
+10. }
+11. }
+AWS CloudShell for DevOps tasks
+AWS CloudShell is a browser-based, pre-authenticated shell environment that
+provides users with direct access to AWS services, resources, and
+infrastructure. It comes pre-configured with AWS CLI, SDKs, and other
+useful tools to help manage and automate tasks related to DevOps and
+continuous integration.
+To access AWS CloudShell, navigate to the AWS Management Console and
+search for or click on the CloudShell icon in the menu bar, as shown in Figure
+Figure 1.10: Accessing AWS CloudShell in the AWS Management Console
+Once the CloudShell terminal opens, you can run the following commands in
+the CloudShell terminal:
+Check the AWS CLI version:
+aws --version
+Retrieve information about your AWS account:
+aws sts get-caller-identity
+Check the AWS Serverless Application Model CLI version:
+sam --version
+Figure 1.11 illustrates the output of the preceding commands when run in
+```
+CloudShell:
+```
+Figure 1.11: CloudShell Command outputs
+Working with private NPM packages in CodeArtifact
+AWS CodeArtifact fetches software packages on-demand from public
+repositories such as npm registry, Maven central, Python Package Index and
+NuGet. CodeArtifact securely publishes these private packages to a central
+organizational repository and shares them across organizations. Automated
+builds, such as CodeBuild pipelines, pull dependencies from CodeArtifact for
+use and publish newer versions of the packages. We can also build automated
+approval workflows for software releases using CodeArtifact APIs and gain
+full visibility into the packages by integrating with AWS CloudTrail.
+In this example, we will show how to create, publish, and download a private
+npm package using AWS CodeArtifact. The architecture diagram of this
+solution is shown in Figure
+Figure 1.12: Publishing private npm packages with AWS CodeArtifact
+To complete this use case in your AWS account, open the CloudShell terminal
+and follow the step-by-step instructions below:
+Create a new domain in CodeArtifact:
+aws codeartifact create-domain --domain my-test-domain
+Create a new CodeArtifact repository in the domain we just created:
+aws codeartifact create-repository --domain my-test-domain --repository
+my-test-repo
+Log in to the CodeArtifact repository using the AWS CLI:
+aws codeartifact login --tool npm --domain my-test-domain --repository my-
+test-repo
+This command will return a temporary authorization token and configure our
+local npm to use the CodeArtifact repository. The token is valid for 12 hours.
+Create a new directory for your package and navigate to it:
+mkdir hello-world-package
+cd hello-world-package
+Initialize the package with npm init and the specified scope:
+npm init --scope=@mycompany -y
+This will create a package.json file in your package directory.
+Create an index.js file in the package directory with the following content:
+1. function showGreeting() {
+2. console.log('Hello World, DevOps Gurus!');
+3. }
+4.
+5. module.exports = showGreeting;
+This file exports a simple function that displays Hello World, DevOps Gurus!
+message.
+Create a .npmrc file in the root directory of your npm package, if you do not
+already have one, and add the following lines:
+```
+registry=https://my-test-domain-[your-aws-accountid].d.codeartifact.us-east-
+```
+1.amazonaws.com/npm/my-test-repo/
+always-auth=true
+Publish your npm package to the CodeArtifact repository:
+npm publish
+Figure the output after we published the package:
+Figure Package Publication to CodeArtifact Repository
+Now, if we navigate to the CodeArtifact console and check the repository, we
+can see that our new package is ready to be downloaded, as shown in Figure
+Figure published package visible in CodeArtifact repository
+Install private npm package:
+a. Create a new directory for your project and navigate to it:
+mkdir hello-world-app
+cd hello-world-app
+b. Initialize the project with npm init
+npm init -y
+c. Install the published package as a dependency in this project:
+npm install --save @mycompany/hello-world-package
+d. Create an index.js file in the project directory and import the
+showGreeting function from the installed package:
+```
+const showGreeting = require('@mycompany/hello-world-package');
+```
+```
+showGreeting();
+```
+e. Run the index.js file to see the Hello World, DevOps Gurus! message
+output by the showGreeting function:
+node index.js
+Automated code review with AWS CodeGuru
+AWS CodeGuru is a developer tool that uses machine learning to improve
+code quality and optimize application performance. It consists of two main
+```
+components: CodeGuru Reviewer and CodeGuru Profiler. CodeGuru
+```
+Reviewer scans code repositories, analyzing pull requests to find potential
+issues, security vulnerabilities, and deviation from best practices. CodeGuru
+Profiler, on the other hand, analyzes the runtime behavior of applications,
+finding performance bottlenecks and suggesting optimizations to improve
+efficiency and reduce infrastructure costs.
+In this real-world example, a manager who acts as a code approver needs help
+in setting up a tool for reviewing the codebase to check for any code issues
+that may contribute to poor application performance. AWS CodeGuru will be
+used to review the code for any potential bugs. As a DevOps engineer, we
+will associate a CodeCommit repository with AWS CodeGuru Reviewer.
+Whenever a pull request is created to merge the code from the development
+branch to the main branch, CodeGuru Reviewer will automatically start
+analyzing the code and provide recommendations. This process ensures that
+the manager receives valuable insights into the code quality, enabling
+informed decision-making before approving any changes.
+The architecture diagram of this use-case is shown in Figure
+Figure 1.15: Configure Automated Code Review with AWS CodeGurur
+Open CloudShell terminal and follow step-by-step instructions below to set
+up a repository, add CodeGuru reviewer, and creating a pull request with a
+Java example:
+Create a new repository in AWS CodeCommit:
+a. Sign into the AWS Management Console and open the AWS CodeCommit
+console.
+b. Click Create repository and name the repository
+c. Click
+Clone the repository:
+1. git clone https://git-codecommit.us-east-
+1.amazonaws.com/v1/repos/codeguru-reviewer-java-example
+Add a Java file:
+Create a simple Java file named Example.java in the cloned repository with
+the following code:
+1. public class Example {
+2.
+3. public static int addNumbers(int a, int b) {
+4. int result = a + b;
+5. return result;
+6. }
+7.
+8. public static void main(String[] args) {
+9. int x = 5;
+10. int y = 10;
+11. int result = addNumbers(x, y);
+12. System.out.println("The sum of " + x + " and " + y + " is " + result);
+13. }
+14. }
+Commit and push the changes:
+Commit and push the changes to the remote repository:
+1. git add Example.java
+2. git commit -m "Add example Java file"
+3. git push
+Connect AWS CodeGuru reviewer:
+a. Sign into the AWS Management console and open the CodeGuru console.
+b. In the navigation pane, choose CodeGuru
+c. Click on Repositories and then Associate
+d. Select AWS CodeCommit as the repository provider.
+e. Choose the codeguru-reviewer-java-example repository from the list
+f. Enter the name of the Source branch as scan and click on Associate
+repository and run
+Please refer to Figure understand the instructions for a visual representation
+of the steps described above:
+Figure CodeCommit Repository with AWS CodeGuru Reviewer
+Create a new branch:
+Create a new branch for the feature or bugfix you want to work on:
+git checkout -b dev
+Make changes:
+Modify the Example.java file by introducing a resource leak issue. Update the
+file with the following code:
+1. import java.io.*;
+2.
+3. public class Example {
+4.
+5. public static int addNumbers(int a, int b) {
+6. int result = a + b;
+7. return result;
+8. }
+9.
+10. public static void readFile(String fileName) {
+11. // Intentionally introduce an issue: resource leak
+12. try {
+13. FileReader fileReader = new FileReader(fileName);
+14. BufferedReader bufferedReader = new
+```
+BufferedReader(fileReader);
+```
+15. String line = bufferedReader.readLine();
+16. System.out.println("First line of the file: " + line);
+17. } catch (IOException e) {
+18. System.out.println("Error reading file: " + e.getMessage());
+19. }
+20. // The file reader and buffered reader are not properly closed
+21. }
+22.
+23. public static void main(String[] args) {
+24. int x = 5;
+25. int y = 10;
+26. int result = addNumbers(x, y);
+27. System.out.println("The sum of " + x + " and " + y + " is " + result);
+28.
+29. String fileName = "example.txt";
+30. readFile(fileName);
+31. }
+32. }
+Commit and push the changes:
+Commit and push the changes to the remote feature branch:
+1. git add Example.java
+2. git commit -m "Introduce resource leak issue in readFile method"
+3. git push origin dev
+Create a Pull Request:
+a. Go to the AWS CodeCommit console and navigate to the codeguru-
+reviewer-java-example repository.
+a. Click on Create pull
+b. Choose dev as the source branch and main as the destination branch.
+c. Add a title and description for the pull request.
+d. Click Create to submit the PR.
+Once the PR is created, CodeGuru Reviewer will analyze the code and
+provide recommendations on the Pull Request. It will take a few minutes for
+CodeGuru Reviewer to complete the analysis. Once the analysis is finished,
+navigate back to the CodeGuru Console, and select Code reviews on the left
+navigation pane. Click on the Incremental code review tab, and then click on
+the code review which we’re interested in. This will take us to a new page
+where can see the recommendations provided by CodeGuru Reviewer. Figure
+1.17 displays those findings:
+Figure 1.17: Viewing Recommendations from AWS CodeGuru Reviewer in
+Incremental Code Reviewer
+Building and deploying source code with AWS CodeBuild and S3
+In this example, we use AWS CodeBuild to build a collection of sample
+source code build input files into a deployable version of build code artifact.
+We are instructing CodeBuild to use Apache Maven which is a build tool for
+Java applications. For this tutorial we do not need to be familiar with Maven
+build tool. Figure 1.10 shows how AWS CodeBuild gets the source code from
+S3, downloads source code into the build environment, uses build
+specification to build the project and finally uploads the build output artifact
+to S3. Build information is logged into AWS CloudWatch logs.
+Figure 1.18: CodeBuild use S3 as input/output to get source code/produce
+artifacts
+Following is the step-by-step procedure that should be followed while using
+AWS CodeBuild Service in this build process:
+Creating source code files: Create a root project directory named
+HelloWorldMavenTest and cd Under the directory create following files:
+HelloWorld.java
+1. package helloworld;
+2. public class HelloWorld {
+3. public static void main(String[] args) {
+4. Greeteing greeting = new Greeteing();
+5. System.out.println(greeting.showMessage());
+6. }
+7. }
+Greeting.java
+1. package helloworld;
+2. public class Greeting {
+3. public String showMessage() {
+4. return "Hello world!";
+5. }
+6. }
+pom.xml:
+1. xmlns="http://maven.apache.org/POM/4.0.0"
+2. xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+3. xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+```
+http://maven.apache.org/maven-v4_0_0.xsd">
+```
+4. 4.0.0
+5. org.example
+6. hello-world-from-codebuild
+7. 1.0
+8. jar
+9. Display Hello World Utility Java Sample App
+10.
+11.
+12. junit
+13. junit
+14. 4.11
+15. test
+16.
+17.
+18.
+19. org.apache.maven.plugins
+20. maven-compiler-plugin
+21. 3.8.0
+22.
+Creating buildspec A buildspec file is a collection of build commands in yaml
+format that is used by AWS CodeBuild to run a build.
+Create and place inside HelloWorldMavenTest subdirectory.
+1. version: 0.2
+2.
+3. phases:
+4. install:
+5. runtime-versions:
+6. java: corretto11
+7. pre_build:
+8. commands:
+9. - echo Nothing to do in this pre_build phase...
+10. build:
+11. commands:
+12. - echo Build started on `date`
+13. - mvn install
+14. post_build:
+15. commands:
+16. - echo Build completed on `date`
+17. artifacts:
+18. files:
+19. - target/helloWorldFromCodeBuild-1.0.jar
+Creating two S3 Create two S3 buckets. One bucket will store the build input
+and the other bucket stores the build output. These two buckets should be in
+the same region where build exists.
+Use following naming convention for creating input and output buckets.
+Input bucket codebuild-[region]-[your-aws-accountid]-input-bucket
+Output bucket codebuild-[region]-[your-aws-accountid]-output-bucket
+Figure Input and Output Buckets
+Uploading source code and buildspec file into input S3 bucket: Run the
+following AWS CLI to package the files in a .zip format and upload the ZIP
+file into input S3 bucket:
+1. zip -r HelloWorld.zip .
+2. aws s3 cp HelloWorld.zip s3://codebuild-us-east-1-111111111111-input-
+bucket
+Creating CodeBuild Create a build project that AWS CodeBuild uses to run
+the build. A build project includes information on how to run a build, the path
+where to get the source code, which commands to run and where to upload
+the build output.
+On Create build project page, enter the following information before you hit
+on Create build
+• Project codebuilddemo-project
+• Source Amazon S3
+• codebuild-us-east-1-111111111111-input-bucket
+• S3 object HelloWorld.zip
+• Environment | Environment Managed
+• Operating Amazon Linux 2
+• Standard
+• aws/codebuild/amazonlinux2-x86_64-standard:3.0
+• Service New Service Role
+• buildspect
+• Artifacts Amazon S3
+• For bucket codebuild-us-east-1-111111111111-output-bucket
+Leave Name and Path blank. Finally, click on Create Build
+An illustration of Step 5 can be seen in the following figure:
+Figure build project in AWS CodeBuild
+Creating notification Select codebuild project and choose Create notification
+a. Enter notification build-notification-sns
+b. Detail Basic
+c. Events that trigger Stopped
+d. Choose targe SNS
+e. Choose Specify SNS topic name i.e., my-sns-topic
+An illustration of Step 6 can be seen in the following figure:
+Figure 1.21: Configure notification rule
+Choose target type as SNS topic and target name as my-sns-topic as
+illustrated in Figure
+Figure SNS Target for notification rule
+rule rule rule rule rule rule rule rule rule rule rule rule rule rule rule rule
+rule rule rule rule rule rule rule rule rule rule rule rule rule rule
+1. {
+2. "Sid": "AWSCodeStarNotifications_publish",
+3. "Effect": "Allow",
+4. "Principal": {
+5. "Service": "codestar-notifications.amazonaws.com"
+6. },
+7. "Action": "SNS:Publish",
+8. "Resource": "arn:aws:sns:us-east-1:111111111111:my-sns-topic",
+9. "Condition": {
+10. "StringEquals": {
+11. "aws:SourceAccount": "111111111111"
+12. }
+13. }
+14. }
+navigation click on Start Build and watch the logs by clicking
+Once the build is successful, you will see that UPLOAD_ARTIFACT state is
+SUCCEEDED in AWS CloudWatch logs.
+Figure logs show created artifact name by CodeBuild
+To see the build output artifact, go to the output S3 The following figure
+illustrates the name of the build output artifact that is uploaded to S3 bucket.
+Figure output uploaded to S3 bucket
+Building and pushing Docker image to AWS ECR
+In this example, we use AWS CodeBuild to produce a build output as Docker
+image and push the image to Amazon Elastic Container Registry image
+repository.
+Here, we use Node.js application into a Docker container. See below for a
+step-by-step procedure to run this example on AWS account. The flowchart
+representation of the process can be seen in the following figure:
+Figure 1.25: Upload docker image to AWS ECR by CodeBuild
+Create a private image repository in ECR. Ensure that ECR repository and
+build environment are in the same AWS region. The name of the repository
+should be the same as the value for environment variable
+IMAGE_REPO_NAME which will be used in environment settings in
+CodeBuild in subsequent steps.
+Figure a private ECR repository
+Create a repository in CodeCommit with the name nodejs-codecommit-repo
+as shown in Figure
+Figure CodeCommit repository
+Add the following files into nodejs-codecommit-repo CodeCommit
+repository as illustrated in Figure
+Figure source code pertaining to nodejs application
+This file consists of nodejs app and its dependencies.
+1. {
+2. "name": "my-nodejs-webapp",
+3. "version": "1.0.0",
+4. "description": "My Node.js Application on Docker",
+5. "author": "abc.def@example.com>",
+6. "main": "server.js",
+7. "scripts": {
+8. "start": "node server.js"
+9. },
+10. "dependencies": {
+11. "express": "^4.16.1"
+12. }
+13. }
+This file defines a web application using Express.js framework.
+1. 'use strict';
+2.
+3. const express = require('express');
+4.
+5. // Constants
+6. const PORT = 8080;
+7. const HOST = '0.0.0.0';
+8.
+9. // App
+10. const app = express();
+11. app.get('/', (req, res) => {
+12. res.send('Hello World From CodeBuild');
+13. });
+14.
+15. app.listen(PORT, HOST, () => {
+16. console.log(`Running on http://${HOST}:${PORT}`);
+17. });
+```
+Dockerfile: Dockerfile is a text document that contains all the commands to
+```
+assemble an image for NodeJs application. This file consists of following
+```
+commands:
+```
+1. FROM node:16
+2.
+3. WORKDIR /usr/src/app
+4.
+5. COPY package*.json ./
+6.
+7. RUN npm install
+8.
+9. COPY . .
+10.
+11. EXPOSE 8080
+12.
+13. CMD [ "node", "server.js" ]
+consists of pre-build command. Login to Amazon ECR, build command.
+Build the docker image based on instructions provided in Dockerfile and tag
+it, post-build command. Push the tagged image to the ECR repository.
+1. version: 0.2
+2.
+3. phases:
+4. pre_build:
+5. commands:
+6. - echo Logging in to Amazon ECR...
+7. - aws ecr get-login-password --region $AWS_DEFAULT_REGION |
+docker login --username AWS --password-stdin
+$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.co
+m
+8. build:
+9. commands:
+10. - echo Build started on `date`
+11. - echo Building the Docker image...
+12. - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+13. - docker tag $IMAGE_REPO_NAME:IMAGE_TAG
+$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.co
+m/$IMAGE_REPO_NAME:$IMAGE_TAG
+14. post_build:
+15. commands:
+16. - echo Build completed on `date`
+17. - echo Pushing the Docker image...
+18. - docker push
+$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.co
+m/$IMAGE_REPO_NAME:$IMAGE_TAG
+Creating CodeBuild Enter codebuild project name codebuild-demo-to-ecr and
+some meaningful description here as shown in the following figure:
+Figure 1.29: Codebuild project name
+In specify the name of the CodeCommit repository name and the codecommit
+branch name master which contains the nodejs application code:
+Figure source provider i.e., CodeCommit information
+In the Environment section, enter:
+• environment managed image
+• operating Amazon Linux 2,
+```
+• Runtime(s): Standard, Privileged checkbox true, leave selected
+```
+• New Service
+This can be seen in the following figure:
+Figure environment details
+Enter environment variables key and values as shown in the following figure:
+Figure variables
+Ensure that the following policy has been added to the IAM policy attached
+to role:
+1. {
+2. "Action": [
+3. "ecr:BatchCheckLayerAvailability",
+4. "ecr:CompleteLayerUpload",
+5. "ecr:GetAuthorizationToken",
+6. "ecr:InitiateLayerUpload",
+7. "ecr:PutImage",
+8. "ecr:UploadLayerPart"
+9. ],
+10. "Resource": "*",
+11. "Effect": "Allow"
+12. }
+Now it is the time to run the project.
+Check build status. Once the build is complete you will see that image has
+been pushed to ECR.
+1. Digest:
+```
+sha256:64e8bcdfdad6718050801a2639f7e6645fdaf85ec37a98cdb61f6a53312
+```
+17618
+2. Status: Downloaded newer image for node:16
+3. ---> c910109adbfd
+4. Step 2/7 : WORKDIR /usr/src/app
+5. ---> Running in 9e033f870208
+6. Removing intermediate container 9e033f870208
+7. ---> 10ce01a60bf0
+8. Step 3/7 : COPY package*.json ./
+9. ---> d252c905e9ec
+10. Step 4/7 : RUN npm install
+11. ---> Running in c0d184c15baa
+12.
+13. added 57 packages, and audited 58 packages in 1s
+14.
+15. 7 packages are looking for funding
+16. run `npm fund` for details
+17.
+18. found 0 vulnerabilities
+19. npm notice
+20. npm notice New major version of npm available! 8.19.3 -> 9.2.0
+21. npm notice Changelog:
+22. npm notice Run `npm install -g npm@9.2.0` to update!
+23. npm notice
+24. Removing intermediate container c0d184c15baa
+25. ---> 9983c1b4df70
+26. Step 5/7 : COPY . .
+27. ---> 0038098e5a7b
+28. Step 6/7 : EXPOSE 8080
+29. ---> Running in c2ca209aa8f6
+30. Removing intermediate container c2ca209aa8f6
+31. ---> 4078c5c11d2c
+32. Step 7/7 : CMD [ "node", "server.js" ]
+33. ---> Running in 44be5632719e
+34. Removing intermediate container 44be5632719e
+35. ---> 6a2426698162
+36. Successfully built 6a2426698162
+37. Successfully tagged nodejs-repo:latest
+38.
+39. [Container] 2023/01/04 02:34:26 Running command docker tag
+$IMAGE_REPO_NAME:$IMAGE_TAG
+$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.co
+m/$IMAGE_REPO_NAME:$IMAGE_TAG
+40.
+41. [Container] 2023/01/04 02:34:26 Phase complete: BUILD State:
+SUCCEEDED
+42. [Container] 2023/01/04 02:34:26 Entering phase POST_BUILD
+43. [Container] 2023/01/04 02:34:26 Running command echo Build
+completed on `date`
+44. Build completed on Wed Jan 4 02:34:26 UTC 2023
+45.
+46. [Container] 2023/01/04 02:34:26 Running command echo Pushing the
+Docker image...
+47. Pushing the Docker image...
+48.
+49. [Container] 2023/01/04 02:34:26 Running command docker push
+$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.co
+m/$IMAGE_REPO_NAME:$IMAGE_TAG
+50. The push refers to repository [111111111111.dkr.ecr.us-east-
+1.amazonaws.com/nodejs-repo]
+51. latest: digest:
+```
+sha256:1e6c128589057aaf4050866d24e590a4421a6cb006bccf4be25d5d64c2
+```
+846707 size: 3048
+52.
+53. [Container] 2023/01/04 02:34:27 Phase complete: POST_BUILD State:
+SUCCEEDED
+The image details such as tag, size and URL are illustrated in the following
+```
+figure:
+```
+Figure 1.33: The ECR where nodejs image has been stored
+Configure an App Runner service
+AWS App Runner is a fully managed service designed to simply and
+accelerate the deployment and scaling of containerized applications. App
+Runner allows users to seamlessly deploy Docker images stored in ECR
+repositories or build and deploy applications from source code repositories.
+AWS App Runner is an ideal solution for deploying and managing
+containerized applications on AWS with minimal effort and maintenance.
+In this example, we will build upon the earlier section where we dockerized
+a Node.js web application. The source code for the web application was
+stored in an AWS CodeCommit repository, and we created a CodeBuild
+project that pulled the source code from CodeCommit, built the Docker
+image, and deployed it to ECR. In this section, we will use the uploaded
+image in ECR from the earlier section and deploy it as an AWS App Runner
+service, allowing us to manage quickly and efficiently the containerized
+Node.js application on AWS.
+The architecture diagram of this solution is shown in Figure
+Figure 1.34: Create a source image repository service
+To complete this use case in your AWS account, follow the step-by-step
+instructions below:
+Prerequisites
+Before proceeding, ensure you have the necessary permissions configured.
+Creating an IAM role is the first step, allowing AWS App Runner to access
+your AWS resources securely.
+1. Create an IAM Role: Open a CloudShell session and save the following
+script to a file named
+1. #!/bin/bash
+2.
+3. # Create the trust relationship policy JSON file
+4. cat > trust_policy.json << EOL
+5. {
+6. "Version": "2012-10-17",
+7. "Statement": [
+8. {
+9. "Effect": "Allow",
+10. "Principal": {
+11. "Service": "build.apprunner.amazonaws.com"
+12. },
+13. "Action": "sts:AssumeRole"
+14. }
+15. ]
+16. }
+17. EOL
+18.
+19. # Create the IAM role with the specified trust relationship policy
+20. aws iam create-role --role-name AppRunnerECRAccessRole --assume-
+role-policy-document file://trust_policy.json
+21.
+22. # Attach the AWSAppRunnerServicePolicyForECRAccess managed
+policy to the role
+23. aws iam attach-role-policy --role-name AppRunnerECRAccessRole --
+policy-arn arn:aws:iam::aws:policy/service-
+role/AWSAppRunnerServicePolicyForECRAccess
+24.
+25. # Remove the trust_policy.json file
+26. rm trust_policy.json
+Run the script in the CloudShell terminal using:
+1. chmod +x create_apprunner_role.sh
+2. ./create_apprunner_role.sh
+The preceding script creates an IAM role named AppRunnerECRAccessRole
+that App Runner uses to access image in ECR repository.
+2. Get ECR repository Run following command, which will output the
+repository ARN that will be needed in the step when we create App Runner
+```
+Service:
+```
+1. aws ecr describe-repositories \
+2. --repository-names nodejs-repo \
+3. --query 'repositories[0].repositoryArn' --output text
+The output from the command above is as follows:
+```
+arn:aws:ecr:us-east-1: 111111111111:repository/nodejs-repo
+```
+3. Create App Runner Service: Prepare the following JSON file which will
+serve as the input to the App Runner create-service CLI command. This
+JSON specifies the name of the App Runner service, the source for deploying
+```
+the service (which is an image repository in our case), the image identifier,
+```
+```
+the port where our application listens within the container (which is the type
+```
+```
+of image repository (which is ECR in our case), a boolean flag for the auto
+```
+deployment option that indicates continuous integration from the source
+```
+repository (enabled in our case, meaning that repository change triggers a
+```
+```
+deployment), and the Role ARN that grants the App runner service access to a
+```
+source repository.
+1. {
+2. "ServiceName": "my-nodejs-webapp-service",
+3. "SourceConfiguration": {
+4. "AuthenticationConfiguration": {
+5. "AccessRoleArn":
+"arn:aws:iam::111111111111:role/AppRunnerECRAccessRole"
+6. },
+7. "AutoDeploymentsEnabled": true,
+8. "ImageRepository": {
+9. "ImageIdentifier": "111111111111.dkr.ecr.us-east-
+1.amazonaws.com/nodejs-repo:latest",
+10. "ImageConfiguration": {
+11. "Port": "8080"
+12. },
+13. "ImageRepositoryType": "ECR"
+14. }
+15. },
+16. "InstanceConfiguration": {
+17. "Cpu": "1 vCPU",
+18. "Memory": "2 GB"
+19. }
+20. }
+Run the following command in the CloudShell terminal to create an App
+Runner service based on an image stored in ECR:
+1. aws apprunner create-service \
+2.
+It will take a few minutes for the App Run Service to become operational.
+Once the service creation status changes to running, click on the default
+domain URL, as shown in Figure
+Figure 1.35: Public Domain Service in App Runner
+After clicking on default domain URL, you can see the Node.js static web in
+the browser, as shown in Figure
+Figure 1.36: Launched NodeJs web app
+Conclusion
+In this chapter we learnt how to create a CodeCommit repository to store
+the code and files securely for the project. We learnt the usage of different
+CodeCommit CLI commands such as clone a repository, tag repository,
+create pull request, list pull requests, creating an approval rule for pull
+request by taking different examples. We took two real-word use-cases
+and learnt how to create a CodeCommit trigger for AWS SNS topic and
+AWS Lambda.
+The other AWS Service which we learnt in this chapter is CodeBuild. As
+an example, we took two use-cases. The first use-case CodeBuild takes
+the source code of java application from S3 input bucket, builds the source
+code using Maven build tool and uploads the build output to S3 output
+bucket. In the second use-case we used CodeBuild to build a Node.js
+application into a docker container, produce an image and upload it to
+ECR repository.
+Additionally, we explored the benefits of AWS CodeGuru, AWS App
+Runner, AWS CloudShell, and AWS CodeArtifact, learning how to
+integrate these services into our projects to enhance our DevOps
+capabilities.
+In the next chapter we will use CodeCommit when we build a CI/CD
+pipeline using CodeCommit, CodePipeline to deploy static contents in S3
+website. Also, the Docker image built by CodeBuild in this Chapter will
+be used in Chapter Automation using OpsWorks and Elastic Beanstalk,
+when we deploy the image to AWS ECS.
+Points to remember
+CodeCommit is highly available, scalable, and fault tolerant managed
+service and integrates with other AWS Services such as CodeBuild,
+CodePipeline, CodeDeploy, Lambda and SNS.
+CodeCommit repositories are automatically encrypted at rest. It’s also
+possible to encrypt repository data in transit using HTTPS and SSH
+protocol.
+By default, any CodeCommit repository has sufficient permissions to push
+code to the repository. We must configure an IAM policy to limit pushes
+and merges to a branch.
+CodeBuild is a fully managed build service in AWS which compiles
+source code, runs unit tests, and produces artifacts that are ready to
+deploy.
+We must provide CodeBuild with a build project. A build project contains
+information from where to get the source code, which build environment
+to use, which commands to run and where to store the build output.
+CodeBuild is used in building pipeline for building output a Docker image
+and then pushes the Docker image to AWS ECR image repository.
+AWS CodeGuru is an intelligent code review service that helps improve
+code quality by identifying hard-to-find issues and providing
+recommendations. It can be integrated into your development workflow to
+automate code reviews and enhance security and best practices.
+AWS App Runner provides a fully managed service for building,
+deploying, and scaling containerized applications quickly. It simplifies the
+deployment process, allowing developers to focus on writing code and
+reducing the complexity of infrastructure management.
+AWS CloudShell is a browser-based shell that enables you to manage and
+interact with your AWS resources directly from the AWS Management
+Console. It comes pre-installed with the AWS CLI, SDKs, and other
+essential tools, making it easier to perform DevOps tasks without the need
+to set up a local environment.
+AWS CodeArtifact is a fully managed artifact repository service that
+allows you to store, publish, and share software packages securely. It can
+be used to manage private NPM packages and other package types,
+simplifying dependency management and improving the reliability of your
+build and deployment processes.
+Questions
+Which command is used using AWS CLI to create an AWS CodeCommit
+repository?
+What is the name of the configuration file used by AWS CodeBuild to run
+build?
+What are the key phases defined in buildspec.yml file?
+How do you tag a CodeCommit repository?
+Create a Deny IAM policy that denies users’ ability to make changes to a
+branch named staging including deleting the branch in a repository named
+my-repo in us-east-1 region.
+How many parts does AWS CodeGuru consist of?
+Answers
+Run the following create-repository command specifying unique name for
+the repository, an optional comment about repository and optional key-
+value pair:
+1. aws codecommit create-repository --repository-name \
+2. my-repo --repository-description "repo name" --tags env=dev
+```
+AWS CodeBuild uses build specification (build spec) file to run a build
+```
+named as This file is in YAML format and is a collection of build
+commands and related settings. This file is used as part of source code
+when we create build project for the CodeBuild.
+Install, build and post_build are the key phases defined in the
+buildspec.yml file.
+Adding tags to the repository can be done from both AWS console and
+using AWS CLI. The syntax to add a tag using AWS CLI is as follows:
+1. aws codecommit tag-resource \
+2. --resource-arn arn:aws:codecommit:us-east-1:1111111111:my-repo \
+3. --tags env=test,product=my-product
+Following IAM policy will disallow the user to add/edit a file in staging
+branch, pull request into the staging branch and delete the branch.
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Effect": "Deny",
+6. "Action": [
+7. "codecommit:GitPush",
+8. "codecommit:DeleteBranch",
+9. "codecommit:PutFile",
+10. "codecommit:Merge*"
+11. ],
+12. "Resource": "arn:aws:codecommit:us-east-1:[your-aws-account-
+id]:my-repo",
+13. "Condition": {
+14. "StringEqualsIfExists": {
+15. "codecommit:References": [
+16. "refs/heads/staging"
+17. ]
+18. },
+19. "Null": {
+20. "codecommit:References": "false"
+21. }
+22. }
+23. }
+24. ]
+25. }
+AWS CodeGuru consists of two main parts: CodeGuru Reviewer and
+CodeGuru Profiler.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+2
+Continuous Delivery with CodeDeploy and CodePipeline
+Introduction
+In Chapter Continuous Integration with CodeCommit and we learnt how
+AWS CodeCommit and AWS CodeBuild services work together and build
+the artifacts which are tested and produce the software applications or
+revisions that are ready to be deployed in AWS Cloud or on-premises
+environment.
+In the fast-paced world of software development, delivering high-quality
+applications quickly and reliably is crucial for staying competitive.
+Traditional software release cycles, characterized by infrequent and time-
+consuming deployments, are no longer sufficient to meet the demands of
+today’s dynamic market. This is where continuous delivery comes into
+play.
+Continuous delivery is a software development approach that emphasizes
+frequent and automated releases of software to ensure rapid and reliable
+delivery to end-users. It enables development teams to deliver new
+features, bug fixes, and improvements in a streamlined and efficient
+manner. By automating the entire release process, continuous delivery
+eliminates many of the bottlenecks and challenges associated with
+traditional manual deployments.
+In this chapter, we will learn how AWS CodeDeploy automates the
+software deployment to EC2 Instance and AWS Fargate Services. We will
+also learn how to develop CI/CD using AWS CodePipeline which
+orchestrates AWS CodeCommit, AWS CodeBuild and AWS CodeDeploy
+Services and produce fast and reliable application and infrastructure
+software releases.
+Structure
+In this chapter, we will discuss the following topics about AWS
+```
+CodeDeploy:
+```
+• Deploy website to EC2 with CodeDeploy
+• Blue/Green deployment to ECS with CodeDeploy
+• CI/CD pipeline with CodePipeline for S3 website
+Objectives
+In this chapter, our practical approach focuses on achieving several
+objectives. We will understand the concepts and principles behind AWS
+CodeDeploy, its various deployment strategies, and how it simplifies the
+software deployment process to EC2 instances and AWS Fargate services.
+We will implement a blue/green deployment strategy using AWS
+CodeDeploy to ensure zero downtime and seamless deployment to
+Amazon ECS. Additionally, we will develop a CI/CD pipeline with AWS
+CodePipeline for S3 websites, integrating AWS CodeCommit, AWS
+CodeBuild, and AWS CodeDeploy services to produce fast and reliable
+application and infrastructure software releases.
+Deploy website to EC2 with CodeDeploy
+In this example, we will deploy a simple web application to EC2 instance
+running on Amazon Linux using CodeDeploy. CodeDeploy takes the
+source code from S3 bucket and deploys to EC2 instance and sends the
+```
+deployment status (Start/Success/Failure) to SNS topic as depicted in
+```
+Figure
+Figure 2.1: Architecture diagram to deploy Simple website to EC2
+Instance
+Prerequisites
+Before we deploy the code to EC2 instance, we must complete these steps:
+Creating Service role for Service roles are used to grant permission to
+AWS Services so that they can use other AWS resources. Copy the
+following policy in a text file and save as
+This role will grant permission to CodeDeploy for reading tags on EC2
+instance and publish information to SNS topic:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Sid": "",
+6. "Effect": "Allow",
+7. "Principal": {
+8. "Service": [
+9. "codedeploy.amazonaws.com"
+10. ]
+11. },
+12. "Action": "sts: AssumeRole"
+13. }
+14. ]
+15. }
+Copy the following policy in a text file and save as This inline policy will
+allow CodeDeploy Service role to send the deployment status to SNS
+```
+service:
+```
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Effect": "Allow",
+6. "Action": "sns:Publish",
+7. "Resource": "*"
+8. }
+9. ]
+10. }
+Now, execute create-codedeploy-servicerole.sh bash script. The content in
+this script creates a ServiceRole named
+Note down the ARN of MyCodeDeployServiceRole from the output of the
+script, this ARN will be used in creating deployment group later:
+create-codedeploy-servicerole.sh
+1. #!/bin/sh
+2. aws iam create-role --role-name MyCodeDeployServiceRole --assume-
+role-policy-document file://codedeploy-role-trust.json
+3. aws iam attach-role-policy --role-name MyCodeDeployServiceRole --
+policy-arn arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole
+4. aws iam put-role-policy --role-name MyCodeDeployServiceRole --
+policy-name sns-permission-policy --policy-document file://sns-
+permission-policy.json
+5. aws iam get-role --role-name MyCodeDeployServiceRole --query
+"Role.Arn" --output text
+Service Role
+```
+arn: aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+```
+aws:iam::111111111111:role/MyCodeDeployServiceRole
+```
+Creating an IAM instance profile: We need to create an instance profile
+role and assign it to EC2 instance. This role grants permission to AWS S3
+where our application is stored.
+Create a text file and copy the following policy and save it into
+codedeploy-ec2-trust.json file. The following policy will allow EC2 to
+work on our behalf:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Sid": "",
+6. "Effect": "Allow",
+7. "Principal": {
+8. "Service": "ec2.amazonaws.com"
+9. },
+10. "Action": "sts:AssumeRole"
+11. }
+12. ]
+13. }
+Create another text file and copy the following policy and save into
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Action": [
+6. "s3:Get*",
+7. "s3:List*"
+8. ],
+9. "Effect": "Allow",
+10. "Resource": "*"
+11. }
+12. ]
+13. }
+Now, run the following bash script which creates an Instance profile role
+named
+create-ec2-instance-profile.sh
+1. #!/bin/sh
+2. aws iam create-role --role-name codedeploy-ec2-inst-profile --assume-
+role-policy-document file://codedeploy-ec2-trust.json
+3. aws iam put-role-policy --role-name codedeploy-ec2-inst-profile --
+policy-name codedeploy-s3-permission --policy-document
+```
+file://codedeploy-s3-permission.json
+```
+4. aws iam create-instance-profile --instance-profile-name codedeploy-
+ec2-inst-profile
+5. aws iam add-role-to-instance-profile --instance-profile-name
+codedeploy-ec2-inst-profile --role-name codedeploy-ec2-inst-profile
+Now, all the prerequisites are completed so it is time to deploy the code to
+EC2 Instance.
+Deploy the code to EC2 instance
+Follow these steps to deploy the code to EC2 instance:
+SNS We will be using SNS Topic - my-sns-topic which was created in
+Chapter Continuous Integration with CodeCommit and CodeBuild using
+create-repo-and-snstopic.sh bash script. This topic is subscribed to a specified
+email address ensuring that user receives an email notification when the build
+is successful or fails, as shown in the following screenshot:
+Figure 2.2: SNS subscription to receive build notification
+Provision an AWS EC2 instance
+The steps to provision an AWS EC2 instance are as follows:
+Execute CLI to provision an EC2 instance. Before we run this command, we
+need to prepare some parameters that will be supplied to run-instances
+```
+command:
+```
+Use ami-09d3b3274b6c5d4aa for ec2-ami-id as parameter which is the
+```
+Amazon Machine Image (AMI) ID of the instance, refer to use AWS link at
+```
+```
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-
+```
+ami.html to use alternate AMIs.
+Use ec2-instance-type as a parameter, which is the name of the type of the
+instance, refer to the link at https://aws.amazon.com/ec2/instance-types to use
+alternate instance type.
+Use ec2-key-name as a parameter which is the name of the EC2 instance key
+pair that will be used to SSH access to instance.
+codedeploy-ec2-inst-profile is the name of the IAM instance profile role
+which was created in prerequisite #2. This role will be attached to the EC2
+instance that will grant necessary permission to EC2 for accessing the S3
+bucket where source code and website configuration exist.
+Now, run-instances command with the above parameters to provision an EC2
+```
+instance:
+```
+1. aws ec2 run-instances \
+2. --image-id ec2-ami-id \
+3. --key-name ec2-key-name \
+4. --count 1 \
+5. --instance-type ec2-instance-type \
+6. --iam-instance-profile Name=codedeploy-ec2-inst-profile
+Figure the launched EC2 instance running in us-east-1b availability zone:
+Figure is the computing platform where CodeDeploy will do the deployment
+Adding HTTP Inbound Rule in Security Group: By default, a SSH rule is
+added to the security group attached to the EC2 instance. Add one more rule,
+that is, HTTP rule so that website can be viewed on the browser at port
+HTTP
+TCP
+Port 80
+0.0.0.0/0
+Tagging an EC2 instance: Run the following command to tag the EC2
+instance so that AWS CodeDeploy can identify this instance later during the
+```
+deployment:
+```
+aws ec2 create-tags --resources i-048792de47ca87eb9 --tags
+```
+Key=Name,Value=MyCodeDeployTest
+```
+Figure that instance has been tagged with the key-value pairs provided in the
+above command:
+Figure HTTP Inbound Rule to EC2 Instance
+Installing CodeDeploy agent: It is essential to install CodeDeploy agent on
+EC2 before deploying the code. If it is not installed, run the following shell
+script to install it on the EC2 instance. This script can also be added in the
+User Data field during the launch of the EC2 instance.
+1. #!/bin/sh
+2.
+3. # Shell Script to Install CodeDeploy agent on Amazon Linux OS
+4. sudo yum update
+5. sudo yum install ruby
+6. sudo yum install wget
+7. cd /home/ec2-user
+8. wget https://aws-codedeploy-us-east-1.s3.us-east-
+1.amazonaws.com/latest/install
+9. chmod +x ./install
+10. sudo ./install auto
+11.
+12. # Check if agent is running
+13. sudo service codedeploy-agent status
+If the script ran successfully, we will be able to see the following output on
+the screen with Process Identification Number
+The AWS CodeDeploy agent is running as PID 1967.
+Creating a S3 Bucket to upload website Use the following command to create
+a S3 bucket where we will upload the application code so that CodeDeploy
+knows from which location it must find the code revision and deploy into
+EC2 instance:
+aws s3 mb s3://simple-codedeploy-website
+Also, add the following bucket policy to the above created bucket so that it
+grants permission to EC2 to download the files during the deployment. The
+value for Principal will be ARN for IAM instance profile:
+1. {
+2. "Statement": [
+3. {
+4. "Action": [
+5. "s3:Get*",
+6. "s3:List*"
+7. ],
+8. "Effect": "Allow",
+9. "Resource": "arn:aws:s3:::simple-codedeploy-website/*",
+10. "Principal": {
+11. "AWS": [
+12. "arn:aws:iam::111111111111:role/MyCodeDeployServiceRole"
+13. ]
+14. }
+15. }
+16. ]
+Preparing Configuration files and website source contents: In this step,
+prepare the configuration files for the website deployment, bundle them, and
+upload them to S3 bucket. Create the following folder structure on our local
+development environment and add the files as shown in the following code:
+1. |--Website/
+2. |-- appspec.yml
+3. |-- scripts/
+4. | |-- install_web_server.sh
+5. | |-- start_web_server.sh
+6. | |-- stop_web_server.sh
+7. |-- index.html
+This file is simple a web page HTML file that will be displayed when the
+website is launched on the browser.
+1.
+2.
+5.
+6.
+Hello DevOps Gurus! All the best for AWS DevOps Professional
+Certification Examp.
+7.
+8.
+This shell script installs the Apache webserver:
+1. #!/bin/bash
+2. sudo yum install -y httpd
+shell script starts the Apache webserver:
+1. #!/bin/bash
+2. sudo service httpd start
+This shell script stops the Apache webserver
+1. #!/bin/bash
+2. sudo service httpd stop
+Change the permissions for all scripts inside the scripts folder by running the
+command chmod +x /scripts/*
+```
+This is the YAML specification file (AppSpec) that is used by CodeDeploy
+```
+for the deployment. This file consists of the mapping of source files to the
+destination, permission for the deployed files and the scripts which are
+required to be run on the target EC2 instance during the deployment.
+1. version: 0.0
+2. os: linux
+3. files:
+4. - source: /index.html
+5. destination: /var/www/html/
+6. hooks:
+7. BeforeInstall:
+8. - location: scripts/install_web_server.sh
+9. timeout: 300
+10. runas: root
+11. - location: scripts/start_web_server.sh
+12. timeout: 300
+13. runas: root
+14. ApplicationStop:
+15. - location: scripts/stop_web_server.sh
+16. timeout: 300
+17. runas: root
+Run the following command that will register a web application named
+simple-website-app in CodeDeploy:
+aws deploy create-application –application-name simple-website-app
+Figure 2.5: Registered simple-website-app application in CodeDeploy
+Run the following command that will package all the local files from the
+current directory in your development machine and upload it to the S3 bucket
+```
+(simple-codedeploy-website) in the compressed format (.zip):
+```
+1. aws deploy push \
+2. --application-name simple-website-app \
+3. --s3-location s3://simple-codedeploy-website/simple-website-app.zip \
+4. --ignore-hidden-files
+In the following figure, we can see that the bundled source code is uploaded
+to the AWS S3 bucket and ready to be deployed in the next step:
+```
+Figure (.zip) website application is uploaded to S3 bucket
+```
+Deploying website application with CodeDeploy: To deploy the application
+revision from S3 bucket, CodeDeploy needs a deployment group. We will use
+the create-deployment-group AWS CLI to create deployment group. First,
+prepare deployment-group-config.json JSON file which will be used as input
+to create deployment group. In this file, we specify primarily the name of
+application, that is, deployment group name, that is, tags assigned to EC2
+Instance, CodeDeploy ServiceRole ARN, deployment configuration type and
+name of SNS topic ARN.
+deployment-group-config.json
+1. {
+2. "applicationName": "simple-website-app",
+3. "deploymentConfigName": "CodeDeployDefault.OneAtATime",
+4. "deploymentGroupName": "simple-website-app-depgp",
+5. "ec2TagFilters": [
+6. {
+7. "Key": "Name",
+8. "Value": "MyCodeDeployTest",
+9. "Type": "KEY_AND_VALUE"
+10. }
+11. ],
+12. "serviceRoleArn":
+"arn:aws:iam::111111111111:role/MyCodeDeployServiceRole",
+13. "triggerConfigurations": [
+14. {
+15. "triggerName": "codedeploy-deployment-status",
+16. "triggerTargetArn": "arn:aws:sns:us-east-1:111111111111:my-sns-
+topic",
+17. "triggerEvents": [
+18. "DeploymentStart",
+19. "DeploymentSuccess",
+20. "DeploymentFailure"
+21. ]
+22. }
+23. ]
+24. }
+In the following code snippet, we create a deployment group and associate it
+with the application named
+aws deploy create-deployment-group --cli-input-json file://deployment-
+group-config.json
+All the essential parameters from deployment group and deployment
+configuration are highlighted in the following figure, Figure illustrating the
+deployment group for a Simple Website Application:
+Figure group for Simple Website Application
+Continuing, Figure 2.8 presents the deployment configuration selected for the
+Simple Website Application Deployment group:
+Figure configuration selected for Simple Website Application Deployment
+group
+Run create-deployment command to create deployment. Figure 2.9 shows the
+list of all lifecycle events associated with this deployment:
+1. aws deploy create-deployment \
+2. --application-name simple-website-app \
+3. --deployment-config-name CodeDeployDefault.OneAtATime \
+4. --deployment-group-name simple-website-app-depgp \
+5. --s3-location bucket=simple-codedeploy-
+website,bundleType=zip,key=simple-website-app.zip
+Figure of all successful CodeDeploy lifecycle events
+Validating the deployment: Once the deployment is successful, we will
+receive an email notification that deployment is successful as shown in Figure
+Figure Notification for Successful deployment
+Now, the website has been deployed EC2 instance, therefore, we take the
+public DNS address of the EC2 instance and open it on the browser as shown
+in Figure
+Figure page of website
+Blue/Green deployment to ECS with CodeDeploy
+As we know already, in the Blue/Green deployment strategy, we create two
+```
+environments, environment-1 (blue) which runs the current version of
+```
+```
+application/software and environment-2 (green) which runs the newer version
+```
+of the application/software. This strategy increases the availability of
+applications since one environment will always be available and in case the
+deployment fails due to some reason, it is easy to roll back to the earlier
+version of application/software by switching the production traffic.
+In this example, we learn how AWS CodeDeploy Service deploys latest
+```
+version of application (Green) into ECS Service without any downtime.
+```
+During the deployment, CodeDeploy service will use an application load
+balancer which is configured with two target groups and one production
+listener. Figure 2.12 shows how the application load are integrated with
+Target groups, ECS task sets before the deployment:
+Figure 2.12: Original ECS task set before the deployment
+Figure 2.13 shows how the production traffic will be switched back from
+production listener to new replacement task set and original task set will be
+```
+terminated:
+```
+Figure 2.13: Replacement ECS task set after the deployment
+The architecture shown in Figure 2.14 depicts the complete flow on how
+AWS CodeDeploy interacts with other AWS Services and performs
+Blue/Green deployment in ECS service which is running on ECS Fargate
+```
+Cluster:
+```
+Figure 2.14: Architecture diagram for Blue/Green Deployment in ECS using
+CodeDeploy
+Follow these step-by-step instructions to create AWS resources in your
+account and perform Blue/Green deployment in ECS Service using
+CodeDeploy.
+Prerequisites
+Before we start the Blue-Green deployment using AWS CodeDeploy, we
+must complete the following steps:
+Service Role for Execute the following bash script that creates service role for
+CodeDeploy to perform an ECS blue/green deployment on our behalf and
+access other support services such as S3 and lambda.
+ecs-codedeploy-role.sh
+1. #!/bin/sh
+2. aws iam create-role --role-name ecsCodeDeployRole --assume-role-
+policy-document file://ecs-codedeploy-role-trust.json
+3. aws iam attach-role-policy --role-name ecsCodeDeployRole --policy-arn
+```
+arn:aws:iam::aws:policy/AWSCodeDeployRoleForECS
+```
+4. aws iam get-role --role-name ecsCodeDeployRole --query "Role.Arn" --
+output text
+Here, we have the JSON file which is supplied to AWS CLI in preceding bash
+```
+script:
+```
+ecs-codedeploy-role-trust.json
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Sid": "",
+6. "Effect": "Allow",
+7. "Principal": {
+8. "Service": "codedeploy.amazonaws.com"
+9. },
+10. "Action": "sts:AssumeRole"
+11. }
+12. ]
+13. }
+Note down this Service role ARN which will be used in the later steps:
+1. Service Role arn:aws:iam::111111111111:role/ecsCodeDeployRole
+Creating an application load balancer, two target groups and one listener: We
+have provided a bash script that automates the provisioning of load balancer,
+two target groups and one listener resource. We need to specify two subnets
+in different availability zones, AWS region name, Security Group ID, name of
+the application load balancer, and names of target group 1 and 2 in bash
+```
+script:
+```
+create-alb.sh
+1. #!/bin/sh
+2. #
+##############################################################
+################
+3. # This script creates Applicaiton Load Balancer,Two Target Groups and a
+listener
+4. #
+##############################################################
+################
+5. #
+6. vpc_id='vpc-e9a21593'
+7. alb_name='blue-green-alb'
+8. tg_gp_1='bluegreen-target-1'
+9. tg_gp_2='bluegreen-target-2'
+10. subnet_1='subnet-ae83e7f2'
+11. subnet_2='subnet-600ba45e'
+12. sg_1='sg-09b281e3c5d723e93'
+13. region='us-east-1'
+14.
+15. # Create application load balancer
+16. aws elbv2 create-load-balancer --name $alb_name \
+17. --subnets $subnet_1 $subnet_2 --security-groups $sg_1 --region $region
+18.
+19. # Create target group 1
+20. aws elbv2 create-target-group --name $tg_gp_1 --protocol HTTP --port
+80 \
+21. --target-type ip --vpc-id $vpc_id --region $region
+22.
+23. # Create target group 2
+24. aws elbv2 create-target-group --name $tg_gp_2 --protocol HTTP --port
+80 \
+25. --target-type ip --vpc-id $vpc_id --region $region
+26.
+27. # Create production listener
+28. alb_arn=$(aws elbv2 describe-load-balancers --names $alb_arn --no-
+```
+paginate | jq -r '.LoadBalancers[].LoadBalancerArn')
+```
+29. echo "Application laod balancer ARN is : $alb_arn"
+30.
+31. tg_gp_1_arn=$(aws elbv2 describe-target-groups --name
+```
+$target_group_1 --no-paginate | jq -r '.TargetGroups[0].TargetGroupArn')
+```
+32. echo "Target Group 1 Arn is : $tg_gp_1_arn"
+33.
+34. # Create production listener
+35. aws elbv2 create-listener --load-balancer-arn $alb_arn --protocol HTTP --
+port 80 --default-actions Type=forward,TargetGroupArn=$tg_gp_1_arn --
+region $region
+Note down ARNs of the following resources as shown in Figure Figure and
+Figure 2.17 which will be used in next steps:
+The ARN of Application Load Balancer is as follows:
+1.
+Figure Application Load Balancer
+The ARN of Target Group 1 is as follows:
+1.
+Figure Target groups 1 and 2
+The ARN of Production Listener is as follows:
+1. arn:aws:elasticloadbalancing:us-east-1:
+111111111111:loadbalancer/app/blue-green-alb/317c1ae4eead19bb
+Figure production listener
+listener listener listener listener listener listener listener listener listener
+listener listener listener listener listener listener listener listener listener
+listener listener listener listener listener listener listener listener listener
+ECS task execution role: This role provides permission to ECS container and
+Fargate agents to make necessary API calls on our behalf. Execute the
+following bash script which creates this role:
+ecs-execution-role.sh
+1. #!/bin/sh
+2. aws iam create-role --role-name --assume-role-policy-document file://ecs-
+taskexecution-role-trust.json
+3. aws iam attach-role-policy --role-name ecsTaskExecutionRole --policy-arn
+```
+arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+```
+4. aws iam get-role --role-name ecsTaskExecutionRole --query "Role.Arn" --
+output text
+Copy the following policy into a text file and save as This file will be
+supplied for CLI in the preceding script:
+1. {
+2. "Version": "2008-10-17",
+3. "Statement": [
+4. {
+5. "Sid": "",
+6. "Effect": "Allow",
+7. "Principal": {
+8. "Service": "ecs-tasks.amazonaws.com"
+9. },
+10. "Action": "sts:AssumeRole"
+11. }
+12. ]
+13. }
+Create an ECS Fargate Cluster, Task Definition and ECS Service for Blue
+Application. Use the following bash script which automates the process of
+creating ECS Fargate Cluster, Task definitions and ECS Service.
+create-ecs-resources.sh
+1. #!/bin/sh
+2.
+##############################################################
+#######################
+3. # This script provisions ECS cluster,Two task definition and ECS Service
+for Blue App
+4.
+##############################################################
+#######################
+5.
+6. ecs_cluster_name='blue-green-ecs-cluster'
+7. aws_region='us-east-1'
+8.
+9. # Create ECS Cluster
+10. aws ecs create-cluster \
+11. --cluster-name $ecs_cluster_name \
+12. --region $aws_region
+13.
+14. # Register Task definition for Blue application
+15. aws ecs register-task-definition \
+16. --cli-input-json file://blue-fargate-task-def.json \
+17. --region $aws_region
+18.
+19. # Register Task definition for Green application
+20. aws ecs register-task-definition \
+21. --cli-input-json file://green-fargate-task-def.json \
+22. --region $aws_region
+23.
+24. # Create ECS Service for Blue application
+25. aws ecs create-service \
+26. --cli-input-json file://bluegreen-fargate-service.json \
+27. --region $aws_region
+Here, we have the JSON files which are supplied to the preceding bash script:
+This JSON file consists of CPU/Memory to be assigned to task, network
+mode, ECS task execution role and container definition parameters such as
+container name, image name and port mappings. This JSON file will used by
+register-task-definition command which is used in the script:
+1. "family": "bluegreen-fargate-task-def",
+2. "networkMode": "awsvpc",
+3. "containerDefinitions": [{
+4. "name": "blue-app",
+5. "image": "httpd:latest",
+6. "portMappings": [{
+7. "containerPort": 80,
+8. "hostPort": 80,
+9. "protocol": "tcp"
+10. }],
+11. "essential": true,
+12. "entryPoint": [
+13. "sh",
+14. "-c"
+15. ],
+16. "command": [
+17. "/bin/sh -c \"echo '
+```
+style=color:white;text-align:center>
+```
+'
+Blue App
+'
+Congratulations !
+' > /usr/local/apache2/htdocs/index.html && httpd-foreground\""
+18. ]
+19. }],
+20. "requiresCompatibilities": [
+21. "FARGATE"
+22. ],
+23. "cpu": "256",
+24. "memory": "512",
+25. "executionRoleArn": "arn:aws:iam::
+111111111111:role/ecsTaskExecutionRole"
+26. }
+green-fargate-task-def.json
+This task definition is like blue-fargate-task-def.json except the value for
+command parameter where we just change the HTML markup to change
+the background color to green:
+1. {
+2. "family": "bluegreen-fargate-taskdef",
+3. "networkMode": "awsvpc",
+4. "containerDefinitions": [{
+5. "name": "green-app",
+6. "image": "httpd:latest",
+7. "portMappings": [{
+8. "containerPort": 80,
+9. "hostPort": 80,
+10. "protocol": "tcp"
+11. }],
+12. "essential": true,
+13. "entryPoint": [
+14. "sh",
+15. "-c"
+16. ],
+17. "command": [
+18. "/bin/sh -c \"echo '
+```
+style=color:white;text-align:center>
+```
+'
+Green App
+'
+Welcome!
+' > /usr/local/apache2/htdocs/index.html && httpd-foreground\"" ]
+19. }],
+20. "requiresCompatibilities": [
+21. "FARGATE"
+22. ],
+23. "cpu": "256",
+24. "memory": "512",
+25. "executionRoleArn":
+"arn:aws:iam::958651443844:role/ecsTaskExecutionRole"
+26. }
+bluegreen-fargate-service.json
+This JSON consists of the ECS Cluster name, ECS Service Name, Task
+definition name with revision number, application load balancer ARN, ARN
+of Target Group 1, container name and port number for blue app, type of
+deployment controller, subnet ids and security group ID:
+1. {
+2. "cluster": "blue-green-ecs-cluster",
+3. "serviceName": "bluegreen-fargate-service",
+4. "taskDefinition": "blue-fargate-task-def:1",
+5. "loadBalancers": [
+6. {
+7. "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-
+1:111111111111:targetgroup/bluegreentarget1/ad5affe23a928869",
+8. "containerName": "blue-app",
+9. "containerPort": 80
+10. }
+11. ],
+12. "launchType": "FARGATE",
+13. "schedulingStrategy": "REPLICA",
+14. "deploymentController": {
+15. "type": "CODE_DEPLOY"
+16. },
+17. "platformVersion": "LATEST",
+18. "networkConfiguration": {
+19. "awsvpcConfiguration": {
+20. "assignPublicIp": "ENABLED",
+21. "securityGroups": [ "sg-09b281e3c5d723e93" ],
+22. "subnets": [ "subnet-ae83e7f2", "subnet-600ba45e" ]
+23. }
+24. },
+25. "desiredCount": 2
+26. }
+Once the script has been executed successfully, we will be able to see that
+ECS Cluster, Task definitions and ECS Service resources are created as
+shown in Figure
+Figure 2.18: ECS Fargate Cluster that is running ECS service and two tasks
+for blue application
+At this point, we should be able to access the blue version of the deployed
+application using the load balancer URL. Refer to Figure 2.15 and copy the
+DNS name of the application load balancer and open it on the browser. This
+application is a static web page running on Apache HTTP WebServer as an
+AWS ECS Fargate Service as shown in the following screenshot:
+```
+Figure 2.19: Current version of demo application (blue) running on Apache
+```
+HTTP as Fargate Service
+5. Creating a S3 bucket: Run the following command to create an S3 bucket.
+We will upload appspec.yaml file which is used by CodeDeploy to deploy
+green application on ECS Service:
+1. aws s3 mb s3:// bluegreen-codedeploy-to-ecs-bucket
+Using AWS CodeDeploy
+Follow these steps for Blue/Green Deployment in AWS ECS Service using
+AWS CodeDeploy:
+Creating resources for CodeDeploy: Now all the prerequisites for ECS are
+completed, so, it is time to perform blue/green deployment using
+CodeDeploy. To achieve this goal, we have developed a bash script that
+```
+automatically deploys the latest version of the application (green) using
+```
+CodeDeploy.
+Before we start the deployment, we need to prepare a few JSON and YAML
+files which are supplied to the AWS CLI command.
+In this file, we specify CodeDeploy application name, deployment group
+name, deployment type, that is, target group 1 and 2 names, production
+listener Arn, ECS Service name, ECS cluster name and service role for
+CodeDeploy to perform blue green deployment:
+1. {
+2. "applicationName": "bluegreen-ecs-deploy-app",
+3. "autoRollbackConfiguration": {
+4. "enabled": true,
+5. "events": [ "DEPLOYMENT_FAILURE" ]
+6. },
+7. "blueGreenDeploymentConfiguration": {
+8. "deploymentReadyOption": {
+9. "actionOnTimeout": "CONTINUE_DEPLOYMENT",
+10. "waitTimeInMinutes": 0
+11. },
+12. "terminateBlueInstancesOnDeploymentSuccess": {
+13. "action": "TERMINATE",
+14. "terminationWaitTimeInMinutes": 5
+15. }
+16. },
+17. "deploymentGroupName": "bluegreen-deployment-group",
+18. "deploymentStyle": {
+19. "deploymentOption": "WITH_TRAFFIC_CONTROL",
+20. "deploymentType": "BLUE_GREEN"
+21. },
+22. "loadBalancerInfo": {
+23. "targetGroupPairInfoList": [
+24. {
+25. "targetGroups": [
+26. {
+27. "name": "bluegreen-target-1"
+28. },
+29. {
+30. "name": "bluegreen-target-2"
+31. }
+32. ],
+33. "prodTrafficRoute": {
+34. "listenerArns": [
+35. "arn:aws:elasticloadbalancing:us-east-
+1:111111111111:listener/app/blue-green-
+alb/317c1ae4eead19bb/fb94de54c3e048bc"
+36. ]
+37. }
+38. }
+39. ]
+40. },
+41. "serviceRoleArn":
+"arn:aws:iam::111111111111:role/ecsCodeDeployRole",
+42. "ecsServices": [
+43. {
+44. "serviceName": "bluegreen-fargate-service",
+45. "clusterName": "blue-green-ecs-cluster"
+46. }
+47. ]
+48. }
+In this file, specify the new revision of task definition which will be our green
+```
+application:
+```
+1. version: 0.0
+2. Resources:
+3. - TargetService:
+4. Type: AWS::ECS::Service
+5. Properties:
+6. TaskDefinition: "arn:aws:ecs:us-east-1:958651443844:task-
+definition/bluegreen-fargate-taskdef:2"
+7. LoadBalancerInfo:
+8. ContainerName: "green-app"
+9. ContainerPort: 80
+10. PlatformVersion: "LATEST"
+Run the following AWS CLI to upload appspec.yaml to s3 bucket:
+bluegreen-codedeploy-to-ecs-bucket
+1. aws s3 cp appspec.yaml s3://bluegreen-codedeploy-to-ecs-bucket/
+In this file, specify the CodeDeploy application name, deployment group
+name, name of S3 bucket and appspec.yaml file so that CodeDeploy will
+download the file from S3 and use it for blue green deployment:
+1. {
+2. "applicationName": "bluegreen-ecs-deploy-app",
+3. "deploymentGroupName": "bluegreen-deployment-group",
+4. "revision": {
+5. "revisionType": "S3",
+6. "s3Location": {
+7. "bucket": "bluegreen-codedeploy-to-ecs-bucket",
+8. "key": "appspec.yaml",
+9. "bundleType": "YAML"
+10. }
+11. }
+12. }
+Execute this bash script which will perform the blue green deployment using
+```
+CodeDeploy:
+```
+create-deployment.sh
+1. #!/bin/sh
+2.
+##############################################################
+##########################
+3. # This script CodeDeploy applicaiton, deployment group and perform blue
+green deployment
+4.
+##############################################################
+##########################
+5.
+6. # Create CodeDeploy application for ECS computing platform
+7. aws deploy create-application \
+8. --application-name bluegreen-ecs-deploy-app \
+9. --compute-platform ECS \
+10. --region us-east-1
+11.
+12. # Create Codedeploy deployment group
+13. aws deploy create-deployment-group \
+14. --cli-input-json file://bluegreen-deployment-group.json \
+15. --region us-east-1
+16.
+17. # Create Blue/Green deployment using CodeDeploy
+18. aws deploy create-deployment \
+19. --cli-input-json file://create-deployment.json \
+20. --region us-east-1
+Once the deployment is successful, we will be able to see that all the
+production traffic has been shifted to the new task replacement set and the
+original task set has been terminated as shown in Figure
+Figure status for Blue/Green deployment
+Now, if we browse the web application using the load balancer DNS name
+```
+URL, we will be able to see that a newer revision for the application (green
+```
+```
+app) has been deployed into ECS Service as shown in Figure
+```
+```
+Figure version of demo application (green) running on Apache HTTP Server
+```
+as Fargate Service
+CI/CD Pipeline with CodePipeline for S3 Website
+In this example, we will learn how to setup a CI/CD pipeline using
+CodePipeline Service. We will be using AWS CodeCommit in source stage
+and AWS S3 as a deployment action provider in our deployment stage.
+Whenever a new static content is pushed to CodeCommit repository by the
+user the pipeline is triggered automatically, and the latest code is deployed to
+S3 bucket for Static Website.
+Figure 2.22 shows the architecture diagram of deploying static content to S3
+bucket by AWS CodePipeline:
+Figure 2.22: Architecture diagram for CI/CD pipeline to deploy static
+contents in S3 website
+Prerequisites
+Before we start deploying static contents to S3 Website, we must complete
+following steps:
+Create a CodeCommit repository named Refer to Chapter Continuous
+Integration with CodeCommit and how to create repository using AWS
+CLI.
+Add two static files into above repository for the website:
+index.html
+1.
+2.
+3.
+My Static Website deployed in S3
+4.
+5.
+error.html
+1.
+2.
+3.
+Oops! Error occurred!
+4.
+5.
+Configuring S3 bucket for website hosting: Copy the following contents
+into a text file and save as s3-website.json and run configure-s3-
+website.sh bash script to create S3 bucket and configure it for static
+website hosting.
+1. {
+2. "IndexDocument": {
+3. "Suffix": "index.html"
+4. },
+5. "ErrorDocument": {
+6. "Key": "error.html"
+7. }
+8. }
+configure-s3-website.sh
+1. #!/bin/sh
+2.
+###########################################################
+#########
+3. # This script creates S3 bucket and configure it for Website Hosting
+4. #
+###########################################################
+#######
+5. bucket_name='static-s3-20231120'
+6. region='us-east-1'
+7.
+8. # Create S3 bucket for website
+9. aws s3api create-bucket \
+10. --bucket $bucket_name \
+11. --region $region
+12.
+13. # Configure S3 bucket as a website
+14. aws s3api put-bucket-website --bucket $bucket_name --website-
+configuration file://s3-website.json
+15.
+16. # Configure public access for S3 bucket
+17. aws s3api put-bucket-policy --bucket $bucket_name --policy "
+```
+{\"Version\":\"2012-10-17\",\"Statement\":
+```
+```
+[{\"Sid\":\"PublicReadGetObject\",\"Effect\":\"Allow\",\"Principal\":\"*\",
+```
+\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::$bucket_name/*\"
+```
+}]}"
+```
+Figure 2.23 shows that website hosting has been enabled on s3 bucket
+static-s3-20231120 and home and error pages are set:
+Figure 2.23: Static website hosting is enabled on S3 bucket
+Deploying static contents in S3 Website
+Follow these steps to deploy static contents in S3 Website:
+Enter the name of the pipeline, choose New service role to allow
+CodePipeline to create a IAM role and choose default location for Artifact
+store. CodePipeline uses s3 bucket for this purpose as shown in Figure
+Figure settings – pipeline name and service role
+In Add source enter CodeCommit as source the provider, in repository name
+specify the repository, which was created in prerequisite 1, Branch that is,
+main where latest website code exists. In Change detection select AWS
+CodePipeline and in Output artifact format choose CodePipeline default as
+shown in Figure
+Figure Source Stage – Source Provider, CodeCommit Repository name and
+branch name
+not applicable for static website hosting in S3 therefore click Skip build stage
+as shown in Figure
+Figure build stage
+Select Amazon S3 in Deploy provider and specify the name of the S3 bucket
+which is configured for Website hosting as shown in Figure
+Figure deploy stage- Deploy provider, AWS Region, and bucket name
+steps and click on Create pipeline as shown in FigureFigure Create new pipeline
+Once we click on Release the pipeline will be executed and the latest code
+from CodeCommit repository s3-static-website-repo will be deployed into S3
+bucket in Figure
+Figure is ready for ‘release change’
+After the pipeline is executed successfully the S3 bucket static-s3-20231120
+will show the latest files, that is, index.html and error.html as shown in Figure
+Figure bucket static-s3-20231120 displays latest files for website
+Static website is accessible by following endpoint on browser as shown in
+Figure
+```
+http://static-s3-20231120.s3-website-us-east-1.amazonaws.com
+```
+The pipeline is triggered if user pushes any new code into the CodeCommit
+repository and added content is uploaded into S3 bucket:
+Figure 2.31: S3 Static website is accessible on browser
+By now, we have created a pipeline with two actions. A source stage with
+AWS CodeCommit action where static files for website are added. A
+deployment stage with AWS S3 deployment action. Every time we change or
+add website files in CodeCommit repository, CodePipeline triggers the
+deployment and latest files are uploaded to S3 website.
+Conclusion
+In this chapter, we learnt how to deploy a simple web application to EC2
+instance using AWS CodeDeploy service. We launched an EC2 instance
+and added an inbound security group to allow HTTP connection. We
+prepared source code files, scripts and AppSpec file and uploaded to S3
+bucket from which CodeDeploy can deploy it. We created the deployment
+group configuration file and triggered CodeDeploy deployment using
+create-deployment command using AWS CLI. We also learnt about Blue-
+green deployment in ECS using AWS CodeDeploy that enables to deploy
+new versions of application to a separate environment called green and
+perform testing before switching traffic from the old environment to the
+new one.
+The other AWS service which we learnt in this chapter is AWS
+CodePipeline. We configured a pipeline using the CodePipeline service.
+This pipeline continuously delivers static files to S3 from CodeCommit
+repository. Pipeline automatically detects the changes in repository and
+pushes the latest files to S3 bucket.
+In the next Chapter, Infrastructure as Code using CloudFormation, we will
+create a continuous pipeline to deploy CloudFormation Stacks. The
+pipeline builds static website that is hosted on AWS S3 and is served by
+AWS Content Delivery Network AWS CloudFront Service.
+Points to remember
+AWS CodeDeploy uses Service Role to grant permission to other AWS
+services for accessing AWS resources. CodeDeploy uses this IAM role to
+read tags applied on EC2 instances so that it can identify to which it can
+deploy applications.
+There are three computing platforms on which CodeDeploy deploys an
+application. These three platforms are EC2/On-Premises, AWS Lambda
+and AWS ECS.
+CodeDeploy supports both in-place and blue/green deployment types on
+the computing platforms provided above.
+CodeDeploy supports Canary, Linear and All-at-once deployment
+configurations. These deployment configurations specify how the traffic is
+routed during the deployments on the computing platforms provided in
+second point.
+CodeDeploy is used to perform blue/green deployment in ECS, allows to
+release new version of containerized application with zero downtime. This
+method involves deploying the new version of the application to new set
+of containers, test the newer version, and then redirect the traffic to new
+containers once they are ready. CodeDeploy makes it easy to roll back to
+the old version in case test results are not satisfactory with newer version.
+AWS CodePipeline can be used to continuously deliver files using S3 as
+deployment provider in the deployment stage. Whenever CodePipeline
+detects any changes in CodeCommit repository, which is configured as
+source provider in the source stage of pipeline, CodePipeline will deploy
+the files to S3 bucket.
+EC2 Image Builder is a service that simplifies the creation and
+```
+maintenance of custom Amazon Machine Images (AMIs). It allows you to
+```
+automate the process of building and testing your images, ensuring they
+are always up-to-date and secure.
+Questions
+What is the name of the configuration file used by CodeDeploy to manage
+the deployments?
+What’s the purpose of CodeDeploy agent?
+Which deployment strategy is used in AWS CodeDeploy that minimizes
+the risk of failed deployments?
+What are the stages in AWS CodePipeline, and how they can be used to
+orchestrate software delivery pipeline?
+What are the artifacts in AWS CodePipeline, and how can they be used to
+manage your application’s deployment packages?
+Answers
+```
+CodeDeploy uses application specification file (AppSpec) configuration to
+```
+manage the deployments on different compute platforms provided in
+second point. This file is a YAML or JSON formatted, and it is bundled
+```
+together with the content to deploy into an archive file (zip or tar).
+```
+CodeDeploy agent is a software component which is used to facilitate
+deployments to EC2 instances, on-premises instances. The agent is not
+needed for the deployments on Lambda and ECS computing platforms.
+Canary deployment in CodeDeploy helps to minimize the risk of failed
+deployment by testing newer version of application on small scale before
+it’s rolled out to the entire infrastructure. This strategy enables us to catch
+potential issues in early stage and take a corrective action, ensuring a
+successful deployment.
+Stages are used in CodePipeline to define different phases of software
+delivery process, such as build, test, and deploy. Within each stage, we can
+specify the actions that should be performed, such as compiling the code,
+running unit tests, and deploying the application. We can also specify the
+order in which these actions should be executed in parallel or sequentially.
+Artifacts are used in CodePipeline to manage application’s deployment
+packages, which is a collection of source code, configuration files, and
+dependencies. Artifacts are stored and managed in S3, and they are used
+by deployment services such as AWS CodeDeploy.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+3
+Cross-Account CI/CD Pipelines and Testing
+Introduction
+In the previous chapter, we learned how AWS CodeDeploy automates the
+software deployment to EC2 Instances and AWS Fargate Services. We
+also explored the development of Continuous Integration and Delivery
+pipelines using AWS CodePipeline, which orchestrates AWS
+CodeCommit, AWS CodeBuild, and AWS CodeDeploy Services, to
+produce fast and reliable applications and infrastructure software releases.
+In this chapter, we will cover three essential topics: building a golden
+image using EC2 Image Builder, automating unit tests and code coverage
+with AWS CodeBuild and Codecov, and constructing a cross-account
+CI/CD pipeline. These topics will enhance your understanding of CI/CD
+pipelines and modern DevOps practices, helping you to effectively
+implement pipelines and deployment strategies across various
+environments, ensuring thorough testing and improved production quality.
+Structure
+In this chapter, we will discuss following topics:
+• Building a cross-account CI/CD pipeline
+• Automating unit tests and code coverage
+• Building golden image using EC2 Image Builder
+Objectives
+In this chapter, our practical approach revolves around several objectives
+related to utilizing AWS services effectively. We will guide you through
+building golden images with EC2 Image Builder, simplifying the creation
+and management of Amazon Machine Images Next, we will demonstrate
+automating unit tests and code coverage analysis using AWS CodeBuild
+and Codecov, which will improve code quality and ensure our application
+meets the necessary standards before deployment. Lastly, we will
+construct a cross-account CI/CD pipeline, showcasing how AWS services
+can be employed in a multi-account setup to bolster security and
+streamline deployment processes across distinct environments.
+By the end of this chapter, you will have hands-on experience in creating
+golden images using EC2 Image Builder, automating unit tests and code
+coverage analysis, and establishing a cross-account CI/CD pipeline. This
+practical knowledge will enable you to harness various AWS services to
+enhance your software deployment process, maintain high code quality,
+and strengthen security in a multi-account AWS environment.
+Building a cross-account CI/CD pipeline
+Implementing a multi-account pipeline is an essential aspect of modern
+DevOps practices, as it ensures that features are extensively tested in
+dedicated environments before being made available to users. This helps
+reduce errors and improve the overall quality of the production environment.
+Additionally, by isolating each stage in separate accounts, we can apply
+proper security measures tailored to each environment. This not only provides
+enhanced access control for each account but also ensures that the database
+and other resources are protected according to their specific requirements.
+This multi-layered security approach helps safeguard your infrastructure and
+data against unauthorized access and potential breaches.
+For the purpose of demonstrating a multi-account example and to keep it
+simple, we are using two AWS accounts: development and test - and
+deploying a resource, an S3 bucket. However, this example can be extended
+to more complex scenarios and additional accounts as needed. In this section,
+we will be setting up a cross-account CI/CD pipeline using AWS
+CodePipeline, Amazon S3, and AWS CloudFormation. The pipeline will fetch
+the code from S3 bucket and deploy the code in both Dev and Test accounts.
+The goal is to automate the process of deploying an S3 bucket resource in
+both the development and test accounts.
+The figure illustrating our cross-account CI/CD pipeline setup is shown
+below in Figure
+Figure 3.1: Cross-Account CI/CD Pipeline Architecture
+Follow the step-by-step instructions below to complete this use-case on your
+AWS account.
+```
+Prerequisites:
+```
+• Two AWS accounts: You will need to both a dev and test AWS accounts,
+ensuring that you have the necessary permissions to manage resources in
+each.
+• CodePipeline service role: Reuse the existing service role, named
+AWSCodePipelineServiceRole-us-east-1-s3website-codepipeline, previously
+created in the CI/CD Pipeline with CodePipeline for S3 section of the last
+chapter, Continuous Delivery with Code Deploy and CodePipeline.
+After fulfilling these prerequisites, proceed with the following steps:
+Create S3 Bucket to store source code in dev Run the following command
+using CLI to create an S3 bucket named dev-account-source-code-bucket that
+stores the source code and do not forget to enable versioning on this bucket.
+1. aws s3api create-bucket \
+2. --bucket dev-account-source-code-bucket-
+YOUR_UNIQUE_IDENTIFIER \
+3. --region us-east-1
+Create S3 Bucket to store pipeline artifact in dev Run the following command
+using CLI to create another S3 bucket named codepipeline-source-artifact-
+bucket to store the pipeline artifacts:
+1. aws s3api create-bucket \
+2. --bucket codepipeline-source-artifact-bucket-
+YOUR_UNIQUE_IDENTIFIER \
+3. --region us-east-1
+Create a CloudFormation template: Create a CloudFormation template named
+s3_bucket_deployment_template.yml with the following contents. This
+template creates an S3 bucket in both the dev and test accounts.
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Description: CloudFormation template to create an Amazon S3 bucket
+3. Resources:
+4. MyS3Bucket:
+5. Type: 'AWS::S3::Bucket'
+Zip the CloudFormation template and upload it to the S3 bucket
+1. zip s3_bucket_deployment_template.zip
+s3_bucket_deployment_template.yml
+2. aws s3 cp s3_bucket_deployment_template.zip s3://dev-account-source-
+code-bucket-YOUR_UNIQUE_IDENTIFIER/
+Create CloudFormation service Save the following shell script in the dev
+account as create_s3_bucket_deployment_cfn_role.sh to create
+CloudFormation Service role named
+1. #!/bin/bash
+2.
+3. # Create the IAM role and attach the required policies
+4. ROLE_NAME="S3BucketDeploymentCFNRole"
+5.
+6. # Create the trust policy JSON
+7. cat > trust_policy.json << EOL
+8. {
+9. "Version": "2012-10-17",
+10. "Statement": [
+11. {
+12. "Effect": "Allow",
+13. "Principal": {
+14. "Service": "cloudformation.amazonaws.com"
+15. },
+16. "Action": "sts:AssumeRole"
+17. }
+18. ]
+19. }
+20. EOL
+21.
+22. # Create the role with the trust policy
+23. aws iam create-role \
+24. --role-name $ROLE_NAME \
+25. --assume-role-policy-document file://trust_policy.json
+26.
+27. # Attach AmazonS3FullAccess Managed Policy
+28. aws iam attach-role-policy \
+29. --role-name $ROLE_NAME \
+30. --policy-arn "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+31.
+32. # Clean up the trust policy JSON file
+33. rm trust_policy.json
+To execute the script, run the following commands:
+1. chmod +x create_s3_bucket_deployment_cfn_role.sh
+2. ./create_s3_bucket_deployment_cfn_role.sh
+Create pipeline Create a JSON file named pipeline_dev.json that contains the
+structure of the pipeline. This JSON contains the structure and configuration
+of the AWS CodePipeline, specifying the source and deploy stages, action
+types, and relevant configurations for each stage of the pipeline.
+1. {
+2. "pipeline": {
+3. "name": "S3BucketDeploymentPipeline",
+4. "roleArn": "arn:aws:iam::[DEV_ACCOUNT_ID]:role/service-
+role/AWSCodePipelineServiceRole-us-east-1-s3website-codepipeline",
+5. "artifactStore": {
+6. "type": "S3",
+7. "location": "codepipeline-source-artifact-bucket-
+YOUR_UNIQUE_IDENTIFIER"
+8. },
+9. "stages": [
+10. {
+11. "name": "Source",
+12. "actions": [
+13. {...}
+14. ]
+15. },
+16. {
+17. "name": "Deploy",
+18. "actions": [
+19. {...}
+20. ]
+21. }
+22. ]
+23. }
+24. }
+The complete structure of pipeline in JSON format can be found in the
+GitHub repository associated in this chapter. To refer to this file on GitHub,
+search for
+Important instructions: Ensure that you replace [DEV_ACCOUNT_ID] with
+your actual AWS Development Account ID and
+[YOUR_UNIQUE_IDENTIFIER] with the unique identifier for your
+resources to ensure the script functions as intended.
+Create a pipeline in dev account: Use the following command to create a
+pipeline in AWS CodePipeline, which uses the JSON file defined in the
+earlier step:
+1. aws codepipeline create-pipeline --cli-input-json file://pipeline_dev.json
+Upon successful execution of the preceding command, a new pipeline is
+created in AWS CodePipeline. The pipeline starts executing automatically,
+creating a CloudFormation stack that results in an S3 bucket in the Dev
+account.
+Figure the status of successful completion of the CodePipeline pipeline:
+Figure Completion of CodePipeline Pipeline
+CloudFormation creates an S3 bucket in the Dev account as shown in Figure
+Figure Bucket Created by CloudFormation in the Dev Account
+Create customer managed KMS Key in dev In this section, we create a KMS
+key that grants usage permission to dev account’s CodePipeline service role
+and test account.
+Navigate to the AWS KMS console in the dev account and choose Customer
+in the left navigation pane. Click Create choose Symmetric and leave all
+options as default under Advanced options. Click Enter the key alias as
+CrossAccountCodePipelineKey and click On the Define key administrative
+permissions page, choose your IAM user who will be the administrator for
+this key. On the Define key usage permissions page, add the CodePipeline
+service role as a key user. In the Other AWS accounts section, enter the AWS
+account ID of the test account. Choose Next and click Figure 3.4 displays the
+details for Key Key and the test AWS account ID under Other AWS accounts
+in KMS Management
+Figure Administrator, Key Users, and Test Account ID in KMS Management
+Console
+Take note of the ARN of the KMS key created above, as it will be needed
+when updating the pipeline for cross-account deployment:
+1. arn:aws:kms:us-east-1:[DEV_ACCOUNT_ID]:key/[KMS_KEY_ID]
+Important instructions: Ensure you replace [DEV_ACCOUNT_ID] with your
+actual AWS Development Account ID and [KMS_KEY_ID] with the actual
+Key ID of the KMS key you created.
+Add S3 Bucket Policy in dev In this step, we create a bucket policy that
+grants test account to access S3 bucket created in Step That bucket stores
+pipeline artifact in dev account.
+In the dev account, choose the S3 bucket codepipeline-source-artifact-bucket
+which is the ArtifactStore for the CodePipeline pipeline. Add the following
+bucket in the bucket policy editor and click
+1. {
+2. "Id": "Policy1553183091390",
+3. "Version": "2012-10-17",
+4. "Statement": [{
+5. "Sid": "",
+6. "Action": [
+7. "s3:Get*",
+8. "s3:Put*"
+9. ],
+10. "Effect": "Allow",
+11. "Resource": "arn:aws:s3:::codepipeline-source-artifact-bucket-
+YOUR_UNIQUE_IDENTIFIER/*",
+12. "Principal": {
+13. "AWS": [
+14. "arn:aws:iam::[TEST_ACCOUNT_ID]:root"
+15. ]
+16. }
+17. },
+18. {
+19. "Sid": "",
+20. "Action": [
+21. "s3:ListBucket"
+22. ],
+23. "Effect": "Allow",
+24. "Resource": "arn:aws:s3:::codepipeline-source-artifact-bucket-
+YOUR_UNIQUE_IDENTIFIER",
+25. "Principal": {
+26. "AWS": [
+27. "arn:aws:iam::[TEST_ACCOUNT_ID]:root"
+28. ]
+29. }
+30. }
+31. ]
+32. }
+Important instructions: Ensure that you replace [TEST_ACCOUNT_ID] with
+your actual AWS Test Account ID and [YOUR_UNIQUE_IDENTIFIER]
+with the unique identifier for your resources to ensure the script functions as
+intended.
+Create cross-account IAM role and attach In this section, we will create a
+cross-account IAM role in the test account and attach the two IAM policies.
+Create a IAM policy for cross-account in test account: Create a JSON file
+named as cross_account_codepipeline_policy.json and copy following
+contents into it:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [{
+4. "Effect": "Allow",
+5. "Action": [
+6. "cloudformation:*",
+7. "iam:PassRole"
+8. ],
+9. "Resource": "*"
+10. },
+11. {
+12. "Effect": "Allow",
+13. "Action": [
+14. "s3:Get*",
+15. "s3:Put*",
+16. "s3:ListBucket"
+17. ],
+18. "Resource": [
+19. "arn:aws:s3:::[ codepipeline-source-artifact-bucket-
+YOUR_UNIQUE_IDENTIFIER]/*"
+20. ]
+21. }
+22. ]
+23. }
+Run the AWS CLI command to create the IAM policy named
+CrossAccountCodePipelineAccessPolicy in test account:
+1. aws iam create-policy \
+2. --policy-name CrossAccountCodePipelineAccessPolicy \
+3. --policy-document file://cross_account_codepipeline_policy.json
+Create KMS key Next, create a second IAM policy allowing KMS API
+actions in the test account. Create a JSON file named
+kms_api_actions_policy.json and copy following contents into it:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [{
+4. "Effect": "Allow",
+5. "Action": [
+6. "kms:DescribeKey",
+7. "kms:GenerateDataKey*",
+8. "kms:Encrypt",
+9. "kms:ReEncrypt*",
+10. "kms:Decrypt"
+11. ],
+12. "Resource": [
+13. "arn:aws:kms:us-east-1:
+[DEV_ACCOUNT_ID]:key/[KMS_KEY_ID]
+14. ]
+15. }]
+16. }
+Run the AWS CLI command to create the IAM policy
+KMSAPIActionsPolicy in the test account:
+1. aws iam create-policy \
+2. --policy-name KMSAPIActionsPolicy \
+3. --policy-document file://kms_api_actions_policy.json
+Important instructions: Ensure tha you replace [DEV_ACCOUNT_ID] with
+your actual AWS Development Account ID, [KMS_KEY_ID] with the actual
+```
+Key ID of the KMS key in the policy as shown; otherwise, policy will not
+```
+```
+function correctly.
+```
+Create a shell script named create_cross_account_role.sh and copy following
+contents in it:
+1. #!/bin/bash
+2. # Create the cross-account IAM role
+3. relearn=$(aws iam create-role \
+4. --role-name CrossAccountCodePipelineRole \
+5. --assume-role-policy-document '{
+6. "Version": "2012-10-17",
+7. "Statement": [
+8. {
+9. "Effect": "Allow",
+10. "Principal": {
+11. "AWS": "arn:aws:iam::[DEV_ACCOUNT_ID]:root"
+12. },
+13. "Action": "sts:AssumeRole"
+14. }
+15. ]
+16. }' --query 'Role.Arn' --output text)
+17.
+18. # Attach the CrossAccountCodePipelineAccessPolicy policy
+19. aws iam attach-role-policy \
+20. --role-name CrossAccountCodePipelineRole \
+21. --policy-arn "arn:aws:iam::[TEST_ACCOUNT-
+ID]:policy/CrossAccountCodePipelineAccessPolicy"
+22.
+23. # Attach the KMSAPIActionsPolicy policy
+24. aws iam attach-role-policy \
+25. --role-name CrossAccountCodePipelineRole \
+26. --policy-arn "arn:aws:iam::[TEST-ACCOUNT-
+ID]:policy/KMSAPIActionsPolicy"
+Make it script executable using chmod +x Then, run the script with
+./create_cross_account_role.sh.
+Take note of the created cross-account role as it will be needed in updating
+the configuration of pipeline in Step
+1. arn:aws:iam::
+[TEST_ACCOUNT_ID]:role/CrossAccountCodePipelineRole
+Important instructions: Ensure that you replace [DEV_ACCOUNT_ID] with
+your actual AWS Development Account ID and [TEST_ACCOUNT_ID] with
+the actual Test Account ID.
+Adding AssumeRole permission to CodePipeline service In this section, we
+will add the AssumeRole permission to the CodePipeline service role in dev
+account. This allows the role to assume the cross-account role in test account,
+enabling the pipeline to deploy resources across accounts.
+Attach the following policy named CrossAccountAssumeRolePolicy to the
+CodePipeline role
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": {
+4. "Effect": "Allow",
+5. "Action": "sts:AssumeRole",
+6. "Resource": [
+7. "arn:aws:iam::[TEST_ACCOUNT_ID]:role/*"
+8. ]
+9. }
+10. }
+Important instructions: Ensure that you replace your [TEST_ACCOUNT_ID]
+with the actual Test Account ID.
+Create a service role for CloudFormation in the test Repeat the steps provided
+in Step 4 to create the same CloudFormation service role named
+S3BucketDeploymentCFNRole in the test account.
+Note down the ARN of this service role which will needed when we update
+the pipeline in the next step:
+1. arn:aws:iam::
+[TEST_ACCOUNT_ID]:role/S3BucketDeploymentCFNRole
+Important instructions: Ensure tha you replace your [TEST_ACCOUNT_ID]
+with the actual Test Account ID.
+Update the pipeline In this step, we will update the pipeline configuration to
+include the resources associated with test account. Start by duplicating the
+renaming it to Proceed to pipeline_devandtest.json by adding the following
+JSON block, which corresponds to the deploy-test stage in the pipeline:
+1. {
+2. "pipeline": {
+3. "name": "S3BucketDeploymentPipeline",
+4. "roleArn": "arn:aws:iam::[DEV_ACCOUNT_ID]:role/service-
+role/AWSCodePipelineServiceRole-us-east-1-s3website-codepipeline",
+5. "artifactStore": {
+6. "type": "S3",
+7. "location": "dev-account-pipeline-artifacts-bucket",
+8. "encryptionKey": {
+9. "id": "arn:aws:kms:us-east-1:
+[DEV_ACCOUNT_ID]:key/[KMS_KEY_ID]",
+10. "type": "KMS"
+11. }
+12. },
+13. "stages": [
+14. {
+15. "name": "Source",
+16. "actions": [...]
+17. },
+18. {
+19. "name": "deploy-test",
+20. "actions": [...]
+21. }
+22. ]
+23. }
+24. }
+The RoleArn inside the action configuration JSON structure for our pipeline
+corresponds to the CloudFormation service role created in the earlier step.
+The roleArn outside the action configuration JSON corresponds to the cross-
+account role created in Step
+The complete structure of pipeline in JSON format can be found in the
+GitHub repository associated with this chapter. To refer to this file on GitHub,
+search for
+Important instructions: Ensure that you replace [DEV_ACCOUNT_ID] with
+your actual AWS Development Account ID, [KMS_KEY_ID] with the actual
+```
+Key ID of the KMS key in the policy as shown; otherwise, policy will not
+```
+```
+function correctly.
+```
+Update and run the Run the following command to update the structure of the
+pipeline, which adds a stage named Deploy-Test in the existing pipeline and
+starts the execution:
+1. aws codepipeline update-pipeline --cli-input-json
+```
+file://pipeline_devandtest.json
+```
+Figure the status of successful completion of the CodePipeline pipeline, now
+including the added
+Figure Completion with Deploy-test added
+Log in to the AWS Management Console in the test account and check the
+status of the CloudFormation which should have created an S3 bucket. Figure
+3.6 displays the successful completion of the CloudFormation stack as and it
+also shows the created S3 bucket resource:
+Figure 3.6: CloudFormation Stack Completion and created S3 Bucket in test
+account
+In this section we have successfully demonstrated how to set up a cross-
+account CI/CD pipeline, showcasing an effective way to collaborate across
+multiple AWS accounts while maintaining a clear separation of concerns in
+the software development process.
+Automating unit tests and code coverage
+In this example, we will learn how to integrate AWS CodeBuild with
+Codecov for automating unit tests and code coverage. Codecov is a code
+coverage analysis and reporting tool that measures the test coverage of our
+code. It identifies the methods and statements in the code that are not
+tested and provides the results to determine where we should write tests to
+improve the quality of code.
+Here are the step-by-step instructions to complete this integration in your
+AWS account:
+Prerequisites
+Create a GitHub repository: Create a GitHub repository named codebuild-
+codecov-python-demo and add the following projects files:
+o This file contains the Calculator class, which provides basic arithmetic
+operations, such as addition, subtraction, multiplication, division, and
+```
+modulus:
+```
+1. class Calculator:
+2. def add(self, a, b):
+3. return a + b
+4.
+5. def subtract(self, a, b):
+6. return a – b
+7.
+8. def multiply(self, a, b):
+9. return a * b
+10.
+11. def divide(self, a, b):
+12. if b == 0:
+13. raise ValueError("Cannot divide by zero")
+14. return a / b
+15.
+16. def modulus(self, a, b):
+17. if b == 0:
+18. raise ValueError("Cannot divide by zero")
+19. return a % b
+o This file contains the unit tests for the Calculator class, using the pytest
+testing framework. The tests cover the add, subtract, multiply, and divide
+methods, ensuring that they work correctly for different input values:
+1. import pytest
+2. from calculator import Calculator
+3.
+4. def test_add():
+5. calc = Calculator()
+6. assert calc.add(1, 2) == 3
+7. assert calc.add(-1, 1) == 0
+8.
+9. def test_subtract():
+10. calc = Calculator()
+11. assert calc.subtract(5, 3) == 2
+12. assert calc.subtract(-1, 1) == -2
+13.
+14. def test_multiply():
+15. calc = Calculator()
+16. assert calc.multiply(2, 3) == 6
+17. assert calc.multiply(-2, 2) == -4
+18.
+19. def test_divide():
+20. calc = Calculator()
+21. assert calc.divide(6, 3) == 2
+22. assert calc.divide(-6, 3) == -2
+23.
+24. def test_divide_by_zero():
+25. calc = Calculator()
+26. with pytest.raises(ValueError):
+27. calc.divide(1, 0)
+o This file lists the dependencies needed for the project, including the pytest,
+coverage, and pytest-cov packages, which are necessary for running the tests
+and generating code coverage reports:
+1. pytest
+2. coverage
+3. pytest-cov
+Setting up a Codecov Navigate to https://codecov.io/signup and sign up for a
+GitHub source repository. After signing up, add the repository codebuild-
+codecov-python-demo for which you want to generate coverage. Click shown
+in Figure to copy the repository token:
+Figure the repository token from Codecov
+You will need the copied token as an environment variable in the upcoming
+Step 2 when you are building the CodeBuild project.
+After completing the steps prerequisites, proceed with the steps below to
+configure CodeBuild project, run the build, and verify the integration with
+```
+Codecov:
+```
+Create a buildspec.yml file: In the root directory of your project, create a
+buildspec.yml file with the following content:
+1. version: 0.2
+2.
+3. phases:
+4. install:
+5. runtime-versions:
+6. python: 3.9
+7. commands:
+8. – pip install -r requirements.txt
+9.
+10. build:
+11. commands:
+12. – pytest –cov=calculator –cov-report=xml
+13.
+14. post_build:
+15. commands:
+16. – curl -s > codecov.sh
+17. – chmod +x codecov.sh
+18. - ./codecov.sh -t $CODECOV_TOKEN
+The buildspec.yml file defines the commands for installing the necessary
+dependencies, running unit tests, generating code coverage reports, and
+uploading the coverage data to By creating and including this file in your
+GitHub repository, you enable AWS CodeBuild to automatically detect and
+execute the build steps according to the specified configuration.
+Set up the AWS CodeBuild Log in to your AWS Management Console and go
+to the AWS CodeBuild service. Click Create build project and enter the
+project name as In the Source section, select GitHub as the source provider,
+connect your GitHub account, and choose the repository codebuild-codecov-
+python-demo as shown in Figure
+Figure the AWS CodeBuild Project with GitHub Repository
+In the Environment section, choose Managed Operating System to Amazon
+Linux select aws/codebuild/amazonlinux2-x86_64-standard:4.0 as the
+runtime image, and set the Service role to New service role. Expand the
+Additional configuration section, add an environment variable named
+CODECOV_TOKEN and input the token you received during the Codecov
+```
+account setup (refer to Step 2 in prerequisites). Please refer to Figure more
+```
+```
+details:
+```
+Figure the Codecov Token as an environment variable
+In the Buildspec section, choose Use a buildspec and leave the Buildspec
+name as buildspec.yml and then click on Create build Once the build is
+complete, you should see the results in the Build logs section. Figure the
+status of a successful build and a link to the Codecov report in the build
+Figure Build with Codecov Report Link in Build Logs
+Verify the integration on Codecov: Log in to your Codecov account. You
+should see your GitHub repository listed. Click on it to view the code
+coverage report for your project. The report will appear similar to the one
+shown in Figure
+Figure 3.11: Codecov Code Coverage Report for the Project
+You have successfully integrated AWS CodeBuild with Codecov for
+automating unit tests and code coverage. Now, whenever you push changes to
+your GitHub repository, CodeBuild will automatically run the unit tests and
+report the code coverage to Codecov.
+Build golden image using EC2 Image Builder
+In this example, we will walk through the process of creating a custom
+Amazon EC2 image with an Apache web server using AWS Image Builder
+and CloudShell. We will start by creating an EC2 Image Builder component
+that installs and configures the Apache web server. Next, we will create an
+image recipe that combines the component with a base Amazon Linux 2 AMI.
+Next, we will set up an infrastructure configuration, which defines the
+instance settings, and an image pipeline to automate the image building
+process. After the custom image is built, we test it by launching an EC2
+instance and verifying that the Apache web server is installed and running.
+It is essential to become familiar with the basic concepts of Image Builder
+before we create an EC2 Golden image. The main terms used in this process
+```
+include:
+```
+• Image This is the primary component in EC2 Image builder. A pipeline must
+have at least one Image Recipe and an Infrastructure configuration.
+• Image This is a versioned resource that contains a parent image and one or
+more Components to build the image.
+• This building component is consumed by the image recipe, such as
+packages for installations.
+• Infrastructure This configuration defines the environment in which our
+image will be built and tested.
+• Distribution This configuration defines how to share an image, such as
+sharing it with selected AWS regions, accounts, or organizations.
+Figure 3.12 illustrates the concepts and terms discussed above:
+Figure 3.12: Overview of EC2 Image Builder concepts and components
+To complete this use case in your AWS account, open the CloudShell terminal
+and follow the step-by-step instructions below.
+```
+Prerequisites:
+```
+• Create an IAM role: Run the following script to create an IAM role and
+instance profile for EC2 Image Builder:
+1. #!/bin/bash
+2. # Create the trust relationship policy JSON file
+3. cat > trust_policy.json << EOL
+4. {
+5. "Version": "2012-10-17",
+6. "Statement": [
+7. {
+8. "Effect": "Allow",
+9. "Principal": {
+10. "Service": "ec2.amazonaws.com"
+11. },
+12. "Action": "sts:AssumeRole"
+13. }
+14. ]
+15. }
+16. EOL
+17.
+18. # Create the IAM role with the specified trust relationship policy
+19. aws iam create-role --role-name EC2LinuxImageBuildRole --assume-
+role-policy-document file://trust_policy.json
+20.
+21. # Attach the EC2InstanceProfileForImageBuilder managed policy to the
+role
+22. aws iam attach-role-policy --role-name EC2LinuxImageBuildRole --
+policy-arn arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder
+This script creates a role named EC2LinuxImageBuildRole with the
+necessary permissions. The full script, named can be found in the GitHub
+repository associated in this chapter.
+After fulfilling these prerequisites, proceed with the following steps:
+Create an S3 First, let us create an S3 bucket in us-east-1 region to store the
+Image Builder components and recipes by running command:
+1. aws s3api create-bucket --bucket my-ec2-image-builder-bucket \
+2. --region us-east-1
+Replace my-image-builder-bucket with a unique name for your bucket.
+Create an EC2 Image Builder In this step, we will create a component to
+build, validate, test, and assess our image. The component is based on a
+YAML document named The contents of YAML files are as follows:
+1. name: InstallApache
+2. description: Install and configure Apache web server
+3. schemaVersion: 1.0
+4.
+5. phases:
+6. - name: build
+7. steps:
+8. - name: InstallApache
+9. action: ExecuteBash
+10. inputs:
+11. commands:
+12. - |
+13. #!/bin/bash
+14. sudo yum update -y
+15. sudo yum install -y httpd
+16. sudo systemctl enable httpd
+17. sudo systemctl start httpd
+Run the following command to upload this YAML file to the S3 bucket:
+1. aws s3 cp install-apache.yml \
+2. s3://my-ec2-image-builder-bucket/components/install-apache.yml
+Finally, execute the following command to create the Image Builder
+```
+component:
+```
+1. aws imagebuilder create-component --cli-input-json '{
+2. "name": "InstallApache",
+3. "semanticVersion": "1.0.0",
+4. "changeDescription": "Initial version",
+5. "platform": "Linux",
+6. "uri": "s3://my-ec2-image-builder-bucket/components/install-apache.yml"
+7. }'
+After completing these steps, we will have created a component named
+InstallApache as shown in Figure We can view this component by navigating
+to the EC2 Image Builder console and selecting Components under Saved
+configurations on the left:
+Figure 3.13: InstallApache Component in EC2 Image Builder Console
+Note down the ARN of this component, as it will be used in next step when
+we create an image:
+1. arn:aws:imagebuilder:us-east-
+1:111111111111:component/installapache/1.0.0
+```
+Important: Throughout this section, ensure to replace 111111111111 with your
+```
+actual AWS account ID in all commands, scripts, and JSON configurations.
+Failing to do this may result in unexpected behaviors.
+Create an image recipe: In this step, we will create an image recipe that
+utilizes the Amazon Linux 2 base image and includes the InstallApache
+component created in previous step. First, run the following command to find
+the latest Amazon Linux 2 AMI ID in the us-east-1 region:
+1. aws ec2 describe-images \
+2. --region us-east-1 \
+3. --owners amazon \
+4. --filters 'Name=name,Values=amzn2-ami-hvm-2.0.????????.?-x86_64-
+gp2' 'Name=state,Values=available' \
+5. --query 'sort_by(Images, &CreationDate)[-1].ImageId' \
+6. --output text
+This command will return an AMI ID, which we will use in the next step. Let
+us assume that the AMI ID is:
+1. ami-05f408238af346b4f
+Now, create a JSON template named create-my-image-recipe.json and copy
+following contents into it:
+1. {
+2. "name": "MyTestRecipe",
+3. "description": "This example image recipe creates a Linux image.",
+4. "semanticVersion": "1.0.0",
+5. "components":
+6. [
+7. {
+8. "componentArn": "arn:aws:imagebuilder:us-east-
+1:111111111111:component/installapache/1.0.0"
+9. }
+10. ],
+11. "parentImage": "ami-05f408238af346b4f"
+12. }
+Finally, run the following command to create an image recipe using the JSON
+```
+file:
+```
+1. aws imagebuilder create-image-recipe \
+2. --cli-input-json file://create-my-image-recipe.json
+This command should create an image pipeline named
+ApacheWebServerPipeline using the specified image recipe and infrastructure
+configuration. Figure the created image recipe:
+Figure 3.14: MyTestRecipe Image Recipe in the EC2 Image Builder Console
+Note down the ARN of this image recipe, as it will be used in step# 6 when
+we create an image:
+1. arn:aws:imagebuilder:us-east-1:111111111111:image-
+recipe/mytestrecipe/1.0.0
+Create an infrastructure configuration: Create an infrastructure configuration
+that defines the instance type and other settings for the build environment:
+1. aws imagebuilder create-infrastructure-configuration --name
+"ApacheWebServerInfraConfig" --instance-types "t2.micro" --instance-
+```
+profile-name "EC2InstanceProfileForImageBuilder" --logging '{
+```
+2. "s3Logs": {
+3. "s3BucketName": "my-image-builder-bucket",
+4. "s3KeyPrefix": "logs/"
+5. }
+6. }'
+Figure the created infrastructure configuration:
+Figure 3.15: ApacheWebServerInfraConfig in the EC2 Image Builder
+Console
+Create a distribution settings Create a JSON template named create-my-
+distribution-configuration.json and copy the following contents into it:
+1. {
+2. "name": "MyExampleDistribution",
+3. "description": "Copies AMI to us-east-1",
+4. "distributions": [
+5. {
+6. "region": "us-east-1",
+7. "amiDistributionConfiguration": {
+8. "name": "Name {{imagebuilder:buildDate}}",
+9. "description": "An example image name with parameter
+references",
+10. "targetAccountIds": ["111111111111"]
+11. }
+12. }
+13. ]
+14. }
+Run the following command to create a distribution configuration using the
+JSON provided above:
+1. aws imagebuilder create-distribution-configuration \
+2. --cli-input-json file://create-my-distribution-configuration.json
+This configuration will share the image with our account, which is in us-east-
+1 region. Figure the distribution settings configuration:
+Figure 3.16: MyExampleDistribution Configuration in the EC2 Image
+Builder Console
+Note down the ARN of the distribution settings configuration, as it will be
+used in the next step, when we create an image pipeline:
+1. arn:aws:imagebuilder:us-east-1:111111111111:infrastructure-
+configuration/apachewebserverinfraconfig
+Create an Image Pipeline: Run the following command to create an image
+pipeline that automates the image building process:
+1. aws imagebuilder create-image-pipeline \
+2. --name "ApacheWebServerPipeline" \
+3. --image-recipe-arn "arn:aws:imagebuilder:us-east-1:111111111111:image-
+recipe/mytestrecipe/1.0.0" \
+4. --infrastructure-configuration-arn "arn:aws:imagebuilder:us-east-
+1:111111111111:infrastructure-configuration/apachewebserverinfraconfig" \
+5. --status ENABLED
+Figure the created image pipeline:
+Figure Image Pipeline in the EC2 Image Builder
+Note down the ARN of image pipeline as it will be needed in next step when
+we run the pipeline:
+1. arn:aws:imagebuilder:us-east-1:111111111111:image-
+pipeline/apachewebserverpipeline
+Run the pipeline: Run the following command to start an image pipeline:
+1. aws imagebuilder start-image-pipeline-execution \
+2. --image-pipeline-arn arn:aws:imagebuilder:us-east-
+1:111111111111:image-pipeline/apachewebserverpipeline
+Test the custom image using EC2 instance: Once the image pipeline has
+completes building the image, you can launch an EC2 instance using the
+custom image and test the Apache web server installation.
+Run the following script in the CloudShell terminal, which automates the
+process of launching an EC2 instance using a custom Amazon Machine
+Image created by the EC2 Image Builder service. The script retrieves the
+custom AMI ID, launches a new EC2 instance with the specified instance
+type, and then waits for the instance to reach the running state before
+displaying its public DNS name:
+1. #!/bin/bash
+2.
+3. set -e
+4.
+5. # Get Custom Image Arn
+6. image_arn=$(aws imagebuilder list-images \
+7. --filters "name=name,values=MyTestRecipe" \
+8. --query 'imageVersionList[0].arn' --output text)
+9. if [[ -z $image_arn || $image_arn == "None" ]]; then
+10. echo "Error: Failed to get custom image ARN or ARN is empty"
+11. exit 1
+12. fi
+13. echo "Image Arn is: $image_arn"
+14.
+15. # Get Image Details
+16. ami_id=$(aws imagebuilder get-image \
+17. --image-build-version-arn $image_arn \
+18. --query 'image.outputResources.amis[0].image' --output text)
+19. if [[ -z $ami_id || $ami_id == "None" ]]; then
+20. echo "Error: Failed to get image details or AMI ID is empty"
+21. exit 1
+22. fi
+23. echo "Custom Image AMI ID is: $ami_id"
+24.
+25. # Launch an EC2 Instance in Public Subnet
+26. instance_id=$(aws ec2 run-instances --image-id $ami_id --instance-type
+```
+t2.micro --query 'Instances[0].InstanceId' --output text)
+```
+27. if [[ -z $instance_id ]]; then
+28. echo "Error: Failed to launch EC2 instance or Instance ID is empty"
+29. exit 1
+30. fi
+31. echo "Instance ID is: $instance_id"
+32.
+33. # Wait for the instance to be in the "running" state
+34. aws ec2 wait instance-running --instance-ids $instance_id
+35.
+36. # Describe instances and get PublicDnsName
+37. public_dns_name=$(aws ec2 describe-instances --filters "Name=image-
+id, Values=$ami_id" --query 'Reservations[].Instances[?
+```
+ImageId==`'$ami_id'`].PublicDnsName' --output text)
+```
+38. if [[ -z $public_dns_name ]]; then
+39. echo "Error: Failed to get Public DNS Name or it is empty"
+40. exit 1
+41. fi
+42. echo "Public DNS Name is: $public_dns_name"
+Once the script is completed, it will provide the following output. You might
+get a different URL:
+1. ec2-54-172-25-182.compute-1.amazonaws.com
+Take this URL and open it in your browser. You can see the test page of the
+Apache web server, as shown in Figure
+Figure 3.18: Apache Web Server Test Page Displayed on EC2 Instance
+Conclusion
+In this chapter, we learned how to use EC2 Image Builder to automate the
+```
+creation and maintenance of custom Amazon Machine Images (AMIs),
+```
+ensuring a secure and up-to-date base for your infrastructure. Additionally,
+we demonstrated how to integrate AWS CodeBuild with Codecov for
+automating unit tests and code coverage, providing insights into the
+quality of your code.
+Lastly, we delved into building a cross-account CI/CD pipeline, which
+allows for efficient collaboration and resource separation across multiple
+AWS accounts, enhancing security measures and enabling consistent
+deployment practices.
+In the next chapter, Infrastructure as Code using we will create a
+continuous pipeline to deploy CloudFormation Stacks. The pipeline builds
+static website that is hosted on AWS S3 and is served by AWS Content
+Delivery Network AWS CloudFront Service.
+Points to remember
+EC2 Image Builder is a service that simplifies the creation and
+maintenance of custom Amazon Machine Images It allows you to
+automate the process of building and testing your images, ensuring they
+are always up-to-date and secure.
+When using EC2 Image Builder, you’ll create components, image recipes,
+infrastructure configurations, and distribution settings. These elements
+work together in an image pipeline to automate the process of building,
+testing, and sharing custom AMIs.
+By setting up a cross-account CI/CD pipeline, teams can work across
+different AWS accounts, enabling better collaboration and resource
+separation. This setup helps in maintaining a clean separation of concerns
+and enhances security and compliance practices.
+The cross-account CI/CD pipeline enables a centralized approach to
+manage and control the software development and deployment processes.
+This helps in streamlining development efforts, improving resource
+management, and ensuring consistent deployment practices across
+multiple accounts.
+By combining AWS CodeBuild and Codecov, you can automate the
+process of running unit tests and reporting code coverage for your
+projects. This integration streamlines your testing workflow and helps you
+identify areas of your code that need improvement, ensuring higher code
+quality and more reliable applications.
+Questions
+What is the role of a component in EC2 Image Builder?
+How does Codecov improve testing workflow?
+What is a key advantage of a cross-account CI/CD pipeline?
+Answers
+Components in EC2 Image Builder are used for software installation and
+configuration, which are combined with a base AMI in an image recipe.
+Codecov measures test coverage, identifies untested code, and provides
+insights on where to write tests, improving code quality and application
+reliability.
+A cross-account CI/CD pipeline enhances security by isolating each stage
+in separate accounts, enabling better access control and resource
+protection.
+C
+HAPTER
+4
+Infrastructure as Code Using CloudFormation
+Introduction
+With AWS CloudFormation we can code our infrastructure from scratch
+using CloudFormation template language written in JSON or YAML
+format. Using templates, we can describe AWS resources and their
+properties to be created. Templates can be saved locally or in an S3
+bucket. CloudFormation manages related resources as a single unit called
+a stack. We can create, update, and remove a collection of resources by
+creating, updating, and deleting a stack. We can update the stack either by
+a direct update or change the set. Change set is recommended in
+production because using change set CloudFormation gives us to review
+the changes before updating the resources.
+Structure
+This chapter will cover the following topics about the CloudFormation
+```
+service:
+```
+• CloudFormation nested stacks pipeline
+• Lambda-backed custom resource deployment
+• Differences between WaitCondition and CreationPolicy
+• Cross stack references
+• CloudFormation stack updates
+• Drift detection and remediation
+Objectives
+The objective of this chapter is to provide a practical understanding of
+Infrastructure as Code using AWS CloudFormation, enabling you to
+efficiently create, manage, and update the infrastructure in AWS. By
+exploring various features and techniques, such as nested stacks, Lambda-
+backed custom resource deployment, differences between CreationPolicy
+and cross stack references, stack updates, and drift detection and
+remediation, you will be equipped with the knowledge to apply best
+practices for maintaining robust and scalable infrastructure using
+CloudFormation.
+CloudFormation nested stacks pipeline
+AWS CodePipeline has built-in integration with AWS CloudFormation.
+Within a pipeline we can specify CloudFormation specific actions such as
+creating/updating/deleting stack. In this example, we will build a pipeline that
+builds a static website that is hosted on AWS S3, and AWS CloudFront serves
+the website. AWS CloudFront is Amazon Content Delivery Network which
+```
+speeds up the delivery of website content (for example, images, style sheets,
+```
+```
+JavaScript, and so on).
+```
+The architecture diagram for this use case is shown in Figure
+Figure 4.1: Continuous delivery pipeline to deploy CloudFormation Nested
+Stacks
+The pipeline is separated into two stages:
+The first stage of the pipeline retrieves source artifacts from AWS S3, and
+source artifact contains CloudFormation templates and associated
+configurations files.
+The second stage of the pipeline deploys creates a CloudFormation parent
+stack and two nested child CloudFormation stacks.
+The hierarchy of these stacks is shown in Figure
+Figure 4.2: Parent and child stacks relationship
+Prerequisites
+Follow the step-by-step instructions to implement this use case on your
+personal AWS account. The following steps involve creating an S3 bucket for
+artifacts, establishing a CloudFormation service role, and preparing source
+files for deployment.
+Create an S3 bucket to upload Use AWS CLI to create an S3 bucket in the us-
+east-1 region. We will use this S3 bucket as a source repository, and
+CodePipeline requires source files to be zipped before uploading to this
+bucket.
+1. aws s3api create-bucket \
+2. --bucket cfn-deploy-s3-YOUR_UNIQUE_IDENTIFIER \
+3. --region us-east-1
+us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-
+1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-
+east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1
+us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-1 us-east-
+1 us-east-1 us-east-1 us-east-1
+After you have created your S3 bucket, you should verify its successful
+creation configuration. Compare the output with the screenshot provided
+below in Figure 4.3 to ensure that your bucket details are correct:
+Figure of successful S3 bucket creation and configuration
+Create AWS CloudFormation service This role will allow AWS
+CloudFormation to create an S3 bucket and CloudFront distribution for the
+static website on our behalf. Please copy the following policy in a text file
+and save it as cloudformation-role-trust.json within a config subdirectory of
+your current working directory:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Sid": "",
+6. "Effect": "Allow",
+7. "Principal": {
+8. "Service": "cloudformation.amazonaws.com"
+9. },
+10. "Action": "sts:AssumeRole"
+11. }
+12. ]
+13. }
+Please copy the following policy in a text file and save it as cloudfront-
+permission-policy.json within a config subdirectory of your current working
+directory. This inline policy will allow the CloudFormation service role to
+create CloudFront distribution:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Sid": "AllowAllCloudFrontPermissions",
+6. "Effect": "Allow",
+7. "Action": [
+8. "cloudfront:*"
+9. ],
+10. "Resource": "*"
+11. }
+12. ]
+13. }
+Please copy the following policy in a text file and save it as changeset-
+permission-policy.json within a config subdirectory of your current working
+directory. This inline policy will allow the CloudFormation service role to
+create a change set for creating CloudFormation stacks:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Effect": "Allow",
+6. "Action": [
+7. "cloudformation:CreateChangeSet"
+8. ],
+9. "Resource": "arn:aws:cloudformation:us-east-
+1:aws:transform/Serverless-2016-10-31"
+10. }
+11. ]
+Now, you will need to execute create-cfn-servicerole.sh bash script, which is
+responsible for creating the ServiceRole named Note down the ARN of this
+role from the output of this script, as this ARN will be required later when
+adding the deploy stage in CodePipeline.
+Create the bash script within the scripts subdirectory of your current working
+directory with the following content:
+scripts/create-cfn-servicerole.sh
+1. #!/bin/sh
+2.
+3. # Create a new IAM role for CloudFormation service with a trust
+relationship defined in a local JSON file.
+4. aws iam create-role --role-name MyCloudFormationServiceRole --
+assume-role-policy-document file://cloudformation-role-trust.json
+5.
+6. # Attach the AmazonS3FullAccess policy to the
+MyCloudFormationServiceRole so it can fully manage S3 resources.
+7. aws iam attach-role-policy --role-name MyCloudFormationServiceRole --
+policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+8.
+9. # Apply a custom permissions policy to the role from a local JSON file,
+allowing necessary CloudFront permissions.
+10. aws iam put-role-policy --role-name MyCloudFormationServiceRole --
+policy-name cloudfront-permission-policy --policy-document
+```
+file://cloudfront-permission-policy.json
+```
+11.
+12. # Apply another custom permissions policy to the role from a local JSON
+file, allowing necessary permissions to manage change sets.
+13. aws iam put-role-policy --role-name MyCloudFormationServiceRole --
+policy-name changeset-permission-policy --policy-document file://changeset-
+permission-policy.json
+14.
+15. # Retrieve the ARN of the created IAM role and output it as text for
+potential use or verification.
+16. aws iam get-role --role-name MyCloudFormationServiceRole --query
+"Role.Arn" --output text
+ARN
+1. arn:aws:iam::[YOUR-AWS-
+ACCOUNT]:role/MyCloudFormationServiceRole
+Now that all the prerequisites are completed, it is time to configure the
+continuous pipeline AWS CodePipeline.
+Prepare the source files for the Before we can launch the continuous
+deployment pipeline using AWS CodePipeline, it is essential to have our
+CloudFormation templates ready for use. The parent stack CloudFormation
+template will be orchestrating the creation of two nested stacks: one for the
+S3 bucket and one for the CloudFront distribution The nested stack templates
+need to be accessible in an S3 bucket, and their URLs are specified in the
+TemplateURL property within the parent stack template.
+Navigate to the templates subdirectory in your project. If it does not exist,
+create it using the following commands:
+1. mkdir -p templates
+2. cd templates
+Create the parent stack template file named with the following content:
+1. AWSTemplateFormatVersion: 2010-09-09
+2. Description: This parent stack creates S3 bucket and Cloudfront
+Distribution
+3. Parameters:
+4. WebsiteBucketName:
+5. Description: website bucket name
+6. Type: String
+7. Resources:
+8. S3BucketStack:
+9. Type: AWS::CloudFormation::Stack
+10. Properties:
+11. TemplateURL: https://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER.s3.amazonaws.com/s3bucket-nested-stack.yml
+12. Parameters:
+13. bucketName: !Ref WebsiteBucketName
+14. CloudFrontStack:
+15. Type: AWS::CloudFormation::Stack
+16. Properties:
+17. TemplateURL: https://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER.s3.amazonaws.com/cloudfront-nested-stack.yml
+18. Parameters:
+19. s3BucketResource: !GetAtt S3BucketStack.Outputs.BucketName
+20. s3BucketResourceArn: !GetAtt
+S3BucketStack.Outputs.BucketResourceArn
+21. s3BucketDomainName: !GetAtt
+S3BucketStack.Outputs.BucketDomainName
+22. Outputs:
+23. CloudFrontDomainName:
+24. Description: Website Cloudfront Domain name
+25. Value: !GetAtt CloudFrontStack.Outputs.CloudFrontDistribution
+Next, create the nested stack template for the S3 bucket named
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Description: This template cerates S3 bucket to host website contents
+3. Parameters:
+4. bucketName:
+5. Description: website bucket name
+6. Type: String
+7. Resources:
+8. s3BucketResource:
+9. Type: AWS::S3::Bucket
+10. Properties:
+11. BucketName: !Ref bucketName
+12. AccessControl: Private
+13. Outputs:
+14. BucketName:
+15. Description: "Name of S3 bucket to host static website contents"
+16. Value:
+17. Ref: s3BucketResource
+18. BucketDomainName:
+19. Description: Website domain name
+20. Value: !GetAtt s3BucketResource.DomainName
+21. BucketResourceArn:
+22. Description: ARN of Website bucket
+23. Value: !GetAtt s3BucketResource.Arn
+Save this content to a file named s3-bucket-nested-stack.yaml within the
+templates directory. Next, create the nested stack template for the CloudFront
+distribution named
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Description: Cloudfront Static S3 Website Distribution Stack
+3. Transform: 'AWS::Serverless-2016-10-31'
+4. Parameters:
+5. s3BucketResource:
+6. Description: Website Content Bucket
+7. Type: String
+8. s3BucketResourceArn:
+9. Description: Arn of S3 Bucket
+10. Type: String
+11. s3BucketDomainName:
+12. Description: Domain name of S3 Bucket
+13. Type: String
+14. Resources:
+15. S3WebsiteBucketPolicy:
+16. Type: AWS::S3::BucketPolicy
+17. Properties:
+18. Bucket: !Ref 's3BucketResource'
+19. PolicyDocument:
+20. Version: '2012-10-17'
+21. Statement:
+22. - Action:
+23. - s3:GetObject
+24. Effect: Allow
+25. Resource: !Sub '${s3BucketResourceArn}/*'
+26. Principal:
+27. CanonicalUser: !GetAtt
+WebsiteCloudFrontOriginAccessIdentity.S3CanonicalUserId
+28. CloudFrontDistribution:
+29. Type: AWS::CloudFront::Distribution
+30. Properties:
+31. DistributionConfig:
+32. DefaultCacheBehavior:
+33. Compress: true
+34. DefaultTTL: 86400
+35. ForwardedValues:
+36. QueryString: true
+37. TargetOriginId: !Sub 'S3-${AWS::StackName}'
+38. ViewerProtocolPolicy: 'redirect-to-https'
+39. CustomErrorResponses:
+40. - ErrorCachingMinTTL: 60
+41. ErrorCode: 404
+42. ResponseCode: 404
+43. ResponsePagePath: '/error.html'
+44. Enabled: true
+45. HttpVersion: 'http2'
+46. DefaultRootObject: 'index.html'
+47. IPV6Enabled: true
+48. Origins:
+49. - DomainName: !Ref 's3BucketDomainName'
+50. Id: !Sub 'S3-${AWS::StackName}'
+51. S3OriginConfig:
+52. OriginAccessIdentity:
+53. !Join ['', ['origin-access-identity/cloudfront/', !Ref
+WebsiteCloudFrontOriginAccessIdentity]]
+54. PriceClass: 'PriceClass_All'
+55. WebsiteCloudFrontOriginAccessIdentity:
+56. Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+57. Properties:
+58. CloudFrontOriginAccessIdentityConfig:
+59. Comment: 'CloudFront OAI S3 Website'
+60. Outputs:
+61. CloudFrontDistribution:
+62. Description: CloudFront Distribution Domain Name
+63. Value: !GetAtt CloudFrontDistribution.DomainName
+Save this content to a file named cloudfront-distribution-stack.yaml within
+the templates directory.
+Finally, create a new file named This configuration file defines the key-value
+pairs for a parameter that the pipeline will use to create two CloudFormation
+nested stacks S3BucketStack and CloudFrontStack respectively:
+1. {
+2. "Parameters" : {
+3. "WebsiteBucketName" : "cfn-static-website-
+YOUR_UNIQUE_IDENTIFIER"
+4. }
+5. }
+Run the following command to create a zip file named website-artifact.zip:
+1. zip -r website-artifact.zip .
+After the zip file is created, upload it to your specified S3 bucket for use with
+AWS CodePipeline by running the following command:
+1. aws s3 cp website-artifact.zip s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER
+```
+s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-
+```
+YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-
+deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-
+UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER
+```
+s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-
+```
+YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-
+deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-
+UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER
+```
+s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-
+```
+YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-
+deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-
+UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER
+```
+s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-
+```
+YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-
+deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-
+UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER
+```
+s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-
+```
+YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-
+deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-
+UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER
+```
+s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-
+```
+YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-
+deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-
+UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER
+```
+s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-
+```
+YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-
+deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-
+UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER
+```
+s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-
+```
+YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-
+deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-
+UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER
+```
+s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-
+```
+YOUR-UNIQUE-IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER s3://cfn-deploy-s3-YOUR-UNIQUE-IDENTIFIER
+To upload the nested templates to your S3 bucket, use the following AWS
+CLI command, replacing YOUR_BUCKET_NAME with the name of your
+S3 bucket:
+1. aws s3 cp cloudfront-nested-stack.yml s3://cfn-deploy-s3-YOUR-
+UNIQUE-IDENTIFIER/
+2. aws s3 cp s3bucket-nested-stack.yml s3://cfn-deploy-s3-YOUR-UNIQUE-
+IDENTIFIER/
+Creating a pipeline using AWS CodePipeline
+In this section, we will create the pipeline. The website code stored in the S3
+bucket will be automatically deployed to the CloudFront distribution.
+To create an automated release process using CodePipeline, follow these
+```
+steps:
+```
+Navigate to the AWS Management Console and open the CodePipeline
+console.
+On the select Create
+In Step 1: Choose pipeline settings as shown in Figure enter the pipeline’s
+name, such as s3website-cloudformation-pipeline.
+For the Service select New service
+In Advanced for Artifact store, choose Default location and for Encryption
+select Default AWS Managed Click
+Figure pipeline settings in CodePipeline
+In Step 2: Add source in Source provider as shown in Figure choose Amazon
+the source provider. In the name of the bucket named This bucket will store
+the source artifact, in the Change detections choose AWS When a new artifact
+is uploaded to source S3 bucket, the pipeline is triggered automatically and
+creates/updates the CloudFormation stack.
+Figure 4.5: Pipeline settings related to Source Stage
+In Step3: Add build select Skip build stage because it does not apply to this
+use-case.
+In Step-4: Add deploy in Deploy provider as shown in Figure choose AWS in
+```
+the choose US East (N. Virginia) region, in Action choose Create or update a
+```
+in Stack enter Website as name of the stack, select SourceArtifact in Artifact
+name drop-down list under In File name enter select SourceArtifact in Use
+configuration file drop-down list under Template configuration, in File name
+enter s3bucket-param.json, select CAPABILITY_IAM and
+CAPABILITY_AUTO_EXPAND under Capabilities section, in Role enter
+MyCloudFormationServiceRole CloudFormation service role that was
+created in prerequisite Step 2 and click Refer to the following figure:
+Figure settings related to Deploy Action
+Review all pipeline settings and create pipeline otherwise go back to previous
+steps and update the configuration if needed. Successful completion of both
+the Source and Deploy stages gives the following output as shown in Figure
+Figure completion of Source and Deploy Stages in pipeline
+Monitor CloudFormation Stacks: Continue to monitor the progress of stack
+creation in CloudFormation console. Figure the snapshot of CloudFormation
+stacks when their status is
+Figure Status of parent and nested CloudFormation Stacks
+View CloudFront S3 Website: Click the Outputs tab in deployed
+CloudFormation Stack that is S3BucketStack as shown in Figure 4.9 and note
+down the bucket name that is
+Figure the bucket name from outputs tab in S3 Bucket CloudFormation Stack
+Prepare and Copy the following html contents into a text file named it to the
+cfn-static-website S3 bucket:
+1.
+2.
+3.
+Welcome to my Static Website
+hosted in S3 and accelerated by
+CloudFront
+4.
+5.
+Prepare and upload Similarly, copy the following html contents into a text
+file named it to cfn-static-website S3 bucket:
+1.
+2.
+3.
+```
+Error: Page Not Found
+```
+4.
+5.
+Click the Outputs tab in deployed CloudFrontStack as shown in Figure 4.10
+and note down the CloudFront distribution domain:
+Figure 4.10: Get the CloudFront distribution domain name from stack output
+Copy the CloudFront distribution domain name and paste it on the browser,
+which displays the index.html of the website. Refer to the following figure:
+Figure 4.11: Static website accelerated by CloudFront
+Lambda-backed custom resource deployment
+Sometimes, we want to extend AWS CloudFormation to support more
+resources, and non-supported AWS services, in such situations custom
+resources come to the rescue. With custom resources, we can write custom
+provisioning logic in templates that CloudFormation runs while creating,
+updating, or deleting a stack. There are two types of custom resources:
+AWS SNS backend and Lambda-backed.
+Once we create an S3 bucket with a name, anyone can create a bucket
+with the same name in any other region or account, once we delete that
+bucket. This means S3 bucket names are globally unique and the
+namespace is shared by all AWS accounts.
+In this example, we use Lambda-backed resources to create an S3 bucket
+with unique names. Figure 4.12 shows the complete workflow for
+CloudFormation custom resource deployment by AWS Lambda-backed:
+Figure 4.12: Architecture diagram for AWS Lambda-backed
+CloudFormation custom resource deployment
+Before we get started, let’s ensure we have everything set up correctly.
+We’ll go through creating a CloudFormation template, setting up the
+stack, and validating the process. Follow these steps to implement the use
+case in your AWS account efficiently:
+Create CloudFormation template
+Let us review this CloudFormation template. This template takes
+BucketName as input parameter and creates a custom resource type
+named Custom::RandomNumberGenerator to invoke and send input
+values to Lambda function named The lambda function uses that
+information, creates unique ID, and sends a response to the pre-signed
+URL. After AWS CloudFormation receives a pre-signed URL response,
+creates a stack.
+1. AWSTemplateFormatVersion: '2010-09-09'
+2.
+3. Parameters:
+4. BucketName:
+5. Type: String
+6. Description: The name of the S3 bucket
+7.
+8. Resources:
+9. InputBucket:
+10. Type: AWS::S3::Bucket
+11. Properties:
+12. BucketName: !Sub '${BucketName}-${RandomNumber}'
+13.
+14. RandomNumber:
+15. Type: Custom::RandomNumberGenerator
+16. Properties:
+17. ServiceToken: !GetAtt 'RandomNumberGenerator.Arn'
+18.
+19. RandomNumberGenerator:
+20. Type: AWS::Lambda::Function
+21. Properties:
+22. Handler: index.lambda_handler
+23. Timeout: 30
+24. Role: !GetAtt 'LambdaBasicExecutionRole.Arn'
+25. Runtime: python3.9
+26. Code:
+27. ZipFile: |
+28. import json
+29. import logging
+30. import random
+31. import cfnresponse
+32.
+33. logger = logging.getLogger()
+34. logger.setLevel(logging.INFO)
+35.
+36. def lambda_handler(event, context):
+37. logger.info('Received event: ' + json.dumps(event))
+38. responseData = {}
+39.
+40. if event['RequestType'] == 'Create':
+41. # Generate a unique random number within a specified
+range
+42. rn = random.randint(100000, 999999999)
+43. responseData['number'] = str(rn)
+44.
+45. else: # Delete/Update
+46. rn = event['PhysicalResourceId']
+47. responseData['number'] = rn
+48.
+49. logger.info('Response data: ' + json.dumps(responseData))
+50. cfnresponse.send(event, context, cfnresponse.SUCCESS,
+```
+responseData, responseData['number'])
+```
+51.
+52. LambdaBasicExecutionRole:
+53. Type: AWS::IAM::Role
+54. Properties:
+55. AssumeRolePolicyDocument:
+56. Statement:
+57. - Effect: Allow
+58. Principal:
+59. Service: lambda.amazonaws.com
+60. Action: sts:AssumeRole
+61. Condition: {}
+62. Path: '/'
+63. ManagedPolicyArns:
+64. - arn:aws:iam::aws:policy/service-
+role/AWSLambdaBasicExecutionRole
+Create CloudFormation stack
+Create a stack by uploading the above template to the CloudFormation
+console. Enter the stack name as use devops-bucket as the value for the
+BucketName parameter and, and click on Next as shown in Figure
+Figure 4.13: Create stack by entering stack name and parameter value for
+BucketName
+The validation is as follows:
+Once the stack creation is successful, we can JSON request and response
+fields that are used in sending messages to and from AWS CloudFormation
+when providing a custom resource in CloudWatch logs.
+Request JSON:
+1. {
+2. "RequestType": "Create",
+3. "ServiceToken": "arn:aws:lambda:us-east-1:
+[YOUR_AWS_ACCOUNT_ID]:function:create-unique-s3bucket-
+RandomNumberGenerator-JGBDEXfGXpij",
+4. "ResponseURL": "[YOURS-S3-PRE-SIGNED-URL]",
+5. "StackId": "arn:aws:cloudformation:us-east-1:
+[YOUR_AWS_ACCOUNT_ID]:stack/create-unique-s3bucket/f7d9b010-
+7cce-11ee-9b2d-12c8b0153527",
+6. "RequestId": "f6ea4b49-7585-4dfc-8833-22c9a4145132",
+7. "LogicalResourceId": "RandomNumber",
+8. "ResourceType": "Custom::RandomNumberGenerator",
+9. "ResourceProperties": {
+10. "ServiceToken": "arn:aws:lambda:us-east-1:
+[YOUR_AWS_ACCOUNT_ID]:function:create-unique-s3bucket-
+RandomNumberGenerator-JGBDEXfGXpij"
+11. }
+12. }
+Response JSON:
+1. {
+2. "Status": "SUCCESS",
+3. "Reason": "See the details in CloudWatch Log Stream:
+2023/11/06/[$LATEST]c9eb945a596b45e7a84638d838c74595",
+4. "489948127",
+5. "StackId": "arn:aws:cloudformation:us-east-1:
+[YOUR_AWS_ACCOUNT_ID]:stack/create-unique-s3bucket/f7d9b010-
+7cce-11ee-9b2d-12c8b0153527",
+6. "RequestId": "f6ea4b49-7585-4dfc-8833-22c9a4145132",
+7. "LogicalResourceId": "RandomNumber",
+8. false,
+9. "Data": {
+10. "number": "489948127"
+11. }
+12. }
+By looking at the response JSON, you will notice a unique value ID has been
+returned in Data.number field. CloudFormation uses this value from returned
+response URL and appends it to BucketName parameter value and creates a
+unique S3 bucket as shown in Figure
+Figure 4.14: Unique S3 bucket name created by CloudFormation using
+Custom Resource
+Differences between WaitCondition and CreationPolicy
+Both CreationPolicy and WaitCondition are used to delay the creation of
+the CloudFormation stack. WaitCondition is a CloudFormation resource.
+While CreationPolicy is an attribute associated with other resources,
+WaitCondition pauses the execution of stack creation and waits for
+```
+specified number of success signals (for a given period) before stack
+```
+creation continues.
+There are three properties associated with
+```
+Type: AWS::CloudFormation::WaitCondition
+```
+```
+Properties:
+```
+```
+Count: Integer
+```
+```
+Handle: String
+```
+```
+Timeout: String
+```
+This is the number of success signals the CloudFormation should receive
+before it continues the creation of the stack.
+It refers to the wait-for condition handle used to signal the wait condition.
+```
+The length of time (in seconds) to wait for the number of signals that the
+```
+specifies.
+The usage of wait conditions is useful in those situations where there is a
+need to coordinate stack resource creation with configuration actions
+```
+external to stack creation (hybrid on on-premises).
+```
+Creation policies also pause the creation of resources until a requested
+```
+number of success signals are received (like wait conditions). AWS
+```
+recommends creation policies for use with EC2 and Autoscaling. Possible
+use cases include creating EC2 instances, but the instances also require
+some software or third-party libraries to be installed. Without a creation
+policy, the EC2 instances will appear ready before the software or third-
+party libraries are installed. Like wait conditions, we specify timeout and
+number of success signals in creation policies.
+1. CreationPolicy:
+2. AutoScalingCreationPolicy:
+3. MinSuccessfulInstancesPercent.: Integer
+4. ResourceSignal:
+5. Count: Integer
+6. Timeout: String
+Cross stack references
+CloudFormation allows exporting resources from one CloudFormation
+stack to another. This methodology let us use layered or service-oriented
+architecture. Instead of including resources in a single stack, we can create
+related sources in separate stacks then they can refer to required resource
+outputs from other stacks. For example, one network stack creates VPCs,
+subnets and security groups and the web application stack create EC2
+instance that uses the security group from network stack as shown in
+Figure
+We use export field in output section of stack’s template. To import these
+values we use Fn::ImportValue intrinsic
+Figure 4.15: Cross Stack References
+CloudFormation stack updates
+There are two methods for updating CloudFormation stacks: Direct update or
+create/execute change sets. When we update the stack with the direct update,
+CloudFormation immediately deploys the change. This kind of update is
+suitable for development or testing environments but not in production
+environments because it does not allow reviewing the changes before
+updating them. However, using change set we get an opportunity to review
+the changes before updating them as shown in Figure
+Figure 4.16: CloudFormation Stack Update by Change Set
+In this example, we will walk through a simple use case where we create an
+EC2 instance and assign a tag Using the change we update the stack by
+```
+updating the tag (from environment=test to
+```
+We will use AWS CLI to create an original stack, create a change set, view
+the change set, and executing change sets.
+Create CloudFormation template
+Here is the CloudFormation template that will be used in the create-stack
+that creates the original-stack which provisions an EC2 instance.
+Template.yml
+1. AWSTemplateFormatVersion: 2010-09-09
+2. Description: Template for EC2 instance. Testing change sets.
+3. Parameters:
+4. Environment:
+5. Type: String
+6. Default: dev
+7. AllowedValues:
+8. – dev
+9. – test
+10. – prod
+11. Description: The environment where EC2 instance runs
+12. KeyPair:
+13. Type: 'AWS::EC2::KeyPair::KeyName'
+14. Description: Existing EC2 KeyPair that enables SSH access to
+instance
+15. InstanceType:
+16. Type: String
+17. Default: t2.micro
+18. AllowedValues:
+19. – t2.micro
+20. – t2.small
+21. – t2.medium
+22. Description: EC2 instance type.
+23. Resources:
+24. EC2Instance:
+25. Type: 'AWS::EC2::Instance'
+26. Properties:
+27. KeyName: !Ref KeyPair
+28. InstanceType: !Ref InstanceType
+29. ImageId: ami-8fcee4e5
+30. Tags:
+31. – Key: Environment
+32. Value: !Ref Environment
+Create CloudFormation stack
+This command takes parameters values KeyPair=[your-key-pair] and
+```
+InstanceType=t2.micro and creates an EC2 instance.
+```
+1. aws cloudformation create-stack --stack-name original-stack \
+2. --template-body file://template.yml \
+3. --parameters ParameterKey=Environment,ParameterValue=test \
+4. ParameterKey=KeyPair,ParameterValue=[your-key-pair] \
+5. ParameterKey=InstanceType,ParameterValue=t2.micro
+Figure 4.17 shows the EC2 instance created by the above command, and it
+also shows the added tag:
+Figure 4.17: EC2 Instance with Tag Environment=test which will be updated
+by Change Set
+Create change set
+This command creates a change set named UpdateTagChangeSet as shown in
+Figure 3.16 and requests CloudFormation to change EC2 tag’s to
+1. aws cloudformation create-change-set --stack-name original-stack \
+2. --change-set-name UpdateTagChangeSet --use-previous-template \
+3. --parameters ParameterKey="InstanceType",UsePreviousValue=true \
+4. ParameterKey="KeyPair",UsePreviousValue=true \
+5. ParameterKey="Environment",ParameterValue="prod"
+Figure 4.18 shows the change set created by the preceding command:
+Figure 4.18: Create Change Set to update EC2 Instance’s Tag
+View change set
+Use describe-change-set AWS CLI to describe the change set named
+UpdateTagChangeSet which we created earlier. By analyzing the output of
+describe-change-set CLI set, we can observe that the new value for a prod
+tag has been updated in the change set therefore we are good to go and
+execute the change set now.
+1. aws cloudformation describe-change-set \
+2. --change-set-name UpdateTagChangeSet \
+3. --stack-name original-stack
+1. "ChangeSetName": "UpdateTagChangeSet",
+2. "ChangeSetId": "arn:aws:cloudformation:us-east-1:[your-account-
+id]:changeSet/UpdateTagChangeSet/92d978ea-8f94-409c-9456-
+54ff875fdc79",
+3. "StackId": "arn:aws:cloudformation:us-east-1:[your-account-
+id]:stack/original-stack/30b38760-7449-11ed-b9a1-0a29fb5165e9",
+4. "StackName": "original-stack",
+5. "Description": null,
+6. "Parameters": [
+7. {
+8. "ParameterKey": "KeyPair",
+9. "ParameterValue": "test-key-pair"
+10. },
+11. {
+12. "ParameterKey": "Environment",
+13. "ParameterValue": "prod"
+14. },
+15. {
+16. "ParameterKey": "InstanceType",
+17. "ParameterValue": "t2.micro"
+18. }
+19. ]
+Execute Change Set
+Run execute-change-set CLI to execute the change set. After we run the
+command, CloudFormation starts updating the stack. Once the status of
+original-stack is UPDATE_COMPLETE we will be able to see that tag of
+EC2 instance has been updated from Environment=test to
+1. aws cloudformation execute-change-set \
+2. --change-set-name UpdateTagChangeSet \
+3. --stack-name original-stack
+Figure 4.19 shows that tag has been updated in the EC2 instance after the
+above change set was executed:
+Figure 4.19: EC2 Instance with updated Tag
+Drift detection and remediation
+In AWS CloudFormation, drift occurs when the current resource
+configuration in AWS environment differs from the expected resource
+configuration defined in the CloudFormation stack. This can happen due
+to manual changes made outside of CloudFormation or due to other
+factors, such as infrastructure changes. CloudFormation can detect such
+drift and can help us bring the resource back to its expected state. In this
+example, we will create a CloudFormation stack and intentionally make
+changes to its resources via the AWS console. Next, we will take
+advantage of the CloudFormation Drift detection feature to visualize the
+changes and resolve the drift. Follow the step-by-step instructions below
+to test this use-case in your AWS account.
+Creating CloudFormation template
+Create a YAML file named template.yml and copy the following contents
+into it. This template sets up an S3 bucket with public read access and
+configures it for hosting a static website:
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Description: CloudFormation template for a static S3 website
+3.
+4. Parameters:
+5. BucketName:
+6. Description: The name of the S3 bucket to create
+7. Type: String
+8.
+9. Resources:
+10. StaticWebsiteBucket:
+11. Type: AWS::S3::Bucket
+12. Properties:
+13. BucketName: !Ref BucketName
+14. AccessControl: PublicRead
+15. WebsiteConfiguration:
+16. IndexDocument: index.html
+17. ErrorDocument: error.html
+18.
+19. PublicReadBucketPolicy:
+20. Type: AWS::S3::BucketPolicy
+21. Properties:
+22. Bucket: !Ref StaticWebsiteBucket
+23. PolicyDocument:
+24. Version: '2012-10-17'
+25. Statement:
+26. - Sid: PublicReadGetObject
+27. Effect: Allow
+28. Principal: "*"
+29. Action:
+30. - "s3:GetObject"
+31. Resource: !Sub "arn:aws:s3:::${StaticWebsiteBucket}/*"
+32.
+33. Outputs:
+34. WebsiteURL:
+35. Description: The URL of the static S3 website
+36. Value: !Sub "http://${StaticWebsiteBucket}.s3-
+```
+website-${AWS::Region}.amazonaws.com"
+```
+Creating stack and detect drift
+In this step, we will create a CloudFormation stack using the template
+supplied above and check for drift.
+Run the following command using AWS CLI to create a stack named You
+need to specify a unique S3 bucket name as an input parameter to the stack.
+1. aws cloudformation create-stack –-stack-name drift-detection-stack \
+2. –-template-body \
+3. –-parameters ParameterKey=BucketName,ParameterValue=s3website-
+03-2027
+Figure the s3 bucket and bucket policy created by CloudFormation stack for
+the S3 static website:
+Figure static website resources
+Select drift-detection-stack on the click on Stack and Drift In a few minutes,
+we should see that the stack is now shown as IN_SYNC in Figure At this
+point, the stack is in expected Drift state, which is
+Figure detection in CloudFormation Stack
+Modifying resource and detecting Drift
+In this section, we will intentionally make changes to the S3 bucket via the
+AWS Console.
+Navigate to the S3 console and click on the S3 bucket named s3website-03-
+2027 created by the CloudFormation stack.
+Click on Properties tab, go to last panel named Static website click on disable
+Static website and save the changes as shown in Figure
+Figure Static website hosting
+Navigate to the CloudFormation Console, select the drift-detection-stack
+stack, click on Stack and then click on Detect
+Click on Stack actions and then select View drift results to view the details of
+modified resources. Figure the status as drifted for the CloudFormation stack:
+Figure status displayed for the CloudFormation stack
+Select the radio button next to the drifted S3 bucket, and then click on View
+drift You should see the result as shown in Figure
+Figure drift details of the drifted resource
+Remediation
+In this section, we will re-enable website hosting on the S3 bucket and detect
+Drift again.
+Navigate to the S3 console and click on the S3 bucket named
+Click on the Properties tab, go to the last panel named Static website hosting,
+click on Edit, choose input index.html in the Index input error.html in Error
+and click on Save
+Navigate to the CloudFormation Console, select the drift-detection-stack
+stack, click on Stack actions, and then click on Detect When complete, we
+will be able to see that the Drift status has turned to IN_SYNC as shown in
+Figure
+Figure stack drift after the remediation
+Conclusion
+In this chapter, we learned how AWS CloudFormation provides a
+powerful and flexible way to manage infrastructure as code. We covered
+several advanced topics such as the use of nested stacks, Lambda-backed
+custom resources, cross-stack references, and stack updates. We also
+highlighted the key differences between WaitCondition and which can
+help us better control the timing and success of resource creation within a
+CloudFormation stack. By leveraging these features and best practices, we
+can create, manage, and update complex infrastructures with ease, while
+improving the scalability, reliability, and security of your cloud-based
+applications.
+In the next chapter, we will explore additional tools and services that can
+help further improve our cloud infrastructure management and
+development. We will start by discussing CloudFormation StackSets,
+which allows us to manage multiple CloudFormation stacks across
+multiple accounts and regions with ease. We will also introduce the AWS
+Cloud Development Kit a high-level object-oriented framework for
+defining AWS resources using familiar programming languages.
+Additionally, we will cover AWS AppConfig, AWS Control Tower, AWS
+Detective, AWS App2Container, and AWS Copilot, which offer various
+capabilities for application configuration, governance, security, migration,
+and deployment. By mastering these tools and services, we can streamline
+our cloud operations and delivery, and achieve greater agility and
+innovation in our business.
+Points to remember
+Nested stacks are used to simplify the management of complex
+infrastructure. Each nested stack has its own set of parameters and
+resources. We can use the outputs from one stack as inputs to another
+stack. CloudFormation rolls back all the nested stacks if any one of them
+fails. When updating a stack that holds nested stacks, CloudFormation
+updates the resources in the nested stacks first, and then updates the
+resources in the parent stack.
+Drift detection is the process of identifying differences between the
+expected and actual state of a resource or stack. CloudFormation provides
+drift detection capability for stacks and individual resources. We can use
+the AWS CLI, AWS SDKs, or the AWS Management Console to detect
+drift. Remediation is the process of correcting drift by bringing the
+resource or stack back into the expected state.
+Custom resources enable us to write custom provisioning logic in
+templates. They are particularly useful in situations when we want to
+include the resources in the template that are not available in AWS
+CloudFormation resource types. These resources can be included by using
+custom resources.
+Change Sets in AWS CloudFormation allows us to preview changes
+before updating the stack. For example, if changes will remove or replace
+critical resources. CloudFormation will only make changes to the stack if
+we decide to execute the change set.
+WaitCondition is a CloudFormation resource, while CreationPolicy is an
+attribute associated with other resources. When we need to pause the
+creation of an EC2 instance or multiple instances in an auto-scaling group,
+and make the stack wait for applications to be installed and started on the
+instances, think of And, when we want to coordinate resource creation
+with actions external to the stack, think of WaitCondition with a
+DependsOn attribute on the resource.
+Questions
+What is the purpose of Fn::ImportValue intrinsic function?
+Create a CloudFormation template that takes a parameter named AmiId
+and uses the intrinsic function Ref to pass the AmiId input parameter to
+the EC2 resource property?
+Create a CloudFormation template that takes AmiId and EC2InstanceType
+as input parameter and uses them to create an EC2 instance. The EC2
+instance type should be tagged, and the Fn::Sub intrinsic function should
+be used to return the type of EC2 instance.
+Answers
+The intrinsic function Fn::ImportValue is used to return the value of an
+output exported by another stack and is used for creating cross-stack
+references.
+For example, to export a value from a stack, we can use the Outputs
+section in the CloudFormation template as shown below:
+1. Outputs:
+2. MyOutputValue:
+3. Value: A value to export
+4. Export:
+5. Name: MyExportedValue
+To import the value from another stack, we can use the export name with
+the Fn::ImportValue intrinsic function as shown below:
+1. !ImportValue MyExportedValue
+In the following CloudFormation template, we have defined a parameter
+named AmiId in parameters section on line 2. The template uses the Ref
+intrinsic function to pass the AmiId parameter value to the EC2 instance
+property on line 10.
+1. Parameters:
+2. AmiId:
+3. Type: String
+4. Description: ID of the Amazon Machine Image (AMI) to use for the
+EC2 instance
+5.
+6. Resources:
+7. MyEC2Instance:
+8. Type: 'AWS::EC2::Instance'
+9. Properties:
+10. ImageId: !Ref AmiId
+11. InstanceType: t2.micro
+12. # Add more instance properties here as needed
+In the following CloudFormation template the Parameters section defines
+AmiId and EC2InstanceType parameters. The resources section defines
+the EC2 instance resource named The Tags property is set to include a
+Type tag that is populated with the value of EC2InstanceType using the
+```
+Fn::Sub intrinsic function.
+```
+1. Parameters:
+2. AmiId:
+3. Type: String
+4. Description: ID of the Amazon Machine Image (AMI) to use for the
+EC2 instance
+5. EC2InstanceType:
+6. Type: String
+7. Description: Type of the EC2 instance to create
+8.
+9. Resources:
+10. MyEC2Instance:
+11. Type: 'AWS::EC2::Instance'
+12. Properties:
+13. ImageId: !Ref AmiId
+14. InstanceType: !Ref EC2InstanceType
+15. Tags:
+16. - Key: Type
+17. Value: !Sub ${EC2InstanceType}
+18.
+19. Outputs:
+20. InstanceId:
+21. Value: !Ref MyEC2Instance
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+5
+Automated Account Management and Security in AWS
+Introduction
+In the previous chapter, we learned about AWS CloudFormation and its
+capabilities for managing infrastructure as code. In this chapter, we will
+extend our knowledge of CloudFormation by exploring how to deploy
+stacks across multiple accounts and regions using CloudFormation
+StackSets.
+We will also delve into the AWS Cloud Development Kit a powerful tool
+that allows you to define AWS resources using familiar programming
+languages and automatically generates CloudFormation templates for you.
+Additionally, this chapter will cover AWS Copilot, a command-line tool
+designed to simplify the deployment and management of containerized
+applications on AWS, and AWS App2Container, a tool that helps migrate
+legacy applications into container format for seamless deployment on
+AWS.
+We will also discuss AWS AppConfig, a service for managing application
+configurations and feature flags, and AWS Detective, a security analysis
+service that helps identify the root cause of security findings or suspicious
+activities.
+Structure
+In this chapter, we will discuss the following topics:
+• CloudFormation StackSets
+• Creating an S3 bucket with AWS CDK
+• Implementing feature flags using AWS AppConfig
+• Deploying API with AWS copilot
+• Containerizing legacy apps using AWS App2Container
+• Key components of AWS Control Tower
+• Enhancing security analysis with AWS Detective
+Objectives
+In this chapter, our primary objective is to provide a comprehensive
+understanding of deploying automation to create, onboard, and secure
+AWS accounts in a multi-account/multi-region environment. We will gain
+hands-on experience and in-depth knowledge of various AWS DevOps
+tools and services, including CloudFormation StackSets, AWS AppConfig,
+AWS App2Container, AWS Copilot, and AWS Control Tower.
+CloudFormation StackSets
+CloudFormation StackSets enables us to create, update, or delete stacks
+across multiple AWS regions and accounts with a single operation. Using an
+administrator account, we can define and manage an AWS CloudFormation
+template and provision stacks into specified AWS regions and target accounts.
+Two permission models can be used to deploy stack sets: Self-managed or
+service-managed. With self-managed, we create AWS Identity and Access
+Management roles that set up the trust between accounts, whereas in service-
+managed, we deploy stack instances to accounts that are managed by AWS
+organizations.
+In this example, we will deploy a CloudFormation template that provisions an
+S3 bucket across four regions. We will create a stack set using this template
+and AWS CLI commands with self-managed permissions. To keep this use
+case simple, we will utilize one account that has both administrator and
+execution roles. We can utilize StackSets across multiple accounts as well.
+The architecture of this use case is shown in Figure
+Figure 5.1: CloudFormation StackSets
+To complete this use case on your AWS account, please follow the step-by-
+step instructions given below:
+1. Creating a StackSet admin role: AWS CloudFormation StackSets require
+specific permissions to deploy CloudFormation stacks across multiple AWS
+regions. To create the AWSCloudFormationStackSetAdministrationRole IAM
+role in the us-east-1 region using the CLI, run the following command:
+1. aws cloudformation create-stack --stack-name stackset-admin-role-stack \
+2. --template-url https://s3.amazonaws.com/cloudformation-stackset-sample-
+templates-us-east-1/AWSCloudFormationStackSetAdministrationRole.yml \
+3. --region us-east-1 \
+4. --capabilities CAPABILITY_NAMED_IAM
+The resulting IAM role is shown in Figure
+Figure 5.2: CloudFormation created StackSet admin role
+2. Creating StackSet execution In addition to the administrator role, AWS
+CloudFormation StacksSets require an execution role to deploy stacks in
+target accounts. To create the AWSCloudFormationStackSetExecutionRole
+IAM role in the us-east-1 region using the CLI, run the following command:
+1. aws cloudformation create-stack --stack-name stackset-execution-role-
+stack \
+2. --parameters
+```
+ParameterKey=AdministratorAccountId,ParameterValue=111111111111 \
+```
+3. --template-url https://s3.amazonaws.com/cloudformation-stackset-sample-
+templates-us-east-1/AWSCloudFormationStackSetExecutionRole.yml \
+4. --region us-east-1 \
+5. --capabilities CAPABILITY_NAMED_IAM
+The resulting IAM role is shown in Figure
+Figure 5.3: CloudFormation created StackSet execution role
+3. Creating StackSet CloudFormation Create a CloudFormation template
+named template.yml that creates an S3 bucket with a unique name that
+incorporates the AWS account ID and the AWS region:
+1. AWSTemplateFormatVersion: 2010-09-09
+2. Description: 'This template creates an S3 Bucket'
+3. Resources:
+4. MyS3Bucket:
+5. Type: AWS::S3::Bucket
+6. Properties:
+7. BucketName: !Sub stackset-demo-
+```
+bucket-${AWS::AccountId}-${AWS::Region}
+```
+4. Deploying StackSet: Run the following command using CLI to create a
+stack set in the us-east-1 region that creates an S3 bucket using the YAML
+template provided in the previous section:
+1. aws cloudformation create-stack-set \
+2. --stack-set-name multiregion-s3bucket-stack-set \
+3. --template-body file://template.yml \
+4. --description "Multi Region S3 Bucket" \
+5. --region us-east-1
+Figure 5.4 shows the stack set that was created from the above command:
+Figure 5.4: Created stack set
+To verify that the stack set has been created, run the following command
+using CLI:
+1. aws cloudformation list-stack-sets
+The command output should look like this:
+1. {
+2. "Summaries": [
+3. {
+4. "Status": "ACTIVE",
+1. "Description": "Multi Region S3 Bucket",
+5. "DriftStatus": "NOT_CHECKED",
+6. "StackSetName": "multiregion-s3bucket-stack-set",
+7. "StackSetId": "multiregion-s3bucket-stack-set:53c009ec-99ad-
+43b4-9819-16029d4ab8b5"
+8. }
+9. ]
+10. }
+The output shows that the stack set has been created successfully and is in an
+active state.
+5. Adding stack To add stack instances in one account and four regions and to
+the previously created stack set, run the following command using CLI:
+1. aws cloudformation create-stack-instances \
+2. --stack-set-name multiregion-s3bucket-stack-set \
+3. --accounts 111111111111 \
+4. --regions us-east-1 us-east-2 us-west-1 us-west-2 \
+5. --operation-preferences
+```
+FailureToleranceCount=0,MaxConcurrentCount=1
+```
+The command creates stack instances in the specified AWS account and
+regions and specifies an operation preference to tolerate zero failures and a
+maximum concurrency of 1 stack instance at a time.
+The command output should look like this:
+1. {
+2. "OperationId": "6d1f2870-731e-4843-8758-b7f7c6ba7277"
+3. }
+To verify if the stack instances were created successfully, run the following
+command with the operation ID returned from the above command:
+1. aws cloudformation describe-stack-set-operation \
+2. --stack-set-name multiregion-s3bucket-stack-set \
+3. --operation-id 6d1f2870-731e-4843-8758-b7f7c6ba7277
+The command output should show the status of the stack set operation,
+including the execution role, operation preferences, and timestamps:
+1. {
+2. "StackSetOperation": {
+3. "Status": "SUCCEEDED",
+4. "AdministrationRoleARN": "arn:aws:iam::
+5. "OperationPreferences": {
+6. "FailureToleranceCount": 0,
+7. "MaxConcurrentCount": 1,
+8. "RegionOrder": []
+9. },
+10. "AWSCloudFormationStackSetExecutionRole",
+11. "EndTimestamp": "2023-03-31T01:51:46.474Z",
+12. "Action": "CREATE",
+13. "CreationTimestamp": "2023-03-31T01:48:13.458Z",
+14. "multiregion-s3bucket-stack-set:53c009ec-99ad-43b4-9819-
+16029d4ab8b5",
+15. "OperationId": "6d1f2870-731e-4843-8758-b7f7c6ba7277"
+16. }
+17. }
+6. Validation: Now it is time to check if the S3 bucket has been created in any
+of the specified regions with the AWS account ID and respective AWS region
+```
+as part of the bucket name. Let us check in the us-west-2 (Oregon) region, as
+```
+shown in Figure
+```
+Figure 5.5: S3 bucket created in us-west-2 (Oregon) region
+```
+Similarly, if we check the other regions, we can observe that the S3 buckets
+have been created.
+In conclusion, using AWS CloudFormation stack sets provides an efficient
+and streamlined way to deploy resources across multiple accounts and
+regions, reducing manual effort and ensuring compliance. The successful
+creation of the S3 bucket stack set in this example demonstrates the benefits
+of using AWS CloudFormation for multi-account and multi-region resource
+deployment.
+Creating an S3 Bucket with AWS CDK
+```
+AWS Cloud Development Kit (CDK) is an open-source framework that
+```
+enables the definition and provisioning of cloud infrastructure in code, using
+familiar programming languages such as TypeScript, JavaScript, Python,
+Java, C# and Go. AWS CDK uses a higher-level abstraction over AWS
+CloudFormation, which allows developers to create reusable and
+customizable components that can be utilized across multiple projects.
+The AWS CDK uses three major building blocks to provision infrastructure in
+```
+AWS: Constructs, apps, and stacks. Constructs can contain a single AWS
+```
+resource or multiple resources together. A stack is a collection of AWS
+resources that are created and managed together as a single unit. An app
+consolidates all the stacks and constructs together in one application and
+deploys them to AWS.
+In this example, we will create an AWD CDK using the sample blank
+template provided by the framework. We will use the Bucket construct to add
+the code for an S3 bucket to the app. Next, we will synthesize the stack in the
+app to create an AWS CloudFormation template. Finally, we will deploy the
+stack to our AWS account to create the S3 bucket.
+The architecture of this use case is shown in Figure
+Figure 5.6: Create an S3 bucket with AWS CDK
+To complete this use case on your AWS account, please follow the step-by-
+step instructions below:
+These are the prerequisites:
+• AWS CLI installed and configured
+• AWS CDK kit installed
+• Python 3.9+ installed
+Creating a project Create an empty directory named my-s3bucket-cdk and
+change the directory to it. This directory will contain the CDK app and its
+local dependencies:
+1. mkdir my-s3bucket-cdk
+2. cd my-s3bucket-cdk
+Initializing the In this step, we will initialize the AWS CDK app by running
+the following command using the AWS CLI:
+1. cdk init app --language python
+In this command, we specify the blank sample template provided by AWS
+CDK and the programming language used, which is Python.
+Once the initialization process is completed, we will observe that the app’s
+Python virtual environment is also created.
+The cdk init command creates several files and folders inside the to structure
+the source code for the AWS CDK app. The structure of the folder is as
+shown below:
+1. ├── app.py
+2. ├── cdk.json
+3. ├── my_s3bucket_cdk
+4. │ ├── __init__.py
+5. │ └── my_s3bucket_cdk_stack.py
+6. ├── README.md
+7. ├── requirements-dev.txt
+8. ├── requirements.txt
+9. ├── source.bat
+10. └── tests
+11. ├── __init__.py
+12. └── unit
+13. ├── __init__.py
+14. └── test_my_s3bucket_cdk_stack.p
+Activating virtual Once the app has been created, run the following command
+to activate the virtual environment:
+1. source .venv/bin/activate
+Installing Python After activating the virtual environment, install the AWS
+CDK core dependencies by running the following command:
+1. python -m pip install -r requirements.txt
+Listing the stacks in the To list the stacks in our AWS CDK app, run the
+following command using the AWS CLI:
+1. cdk ls
+The above command should result in
+Adding S3 Now, we will define an S3 bucket in the stack using the bucket
+construct. Change the directory to my-s3bucket-cdk and replace the contents
+of file named the following:
+1. import aws_cdk as cdk
+2. import aws_cdk.aws_s3 as s3
+3.
+4. class MyS3BucketCdkStack(cdk.Stack):
+5.
+6. def scope: cdk.App, construct_id: str, **kwargs) -> None:
+7. super().__init__(scope, construct_id, **kwargs)
+8.
+9. bucket = s3.Bucket(self, "MyCDKDemoBucket", versioned=True)
+Synthesizing the CloudFormation To generate an AWS CloudFormation
+template from our AWS CDK app, run the following command using the
+AWS CLI:
+1. cdk synth
+The command executes our app and translates the resources defined in the
+app into an AWS CloudFormation template. This resulting template is saved
+in the cdk.out directory.
+Deploying Bootstrap The first time, when we deploy an AWS CDK app, we
+need to install the bootstrap stack in our AWS account. Run the following
+command using AWS CLI to deploy the bootstrap stack:
+1. cdk bootstrap
+This stack will install resources such as an S3 bucket to store files and IAM
+roles that grant the necessary permissions for deployment. Figure that a
+CloudFormation stack named CDKToolkit has been created.
+Figure bootstrap stack
+Once we have bootstrapped the environment, we can proceed with the
+deployment of our app.
+Deploying the To deploy the AWS CDK stack using AWS CloudFormation,
+run the following command using the CLI:
+1. cdk deploy
+This command will create an S3 bucket resource defined in our app according
+to the AWS CloudFormation template generated by the cdk synth command.
+After running cdk we should wait until the status of MyS3BucketCdkStack
+changes to
+Once we see the status of MyS3BucketCdkStack is go to the resource tab and
+check the S3 bucket name which has been created as shown in Figure
+Figure app is deployed through AWS CloudFormation
+Once the stack has been created successfully, we can go to the AWS S3
+console to check that the S3 bucket was created. Navigate to the Properties
+tab and check that the Bucket versioning is as shown in Figure
+Figure versioning is enabled for the S3 bucket created
+Implementing feature flags using AWS AppConfig
+AWS AppConfig is a fully managed service that quickly deploys application
+configurations to different targets such as AWS Lambda, AWS EC2,
+containers, mobile applications, or IoT devices in a controlled manner.
+AppConfig provides built-in validators which do syntactic or semantic checks
+to ensure that the configuration which we want to deploy to the targets works
+as intended. This prevents those situations where a simple typo in
+configuration can cause an unexpected outage to the system.
+Also, during the configuration deployment, AppConfig monitors the
+application to ensure deployment is successful. If there is an issue found
+during the deployment AppConfig will roll back the changes to reduce the
+impact on application users by using the appropriate deployment strategy
+based on your use cases.
+Figure 5.10 visually represents the process of how AppConfig deploys
+configurations to Lambda, EC2, and containers:
+Figure 5.10: Deployment of AWSConfig to EC2, Lambda, and ECS
+In this example, we will demonstrate how to implement a feature flag in AWS
+AppConfig to manage a specific functionality within your application using
+AWS CLI commands. We will be using a feature flag named
+is_virus_scanning to control the usage of a third-party vendor’s virus-
+scanning engine. In some AWS regions, this vendor’s product does not
+support virus scanning, making this flag particularly useful. By using
+AppConfig, we can easily enable or disable the virus scanning feature based
+on the region where your application is deployed. This approach allows us to
+maintain granular control over the availability of the virus scanning
+functionality across different regions while minimizing the potential impact
+on application performance and user experience.
+To complete this use case on your AWS account, please follow the step-by-
+step instructions below. These are the prerequisites:
+• AWS CLI is installed.
+• jq is installed.
+Creating an In AWS AppConfig, an application represents a logical container
+for the configurations, environments, and configuration profiles associated
+with a specific software application, service, or group of related applications.
+Run the following command using the CLI to create an AWS AppConfig
+application named my_serverless_app in the us-east-1 region:
+1. aws appconfig create-application \
+2. --name "my_serverless_app" \
+3. --description "my serverless application" \
+4. --region us-east-1
+The above command outputs the following. Make a note of the application
+ID, which will be required in the next step when we create an environment:
+1. {
+2. "Name": "my_serverless_app",
+3. "Description": "my serverless application",
+4. "Id": "dbved23"
+5. }
+Figure 5.11 displays the AppConfig application created:
+Figure AppConfig application created
+Creating an In AWS AppConfig, an environment represents a specific
+deployment stage of our application, such as development, staging, or
+production.
+Run the following command using AWS CLI to create an environment named
+Use the application ID created in the previous step:
+1. aws appconfig create-environment \
+2. --application-id "dbved23" \
+3. --name "beta" \
+4. --description "my beta environment" \
+5. --region us-east-1
+The above command outputs the following. Make a note of the environment
+ID, which will be required in the next step when we create the application
+profile and feature flag:
+1. {
+2. "State": "ReadyForDeployment",
+3. "Description": "my beta environment",
+4. "ApplicationId": "dbved23",
+5. "p51j86m",
+6. "Name": "beta"
+7. }
+Figure the AppConfig environment created:
+Figure AppConfig environment created
+Creating a feature flag: In this step, we will create a feature flag
+configuration.
+i. Creating a feature flag configuration file: To create a feature flag
+configuration file and specify the type as run the following command using
+the CLI. This command uses the application ID created in the previous step,
+named Create an
+1. aws appconfig create-configuration-profile \
+2. --application-id "dbved23" \
+3. --name "my-appconfig-profile" \
+4. --location-uri "hosted" \
+5. --type AWS.AppConfig.FeatureFlags \
+6. --region us-east-1
+The above command outputs the following. Make a note of the
+configuration profile ID:
+1. {
+2. "ApplicationId":
+3. "Id": "44muqxb",
+4. "Name": "my-appconfig-profile",
+5. "LocationUri": "hosted",
+6. "Type": "AWS.AppConfig.FeatureFlags"
+7. }
+Figure the feature flag created:
+Figure profile created in AppConfig
+ii. Creating feature flag In this step, we will create feature flag configuration
+data. Create a JSON file named copy the following contents in it:
+1. {
+2. "flags": {
+3. "flagkey": {
+4. "is_virus_scanning"
+5. }
+6. },
+7. "values": {
+8. "flagkey": {
+9. "enabled": true
+10. }
+11. },
+12. "version": "1"
+13. }
+iii. Saving feature flag Run the following command to save feature flag data
+to AWS AppConfig:
+1. aws appconfig create-hosted-configuration-version \
+2. --application-id "dbved23" \
+3. --configuration-profile-id "44muqxb" \
+4. --content-type "application/json" \
+5. --content "$(jq -cM -r '@base64' config_data.json)" \
+6. configuration_version_output_file
+Figure the is_virus_scanning flag added to the feature flag configuration file
+named
+Figure flag added to the feature flag configuration file
+Deploying configuration: In this example, we will start the deployment of the
+configuration using the AWS CLI command named start-deployment. This
+command will use the application ID, environment ID, configuration profile
+ID, and configuration data version created in the previous steps.
+The call also includes the ID of the deployment strategy, which determines
+how the configuration data is displayed. We will use the deployment strategy
+named which deploys the configuration to half of all targets every 30 seconds
+for a one-minute deployment:
+1. aws appconfig start-deployment \
+2. --application-id "dbved23" \
+3. --environment-id "p51j86m" \
+4. --deployment-strategy-id "AppConfig.Linear50PercentEvery30Seconds" \
+5. --configuration-profile-id "44muqxb" \
+6. --configuration-version 1 \
+7. --description "Deploying new feature flags for A/B testing" \
+8. --tags '{"Feature":"VirusScanning"}'
+To check the status of the deployment, select the environment named choose
+the latest deployment number, which will that take us to the page shown in
+Figure 5.15 below:
+Figure details
+Verifying the configuration: It is now time to retrieve the configuration data.
+Create a shell script named copy the following contents into it:
+1. #!/bin/bash
+2. #
+3. config_token=$(aws appconfigdata start-configuration-session \
+4. --application-identifier "dbved23" \
+5. --environment-identifier "p51j86m" \
+6. --configuration-profile-identifier "xcgpwfg" \
+7. --query 'InitialConfigurationToken' \
+8. --output text)
+9.
+10. echo "Token is: $config_token"
+11.
+12. aws appconfigdata get-latest-configuration \
+13. --configuration-token $config_token my-configdata.json
+The above script first starts a configuration session with AppConfig using the
+which takes the AppConfig application ID, environment ID, and
+configuration profile ID. This command returns a configuration token, which
+is required for the subsequent call named
+Once this script runs successfully, it creates an output file named When we
+view this file, it outputs Flag enabled Feature Flag details shown below:
+1. {"flagkey":{"enabled":true}}
+The values provided above match with the values on the screen as shown in
+Figure
+Figure flag details
+Deploying API with AWS Copilot
+```
+AWS Copilot is a Command Line Interface (CLI) tool that simplifies the
+```
+process of deploying, managing, and operating containerized applications on
+AWS. With Copilot, developers can easily create, deploy, and manage
+production-ready containerized applications on Amazon Elastic Container
+Service AWS Fargate, and AWS App Runner. Copilot helps manage the entire
+lifecycle of application development, from setting up the infrastructure to
+scaling and monitoring the application in production.
+The interaction between AWS Copilot, ECS, Fargate, and App Runner is
+depicted in the diagram below in Figure
+Figure 5.17: AWS Copilot and container orchestration Services on AWS
+In this example, we will deploy a simple front-end service that can be
+accessed in a web browser. To do this, we will provide the source code for a
+Python web application using Flask, along with any necessary` Python
+dependencies and a Dockerfile. Copilot will take care of building and
+deploying the Flask web application to AWS, streamlining the deployment
+process, and making it easier to manage the application going forward.
+To complete this use case on your AWS account, please follow the step-by-
+step instructions below. These are the prerequisites:
+• AWS CLI installed and configured.
+• AWS Copilot installed locally.
+• Docker installed and the docker daemon is running.
+Preparing the source code: Create a folder named In this folder we will create
+files with the following structure:
+├── app.py
+├── Dockerfile
+└── requirements.txt
+app.py
+It contains the source code for a Hello, World Python web application using
+Flask. It defines a Flask application and a single route that returns a Hello,
+World! message when the root URL is accessed:
+1. from flask import Flask
+2. app = Flask(__name__)
+3.
+4. @app.route('/')
+5. def
+6. return "Hello, World!"
+7.
+8. if __name__ == '__main__':
+9. app.run(host='0.0.0.0', port=5000)
+Dockerfile specifies the instructions to build a docker image that can run the
+Flask web application. Look at the following code:
+1. FROM python:3.9-slim
+2.
+3. WORKDIR /app
+4.
+5. COPY requirements.txt requirements.txt
+6. RUN pip install -r requirements.txt
+7.
+8. COPY . .
+9.
+10. EXPOSE 5000
+11.
+12. CMD [ "python", "app.py" ]
+requirements.txt
+This file lists the necessary Python dependencies required by the Flask web
+```
+application:
+```
+1. Flask==2.1.3
+2. Werkzeug==2.2.2
+Initializing the application: To initialize the application with Copilot, the first
+step is to run the copilot init command. This command creates a new
+application in the directory that contains our services. It also creates IAM
+roles and the necessary infrastructure for our services. Additionally, it creates
+a sub-directory named copilot that contains manifest files and additional
+infrastructure for our services.
+To accomplish this, run the following command using the AWS CLI:
+1. copilot init --app my-copilot-webapp --name my-webapp --type "Load
+Balanced Web Service" --dockerfile ./Dockerfile --port 5000
+Choose Copilot asks if we want to deploy a test environment, as shown in
+Figure We will be setting up the application environment in the next step.
+Figure application by Copilot
+Initializing and deploy the environment: Run the following command using
+AWS CLI to configure an environment named as shown below:
+1. copilot env init --name staging --default-config --profile default
+The above command will create an environment named the name profile a
+new VPC and multi-AZ using our AWS credentials. Each AZ will have a
+public and private subnet. Copilot will also create a manifest file at the path
+which we can customize based on our needs.
+To deploy the environment, run the following command:
+1. copilot env deploy --name staging
+It will take several minutes to complete the environment. Once it is done, we
+can see a summary of the AWS resources created by Copilot for the staging
+environment, as shown in Figure
+Figure created for staging environment by Copilot
+The AWS resources created by Copilot include an ECS cluster to group
+services, a security group to containers for communicating with each other, an
+internet gateway to connect to the public subnet, two private subnets on two
+AZs, two public subnets on two AZs, a private DNS namespace to discover
+the service within the environment and a VPC that controls the networking of
+these created resources.
+Deploying the app: To deploy the application to the staging environment, run
+the following command in the root directory of the application:
+1. copilot svc deploy --name my-webapp --env staging
+```
+This command will deploy the service specified by the --name flag (in this
+```
+```
+case, my-webapp) to the environment specified by the --env flag (in this case,
+```
+```
+staging). During the deployment process, Copilot will create the necessary
+```
+resources in the AWS account and region specified in the environment
+configuration.
+Testing the Test the application by running the following command, which
+will return the information about the deployed service, including endpoints,
+capacity, and related resources in the staging environment:
+1. copilot svc show --name my-webapp
+Figure the result of the above command, including the endpoint URL of
+staging the environment:
+Figure of deployed service by Copilot
+Now, if we access this endpoint URL by copying it into a browser, we can see
+the Hello, World! message displayed by the web application as shown in
+Figure
+Figure Application is launched
+Once we are done working with this use case, we can remove the resources
+by running the following command in the root directory of the application
+using the AWS CLI:
+1. copilot app delete
+This command will delete the resources created by Copilot for this
+application.
+Containerizing legacy apps using AWS App2Container
+AWS App2Container is a command-line tool for migrating and modernizing
+Java and .NET applications from on-premises data centers or Virtual
+```
+Machines (VMs) to containerized formats in AWS. These containerized
+```
+applications can run on AWS services such as Amazon ECS, Amazon EKS,
+and AWS App Runner, which manage and orchestrate containers.
+The interaction between AWS App2Container, AWS ECS, AWS EKS, and
+AWS App Runner is depicted in the diagram below in Figure
+Figure 5.22: AWS App2Container and container orchestration services on
+AWS
+In this example, we will demonstrate how to containerize a legacy Java
+Spring Boot application running on Linux Ubuntu using App2Container and
+deploy it on AWS ECS.
+To complete this use case on your AWS account, please follow the step-by-
+step instructions below. These are the prerequisites:
+• AWS CLI installed and configured.
+• Docker installed.
+• Apache Maven installed.
+1. Creating a Spring Boot application: Execute the following command on
+your Linux terminal to create a Spring Boot application:
+1. mvn archetype:generate -DgroupId=com.example -DartifactId=my-spring-
+boot-app -DarchetypeArtifactId=maven-archetype-quickstart -
+```
+DinteractiveMode=false
+```
+2. Adding Sprint Boot dependencies: Navigate to the project directory named
+my-spring-boot-app and update the pom.xml file to include the Spring Boot
+```
+dependencies:
+```
+1. xmlns="http://maven.apache.org/POM/4.0.0"
+2. xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+3. xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+```
+http://maven.apache.org/xsd/maven-4.0.0.xsd">
+```
+4. 4.0.0
+5.
+6.
+7. my-spring-boot-app
+8.
+9. jar
+10. my-spring-boot-app
+11.
+12.
+13. UTF-8
+14. 1.8
+15. 1.8
+16. 2.6.3
+17.
+18.
+19.
+20.
+21. org.springframework.boot
+22.
+23. ${spring-boot.version}
+24.
+25.
+26. junit
+27. junit
+28.
+29. test
+30.
+31.
+32.
+33.
+34.
+35. org.springframework.boot
+36. spring-boot-maven-plugin
+37. ${spring-boot.version}
+38.
+39.
+40.
+41. repackage
+42.
+43.
+44.
+45.
+46.
+47.
+48.
+3. Creating a Java file: Create a new file named
+MySpringBootApplication.java in the src/main/java/com/example/ directory
+with the following content:
+1. package com.example;
+2.
+3. import org.springframework.boot.SpringApplication;
+4. import org.springframework.boot.autoconfigure.SpringBootApplication;
+5. import org.springframework.web.bind.annotation.GetMapping;
+6. import org.springframework.web.bind.annotation.RestController;
+7.
+8. @SpringBootApplication
+9. @RestController
+10. public class MySpringBootApplication {
+11.
+12. public static void args) {
+13. SpringApplication.run(MySpringBootApplication.class, args);
+14. }
+15.
+16. @GetMapping("/")
+17. public String hello() {
+18. return "Hello from my Spring Boot app!";
+19. }
+20. }
+4. Building the Spring Boot Execute the following command to build the
+project and create an executable JAR file in the target directory:
+1. mvn clean install
+Execute the following command to start the application:
+1. java -jar target/my-spring-boot-app-1.0-SNAPSHOT.jar
+By default, the application will be running on port 8080, as shown in Figure
+Figure 5.23: Java Spring Boot application started
+5. Testing the application: Now, create a new session in your Linux terminal
+and run curl on port 8080. You should see the Hello from my Spring Boot
+app! message, as shown in Figure
+Figure 5.24: Output of the ‘Hello World’ Spring Boot Application
+6. Installing and initializing App2Container: Please refer to the following
+AWS documentation:
+• https://docs.aws.amazon.com/app2container/latest/UserGuide/start-step2-
+initialize.html
+• https://docs.aws.amazon.com/app2container/latest/UserGuide/start-step1-
+install.html
+These resources will provide detailed instructions on how to install and set up
+the App2Container CLI for our environment. After installing and initializing
+App2Container, we will be ready to start containerizing our Java application
+in the next step.
+7. Discovering the application: Execute the following command in your
+terminal, which will start discovering the Java application running on the
+system, create an inventory, and analyze it:
+1. app2container inventory
+Figure 5.25 displays the output in JSON format with the Java application ID
+highlighted. Take note of this ID, as it will be required in the subsequent
+```
+steps:
+```
+Figure 5.25: JSON output with Java application ID highlighted
+8. Analyzing the application: Using the Java application ID from the previous
+step, execute the following command in your Linux terminal:
+1. app2container analyze --application-id java-generic-b437f9e7
+Figure 5.26 shows the output of the analyze command and provides
+recommendations for the next steps:
+Figure 5.26: Output and recommendations from App2Container analyze
+command
+9. Containerizing the application: Execute the following command using the
+Java application ID obtained in the previous step:
+1. app2container containerize --application-id java-generic-b437f9e7
+The containerization process will take several minutes to complete.
+App2Container will create the Dockerfile and a deployment.json file, which
+contains AWS deployment-related information. App2Container also pre-
+validates the container to ensure it works as expected, as shown in Figure
+Figure 5.27: App2Container containerization process and pre-validation
+output
+10. Creating deployment artifacts: Run the following command on your
+terminal which generates artifacts to deploy the containerized application in
+```
+AWS:
+```
+1. app2container generate app-deployment --application-id java-generic-
+b437f9e7
+This process will take several minutes to complete. Once it is done, we will
+see that App2Container has created an ECR repository containing the
+application container image from earlier steps, a local ECS task definition, a
+registered ECS task definition with ECS, and uploaded all CloudFormation
+templates to the S3 bucket provided during the Install and Initialize
+App2Container step.
+Figure 5.28 displays the summary of all actions performed by App2Container
+during the creation of deployment artifacts:
+Figure 5.28: Summary of actions performed by App2Container for
+deployment artifacts creation
+11. Deploying CloudFormation template to AWS: At this stage, the
+application image is already present in the ECR repository, and
+App2Container has created a master CloudFormation template to deploy and
+configure all resources in AWS.
+To achieve this, execute the following command in your terminal:
+1. app2container generate app-deployment --application-id java-generic-
+b437f9e7 --deploy
+This process will take several minutes and create multiple CloudFormation
+stacks, such as a Load Balanced Web Application stack, an ECS Cluster and a
+VPC as shown in Figure
+Figure 5.29: Created CloudFormation stacks for load balanced web
+application, ECS cluster, and VPC
+Figure 5.30 displays the confirmation that the deployment is successful for
+the Java application, and the URL of the Load Balancer endpoint is
+```
+highlighted:
+```
+Figure 5.30: Successful deployment confirmation and Load Balancer
+endpoint URL highlighted
+Now, if we take the URL mentioned above and open it in the browser it will
+display the message Hello from my Spring Boot app! as shown in Figure
+which is the same as shown in Figure 5.23 before containerizing the
+application.
+Figure 5.31: Browser displaying the ‘Hello from my Spring Boot app!’
+message after deployment
+Key components of the AWS Control Tower
+AWS Control Tower simplifies the process of configuring and governing
+AWS multi-account environments while adhering to best practices. AWS
+Control Tower orchestrates on top of AWS services such as AWS
+Organizations, AWS Service Catalog, and AWS IAM Identity Center
+```
+(which is the successor to AWS Single Sign-On) to build landing zones.
+```
+Figure 5.32 illustrates the integration of AWS Control Tower with these
+services. This visual representation helps to demonstrate how these
+services work together to create a cohesive and well-architected multi-
+account environment.
+Figure 5.32: Control Tower environment diagram
+The following are key concepts and terminology to remember concerning
+the exam:
+• Landing zone: It is a well-architected, multi-account AWS environment
+that provides a secure, scalable, and efficient foundation for managing and
+running workloads in the cloud. It is designed to meet security,
+compliance, and operational best practices.
+• Account factory: It offers configurable account templates that
+standardize the provisioning and configuration of new accounts.
+• Guardrails: They are the high-level rules that govern the overall Control
+```
+Tower and can be implemented through Service Control Policies (SCP) or
+```
+AWS Config rules.
+• Member accounts: They belong to the Control Tower organization and
+can be enrolled or unenrolled in Control Tower.
+• Shared accounts: They are the management, log archive, and audit
+accounts that are automatically provisioned when setting up a landing
+zone using Control Tower.
+Enhancing security analysis with AWS Detective
+AWS Detective assists in analyzing, investigating, and promptly identifying
+the root cause of security-related findings or suspicious activities. It
+automatically collects logs data from AWS resources, including CloudTrail
+logs, EKS audit logs, VPC flow logs, and AWS GuardDuty findings. By
+leveraging machine learning, statistical analysis, and graph theory, AWS
+Detective produces visualizations that enable customers to conduct in-depth
+root cause analysis for security incidents.
+Please refer to the accompanying Figure which illustrates the interaction
+between Amazon Detective and the AWS services, providing a visual
+representation of their integration and collaboration in enhancing security
+```
+analysis:
+```
+Figure 5.33: Amazon Detective’s integration with AWS services for enhanced
+security analysis
+Conclusion
+In this chapter, we learned how CloudFormation StackSets enable the
+deployment of stacks across multiple accounts and regions, while AWS
+CDK allows for infrastructure provisioning in code using familiar
+programming languages. We also looked at AWS AppConfig, which
+enables controlled deployment of application configurations, and AWS
+Copilot, which simplifies the process of deploying containerized
+applications.
+Furthermore, we discussed AWS App2Container, which provides a
+solution for migrating and modernizing legacy applications to
+containerized formats in AWS.
+We also covered AWS Control Tower for configuring and governing AWS
+multi-account environments, and AWS Detective for enhanced security
+analysis.
+In the next chapter, we will explore Elastic Beanstalk and OpsWorks.
+We’ll also dive into AWS API Gateway essentials, build an HTTP API
+using Lambda, DynamoDB, and AWS SAM, and learn about Lambda-
+based canary deployment using AWS SAM. Lastly, we’ll explore
+deployment strategies in AWS OpsWorks, create custom Cookbooks, and
+deploy a Node.js application in AWS ECS.
+Points to remember
+CloudFormation StackSets in AWS enable automated deployment of
+resources across multiple regions and accounts in a single operation.
+StackSets can be created using either self-managed or service-managed
+permissions.
+The AWS CDK allows developers to define cloud infrastructure in code.
+```
+Key components are constructs (single/multiple AWS resources), stacks
+```
+```
+(resource collections), and apps (combining and deploying stacks and
+```
+```
+constructs).
+```
+AWS AppConfig is a managed service that allows for controlled
+deployment of application configurations. It can be used to implement
+feature flags, which enable granular control over specific functionalities of
+your application. AppConfig also monitors deployment, rolling back
+changes if issues occur, minimizing impact on users.
+AWS Copilot is a command line interface tool that simplifies deploying
+and managing containerized applications on AWS. With Copilot, you can
+focus on writing code while it handles the underlying infrastructure,
+making it an efficient solution for managing the entire lifecycle of your
+applications.
+```
+AWS App2Container (A2C) is a command-line tool that aids in the
+```
+migration of applications to a container-based infrastructure. It automates
+the process of containerizing applications, creating container images, and
+deploying these on AWS services like ECS and EKS, thereby simplifying
+the modernization of legacy applications.
+Questions
+What are the two IAM roles which AWS CloudFormation StackSets
+require to be able to deploy stacks across multiple accounts/region?
+What are the three major building blocks AWS CDK uses to provision
+infrastructure in AWS?
+Which AWS CLI command is the starting point for deploying container
+applications on AWS App Runner, AWS ECS or AWS Fargate?
+What is the name of the command-line tool used for migrating and
+modernizing Java and .NET applications from on-premises data centers or
+VMs to containerized format in AWS?
+What are the AWS Security Services that interact with AWS Detective to
+enhance security analysis?
+Answers
+AWSCloudFormationStackSetAdministrationRole and
+AWSCloudFormationStackSetExecutionRole
+Constructs, Apps, and Stacks.
+copilot init
+AWS App2Container
+AWS GuardDuty and AWS Security Hub
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+6
+Automation Using OpsWorks and Elastic Beanstalk
+Introduction
+Continuing from the previous chapter, Automated Account Management
+and Security in which delved into CloudFormation StackSets, AWS
+App2Container, AWS Copilot, as well as AWS AppConfig and AWS
+```
+Cloud Development Kit (CDK), this chapter turns our attention to AWS
+```
+Elastic Beanstalk and AWS OpsWorks. These services exemplify
+Infrastructure as Code and Platform-as-a-Service approaches. While
+CloudFormation remains the cornerstone of IaC, Elastic Beanstalk
+provides a simplified PaaS solution for application deployment. AWS
+OpsWorks offers orchestrated environments through Chef and Puppet for
+configuration management. Our exploration also encompasses AWS
+```
+Serverless Application Model (SAM), API Gateway, and AWS Elastic
+```
+```
+Container Service (ECS), further enriching our grasp of advanced AWS
+```
+services and solutions.
+Structure
+In this chapter, we will discuss the following topics about Elastic
+Beanstalk, OpsWorks, AWS SAM, and AWS ECS:
+• Deploy multi-container Docker to Elastic Beanstalk
+• Configure Elastic Beanstalk using .ebextensions
+• Blue/Green deployment in Elastic Beanstalk
+```
+• Using Elastic Beanstalk with AWS Relational Database Service (RDS)
+```
+• AWS API gateway essentials
+• Building HTTP API using Lambda, DynamoDB and AWS SAM
+• Lambda based canary deployment using AWS SAM
+• Deploying application using AWS OpsWorks
+• Creating a custom cookbook using AWS OpsWorks
+• AWS OpsWorks Stacks lifecycle events
+• Deployment strategy in AWS OpsWorks
+• Deploy Node.js application in AWS ECS
+Objectives
+In this chapter, you will delve into practical AWS deployment topics. You
+will start by deploying multi-container Docker apps on Elastic Beanstalk,
+setting them up using and employing blue/green deployment methods.
+You will also explore AWS API Gateway to create user-friendly interfaces.
+Through creating an HTTP API using Lambda, DynamoDB, and AWS
+SAM, you will grasp the concept of managing updates via Lambda-based
+canary deployments. As you explore AWS OpsWorks, you will learn about
+app deployment, custom configurations, and efficient management using
+OpsWorks Stacks. To wrap up, you will also handle the deployment of
+Node.js apps on AWS ECS, refining your skills across a variety of AWS
+deployment scenarios and boosting your deployment capabilities.
+Deploy multi-container Docker to Elastic Beanstalk
+In this section, we will set up a multi-container docker to host a PHP-FFM
+application and a NGINX reverse proxy server. Learn how the AWS Elastic
+Beanstalk Service uses the Dockerrun.aws.json file and performs ECS-
+managed Docker container deployments as an Elastic Beanstalk application.
+We will be using Continuous Integration Deployment process to automate the
+entire code release process using AWS CodeCommit and CodePipeline to
+deploy applications into the AWS Elastic Beanstalk environment. The
+complete architecture of this use case is illustrated in Figure
+Figure 6.1: Multi-container Docker Deployment in Elastic Beanstalk
+Follow the step-by-step instructions below to complete this use case on your
+AWS environment.
+Step 1: Create Elastic Beanstalk Environment
+The steps to create an Elastic Beanstalk Environment are as follows:
+Go to the AWS Console and navigate to the Elastic Beanstalk We first create
+the Elastic Beanstalk Environment using the preexisting Sample We will
+```
+override this sample application with our custom application (PHP Static
+```
+```
+Website) that we will deploy using AWS CodePipeline.
+```
+Click on Create takes us to the screen as shown in Figure Enter the
+application name as tags as empty, select Platform as select Platform branch
+as ECS running on 64bit Amazon Linux 2 and Platform version as select
+Sample application for Application code and Click on Create application as
+shown in the following screenshot:
+Figure a web application in Elastic Beanstalk Sample
+The environment creation takes about five minutes to complete. When the
+environment’s health is turned to the environment Uniform Resource Locator
+```
+(URL) highlighted in Figure 6.3 to launch the web application:
+```
+Figure Check of Elastic Beanstalk Environment
+As soon as the Congratulations page appears on the browser, it confirms that
+the Elastic environment is provisioned successfully, as illustrated in Figure
+Figure web application is deployed on Elastic Beanstalk
+Step 2: Create CodeCommit repository
+The steps to create a CodeCommit Repository are as follows:
+Run the following command using AWS CLI to create a CodeCommit
+repository named
+1. aws codecommit create-repository --repository-name eb-
+multicontainer-repo \
+2. --repository-description "Repo for Multicontainer Docker
+deployment"
+Navigate to CodeCommit console, select CodeCommit repository and
+click on HTTPS Clone URL which copies the URL onto clipboard. Clone
+the repository by running the following command:
+1. git clone https://git-codecommit.us-east-
+1.amazonaws.com/v1/repos/eb-multicontainer-repo
+Change directory to cloned CodeCommit repository:
+1. cd eb-multicontainer-repo
+Step 3: Add Source Code to CodeCommit repository
+In this step, we prepare source code files for this use-case and add it to
+CodeCommit repository.
+1. Create this JSON file inside eb-multicontainer-repo directory. Elastic
+Beanstalk uses this file to configure the containers on an Amazon EC2
+instance.
+1. {
+2. "AWSEBDockerrunVersion": 2,
+3. "volumes": [
+4. {
+5. "name": "php-app-volume",
+6. "host": {
+7. "sourcePath": "/var/app/current/php-app"
+8. }
+9. },
+10. {
+11. "name": "nginx-proxy-conf-volume",
+12. "host": {
+13. "sourcePath": "/var/app/current/proxy/conf.d"
+14. }
+15. }
+16. ],
+17. "containerDefinitions": [
+18. {
+19. "name": "php-app-container",
+20. "image": "bitnami/php-fpm:latest
+21. ",
+22. "essential": true,
+23. "memory": 128,
+24. "mountPoints": [
+25. {
+26. "sourceVolume": "php-app-volume",
+27. "containerPath": "/var/www/html",
+28. "readOnly": true
+29. }
+30. ]
+31. },
+32. {
+33. "name": "nginx-proxy-container",
+34. "image": "nginx:latest",
+35. "essential": true,
+36. "memory": 128,
+37. "portMappings": [
+38. {
+39. "hostPort": 80,
+40. "containerPort": 80
+41. }
+42. ],
+43. "links": [
+44. "php-app-container"
+45. ],
+46. "mountPoints": [
+47. {
+48. "sourceVolume": "php-app-volume",
+49. "containerPath": "/var/www/html",
+50. "readOnly": true
+51. },
+52. {
+53. "sourceVolume": "nginx-proxy-conf-volume",
+54. "containerPath": "/etc/nginx/conf.d",
+55. "readOnly": true
+56. },
+57. {
+58. "sourceVolume": "awseb-logs-nginx-proxy-container",
+59. "containerPath": "/var/log/nginx"
+60. }
+61. ]
+62. }
+63. ]
+64. }
+This is the default page of PHP website hosted on NGINX server.
+1.Hello DevOps Gurus!
+2.
+```
+echo 'Hello, World!'; ?>
+```
+2. Create a subdirectory named proxy inside eb-multicontainer-repo
+directory, create one more subdirectory inside proxy sub-directory and add
+following configuration file named default.conf inside that.
+1. server {
+2. listen 80 default_server;
+3. listen [::]:80 default_server;
+4. server_name localhost;
+5. root /var/www/html;
+6.
+7. index index.php;
+8.
+9. location ~ [^/]\.php(/|$) {
+10. fastcgi_split_path_info ^(.+?\.php)(/.*)$;
+11. if (!-f $document_root$fastcgi_script_name) {
+12. return 404;
+13. }
+14.
+15. include fastcgi_params;
+16. fastcgi_param SCRIPT_FILENAME
+```
+$document_root$fastcgi_script_name;
+```
+17. fastcgi_param PATH_INFO $fastcgi_path_info;
+18. fastcgi_param PATH_TRANSLATED
+```
+$document_root$fastcgi_path_info;
+```
+19.
+20. fastcgi_pass php-app-container:9000;
+21. fastcgi_index index.php;
+22. }
+23. }
+This file is a NGINX configuration file. It sets up NGINX to serve as a
+reverse proxy for the PHP application. The configuration listens on ports
+```
+80 (IPv4 and IPv6), sets the server name to localhost, specifies the root
+```
+directory and index file for content, and configures the processing of PHP
+files. This includes defining how to pass PHP requests to the FastCGI
+server on port and how to handle file paths and script names for PHP
+processing.
+The whole directory structure inside the application folder multicontainer-
+repo will like this:
+1. ├── Dockerrun.aws.json
+2. ├── php-app
+3. │ └── index.php
+4. └── proxy
+5. └── conf.d
+6. └── default.conf
+Step 4: Deploy application to Elastic Beanstalk
+The steps to deploy the application to Elastic Beanstalk are as follows:
+Navigate to AWS CodePipeline and click on Create then enter deploy-
+elasticbeanstak-ecs as the name of the pipeline. Select New Service Role and
+proceed to the next screen. Choose AWS CodeCommit in the Add Source
+then select name. Choose master as the branch name, and then select Output
+artifact format as CodePipeline Select AWS CodePipeline in the detection
+options and click as illustrated in Figure
+Figure source stage in AWS CodePipeline
+Skip the Add Build Stage as it is not applicable for this use-case, as illustrated
+in Figure
+Figure build stage in AWS CodePipeline
+In Add Deploy choose Deploy provider as AWS Elastic Region as US-EAST-
+```
+1(N. choose Application name as elasticbeanstalk-multicontainer-demo and
+```
+Environment name as Elasticbeanstalkmulticontainerdemo-env as shown in
+Figure 6.7 and Click on
+Figure deploy stage in AWS CodePipeline
+Once the two-stage deployment pipeline is ready, allow it to run. Figure 6.8
+shows the successful execution of CodePipeline:Figure status of Source and Deploy Stages in CodePipeline
+It will take a few minutes to deploy the new revision of application on EC2
+instances. Once environment’s health check is changed to which opens a PHP
+simple static website with a Hello World message, as shown in Figure
+Figure Static website
+Configure Elastic Beanstalk using .ebextensions
+There are three main ways to configure the Elastic Beanstalk environment
+using Direct Changes, Saved configurations, and Configuration files
+In this section, we learn how to configure the Elastic Beanstalk environment
+using .ebextension configuration file. The .ebextensions configuration file is a
+YAML or JSON formatted document with a .config file extension. This file is
+placed in a folder called .ebextensions and deployed along with the
+application source bundle. Their configuration files specify a wide range of
+customizations, including installing packages, modifying configurations files,
+and running scripts.
+This configuration file will customize the Apache HTTP server and PHP on
+an Amazon Linux EC2 instance within the Elastic Beanstalk environment. We
+will use the Elastic Beanstalk Command Line Interface to provision the
+Elastic Beanstalk environment.
+Follow the step-by-step process below to complete this use case on your AWS
+```
+account:
+```
+1. Create an app Start by creating a directory named my-eb-app and navigate
+to it:
+1. mkdir my-eb-app
+2. cd my-eb-app
+2. Create a PHP file: Within the my-eb-app directory, create a subdirectory
+named Then, create a file named index.php and add the following content to
+```
+it:
+```
+1.
+2. echo "Hello, World!";
+3. ?>
+3. Create .ebextensions directory: Now, create a configuration file named
+php-apache-settings.config inside a hidden directory named .ebextensions in
+the root of app directory named Copy and paste the following contents into
+the php-apache-settings.config file:
+php-apache-settings.config
+1. option_settings:
+2. aws:elasticbeanstalk:environment:proxy:
+3. ProxyServer: apache
+4. aws:elasticbeanstalk:container:php:phpini:
+5. document_root: /public
+6. memory_limit: 128M
+7. zlib.output_compression: "Off"
+8. allow_url_fopen: "On"
+9. display_errors: "Off"
+10. max_execution_time: 60
+The previous configuration file customizes Apache and PHP settings. It
+configures Apache as the proxy server, ensuring efficient handling of web
+requests. For PHP, it sets the application’s document root to adjusts the
+memory limit to 128 MB for adequate script execution, and disables zlib
+output compression for performance. The file also enables allow_url_fopen
+for accessing remote files, turns off the PHP error display for security, and
+limits script execution time to 60 seconds to prevent server resource hogging
+by long-running scripts.
+4. Initialize and create an Elastic Beanstalk Run the following command
+using EB CLI to initialize an Elastic Beanstalk environment and associate it
+with your local repository:
+1. eb init my-eb-app -p "PHP 8.0" --region us-east-1
+5. Deploy an Elastic Beanstalk Environment: Now, execute the following
+command using the EB CLI to create an Elastic Beanstalk environment
+named my-eb-env and deploy an application version from your local
+```
+repository:
+```
+1. eb create my-eb-env
+The Elastic Beanstalk environment creation might take few minutes. Wait
+until the environment’s health check changes to After the environment is
+ready, access the Elastic Beanstalk console, locate your environment, and
+click on the provided environment URL to access your deployed application
+as shown in Figure
+Figure 6.10: Health check is passed for Elastic Beanstalk Environment
+As soon as we click on the environment it opens a separate tab on the browser
+that displays a PHP web application with a Hello World message as shown in
+Figure This confirms we have successfully created an Elastic Beanstalk
+environment with custom configuration settings:
+Figure 6.11: PHP static website
+6. Terminate the Elastic Beanstalk environment: Run the following command
+using EB CLI to delete the Elastic Beanstalk environment once we are done
+with validation of the Elastic Beanstalk environment.
+1. eb terminate my-eb-env --force
+Blue/Green deployment in Elastic Beanstalk
+Some Elastic Beanstalk supplies deployment methods are, all at once,
+Rolling, Rolling with Additional batches, Immutable and Blue/Green.
+In this section, we will learn to use Elastic Beanstalk’s Swap Environment
+URL’s feature and perform Blue/Green deployment. This deployment strategy
+allows us to deploy newer versions of the application without any downtime
+because users are only switched to the new version once it is fully deployed
+and tested.
+To illustrate this deployment strategy, we have spun up two environments
+Blue and Green as shown in Figure Only blue environment serves production
+traffic, green environment is ready and evaluated and has its own
+environment URL.
+Following are the instructions to promote the green environment to serve
+production traffic:
+Navigate to Elastic Beanstalk Console and click on Environments link on the
+left.
+Select Blue Environment named My-Blue-Env and go to Actions menu,
+choose URLs as shown in Figure Elastic Beanstalk performs a Domain Name
+System switch which takes a few minutes to complete.
+Figure Environment URLs
+Once the DNS changes are propagated, we can delete the blue environment.
+Now, all the production traffic will be routed to a green environment.
+Using Elastic Beanstalk with AWS RDS
+Adding RDS as part of the Elastic Beanstalk environment is great for
+development and testing environments. However, it is not ideal for the
+production of environments because it ties the lifecycle of the database
+instance to our application’s environment which means if we terminate the
+environment, the database instance will be terminated as well. Therefore,
+it is best to decouple RDS from Elastic Beanstalk in a Production
+environment.
+AWS API gateway essentials
+API Gateway is an AWS service for creating, publishing, maintaining,
+monitoring, and securing REST, HTTP, and WebSocket APIs at any scale.
+API Gateway is used to create REST APIs, HTTP APIs and WebSocket
+APIs.
+• Difference between REST API and HTTP Both are RESTful API
+products offered by AWS. REST APIs support more features than HTTP
+APIs, while HTTP APIs are designed with minimal features so that they
+can be offered at a lower price. AWS recommends using REST API if we
+need features such as API keys, per-client throttling, request validation
+```
+and AWS Web Application Firewall (WAF) integration, otherwise choose
+```
+HTTP API if we do not need those features because it is cheaper and
+faster.
+• Difference between REST API vs. WebSocket Unlike a REST API which
+receives and responds to requests, a WebSocket API supports a two-way
+communication between client apps and our backend. The backend can
+send callback messages to connected clients.
+Building HTTP API using Lambda, DynamoDB and AWS SAM
+In this section, we create a serverless HTTP API that creates CRUD reads,
+updates, and operations on Products from a DynamoDB table using AWS
+SAM. We created an HTTP API that integrates with the Lambda function in
+the backend. When a client calls API, API gateway sends the request to the
+Lambda function and returns the function’s response to the client. The
+architecture of this use case is illustrated in Figure
+Figure CRUD microservice with HTTP API, Lambda and DynamoDB
+Follow the step-by-step procedure below to complete this use case on your
+AWS account:
+1. Create an application Create an application directory named your local
+system, in this directory create a subdirectory called dynamodb-handler and
+YAML file named
+2. Create a SAM Template This template consists of Amazon DynamoDB
+tables, Amazon SNS topics, API Gateway, and AWS Lambda functions
+```
+resources:
+```
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Transform: AWS::Serverless-2016-10-31
+3. Description: >
+4. Sample template for an HTTP API that CRUD (creates, updates, and
+```
+delete product) in DynamoDB
+```
+5.
+6. Globals:
+7. Function:
+8. Timeout: 15
+9.
+10. Resources:
+11. DBHandlerFunction:
+12. Type: AWS::Serverless::Function
+13. Properties:
+14. CodeUri: dynamodb-handler/
+15. Handler: app.handler
+16. Runtime: nodejs14.x
+17. Policies:
+18. - DynamoDBCrudPolicy:
+19. TableName: !Ref ProductTable
+20. Events:
+21. GetAllProducts:
+22. Type: HttpApi
+23. Properties:
+24. Path: /product
+25. Method: GET
+26. GetAProduct:
+27. Type: HttpApi
+28. Properties:
+29. Path: /product/{id}
+30. Method: GET
+31. DeleteAProduct:
+32. Type: HttpApi
+33. Properties:
+34. Path: /product/{id}
+35. Method: DELETE
+36. CreateOrUpdateProduct:
+37. Type: HttpApi
+38. Properties:
+39. Path: /product
+40. Method: PUT
+41.
+42. ProductTable:
+43. Type: AWS::Serverless::SimpleTable
+44. Properties:
+45. PrimaryKey:
+46. Name: id
+47. Type: String
+48. TableName: http-crud-demo-product
+49.
+50. Outputs:
+51. ApiEndpoint:
+52. Description: "The invoke URL for our HTTP API"
+53. Value: !Sub "https://${ServerlessHttpApi}.execute-
+```
+api.${AWS::Region}.amazonaws.com/product"
+```
+54. Function:
+55. Description: "DynamoDB handler function ARN"
+56. Value: !GetAtt DDBHandlerFunction.Arn
+3. Develop a Lambda a file named app.js under the subdirectory dynamodb-
+handler and copy the following contents:
+1. import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+2. import {
+3. DynamoDBDocumentClient,
+4. ScanCommand,
+5. PutCommand,
+6. GetCommand,
+7. DeleteCommand,
+8. } from "@aws-sdk/lib-dynamodb";
+9.
+10. const client = new DynamoDBClient({});
+11. const dynamo = DynamoDBDocumentClient.from(client);
+12. const crudDemoTableName = "http-crud-demo-product";
+13.
+14. export const handler = async (event, context) => {
+15. let body;
+16. let statusCode = 200;
+17. const headers = {
+18. "Content-Type": "application/json",
+19. };
+20.
+21. try {
+22. switch (event.routeKey) {
+23. case "DELETE /product/{id}":
+24. await dynamo.send(
+25. new DeleteCommand({
+26. TableName: crudDemoTableName,
+27. Key: {
+28. id: event.pathParameters.id,
+29. },
+30. })
+31. );
+32. body = `Deleted product ${event.pathParameters.id}`;
+33. break;
+34. case "GET /product/{id}":
+35. body = await dynamo.send(
+36. new GetCommand({
+37. TableName: crudDemoTableName,
+38. Key: {
+39. id: event.pathParameters.id,
+40. },
+41. })
+42. );
+43. body = body.Item;
+44. break;
+45. case "GET /product":
+46. body = await dynamo.send(
+47. new ScanCommand({ TableName: crudDemoTableName })
+48. );
+49. body = body.Items;
+50. break;
+51. case "PUT /product":
+52. let requestJSON = JSON.parse(event.body);
+53. await dynamo.send(
+54. new PutCommand({
+55. TableName: crudDemoTableName,
+56. Item: {
+57. id: requestJSON.id,
+58. price: requestJSON.price,
+59. name: requestJSON.name,
+60. },
+61. })
+62. );
+63. body = `Put product ${requestJSON.id}`;
+64. break;
+65. default:
+66. throw new Error(`Unsupported route error occured:
+```
+"${event.routeKey}"`);
+```
+67. }
+68. } catch (err) {
+69. statusCode = 400;
+70. body = err.message;
+71. } finally {
+72. body = JSON.stringify(body);
+73. }
+74.
+75. return {
+76. statusCode,
+77. body,
+78. headers,
+79. };
+80. };
+This lambda function takes incoming HTTP API event JSON objects to
+perform CRUD operations on the DynamoDB table.
+4. Create a Create a file called package.json under subdirectory
+1. {
+2. "name": "sam-crud-proj",
+3. "version": "1.0.0",
+4. "main": "app.js",
+5. "type": "module",
+6. "scripts": {
+7. "test": "echo \"Error: no test specified\" && exit 1"
+8. },
+9. "author": "",
+10. "license": "ISC",
+11. "dependencies": {
+12. "@aws-sdk/client-dynamodb": "^3.236.0",
+13. "@aws-sdk/lib-dynamodb": "^3.236.0",
+14. "aws-sdk": "^2.783.0"
+15. },
+16. "keywords": [],
+17. "description": ""
+18. }
+This file is used to define the dependencies for the Lambda functions in the
+application. When we build the application using SAM build, SAM CLI will
+use this file to install the dependencies listed in the dependencies section.
+The directory structure inside the application directory sam-crud-proj will
+look like this:
+1. ├── dynamodb-handler
+2. │ ├── app.js
+3. │ └── package.json
+4. └── template.yml
+5. SAM Run the following command using SAM CLI. This command will
+parse the template and check for syntax errors and other issues.
+1. sam validate --template-file template.yml
+6. SAM build: Run the following command using SAM CLI, this will build
+the code and dependencies for each of the functions in the template and any
+required packages from the package.json file.
+1. sam build --template-file template.yml
+SAM Run the following command using SAM CLI. This a CloudFormation
+stack in your AWS account to manage resources such as Lambda functions,
+API Gateway, and a DynamoDB table as defined in the
+1. sam deploy --template-file template.yml \
+2. --stack-name aws-crud-stack \
+3. --s3-bucket –sam-deploy-s3 \
+4. --capabilities CAPABILITY_IAM
+Once the CloudFormation stack aws-crud-stack successful, the deployment
+sets up a DynamoDB table named http-crud-demo-product and establishes
+API. This API acts as an endpoint for the Lambda functions, allowing for
+interaction with the backend resources.
+We will need API’s invoke URL to evaluate API in next step. Click on the of
+CloudFormation Stack named aws-crud-stack and grab API’s Invoke URL as
+shown in Figure
+Figure URL for HTTP API
+Test HTTP API:
+i. Create/update a Use the following command which creates two products.
+The command includes a request body with product ID, name, and price:
+1. curl -X "PUT" -H "Content-Type: application/json" -d "{\"id\": \"100\",
+```
+\"price\": 100, \"name\": \"product-1\"}" https://664m3uszj9.execute-api.us-
+```
+east-1.amazonaws.com/product
+2.
+3. curl -X "PUT" -H "Content-Type: application/json" -d "{\"id\": \"200\",
+```
+\"price\": 200, \"name\": \"product-2\"}" https://664m3uszj9.execute-api.us-
+```
+east-1.amazonaws.com/product
+This is the output we should see on our terminal after we run the above
+command.
+1. "Put product 100"
+2. "Put product 200"
+ii. Get all products: Run the following command which returns the product
+added in the earlier step:
+1. curl https://664m3uszj9.execute-api.us-east-1.amazonaws.com/product
+```
+Output: This is the output which we should see on our terminal.
+```
+1. [{
+2. "price": 200,
+3. "id": "200",
+4. "name": "product-2"
+5. }, {
+6. "price": 100,
+7. "id": "100",
+8. "name": "product-1"
+9. }]
+iii. To get a particular Run the following command to list a particular
+1. curl https://664m3uszj9.execute-api.us-east-
+1.amazonaws.com/product/100
+This is the output which you see on your terminal after you run the above
+command.
+1. {
+2. "price": 100,
+3. "id": "100",
+4. "name": "product-1"
+5. }
+iv. Delete a particular Run the following command to delete a particular
+```
+product:
+```
+1. curl -X "DELETE" https://664m3uszj9.execute-api.us-east-
+1.amazonaws.com/product/100
+1. "Deleted product 100"
+Use following command to delete the provisioned resources after done with
+testing for this use-case:
+1. aws cloudformation delete-stack --stack-name aws-crud-stack --region us-
+east-1
+Lambda based canary deployment using AWS SAM
+In this section, we will learn to perform canary deployment using AWS SAM.
+AWS SAM detects automatically when the Lambda function is updated, and
+it triggers a canary deployment using AWS CodeDeploy Service that
+```
+incrementally shifts production traffic from the original version (Version 1) of
+```
+```
+the Lambda function to the updated version (Version = 2) as shown in Figure
+```
+Figure 6.15: Canary deployment in Lambda using AWS SAM
+Follow step-by-step procedure to complete this use-case on your AWS
+```
+account:
+```
+1. Setup In this step, we create SAM template, lambda function and use sam
+package and deploy SAM CLI commands to create infrastructure.
+i. Create SAM Create a directory named sam-lambda-canary and a YAML
+file named Copy the following contents into
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Transform: AWS::Serverless-2016-10-31
+3. Resources:
+4. HelloWorldFunction:
+5. Type: AWS::Serverless::Function
+6. Properties:
+7. CodeUri: src/
+8. Handler: handler.lambda_handler
+9. Runtime: python3.8
+10. Events:
+11. HelloWorldEvent:
+12. Type: Api
+13. Properties:
+14. Path: /hello
+15. Method: get
+16. AutoPublishAlias: live
+17. # Grants this function permission to call lambda:InvokeFunction
+18. Policies:
+19. - Version: "2012-10-17"
+20. Statement:
+21. - Effect: "Allow"
+22. Action:
+23. - "lambda:InvokeFunction"
+24. Resource: '*'
+25. DeploymentPreference:
+26. Type: MyCanary25Percent5Minute
+ii. Create a Lambda Create a sub-directory named src inside the directory
+sam-lambda-canary and copy the following contents to a text file and save
+this as
+1. def lambda_handler(event, context):
+2. return {
+3. "statusCode": 200,
+4. "body": "Hello, World!"
+5. }
+iii. Create a new deployment configuration in AWS Create a JSON file
+named custom-deployment-config.json and copy the following contents:
+1. {
+2. "deploymentConfigName": "MyCanary25Percent5Minute",
+3. "trafficRoutingConfig": {
+4. "type": "TimeBasedCanary",
+5. "timeBasedCanary": {
+6. "canaryPercentage": 25,
+7. "canaryInterval": 5
+8. }
+9. },
+10. "computePlatform": "Lambda"
+11. }
+The folder structure inside sam-lambda-canary directory should like this:
+1. ├── canary-deploy-config.json
+2. ├── src
+3. │ └── handler.py
+4. └── template.yml
+Run the following command using AWS CLI which creates a new
+deployment configuration named
+1. aws deploy create-deployment-config --cli-input-json file://custom-
+deployment-config.json
+This configuration will allow CodeDeploy to shift 25% of traffic in the first
+increment. The remaining 75% of traffic will be deployed five minutes later
+when the Lambda function is updated.
+iv. Package AWS SAM Change directory to sam-lambda-canary and run the
+following command using SAM CLI. This command creates a .zip of our
+code, and dependencies, and uploads to the S3 bucket.
+1. sam package \
+2. --template-file template.yml \
+3. --output-template-file package.yml \
+4. --s3-bucket [your-S3-bucket]
+v. Deploy AWS SAM Run the following command using SAM CLI which
+creates lambda function, CodeDeploy application and deployment group
+using AWS CloudFormation.
+1. sam deploy \
+2. --template-file package.yml \
+3. --stack-name my-lambda-canary-deployment \
+4. --capabilities CAPABILITY_IAM
+It takes a few minutes for AWS SAM to create a changeset and deploy the
+CloudFormation stack. Once stack is provisioned, go to the CloudFormation
+and grab physical ID of Lambda function named HelloWorldFunction as
+shown in Figure This will be used to find the ARN of Lambda function in
+Lambda console.
+Figure 6.16: Physical Id of Lambda Function
+vi. Test Lambda Go to the Lambda console, filter the Lambda function with
+the physical id copied in earlier step and grab the ARN of this function for
+```
+Version:1.
+```
+Lambda Function ARN:
+1. arn:aws:lambda:us-east-1:111111111111:function:my-lambda-canary-
+deployment-HelloWorldFunction-6ifu4UFnJPWF:1
+Run the following command using AWS CLI to Invoke Lambda function:
+1. aws lambda invoke \
+2. --function-name arn:aws:lambda:us-east-1:111111111111:function:my-
+lambda-canary-deployment-HelloWorldFunction-6ifu4UFnJPWF:1
+before_canary_result.txt
+The successful execution of the above command results in the output being
+written to a text file named To view the content of this file, use the cat
+command in your terminal:
+1. {"statusCode": 200, "body": "Hello, World!"}
+2. Update Lambda Now, we make a small change in the Lambda function and
+re-run sam package and sam deploy commands:
+1. def lambda_handler(event, context):
+2. return {
+3. "statusCode": 200,
+4. "body": "Hello, DevOps Gurus!"
+5. }
+3. View deployment When the deployment is in progress, go to CodeDeploy
+console, we can see the Traffic shifting bar and the percentages in the
+Original and Replacement boxes as shown in Figure The information
+displayed in this figure shows 25 percent of end users are seeing the new
+Lambda function for the first five minutes and 75 percent of users will see it
+five minutes later.
+Figure 6.17: Traffic shifting is in-progress in AWS CodeDeploy Console from
+old lambda version to newer version
+An added check can be performed also by running the following command
+using AWS CLI:
+1. aws lambda list-aliases --function-name my-lambda-canary-deployment-
+HelloWorldFunction-yq9Ha4urFwEi
+By looking into the output of the above command, we can see that
+RoutingConfig | AdditonalVersionWeights is set to .25 for 2 which means 25
+percent of users are seeing version 2 of lambda function. Over a period of
+five minutes, all traffic is using version 2 of lambda function. This output of
+the above command is shown in Figure
+Figure 6.18: Percentage of traffic going to newer version of Lambda function
+4. Test updated Lambda function: Run the following command using AWS
+CLI to invoke Lambda function for Version 2.
+1. aws lambda invoke \
+2. --function-name arn:aws:lambda:us-east-1:958651443844:function:my-
+lambda-canary-deployment-HelloWorldFunction-yq9Ha4urFwEi:2
+after_canary_result.txt
+The successful execution of the above command results in the output being
+written to a text file named To view the content of this file, use the cat
+command in your terminal:
+1. {"statusCode": 200, "body": "Hello, DevOps Gurus!"}
+5. Run the following using SAM CLI to delete the stack after we are done
+with testing:
+1. sam delete --stack-name my-lambda-canary-deployment \
+2. --region us-east-1
+Deploying application using AWS OpsWorks
+In this section, we will deploy a PHP web application using AWS OpsWorks.
+Firstly, create a stack, then add a layer to the stack, in layer, we deploy an
+instance and in the instance we deploy a web application. The architecture of
+this simple use case is shown in Figure
+Figure 6.19: Deploy application in AWS OpsWorks
+Complete these steps, before we begin to deploy an application in AWS
+```
+OpsWorks:
+```
+```
+Create an Identity and Access Management (IAM) user: Use your AWS
+```
+account to create an IAM named
+Assign Service Access to IAM Attach AWS-managed policies
+AWSOpsWorks_FullAccess and AmazonS3FullAccess to the IAM user
+created above.
+You can find a simple PHP page named index.php for this use-case in the
+BPB GitHub repository in this chapter.
+Create an OpsWorks Login to AWS OpsWorks console using IAM user, wait
+for Welcome to AWS OpsWorks Stacks page to be displayed and click on
+Add your first On Add Stack page, choose the third option, Chef 11 enter
+```
+stack name as select US East (N. Virginia) region from region dropdown,
+```
+select your VPC from VPC dropdown, select Public Subnet in your VPC
+which is listed in Default subnet dropdown, select Amazon Linux 2018.03
+listed from Default operating system dropdown, select Do not use a default
+key from Default SSH key dropdown and click on Add Stack as shown in
+Figure
+Figure a Chef 11 stack in AWS OpsWorks
+Create a Select stack and click on the Add a layer option. On the Add layer
+page, select Layer type as PHP App leave the Elastic Load Balancer option
+blank and create a layer by clicking Add layer as shown in Figure
+Figure a layer in AWS OpsWorks
+Go to Network tab on the layer added above, check the option Public IP
+addresses to Yes and save the settings as shown in Figure
+Figure network settings in PHP App server layer
+Add an Click on Instances on the left navigation pane, select instance size to
+select your public subnet from the Subnet dropdown and click on Add shown
+in Figure
+Figure an instance in OpsWorks Layer
+Start instance: Click on start button to start the instance as shown in Figure
+Figure an instance in OpsWorks
+It will take a few minutes to boot up the instance, and wait for instance’s
+status to turn green. Once status is green go ahead to the next step.
+Deploy Choose Apps in the left navigation and click on Add Enter name of
+the application as Type as Data source type as Application Source Repository
+type as enter the name of Repository URL copied from Prerequisites and
+create app by clicking Add Once an app is added, click on deploy to deploy
+the application.
+Test Wait for deployment to be completed, once the deployment is completed
+and successful, click on Deployments on left navigation pane and click on
+Copy Public Network and Security group in details page of php-app
+application. Open a separate tab on browser and paste the Public IP on the
+address bar and press enter. This opens a landing page of PHP website that
+displays a Hello message as shown in Figure
+Figure page of PHP Website
+Creating a custom cookbook using AWS OpsWorks
+Cookbook is a collection of recipes and other supporting files that are used to
+configure and manage resources. Recipe is a collection of instructions written
+in Ruby language that instructs chef how to configure and manage a
+particular resource.
+Follow step-by-step instructions to complete this use case on your AWS
+```
+account:
+```
+1. Create the cookbook: Create a directory named your local terminal. In this
+directory, create a text file named metadata.rb and copy the following
+```
+contents:
+```
+1. name "sample-cookbook-demo"
+Create a subdirectory named recipes inside sample-cookbook-demo directory.
+In recipes directory, create a text file named Add a single line of code
+statement in this file. This code is a one-line recipe that will display a simple
+Hello, DevOps Gurus! message in the log when the recipe runs.
+1. Chef::Log.info("----------- Hello, DevOpsGurus! ---------")
+The folder structure inside will look like this:
+1. ├── metadata.rb
+2. └── recipes
+3. └── default.rb
+Use tar command to create an archive file named sample-cookbook-
+demo.tar.gz on your terminal and upload the archive file to the S3 bucket
+using AWS CLI as shown below:
+1. tar -czvf sample-cookbook-demo.tar.gz sample-cookbook-demo
+2. aws s3 cp sample-cookbook-demo.tar.gz s3://[your-s3-bucket]
+Go to S3 bucket console, select the uploaded S3 object sample-cookbook-
+demo.tar.gz and copy the URL as shown below. We will use this URL in next
+step while creating the stack.
+1. https://[your-s3-bucket].s3.amazonaws.com/sample-cookbook-demo.tar.gz
+2. Create the On Add Stack page, choose the third option, Chef 11 enter stack
+```
+name as select US East (N. Virginia) region from region dropdown, select
+```
+your VPC from VPC dropdown, select your Public Subnet listed in Default
+Subnet dropdown, select Amazon Linux 2018.03 listed from Default
+operating system dropdown, select Do not use a default key from Default
+SSH key dropdown, choose Yes for Use custom Chef choose S3 Archive for
+Repository paste the archive’s URL copied in previous Enter Access key id
+and Secret access key for the IAM user, and then click on Add Stack as
+shown in Figure
+Figure a stack in AWS OpsWorks for custom cookbook
+3. Create the Select sample-cookbook-demo on the left in OpsWorks Console
+and click on the Add a layer option. On the Add layer page, select Layer type
+as Static Web leave Elastic Load Balancer option as blank and create a layer
+by clicking Add layer as Figure Go to the Network tab on the added layer,
+check the Public IP addresses as Yes and save the settings.
+Figure a Layer in AWS OpsWorks for Custom Runbook
+Add and start the Click on Instances on the left navigation update instance
+size to t2.micro and click on Add Start the added instance by clicking on start
+and wait for the instance to be online as shown in Figure
+Figure instance is online
+Run the Choose sample-cookbook-demo stack and click on Run right top.
+When the Run is displayed, choose Execute the command dropdown, enter
+sample-cookbook-demo::default to execute the shown in Figure
+Figure 6.29: Execute recipe manually using run command
+Check result of the When Running command execute_recipes page is
+displayed as shown in Figure click on show to view execute_recipes logs:
+Figure status of Running command execute_recipes
+Scroll down to the log and we can see the following entry which confirms
+that we have successfully run the recipe.
+1. INFO: ----------- Hello, DevOpsGurus! ---------AWS OpsWorks Stacks lifecycle events
+In this section, we will learn how to run the recipe automatically by assigning
+it to OpsWorks layer lifecycle event.
+Each layer in OpsWorks has five life cycle events: Setup, Configure, Deploy,
+Undeploy and Shutdown. The setup event occurs after an instance finishes
+booting, the Configure event occurs when an instance enters or leaves the
+online state, the Deploy event occurs when we deploy an application to
+instances, the Undeploy event occurs when we terminate an app and
+Shutdown event occurs when we shut down the instance.
+For this use case, we will use the infrastructure provisioned for OpsWorks
+stack, layer, instance, custom cookbook and the recipe.
+```
+Prerequisite: You can find a sample HTML webpage for the Static website in
+```
+the BPB GitHub repository under Chapter
+The content of index.html HTML page is as follows:
+1.
+2.
+5.
+6.
+Hello DevOps Gurus! All the best for AWS DevOps Professional
+Certification Exam
+7.
+8.
+Follow the step-by-step instructions below to complete this use case on your
+AWS account:
+Assign custom recipe to layer Go to Static Web Server click on and then click
+on In Custom Check Recipes section, enter the name of recipe assign the
+recipe to Deploy event by clicking + and then Save the settings as shown in
+Figure
+Figure custom recipe to AWS OpsWorks Deploy event
+Add app: Click on Add an enter static-website as name of the app, select
+Static for choose Data as select Git for Application for repository enter the
+name of Git URL copied from Prerequisite section and then Save the app as
+shown in Figure Deploy the app after it is added into the instance. It will take
+a few minutes for the app to be deployed. Once the app is deployed go to the
+next step.
+Figure static app
+Check Recipe’s results: static-website – is displayed, click on the show to
+view logs app as shown in Figure
+Figure status of deployment in AWS OpsWorks
+Scroll down to the see the following entry which confirms that custom recipe
+was run successfully when Deploy event triggered as the result of the
+deployment.
+1. [2023-01-01T16:25:07+00:00] INFO: ----------- Hello, DevOpsGurus! ----
+-----
+Launch Go to the instance page and click on Public which launches static
+website on the browser as shown in Figure
+Figure website is launched
+Deployment strategy in AWS OpsWorks
+There are different ways to manage OpsWorks stacks app and custom
+cookbooks. In this section, we will talk about each deployment strategy
+```
+briefly:
+```
+• Manual With manual deployment, we can choose to deploy the latest
+version of the app from a particular source repository or specify a
+particular version of your app to deploy. This is the fastest way to deploy
+but it causes downtime.
+• Rolling With rolling deployment, we deploy a new version of the
+application to a part of the instances in a layer and then, subsequently roll
+it out to the remaining instances. This allows us to evaluate the new
+version on a smaller number of instances before rolling it out to the entire
+fleet. This deployment reduces downtime, but failed deployment causes
+reduced ability and requires re-deployment to affected instances in case of
+failure.
+• Blue/Green To implement this technique in AWS OpsWorks, we bring
+up the blue environment/stack with the current version of the application.
+Next, we create the green environment/stack with the newer version of the
+application. When it is time to promote the green environment/stack into
+production, we update DNS records to point to the green
+environment/stack’s load balancer. We can also do this by DNS flip
+gradually by using the Amazon Route 53 weighted routing policy. This
+technique reduces the downtime and risk during the deployment.
+Deploy Node.js application in AWS ECS
+In Chapter Continuous Integration with CodeCommit and we had built a
+Docker image for the Node.js application and uploaded it to AWS Elastic
+Container Registry Service. We will use the previous Docker image for this
+section as a source to launch containers in the ECS cluster and then configure
+ECS Service to run the container.
+Follow the step-by-step instructions mentioned below to complete this
+exercise on your AWS account.
+```
+Prerequisite: Here is the name of the image which was uploaded into the ECR
+```
+repository created in Chapter Continuous Integration with CodeCommit and
+Image
+1. 111111111111.dkr.ecr.us-east-1.amazonaws.com/nodejs-repo:latest
+Configure ECS Go to ECS click on Create and select Networking only
+template. In Configure cluster page, enter Cluster name as nodejs-ecs-cluster
+and click on Create as shown in Figure
+Figure ECS Cluster
+Create new task Select Task Definitions on the left in ECS Console and click
+on Create new Task select FARGATE launch type.
+Enter Task definition name as leave the Task role as keep Network mode
+default as enter Linux in Operating system and select
+```
+Select 0.5GB for Task memory and select 0.25 vCPU in Task CPU (vCPU) as
+```
+shown in Figure
+Figure ECS task
+Click on Add enter the container name enter name of image as from
+Prerequisites section and click on Create, to create new task definition as
+shown in Figure
+Figure container details when creating a new task definition
+Create ECS Select the new task definition created above and click on
+Actions, then on Create select launch type as enter nodejs-ecs-service as the
+name of service, number of tasks as and choose Deployment type as Rolling
+update and click on Next Step as illustrated in Figure
+Figure Service in ECS
+Select the name of your select public Subnets in two AZ, select security and
+ensure the Inbound rule is added, which allows the incoming traffic from
+anywhere to Port range at Auto-assign public balancer type as None and click
+on the next Service Auto Scaling as Do not adjust the service’s desired click
+on Next step as shown in Figure review all the configuration before you click
+on Create
+Figure Network settings when creating ECS Service
+Test ECS Wait for the ECS service to go online, then select the running task
+in the ECS cluster. Copy the public IP listed in the Network tab, as shown in
+Figure
+Figure task in ECS Cluster
+Append port 8080 to the public IP address copied above and paste it into your
+browser’s address bar, then press This will open a static website that displays
+the Hello World from CodeBuild message as shown in Figure
+Figure 6.41: Hello World page on Static website
+Conclusion
+In this chapter, you have navigated through a variety of practical AWS
+deployment scenarios, gaining hands-on skills and valuable insights. You
+have learned how to effectively deploy multi-container Docker
+applications using Elastic Beanstalk, configure setups using and employ
+blue/green deployment strategies. The introduction to AWS API Gateway
+and the creation of an HTTP API with Lambda, DynamoDB, and AWS
+SAM have illustrated the power of efficient interfaces and updates. The
+exploration of AWS OpsWorks has expanded your knowledge of app
+deployment and orchestration. As you reflect on this chapter, you will
+recognize the immediate relevance of these skills in crafting robust and
+optimized AWS deployments.
+In the upcoming chapter, Implement High Availability, Scalability, and
+Fault you will further elevate your expertise by delving into Auto Scaling
+Launch Templates, Policies, and lifecycle Hooks, mastering Termination
+Policies, and exploring scaling based on Amazon SQS. These skills, along
+with Load Balancer setup, application deployment strategies, DynamoDB
+insights, and RDS High Availability techniques, will empower you to
+create resilient and scalable AWS solutions, solidifying your position as a
+proficient AWS practitioner.
+Points to remember
+• Elastic Beanstalk can be configured using Direct Changes, Saved
+Configurations, or files, with the latter allowing extensive customization
+like package installations and script execution.
+• While integrating RDS with Elastic Beanstalk is suitable for
+development and testing, it is recommended to decouple RDS in
+production to avoid lifecycle dependencies.
+```
+• AWS OpsWorks layers feature five lifecycle events: setup (post-instance
+```
+```
+boot), configure (instance state changes), deploy (application
+```
+```
+deployment), undeploy (application termination), and shutdown (instance
+```
+```
+shutdown). These events automate tasks corresponding to each stage of
+```
+the instance and application lifecycle.
+```
+• In AWS OpsWorks, deployment strategies include manual (fast but
+```
+```
+causes downtime), rolling (staged rollout minimizing downtime but
+```
+```
+complex on failure), and Blue/Green (reduces risk by alternating between
+```
+```
+two environments).
+```
+• In AWS OpsWorks, a cookbook is a collection of recipes and other
+supporting files used to configure and manage resources. Each recipe is a
+set of instructions written in the Ruby language that instructs the Chef
+how to configure and manage a specific resource.
+Questions
+1. How many types of deployment configurations are supported by AWS
+CodeDeploy on AWS Lambda compute platform?
+2. What is the order of precedence for the configuration options in an
+AWS Elastic Beanstalk environment’s behavior?
+3. What are the main differences between REST APIs and HTTP APIs in
+AWS?
+Answers
+1. The deployment configurations supported are Canary, Linear, and All-
+at-once.
+2. The order of precedence is Settings applied directly to the environment,
+Saved Configurations, Configuration Files and then Default Values.
+3. REST APIs in AWS offer more features like API keys, throttling, and
+AWS WAF integration, suitable for complex applications. HTTP APIs are
+simpler and more cost-effective, ideal for basic functionality. Choose
+based on your feature requirements and budget.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+7
+Implement High Availability, Scalability, and Fault Tolerance
+Introduction
+In the previous chapter, we explored deployment and automation using
+AWS services, focusing on OpsWorks and Elastic We covered topics
+ranging from deploying Docker applications, configuring Elastic
+Beanstalk, applying Blue/Green deployment strategies, integrating RDS,
+and utilizing Lambda for building HTTP APIs and Canary deployments.
+In this chapter, we shift our focus to high availability and scalability in
+AWS. We will begin by examining the RDS Multi-AZ setup and testing
+failover scenarios. We will delve into the High Availability features of
+Aurora DB. We will also learn to set up scalable, load-balanced
+applications. Finally, we will explore how lifecycle hooks can invoke
+Lambda functions for dynamic responses to instance changes.
+Structure
+In this chapter, we will discuss the following topics:
+• RDS Multi-AZ setup and failover test
+• High availability in Aurora DB
+• Setting up a scalable and load-balanced application
+• Lifecycle hook invoking Lambda function
+Objectives
+In this chapter, our main goal is to ensure a deep understanding of High
+Availability and scalability in AWS. The practical approach will
+encompass setting up and testing RDS Multi-AZ, exploring High
+Availability in Aurora DB, and creating scalable and load-balanced
+applications. We will also gain hands-on experience with AWS lifecycle
+hooks and their interaction with Lambda functions. By the end of this
+chapter, you will have an in-depth knowledge of these key AWS features
+and services, empowering you to create more resilient and scalable
+applications.
+RDS multi-AZ setup and failover test
+In this section, we will explore how to achieve High Availability using
+Amazon Relational Database Service With a Multi-AZ DB instance,
+Amazon RDS establishes a primary DB Instance and synchronously
+duplicates data to a standby instance in another Availability Zone Each AZ
+operates on a separate, reliable infrastructure. In the event of an
+infrastructure issue, Amazon RDS automatically switches to the standby
+```
+(or a read replica for Amazon Aurora), enabling uninterrupted database
+```
+functionality. As the DB Instance endpoint remains unchanged post-
+failover, manual intervention is unnecessary for your application to
+continue database operations. The following figure visually represents the
+concepts explained in this section:
+Figure 7.1: RDS Multi-AZ setup and failover overview
+Follow the step-by-step instructions provided below to convert your RDS
+instance to a Multi-AZ configuration, initiate fail-over in the Multi-AZ
+environment, and verify the success of the fail-over process.Prerequisites
+Create an RDS Postgres Single DB Instance with the identifier my-rds-inst
+and a DB instance class of db.t3.medium in the burstable classes category:
+Verify Multi-AZ setting for RDS: Use the following AWS Command Line
+Interface command to determine whether the instance is utilizing Multi-AZ:
+1. aws rds describe-db-instances \
+2. --db-instance-identifier my-rds-inst \
+3. --query 'DBInstances[].MultiAZ' \
+4. --output text \
+5. --region us-east-1
+The output False indicates that Multi-AZ is not currently enabled. You can
+also check the Multi-AZ settings by navigating to the RDS service console,
+```
+scrolling to the right in the database settings for our specified instance (named
+```
+```
+TBD), and reviewing the Multi-AZ configuration as shown in Figure
+```
+Figure instance Multi-AZ configuration status
+In the following section, we will set up our database for High Availability:
+Configuring High Availability for RDS Use the following AWS CLI
+command to convert the RDS instance to Multi-AZ:
+1. aws rds modify-db-instance \
+2. --db-instance-identifier my-rds-inst \
+3. --multi-az \
+4. --apply-immediately \
+5. --region us-east-1
+Once the instance transitions to the Modifying status, you need to wait for the
+operation to finish, which typically takes around 5-10 minutes. After the
+status changes to click on my-rds-inst instance identifier to review its settings.
+In the Configuration tab, we will see the region and availability zone where
+our primary instance runs at the top-right corner. Additionally, by looking at
+the bottom, we can identify the secondary availability zone where the second
+instance is located, as illustrated in Figure
+Figure and secondary instances in RDS Multi-AZ configuration
+Creating event subscription: In this step, we will create an event subscription
+for the failover event to receive email notifications when the failover event
+occurs. Execute the following shell script, which takes an email address as
+input, creates an SNS topic, an SNS subscription for the provided email
+address, and an RDS event subscription:
+1. #!/bin/sh
+2. email_address=$1
+3.
+4. aws_region='us-east-1'
+5.
+6. # Create an SNS Topic for RDS event subscription
+7. topic_arn=$(aws sns create-topic \
+8. --name rds-event-topic \
+9. --region $aws_region \
+10. --output text)
+11.
+12. echo "Topic Arn is : $topic_arn"
+13.
+14. # Create a subscription to provided email address to the SNS topic
+15. aws sns subscribe \
+16. --topic-arn $topic_arn \
+17. --protocol email \
+18. --no-return-subscription-arn \
+19. --notification-endpoint $email_address \
+20. --region $aws_region
+21.
+22. # Create a RDS event subscription
+23. aws rds create-event-subscription \
+24. --subscription-name my-rds-subscription \
+25. --sns-topic-arn $topic_arn \
+26. --source-type db-instance \
+27. --event-categories failover \
+28. --source-ids my-rds-inst \
+29. --region $aws_region \
+30. --enabled
+Figure 7.4 displays the created RDS event subscription with the Event
+Categories set to failover:
+Figure event subscription for Failover notifications
+notifications notifications notifications notifications notifications
+notifications notifications notifications notifications notifications
+notifications notifications notifications notifications notifications
+notifications notifications notifications notifications notifications
+notifications notifications notifications notifications notifications
+notifications
+Perform multi-AZ To initiate a failover, select the RDS DB click on the
+Actions dropdown, and choose Reboot as illustrated in Figure
+Figure Multi-AZ Failover through RDS Console
+The same action can be executed using the following AWS CLI command:
+1. aws rds reboot-db-instance \
+2. --db-instance-identifier my-rds-inst \
+3. --region us-east-1 \
+4. --force-failover
+This process will take a few minutes to complete. You should receive an
+email with the subject RDS Notification Message and a message stating
+Multi-AZ instance failover started, as shown in Figure
+Figure notification for Multi-AZ instance Failover
+Once the failover is completed, you will receive another RDS Notification
+Message email alert with the subject Multi-AZ instance failover completed.
+Proceed to the next step after receiving this email.
+Confirm Failover Select the DB click on the Logs and Events tab, and
+observe the sequence of events that occurred during the failover, as illustrated
+in Figure
+Figure event sequence in RDS Logs and events
+This conclusion marks the completion of the process of configuring High
+Availability for an RDS Postgres instance using Multi-AZ settings. By
+following the steps outlined above, you have ensured improved resilience for
+your database and gained practical experience in performing failovers and
+monitoring failover events.
+High availability in Aurora DB
+In this example, we will guide you through the process of establishing a high-
+availability Aurora MySQL DB cluster. The setup involves configuring
+compute nodes across multiple availability zones, thereby enhancing read
+scalability and providing failover protection. We will also learn in detail how
+to manage failover event notifications, simulate failover scenarios, and
+monitor the shifting roles of writer and reader nodes within the cluster.
+The Aurora MySQL architecture with a master and one-read replica. HA is
+inbuilt into the Aurora MySQL architecture with six copies of data
+maintained in three different availability zones. In this specific example, we
+are considering two availability zones, resulting in four copies of data being
+visible, as illustrated in the following figure:
+Figure 7.8: Illustration of High Availability architecture in Aurora MySQL
+If the primary instance fails, Amazon RDS promotes an Aurora Replica to
+serve as the new primary instance. This automatic failover process is fully
+automated and handled by Aurora.
+Prerequisites
+Two private subnets in different availability zones for High Availability:
+private-subnet-id-1 and Replace these placeholder IDs with your actual
+subnet IDs as you proceed with the steps.
+Creating a DB subnet Use the following AWS CLI command to create a DB
+subnet group named my-aurora-subnetgroup using two private subnets in the
+1. aws rds create-db-subnet-group \
+2. --db-subnet-group-name my-aurora-subnetgroup \
+3. --db-subnet-group-description "my db subnet group" \
+4. --subnet-ids '["private-subnet-id-1","private-subnet-id-2"]' \
+5. --region us-east-1
+We can verify the creation of DB Subnet group by navigating to the RDS
+console and clicking on Subnet groups on the left. Figure the created DB
+subnet group:
+Figure subnet group in RDS console
+Creating an AWS Aurora In this step, we will create an empty Aurora DB
+cluster named A writer instance will be added explicitly in the following step
+using the create-db-instance AWS CLI command. Use the following AWS
+CLI command to create a MySQL 5.7 compatible DB cluster:
+1. aws rds create-db-cluster \
+2. --db-cluster-identifier my-aurora-cluster \
+3. --engine aurora-mysql \
+4. --engine-version 5.7 \
+5. --engine-mode provisioned \
+6. --master-username admin \
+7. --master-user-password admin1234 \
+8. --db-subnet-group-name my-aurora-subnetgroup \
+9. --region us-east-1
+```
+The preceding command requires a DB subnet group (created in the previous
+```
+```
+step), the name of the database engine, the master username for the DB
+```
+cluster, the password for the master database user, and the engine mode for
+the database engine.
+Please note that it may take a few minutes for the cluster to be created. Once
+the cluster status becomes you may proceed to the next step to create the
+writer instance for the cluster, as shown in the Figure
+Figure DB Cluster status
+Now, we will add a DB instance to the DB cluster that we created in the
+previous step. Use the following AWS CLI command to launch a DB instance
+named
+1. aws rds create-db-instance \
+2. --db-instance-identifier my-aurora-writer-instance \
+3. --db-instance-class db.t2.small \
+4. --engine aurora-mysql \
+5. --engine-version 5.7 \
+6. --db-cluster-identifier my-aurora-cluster \
+7. --no-multi-az \
+8. --no--publicly-accessible \
+9. --availability-zone us-east-1a
+The preceding command takes the DB instance identifier, the compute and
+memory capacity of the DB instance class, the name of the database engine to
+be used for this instance, and the identifier of the DB cluster from the
+previous section. The --no-multi-az parameter indicates that the DB instance
+will not be part of the Multi-AZ deployment.
+Please note that it may take a few minutes for the DB instance to become
+available. The status of the DB instance will initially be creating and will
+change to Available once the instance is ready for use. Figure 7.11 displays
+the Available status of the DB instance:
+Figure DB instance is ready for use
+use use use use use use use use use use use use use use use use use use use
+use use use use use use use use use use use use use use use use
+Creating an Aurora replica instance for High In this step, we will add another
+DB instance to the DB cluster. This instance will be included in the cluster as
+an Aurora replica, serving as a reader instance by default. The primary
+instance performs all the data modifications in the DB cluster, while Aurora
+Replicas replicate the changes and handle read traffic.
+Execute the following AWS CLI command to create a reader instance:
+1. aws rds create-db-instance \
+2. --db-instance-identifier my-aurora-reader-instance \
+3. --db-instance-class db.t2.small \
+4. --engine aurora-mysql \
+5. --engine-version 5.7 \
+6. --db-cluster-identifier my-aurora-cluster \
+7. --no-multi-az \
+8. --no--publicly-accessible \
+9. --availability-zone us-east-1b
+Please note that it may take a few minutes for the Aurora replica instance to
+become available. Once the status transitions to scroll to the right to see the
+Multi-AZ Here, 2 Zones will be noticeable, demonstrating that the cluster is
+distributed across two Availability Zones at the compute layer, as shown in
+Figure
+Figure cluster spread across two availability zones
+We have now successfully implemented High Availability on the compute
+layer. Next, we will proceed to test the DB failover process.
+Setting up failover event In this step, we will create an Amazon SNS topic,
+subscribe your email address to it, establish an RDS event subscription that
+publishes to the SNS topic, and register the DB cluster as an event source.
+This setup will enable us to receive email alerts for DB cluster failover
+events.
+For this, we will use the shell script from Step named Create Event
+Subscription from the previous section, RDS Multi-AZ Setup and Failover
+However, there is a change in the AWS CLI command named create-event-
+subscription used in the script, as shown below:
+# Create a RDS event subscription
+1. aws rds create-event-subscription \
+2. --subscription-name my-rds-subscription \
+3. --sns-topic-arn $topic_arn \
+4. --source-type db-cluster \
+5. --event-categories failover \
+6. --source-ids my-aurora-cluster \
+7. --region $aws_region \
+8. --enabled
+Once the script is executed successfully, navigate to the RDS console, click
+on RDS Subscriptions on the left, and open the subscription named Figure the
+created subscription:
+Figure Subscription in RDS Console
+Perform database To initiate the failover, execute the following AWS CLI
+```
+command:
+```
+1. aws rds failover-db-cluster \
+2. --db-cluster-identifier my-aurora-cluster
+```
+This action will promote the replica to the new primary (or writer) instance
+```
+```
+and reassign the former primary (or writer) instance as a new read replica.
+```
+The failover completion time will vary depending on the amount of database
+activity at the time of failover, but it typically takes less than 2 minutes.
+Monitoring failover In this step, we will check the email notifications sent
+during the failover process and examine RDS log events. Two email
+notifications should arrive in your inbox: one indicating the start of failover
+and the other confirming its completion.
+The RDS Notification message stating that cross-AZ failover to the DB
+instance has started for the DB cluster is displayed in Figure
+Figure Notification: Cross-AZ Failover initiation
+The RDS notification about the completion of failover to DB instance my-
+aurora-instance is displayed in Figure
+Figure completion notification for DB Instance my-aurora-instance
+Monitor failover In this step, we will monitor the events that occurred during
+the failover process. To do this, navigate to the RDS console and click on
+Events on the left-hand side. Figure 7.16 displays the events associated with
+the failover process:
+Figure recorded during DB Failover process
+Figure 7.17 displays the Aurora DB cluster, where we can observe the
+swapped roles of the writer and reader instances. Post failover, the reader
+instance has taken over as the writer, while the previous writer has become
+the reader. Look at the following figure:
+Figure swapping in Aurora DB Cluster after Failover
+In conclusion, this hands-on example guided you through the process of
+setting up a high-availability Aurora MySQL DB cluster, enhancing its
+scalability and ensuring failover protection.
+Setting up a scalable and load-balanced application
+In this tutorial, we will demonstrate the setup of a scalable and load-balanced
+application using an auto-scaling group paired with an application load
+balancer. The tutorial will guide you through the process of distributing
+incoming traffic across robust Amazon EC2 instances in multiple Availability
+Zones, thereby enhancing your application’s fault tolerance and scalability.
+Post-setup, we will simulate a stress test using the stress tool. This will help
+us validate how our Auto Scaling configuration responds under heavy load,
+ensuring that new instances are spun up as expected. The architecture of this
+example is depicted in Figure
+Figure 7.18: Scalable application with auto scaling and load balancer
+architecture
+Follow the step-by-step instructions below to execute this use case in your
+AWS environment:
+Prerequisites
+This setup requires a VPC and two public subnets: public-subnet-id-1 and
+public-subnet-id-2 in different availability zones for High Ensure to replace
+the placeholder subnet IDs with your actual subnet IDs as you move through
+the following steps:
+Creating an application load This step involves the setup of the Balancer
+which will distribute incoming traffic across EC2 instances. It involves
+configuring a security group for the ALB, setting ingress rules for traffic,
+creating a target group for routing, and finally, creating the ALB itself.
+Creating a security Run the following AWS CLI command to establish a
+security group named This group will manage inbound and outbound traffic
+for the Application Load Balancer. This command requires the ID of your
+VPC, as displayed in the following code snippet:
+1. aws ec2 create-security-group \
+2. --group-name MYALBSG \
+3. --description "Application Load Balancer Security Group" \
+4. --vpc-id my-vpc-id
+```
+Make a note of the security group ID; it will be needed in the following step
+```
+```
+when we add an inbound (ingress) rule to it.
+```
+Adding ingress rule to security Execute the following AWS CLI command to
+enable inbound HTTP traffic from anywhere on port
+1. aws ec2 authorize-security-group-ingress \
+2. --group-id app_load_balancer_sg_id \
+3. --protocol tcp \
+4. --port 80 \
+5. --cidr 0.0.0.0/0
+Figure the inbound rule added to the security group that is attached to the
+application load balancer:
+Figure rule added to the security group attached to the application load
+balancer
+Creating target Use the provided AWS CLI command to establish a target
+group for the application load balancer. This target group will allow us to
+register targets using instance id type: The target group will utilize the HTTP
+protocol, port 80 and default health check settings for an HTTP target group.
+Take a look at the following code snippet for better understanding:
+1. aws elbv2 create-target-group \
+2. --name MYALBTG \
+3. --protocol HTTP \
+4. --port 80 \
+5. --target-type instance \
+6. --vpc-id my-vpc-id
+After creating the target group, make a note of its Amazon Resource Names
+This ARN will be required in a future step when we create an HTTP listener.
+Figure 7.20 illustrates the settings of the target group such as target type
+protocol port number and the VPC Note that currently, the target group is not
+associated with any load balancer as displayed in the following figure:
+Figure settings of target group
+Creating application load Utilize the provided AWS CLI command to
+generate an internet-facing application load balancer. This command
+configures the load balancer to operate across specified subnets and utilizes
+the specified security group. Take a look at the following code snippet:
+1. aws elbv2 create-load-balancer \
+2. --name MY-ALB \
+3. --subnets public-subnet-id-1 public-subnet-id-2 \
+4. --security-groups MY-ALB-SG-ID
+After creating the application load balancer, note its ARN. This ARN will be
+required in the next step when we create an HTTP listener.
+```
+Figure the settings of ALB, including the scheme (internet-facing), VPC ID,
+```
+availability zones where our public subnets ARN of and DNS name. Note that
+we have not yet associated any listener with this ALB, as displayed in the
+following figure:
+Figure settings of the application load balancer
+Creating an HTTP Execute the provided CLI command to create an HTTP
+listener for the previously created Application Load Balancer. This listener
+will forward incoming requests to the specified target group established in
+step c, illustrated in the following code snippet:
+1. aws elbv2 create-listener \
+2. --load-balancer-arn MY-ALB-ARN \
+3. --default-actions Type=forward,TargetGroupArn=MY-ALB-TG-ARN \
+4. --protocol HTTP \
+5. --port 80
+The configuration settings of the HTTP listener, including the protocol and
+```
+port and the default action (set to forward and route to a single target group)
+```
+as illustrated in Figure
+Figure Settings of the HTTP listener
+Creating a launch template: In this step, we establish a key pair that enables
+us to connect to the instances and perform stress testing. Additionally, we
+create a security group that allows SSH access to the instances and enables
+the Application Load Balancer to direct frontend connections to the instances
+on port 80. Finally, we create a launch template that specifies the instance
+configuration and creation parameters. This launch template will be utilized
+by the Auto Scaling group, which we will create in the next step:
+Getting the latest Amazon Linux 2 Run the provided AWS CLI command to
+retrieve the AMI ID of the latest Amazon Linux 2 AMI in the us-east-1 This
+AMI ID will be used in the creation of the launch template, take a look at the
+following code snippet:
+1. aws ec2 describe-images \
+2. --owners amazon --filters 'Name=name,Values=amzn2-ami-hvm-*'
+'Name=state,Values=available' \
+3. --query 'sort_by(Images, &CreationDate)[-1].ImageId' \
+4. --region us-east-1 --output text
+The output of the above commands gives the following AMI ID:
+1. ami-0806bc468ce3a22ec
+Creating a key Execute the provided AWS CLI command to create a key pair
+named The output of this command will provide an ASCII version of the
+private key and the key fingerprint. It is important to save the private key to a
+file as it will be used in the subsequent step when we SSH into the instance
+for stress testing. Understand the following code snippet:
+1. aws ec2 create-key-pair --key-name My-Key-Pair \
+2. --query 'KeyMaterial' --output text > private-key.pem
+Creating a Security group for Run the following AWS CLI command below
+to create a security group named This security group will manage inbound
+and outbound traffic for EC2 instances. Execute the following code:
+1. aws ec2 create-security-group \
+2. --group-name MY-EC2-WEB-SG \
+3. --description "Security group for EC2 Instances" \
+4. --vpc-id my-vpc-id
+Execute the following AWS CLI command to enable inbound SSH traffic
+from anywhere on port 22 for the above security group:
+1. aws ec2 authorize-security-group-ingress \
+2. --group-id MY-EC2-WEB-SG-ID \
+3. --protocol tcp \
+4. --port 22 \
+5. --cidr 0.0.0.0/0
+Execute the following AWS CLI command to enable inbound HTTP traffic
+from the security group of the ALB created in step
+1. aws ec2 authorize-security-group-ingress \
+2. --group-id MY-EC2-WEB-SG-ID \
+3. --protocol tcp \
+4. --port 80 \
+5. --source-group MY-ALB-SG-ID
+Figure the SSH and HTTP inbound rule added to the security group attached
+to the EC2 instances:
+Figure rule added to the security group attached to the EC2 instances
+Creating a script for user Create a shell script and copy the following contents
+into it. This script installs and configures the Apache web server and creates a
+Hello, World HTML page. We will input this script as part of the lauch-
+template-data parameter in the next step during the creation of the launch
+template. Execute the following code:
+1. #!/bin/bash
+2. yum update -y
+3. yum install -y httpd
+4.
+5. cat <> /var/www/html/index.html
+6. html>
+7.
+8.
+11.
+12.
+Hello, World!
+13.
+This is a sample HTML page served by the Apache web server on Amazon
+EC2.
+14.
+15.
+16. EOF
+17.
+18. systemctl start httpd
+19. systemctl enable httpd
+Creating a launch Execute the following AWS CLI command, which requires
+the name of the launch template, a description for the first version of the
+template, the ID of the AMI from step the instance type for the EC2 instance,
+the name of key pair created in step the security group created in step and the
+base-64 encoded text of the user data script provided in the previous step.
+Take a look at the following code snippet:
+1. aws ec2 create-launch-template \
+2. --launch-template-name MY-LAUNCH-TEMPLATE \
+3. --version-description version_1 \
+4. --launch-template-data "{
+5. \"ImageId\": \"ami-0806bc468ce3a22ec\",
+6. \"InstanceType\": \"t2.micro\",
+7. \"SecurityGroupIds\": [\"MY-EC2-WEB-SG-ID\"],
+8. \"KeyName\": \"My-Key-Pair\",
+9. \"UserData\": \"$(base64 -w 0 /home/my_user/user-data-script.sh)\"
+10. }"
+Figure 7.24 illustrates the configuration settings of the above-provided launch
+```
+template:
+```
+Figure settings of the launch template
+Creating an auto-scaling Execute the following AWS CLI command, which
+requires the name of the auto-scaling group, the launch template and version
+to use, the minimum and maximum size of the group, the VPC ID, and the
+ARN of the target group created in step mentioned in the following code:
+1. aws autoscaling create-auto-scaling-group \
+2. --auto-scaling-group-name MY-ASG \
+3. --launch-template "LaunchTemplateName=MY-LAUNCH-
+TEMPLATE,Version=1" \
+4. --min-size 2 \
+5. --max-size 4 \
+6. --desired-capacity 2 \
+7. --vpc-zone-identifier "public-subnet-id-1,public-subnet-id-2" \
+8. --target-group-arns "MY-ALB-TG-ARN"
+After creating the auto scaling group with an attached Application Load
+Balancer, the load balancer will automatically register new instances as they
+come online. Now, navigate to the auto scaling group page of the EC2
+console, click on Auto Scaling Groups on the left, and open the auto scaling
+group we just created, you will see under the Instances section of the Instance
+management tab that our instances are ready to receive the traffic. Initially,
+the instances will be in the Pending After a few minutes, the status of
+instances will change to InService, as shown in Figure
+Figure 7.25: Status transition of instances in the auto scaling group from
+pending to InService
+At this point, if we select the Load Balancers option on the left and choose
+the Application Load Balancer we created, we can copy the DNS name and
+paste it into the browser to view the web application running on the Apache
+Webserver, as shown in Figure
+Figure 7.26: Launch web application via load balancer
+Stress testing the auto scaling group
+In this section we will guide you through the steps to stress test your Auto
+Scaling group, allowing you to verify the responsiveness and effectiveness of
+your system under heavy load. The process consists of four main steps:
+1. Adding scaling policy: To add target tracking policy to the auto scaling
+group. This policy will adjust the desired capacity of our Auto Scaling group
+as required to maintain the average CPU utilization of your instances at 50%,
+execute the following AWS CLI command:
+1. aws autoscaling put-scaling-policy \
+2. --policy-name AvgCPUUtilization50Policy \
+3. --auto-scaling-group-name MY-ASG \
+4. --policy-type TargetTrackingScaling \
+5. --target-tracking-configuration "PredefinedMetricSpecification=
+```
+{PredefinedMetricType=ASGAverageCPUUtilization},TargetValue=50" \
+```
+6. --estimated-instance-warmup 60
+2. Connecting to EC2 Choose one of the EC2 instances and connect to it
+using the following command:
+1. ssh -i "private-key.pem" ec2-user@ec2-44-192-16-88.compute-
+1.amazonaws.com
+The above command uses private key file obtained from step 2-b and the
+Public IPv4 DNS copied from the instance summary information page.
+3. Installing the stress Once the Stress utility is installed on the EC2 instance,
+run the following command to initiate stress on the EC2 instance:
+1. sudo amazon-linux-extras install epel -y
+2. sudo yum install stress -y
+4. Conducting the stress Once the utility is installed on the EC2 instance, run
+the following command to initiate stress on the EC2 instance:
+1. sudo stress --cpu 2 --timeout 600
+Approximately, after 10 minutes, the instance count should increase to match
+the maximum capacity of the auto scaling group, which is 4, as depicted in
+Figure
+Figure 7.27: Running EC2 instance to maximum capacity of the auto scaling
+group
+Lifecycle hook invoking Lambda function
+With lifecycle hooks in an Auto Scaling group, we can create custom
+solutions that respond to events such as instance launching and instance
+terminating in the Auto Scaling lifecycle. A lifecycle hook instructs the Auto
+```
+Scaling group to pause for a specified amount of time (default is one hour) to
+```
+complete an action before the instance transitions to the next state. Figure
+7.28 illustrates the transitions between Auto Scaling instance states:
+Figure 7.28: Transitions between Auto Scaling instance states
+For this use-case, we will use the Auto Scaling group created in a previous
+example. We will establish an EventBridge rule that includes an event pattern.
+This pattern will match events from the AWS Auto Scaling service when an
+EC2 instance is about to be terminated. Upon successful matching of events,
+a Lambda function is invoked as the rule target. This Lambda function
+performs a custom action: it creates an AMI when an instance is about to be
+terminated. The Lambda function also provides a callback to allow the
+instance’s lifecycle to proceed if the custom action is successful.
+Follow the step-by-step instructions provided below to execute this use-case
+in your AWS environment:
+Prerequisites
+An Auto Scaling Group named MY-ASG created in the previous example
+Setting up a scalable and Load-Balanced
+1. Setting up the necessary IAM Run the following shell script consisting of
+AWS CLI commands to create an IAM role named
+1. #!/bin/bash
+2.
+3. # Create an IAM role for Lambda
+4. aws iam create-role --role-name EC2LifecycleHookLambdaRole --
+```
+assume-role-policy-document '{
+```
+5. "Version": "2012-10-17",
+6. "Statement": [
+7. {
+8. "Effect": "Allow",
+9. "Principal": {
+10. "Service": "lambda.amazonaws.com"
+11. },
+12. "Action": "sts:AssumeRole"
+13. }
+14. ]
+15. }'
+16.
+17. # Attach the AWSLambdaBasicExecutionRole policy to the role
+18. aws iam attach-role-policy --role-name EC2LifecycleHookLambdaRole -
+-policy-arn arn:aws:iam::aws:policy/service-
+role/AWSLambdaBasicExecutionRole
+19.
+20. # Add inline policy to the role to allow
+```
+autoscaling:CompleteLifecycleAction
+```
+21. aws iam put-role-policy --role-name EC2LifecycleHookLambdaRole --
+```
+policy-name AutoScalingLifecyclePolicy --policy-document '{
+```
+22. "Version": "2012-10-17",
+23. "Statement": [
+24. {
+25. "Effect": "Allow",
+26. "Action": "autoscaling:CompleteLifecycleAction",
+27. "Resource": "arn:aws:autoscaling:us-east-1:
+[AWS_ACCOUNT_ID]:autoScalingGroup:30d41a84-2a53-413d-95bb-
+7b5ce00005e2:autoScalingGroupName/MY-ASG"
+28. }
+29. ]
+30. }'
+31.
+32. # Add inline policy to the role to allow ec2:CreateImage
+33. aws iam put-role-policy --role-name EC2LifecycleHookLambdaRole --
+```
+policy-name CreateImagePolicy --policy-document '{
+```
+34. "Version": "2012-10-17",
+35. "Statement": [
+36. {
+37. "Sid": "CreateImage",
+38. "Effect": "Allow",
+39. "Action": "ec2:CreateImage",
+40. "Resource": "*"
+41. }
+42. ]
+43. }'
+Two policies are attached to this role: AWSLambdaBasicExecutionRole and
+inline policies AutoScalingLifecyclePolicy and The former is a managed
+AWS policy that allows our Lambda function to write logs to The latter two
+are custom inline policies allowing our Lambda function to complete
+lifecycle actions on specified Auto Scaling groups and create an AMI,
+respectively.
+Make a note of the ARN of the newly created IAM role. This will be needed
+in the next step when we set up the Lambda function, which performs the
+custom action of generating an AMI, as shown in the following code snippet:
+1. arn:aws:iam::
+[AWS_ACCOUNT_ID]:role/EC2LifecycleHookLambdaRole
+2. Creating the Lambda In this section, we will write the Python code,
+package it, and create the Lambda function. This function, once triggered,
+will create an AMI from the instance about to be terminated and ensure that
+the lifecycle action continues in the Auto Scaling group.
+a. Copy the following Python code into a file named
+1. import boto3
+2.
+3. def lambda_handler(event, context):
+4. ec2 = boto3.client('ec2')
+5.
+6. instance_id = event['detail']['EC2InstanceId']
+7.
+8. # Create an image of the instance
+9. image = ec2.create_image(
+10. InstanceId=instance_id,
+11. Name='Image of instance ' + instance_id,
+12. Description='Image created by Lambda function',
+13. NoReboot=True
+14. )
+15.
+16. # Notify Auto Scaling to continue lifecycle action
+17. autoscaling = boto3.client('autoscaling')
+18. response = autoscaling.complete_lifecycle_action(
+19. LifecycleHookName='TerminateInstanceLifecycleHook',
+20. AutoScalingGroupName='MY-ASG',
+21. LifecycleActionToken=event['detail']['LifecycleActionToken'],
+22. LifecycleActionResult='CONTINUE'
+23. )
+24.
+25. return {
+26. 'statusCode': 200,
+27. 'body': response
+28. }
+b. Create a deployment package named lifecycle_hook_lambda.zip using the
+following command:
+1. zip lifecycle_hook_lambda.zip lifecycle_hook_lambda.py
+c. Execute the following command to create lambda function named
+1. aws lambda create-function --function-name lifecycle_hook_lambda \
+2. --zip-file fileb://lifecycle_hook_lambda.zip --handler
+lifecycle_hook_lambda.lambda_handler --runtime python3.9 \
+3. --role arn:aws:iam::
+[ACCOUND_ID]:role/EC2LifecycleHookLambdaRole \
+4. --timeout 300
+Make a note of the ARN of lambda function as it will be required in the
+following step when we add this function as the target of the event bridge
+```
+rule:
+```
+1. arn:aws:lambda:us-east-1:
+[ACCOUNT_ID]:function:lifecycle_hook_lambda
+3. Establishing an EventBridge In this section, we will establish an
+EventBridge rule to monitor EC2 termination events within the Auto Scaling
+Group. Additionally, we will link our Lambda function as the target of this
+rule, allowing it to respond to and handle these events. The steps are as
+```
+follows:
+```
+a. Create a Run the following AWS CLI command to establish an
+EventBridge rule named This rule listens for EC2 termination events in the
+Auto Scaling Group, executes the following code snippet:
+1. aws events put-rule \
+2. --name 'ASGTerminateLifecycleEventRule' \
+3. --event-pattern '{
+4. "source": ["aws.autoscaling"],
+5. "detail-type": ["EC2 Instance-terminate Lifecycle Action"],
+6. "detail": {
+7. "AutoScalingGroupName": ["MY-ASG"]
+8. }
+9. }' \
+10. --state 'ENABLED'
+Figure 7.29 illustrates the EventBridge rule created with the added event
+```
+pattern:
+```
+Figure 7.29: The EventBridge rule with specified event pattern
+a. Make a note of the ARN for the newly created EventBridge rule, as it will
+be needed in the next step. We will use this information when granting
+permissions to the Lambda function, thereby allowing it to be invoked by the
+rule. This action will add a resource policy to the function.
+ARN of EventBridge Rule
+1. arn:aws:events:us-east-1:
+[AWS_ACCOUNT_ID]:rule/ASGTerminateLifecycleEventRule
+b. Add to link the Lambda function, created in the previous step, as a target
+to the rule, execute the following AWS CLI command:
+1. aws events put-targets \
+2. --rule 'ASGTerminateLifecycleEventRule' \
+3. --targets 'Id'='1','Arn'='arn:aws:lambda:us-east-
+1:958651443844:function:lifecycle_hook_lambda'
+Figure 7.30 illustrates the Lambda function that has been added as a target to
+the EventBridge rule created in the previous step:
+Figure 7.30: Lambda function added as a target to the EventBridge rule
+c. Add permission to the Execute the following command to grant
+EventBridge the permission to invoke our Lambda function:
+1. aws lambda add-permission \
+2. --function-name lifecycle_hook_lambda \
+3. --statement-id EventBridgeInvokePermission \
+4. --action 'lambda:InvokeFunction' \
+5. --principal events.amazonaws.com \
+6. --source-arn arn:aws:events:us-east-1:
+[AWS_ACCOUNT_ID]:rule/ASGTerminateLifecycleEventRule
+4. Adding a lifecycle To add a lifecycle hook with a heartbeat timeout of 300
+seconds, execute the following AWS CLI command:
+1. aws autoscaling put-lifecycle-hook \
+2. --lifecycle-hook-name TerminateInstanceLifecycleHook \
+3. --auto-scaling-group-name MY-ASG \
+4. --lifecycle-transition autoscaling:EC2_INSTANCE_TERMINATING \
+5. --default-result CONTINUE \
+6. -- heartbeat-timeout 300 \
+7. --region us-east-1
+The preceding configuration ensures that our Lambda function is invoked
+upon the termination of an instance within our Auto Scaling Group. Figure
+7.31 illustrates the lifecycle hook added to the Auto Scaling Group:
+Figure 7.31: Lifecycle hook added to the Auto Scaling Group
+Now everything is correctly configured, it is time to test the event and
+observe if the Lambda function performs the custom action when the instance
+is about to be terminated.
+To update the Auto Scaling group by reducing the desired capacity to zero.
+Our lambda function will be invoked a few seconds after decreasing this
+reduction in capacity, execute the following command:
+1. aws autoscaling update-auto-scaling-group \
+2. --auto-scaling-group-name MY-ASG \
+3. --min-size 0 \
+4. --desired-capacity 0
+The subsequent three screenshots depict the instance lifecyle states from
+InService to Terminating:Wait and
+Figure 7.32 showcases the instance in the InService state:
+Figure 7.32: EC2 Instance in InService state within Auto Scaling group
+Figure 7.33 showcases the instance in the Terminating:Wait state:
+Figure 7.33: EC2 instance in Terminating:Wait state within Auto Scaling
+Group
+Figure 7.34 showcases the instance in the Terminating:Proceed state:
+Figure 7.34: EC2 instance in terminating: Proceed state within Auto Scaling
+Group
+Click on AMIs on the left-hand side under where we can see that AMI has
+been created by the Lambda function.
+Figure 7.35 displays the AMI that has been created, along with its AMI ID:
+Figure 7.35: AMI created by the Lambda function
+In conclusion, this hands-on example demonstrated how to leverage AWS
+services to automate instance management. By using AWS Auto Scaling
+lifecycle hooks and AWS Lambda, we created a system that automatically
+creates an AMI of an EC2 instance just before it is terminated, thereby
+ensuring we have a snapshot of the instance state for any future requirements.
+Conclusion
+In this chapter, we started with Amazon Relational Database Service and
+its implementation in a Multi-AZ setup. We delved into how RDS ensures
+High Availability by synchronously duplicating data between a primary
+and standby DB instance in different Availability Zones. This setup
+provides a seamless failover mechanism that ensures continuous database
+operations even in the event of an infrastructure failure.
+Following RDS, we explored Amazon Aurora DB, focusing on its High
+Availability capabilities. We established an Aurora MySQL DB cluster
+and examined how it maintains data in multiple availability zones for read
+scalability and failover protection. Through this, we gained insights into
+Aurora’s built-in High Availability feature and how it handles failover
+events.
+Next, we demonstrated the setup of a scalable and load-balanced
+application. We used an Auto Scaling group paired with an Application
+Load Balancer to distribute incoming traffic across multiple robust
+Amazon EC2 instances. This enhanced the fault tolerance and scalability
+of our application.
+Lastly, we learned how to create lifecycle hooks within an Auto Scaling
+group. Through a practical demonstration, we learned how these hooks
+provide a mechanism to pause and perform custom actions during instance
+transitions.
+In the next chapter, we will dive into a variety of AWS services. We will
+understand termination policies and how to suspend Auto Scaling
+processes. We will also investigate content delivery using AWS
+CloudFront and ensure High Availability with Route53. Furthermore, we
+will explore AWS Elastic Disaster Recovery and the AWS Elastic
+Kubernetes Service. Lastly, we will study advanced features of
+DynamoDB, including Streams, DAX, and TTL.
+Points to remember
+• Multi-AZ in RDS and Aurora DB provides High Availability by
+duplicating data across multiple Availability Zones. It enhances the
+reliability of the system by providing seamless failover capabilities.
+• By setting up an Auto Scaling group with an Application Load Balancer,
+we can ensure efficient traffic distribution across multiple EC2 instances
+in different Availability Zones. This setup enhances the application’s fault
+tolerance and scalability.
+• Lifecycle Hooks in Auto Scaling allow us to pause the instance states in
+an Auto Scaling group to carry out specific tasks. It provides an
+opportunity to create custom actions that respond to instance launching
+and terminating events in the Auto Scaling lifecycle.
+Questions
+1. What is the advantage of using versioning in AWS launch templates?
+2. What lifecycle state does an instance transition to after a lifecycle hook,
+applied during the termination stage, has completed its action?
+3. How can we test the High Availability of my AWS RDS Postgres
+instance?
+4. For High Availability, across three Availability Zones, how many copies
+of data does Aurora DB maintain?
+Answers
+1. Versioning allows you to maintain various configurations in your AWS
+launch templates. It enables you to create, reuse, and delete versions,
+providing flexibility in managing your AWS resources.
+2. Once the action associated with a lifecycle hook in the termination
+stage is completed, the state transitions to
+3. You can simulate an Availability Zone failure by rebooting the RDS
+instance with the failover option. This forces a failover to a standby
+replica in another AZ. Use the following AWS CLI command, replacing
+mydbinstance with your instance identifier:
+1. aws rds reboot-db-instance \
+2. --db-instance-identifier mydbinstance \
+3. --force-failover
+This test only works with instances that have Multi-AZ support enabled.
+This operation causes a brief outage, and it helps confirm your application
+can handle AZ failures smoothly.
+4. For High Availability across three Availability Zones, Aurora DB
+maintains six copies of data.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+8
+Design and Automate Disaster Recovery Strategies
+Introduction
+In the previous chapter, Implement High Availability, Scalability, and
+Fault we learned how to make our AWS services reliable and scalable. We
+explored key concepts such as RDS Multi-AZ for database failover,
+Aurora DB for high availability, and how to create a scalable, load-
+balanced application. We also looked at how to use lifecycle hooks to
+trigger Lambda Functions.
+In this chapter, we expand on some topics from the previous chapter and
+dive deeper into the disaster recovery strategies on AWS. We will start by
+learning more about managing Auto Scaling Groups, including how to
+suspend operations, and set termination policies. We will also delve
+further into AWS DynamoDB, exploring its Streams, the Accelerator
+```
+(DAX), and it is Time to Live feature.
+```
+Then, we will shift our focus to disaster recovery. We will learn how to
+replicate data across different regions using S3 Cross-Region Replication
+to improve data durability. We will also discuss how to deploy web
+applications on AWS EKS and design a disaster recovery strategy with
+AWS DRS. We will discover how to ensure high availability with
+CloudFront Origin Failover and Route 53. Another key topic we’ll discuss
+is scaling resources based on AWS SQS. By the end of this chapter, you
+will have a comprehensive understanding of how to design and automate
+disaster recovery strategies on AWS.
+Structure
+In this chapter, we will discuss the following topics:
+• Suspend auto scaling processes
+• Termination policies in auto scaling group
+• S3 Cross-Region Replication
+• Deploy web application on AWS EKS
+• Disaster recovery with AWS DRS
+• High Availability with CloudFront origin failover
+• Disaster recovery in AWS DynamoDB
+• DynamoDB Accelerator
+• DynamoDB Time to Live
+• Scaling based on Simple Queue Service
+• High Availability with Route 53
+• AWS Auto Scaling
+Objectives
+In this chapter, our main objective is to delve deeply into the design and
+automation of disaster recovery strategies on AWS. Through practical
+approaches, we will learn how to manage data replication across regions
+with S3 Cross-Region Replication, deploy web applications using AWS
+EKS, and design robust disaster recovery strategies with AWS DRS. We
+will also explore how to ensure high availability using CloudFront Origin
+Failover and Route 53. By scaling resources based on AWS SQS, we will
+see how to maintain service availability even under heavy loads. By the
+end of this chapter, you will have developed a comprehensive
+understanding of these critical AWS features and services, empowering
+you to create applications that are not only resilient but also capable of
+quick recovery in the face of disasters.
+Suspend auto scaling processes
+Suspending auto scaling processes can be beneficial in specific situations. Let
+us assume you are encountering issues with your instances or applications
+that require troubleshooting. Suspending auto-scaling processes allows you to
+maintain a stable environment, ensuring that your configuration remains
+constant during the investigation.
+Keep in mind that suspending Auto Scaling Processes is typically a temporary
+measure. These processes should be resumed once the required task is
+completed, ensuring your application can continue to scale and meet demand
+as necessary.
+In this example, we will utilize the Auto Scaling group named MY-ASG that
+was created in the previous chapter Implementing High Availability,
+Scalability, and Fault Tolerance under the Setting Up a Scalable and Load-
+Balanced Application section.
+Figure 8.1 displays the types of processes that can be suspended or resumed
+in an Auto Scaling group:
+Figure 8.1: Auto scaling processes that can be suspended or resumed
+To suspend the specific process AddToLoadBalancer for the Auto Scaling
+Group named MY-ASG, execute the following command:
+1. aws autoscaling suspend-processes \
+2. --auto-scaling-group-name MY-ASG \
+3. --scaling-processes AddToLoadBalancer \
+4. --region us-east-1
+See Figure 8.2 for a visual representation of this configuration in the
+advanced settings of your Auto Scaling group:
+Figure 8.2: Suspending AddToLoadBalancer Process
+To resume the AddToLoadBalancer process for the Auto Scaling group
+named allowing new instances to be added to the load balancer as usual, run
+this command:
+1. aws autoscaling resume-processes \
+2. --auto-scaling-group-name MY-ASG \
+3. --scaling-processes AddToLoadBalancer \
+4. --region us-east-1
+If you need to manually add specific instances to the load balancer that were
+launched while the AddToLoadBalancer process was suspended, here’s how:
+1. aws elbv2 register-targets \
+2. --target-group-arn MY-ALB-TG-ARN \
+3. --targets Id=instance-id-1 Id=instance-id-2 \
+4. --region us-east-1
+This command requires the ARN of your target group, and instance-id-1 and
+instance-id-2 are placeholders for the actual instance IDs that you want to
+register. Multiple instance IDs can be specified as needed. Executing this
+command will manually register the specified instances with the target group,
+allowing the load balancer to direct traffic to these instances.
+Termination policies in auto scaling group
+The termination policy in AWS Auto Scaling determines which instances
+to terminate when scaling in or during manual termination. It allows us to
+define the rules for selecting instances for termination based on various
+criteria. By configuring the termination policy, we can control how
+instances are selected to be terminated, ensuring optimal resource
+utilization and application availability. There are two types of termination
+polices available: predefined and custom. In Figure we can observe the
+Predefined termination policies used to select instances during scale-in
+```
+events:
+```
+Figure 8.3: Termination policies for Instance Selection during Scale-in
+To configure termination policies using the AWS CLI, we can leverage the
+update-auto-scaling-group command:
+1. aws autoscaling update-auto-scaling-group \
+2. --auto-scaling-group-name MY-ASG \
+3. --termination-policies "OldestLaunchTemplate" "Default" \
+4. --region us-east-1
+By executing this command, we can modify the termination policy of the
+Auto Scaling group named MY-ASG to include the Default and
+OldestLaunchTemplate policies.
+It is crucial to choose an appropriate termination policy that aligns with
+your application’s requirements and workload characteristics. Regularly
+reviewing and adjusting the termination policy ensures efficient resource
+management and maintains application availability within your AWS Auto
+Scaling environment.
+Additionally, with AWS Lambda, we have the flexibility to create custom
+termination policies that can be invoked by AWS EC2 Auto Scaling
+invokes in response to certain events.
+S3 Cross-Region Replication
+Amazon S3 Cross-Region Replication is a feature at the bucket level that
+enables automatic, asynchronous copying of objects across buckets in
+different AWS Regions. Buckets configured for cross-region replication
+can be owned by the same AWS account or by different accounts.
+CRR in Amazon S3 has several use cases. It meets compliance
+requirements by replicating data over geographical distances, reduces
+latency by positioning data closer to global users, and supports operational
+strategies by enabling disaster recovery backups and the creation of data
+lakes in various regions.
+In this example, we will demonstrate how to set up cross-region
+replication of S3 buckets using AWS CLI. The flow of data replication
+from source the bucket to the destination bucket is shown in Figure
+Figure 8.4: Cross-region replication flow between source and destination
+buckets
+Please follow the step-by-step instructions below in your AWS account to
+complete this use case:
+Prerequisites
+Create two S3 buckets. The Source Bucket located in the us-east-1 region,
+will serve as the origin for object replication. The Destination Bucket situated
+in the us-west-2 region, will be the target for the replicated objects.
+1. Enable versioning on both Versioning must be enabled for both the source
+and destination buckets. Run the following AWS CLI command to enable
+versioning on the source bucket:
+1. aws s3api put-bucket-versioning \
+2. --bucket my-source-bucket123 \
+3. --versioning-configuration Status=Enabled
+Figure 8.5 shows the versioning state of the source bucket created in us-east-
+```
+1(N. Virginia) AWS region:
+```
+Figure 8.5: Versioning state of the source bucket
+Run the following AWS CLI command to enable versioning on the
+destination bucket:
+1. aws s3api put-bucket-versioning \
+2. --bucket my-destination-bucket456 \
+3. --versioning-configuration Status=Enabled
+Figure 8.6 shows the versioning state of the destination bucket created in us-
+```
+west-2 (Oregon) AWS region:
+```
+Figure 8.6: Versioning state of the destination bucket
+2. Create the IAM Policy for Create a JSON policy document, like the
+following, and save it as
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Action": [
+6. "s3:GetReplicationConfiguration",
+7. "s3:ListBucket"
+8. ],
+9. "Effect": "Allow",
+10. "Resource": [
+11. "arn:aws:s3:::my-source-bucket123"
+12. ]
+13. },
+14. {
+15. "Action": [
+16. "s3:GetObjectVersion",
+17. "s3:GetObjectVersionAcl"
+18. ],
+19. "Effect": "Allow",
+20. "Resource": [
+21. "arn:aws:s3:::my-source-bucket123/*"
+22. ]
+23. },
+24. {
+25. "Action": [
+26. "s3:ReplicateObject",
+27. "s3:ReplicateDelete",
+28. "s3:ReplicateTags",
+29. "s3:GetObjectVersionTagging",
+30. "s3:ObjectOwnerOverrideToBucketOwner"
+31. ],
+32. "Effect": "Allow",
+33. "Resource": "arn:aws:s3:::my-destination-bucket456/*"
+34. }
+35. ]
+36. }
+Run the following command using AWS CLI to create the policy named
+1. aws iam create-policy \
+2. --policy-name S3ReplicationPolicy \
+3. --policy-document file://s3-replication-policy.json
+Note the ARN of the policy output by the above command.
+3. Create IAM Role for You need to create an IAM role and attach the policy
+you created. Save the following trust policy as
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Effect": "Allow",
+6. "Principal": {
+7. "Service": "s3.amazonaws.com"
+8. },
+9. "Action": "sts:AssumeRole",
+10. "Condition": {}
+11. }
+12. ]
+13. }
+Run the following command using AWS CLI to create the role named
+1. aws iam create-role \
+2. --role-name S3ReplicationRole \
+3. --assume-role-policy-document file://trust-policy.json
+Note the ARN of the role outputted by the above command. Attach the policy
+you created to this role:
+1. aws iam attach-role-policy \
+2. --role-name S3ReplicationRole \
+3. --policy-arn "arn:aws:iam::
+[AWS_ACCOUNT_ID]:policy/S3ReplicationPolicy"
+4. Enable replication on the source Create a replication configuration file
+named
+1. {
+2. "Role":"arn:aws:iam::
+[AWS_ACCOUNT_ID]:policy/S3ReplicationPolicy",
+3. "Rules":[
+4. {
+5. "ID":"ReplicateAll",
+6. "Status":"Enabled",
+7. "Priority":1,
+8. "DeleteMarkerReplication": { "Status": "Enabled" },
+9. "Filter": {
+10. "Prefix": ""
+11. },
+12. "Destination": {
+13. "Bucket": "arn:aws:s3:::my-destination-bucket456",
+14. "StorageClass": "STANDARD"
+15. }
+16. }
+17. ]
+18. }
+Replace role with the role ARN noted in the previous step, and Bucket with
+the ARN of your destination bucket. Enable replication on the source bucket:
+1. aws s3api put-bucket-replication \
+2. --bucket my-source-bucket123 \
+3. --replication-configuration file://replication-configuration.json
+Now, your buckets are set up for cross-region replication. Any new objects
+uploaded to the source bucket will be automatically replicated to the
+destination bucket. Figure 8.7 displays the replication rule configured for the
+source S3 bucket in the N. Virginia region:
+Figure 8.7: Replication rule configuration for the source bucket
+5. Test replication To test the replication rule, we will upload a simple text file
+named hello.txt to the source S3 bucket N. Virginia region and verify that it is
+successfully replicated to the destination S3 bucket in Oregon region.
+Use the following AWS CLI command to upload hello.txt to your source
+```
+bucket:
+```
+1. aws s3 cp hello.txt s3://my-source-bucket123/
+After the file upload is finished, click on the filename to check the
+Replication This can be found under Management Configurations in the
+Object management overview group. Initially, you may notice the status is
+Wait a few seconds and refresh the page until the status updates to as shown
+in Figure
+Figure 8.8: Replication Rule Configuration for the Source Bucket
+Now, if we navigate to the destination bucket in the Oregon region, we can
+see that the object has been replicated. Figure 8.9 shows the replicated S3
+object in the Oregon region, with the replication status marked as
+Figure 8.9: Replicated S3 object with ‘REPLICA’ status in the destination
+bucket
+By following the steps above, we have successfully set up cross-region
+replication for S3 buckets using the AWS CLI.
+Deploy a web application on AWS EKS
+Amazon Elastic Kubernetes Service is a fully managed service that allows
+seamless deployment, scaling, and management of containerized
+applications using Kubernetes, a popular open-source automation system.
+With EKS, users can focus on application development, without worrying
+about the overhead of setting up and maintaining their own Kubernetes
+control plane or nodes.
+In this example, we will learn how to deploy a web application on an
+Amazon EKS cluster. First, we will create an EKS cluster using the
+command-line tool eksctl. Following that, we will deploy our application,
+and Nginx server, onto the EKS cluster using a Kubernetes Deployment. To
+expose our application to the outside world, we will then create a Kubernetes
+Service of type LoadBalancer, which automatically provisions an Amazon
+ELB. Once everything is set up, we will validate the service by checking the
+application’s accessibility via the LoadBalancer’s URL. Finally, to ensure
+the robustness of our setup, we will simulate a node failure by terminating a
+node, demonstrating the high availability of our EKS cluster. The
+architecture of this use case is displayed in Figure
+Figure 8.10: Architectural overview of web application deployment on AWS
+EKS
+Please follow the step-by-step instructions below in your AWS CloudShell
+environment to complete this use-case:
+Prerequisites
+Ensure that eksctl is installed on your AWS CloudShell. Note that AWS CLI
+and kubectl should already be installed on AWS CloudShell.
+1. Configure EKS In this step, we will use eksctl to create our EKS cluster.
+We will specify the cluster name, region, availability zones, node group
+name, node type, and the minimum, maximum, and desired number of nodes.
+The --managed flag indicates that we are creating a managed node group.
+Execute the following command to create EKS cluster:
+1. eksctl create cluster \
+2. --name eks-cluster \
+3. --region us-east-1 \
+4. --zones us-east-1a,us-east-1b,us-east-1c \
+5. --nodegroup-name eks-workers \
+6. --node-type t3.medium \
+7. --nodes 3 \
+8. --nodes-min 3 \
+9. --nodes-max 6 \
+10. --managed
+It will take several minutes, up to 15-20 minutes, to create the cluster. Once it
+is complete, we can check the status of the cluster by navigating to the EKS
+console. Figure 8.11 displays the status of the EKS cluster as
+Figure 8.11: Active EKS Cluster
+2. Create a Create a YAML file named nginx-deployment.yaml and copy the
+following contents into it:
+1. apiVersion: apps/v1
+2. kind: Deployment
+3. metadata:
+4. name: nginx-deployment
+5. spec:
+6. selector:
+7. matchLabels:
+8. app: nginx
+9. replicas: 3
+10. template:
+11. metadata:
+12. labels:
+13. app: nginx
+14. spec:
+15. containers:
+16. – name: nginx
+17. image: nginx:latest
+18. ports:
+19. – containerPort: 80
+Execute the following command to create the deployment, which will in turn
+create three pods running the nginx server:
+1. kubectl apply -f nginx-deployment.yaml
+Once the deployment is created, you can check the status of the pods by
+running the following command:
+1. kubectl get pods -l app=nginx
+Figure 8.12 displays the status of all three running pods:
+Figure 8.12: Running Pods Status
+3. Create a Create a YAML file named nginx-service.yaml and copy the
+following contents into it:
+1. apiVersion: v1
+2. kind: Service
+3. metadata:
+4. name: nginx-service
+5. spec:
+6. selector:
+7. app: nginx
+8. ports:
+9. - protocol: TCP
+10. port: 80
+11. targetPort: 80
+12. nodePort: 30080
+13. type: LoadBalancer
+The above service will expose the nginx deployment on a LoadBalancer
+created automatically by AWS EKS.
+Execute the following command to create the LoadBalancer Service:
+1. kubectl apply -f nginx-service.yaml
+Once the service is created, you can check the status of service by running the
+following command:
+1. kubectl get svc nginx-service
+Figure 8.13 displays the status of Kubernetes Service that is currently running
+within the AWS EKS environment:
+Figure 8.13: Status of Kubernetes service in AWS EKS
+4. Test the After applying the service, AWS will provision an ELB and expose
+it through an external IP or DNS name. You can check the EXTERNAL-IP
+field in the output of the kubectl get svc command to get the DNS name of
+the LoadBalancer.
+Open the URL in a web browser to access your application as shown in
+Figure
+Figure 8.14: Accessing the Deployed Application via LoadBalancer URL
+5. Test the High Availability of the First, identify the nodes where your
+application pods are running by executing the following command:
+1. kubectl get pods -l app=nginx -o wide
+The above command will produce an output similar to what is shown in
+Figure
+Figure 8.15: Running application PODs
+Next, navigate to the EKS Console and select the Node for which you are
+simulating a failure. To do this, select the EKS cluster that you created, then
+choose the Compute tab and click on any Node. Figure 8.16 displays the
+instance ID of the selected node:
+Figure 8.16: Instance ID of Selected Node in EKS Console
+Take the instance-id that you copied earlier and replace it in the following
+command to terminate the instance:
+1. aws ec2 terminate-instances --instance-ids
+After you have terminated the node, AWS EKS will automatically replace the
+terminated instance will a new one. This can be observed in the EC2
+instances list. You can also confirm this at the Kubernetes level by running:
+1. kubectl get nodes
+The output of the command will produce the output as shown in Figure
+Figure 8.17: New Node in Cluster After Termination and Replacement
+The above output lists all the nodes in your cluster, which should be three.
+You should see a new node replacing the one that was terminated, which
+confirms that high availability is correctly set up.
+Disaster Recovery with AWS DRS
+Before diving into AWS Elastic Disaster Recovery it is important to
+understand various disaster recovery strategies, as the chosen approach
+depends on your specific business requirements and the criticality of your
+applications. Here is an overview of these strategies:
+• Backup and In this DR strategy data is regularly backed up and restored in
+case of a disaster. While this approach is cost-effective, it might lead to higher
+Recovery Time Objectives and Recovery Point Objectives
+• Pilot In this strategy, a minimal version of the environment is always
+running in the cloud. This pilot light contains the core elements needed to
+quickly scale up to a fully operational environment when needed.
+• Warm This strategy involves a scaled-down version of a fully functional
+environment always running in the cloud.
+• This strategy deploys a full-scale, fully operational environment in two
+```
+locations (typically, different AWS regions) that run simultaneously.
+```
+Please refer to Figure which visually represents the different disaster recovery
+strategies mentioned above:
+Figure 8.18: Comparative Overview of Disaster Recovery Strategies
+AWS DRS provides a simplified, cost-effective, and reliable method to
+minimize downtime and data loss during a disaster. By leveraging this
+service, organizations can reduce the complexities involved in traditional
+disaster recovery solutions, significantly reducing cost and effort while still
+achieving the desired RTOs and RPOs.
+DRS continuously replicates the system state, which includes server system
+settings, network configurations, and application settings from your primary
+environment into a cost-efficient staging area within your AWS account. DRS
+uses Pilot Light strategy, is always ready to rapidly provision a full-scale
+production environment when disaster strikes.
+Figure 8.19 illustrates the network diagram for the AWS DRS:
+Figure 8.19: Network diagram for AWS Elastic Disaster Recovery Service
+```
+(DRS)
+```
+High Availability with CloudFront origin failover
+AWS CloudFront ensures high availability and consistent responses,
+facilitated by ample network bandwidth and a multiplexed infrastructure.
+Moreover, the reliability of our application can be enhanced using an Origin
+Group provided by CloudFront. For instance, we can create an origin group
+consisting of two origins: primary and secondary. If the primary origin
+becomes unavailable or unresponsive, CloudFront will automatically switch
+from the primary to the secondary origin.
+The concept is illustrated in the architecture diagram displayed in Figure
+Figure 8.20: Architecture diagram of CloudFront origin failover
+CloudFront requires at least two origins for origin failover. We will create an
+Origin Group for the distribution, which will include two origins. Finally, we
+update the cache behavior to use the origin group. In this example, we will
+leverage the CloudFront distribution that was created in the section named
+CloudFormation Nested Stacks Pipeline in Chapter Infrastructure as Code
+using CloudFormation and configure origin failover. If the S3 bucket, which
+hosts the static contents for the website, is not responding. CloudFront will
+serve the static content seamlessly through secondary origin.
+Please follow the step-by-steps instructions below to complete the use-case
+on your AWS account.
+Create Secondary S3 Run the following command using AWS CLI and create
+an S3 bucket named
+1. aws s3api create-bucket \
+2. --bucket cfn-static-website-failover \
+3. --region us-east-1
+Upload file to secondary S3 First, create an HTML file named index.html
+with the following contents:
+1.
+2.
+3.
+Origin Failover Test
+4.
+Welcome to my Static Website hosted in S3 and
+accelerated by CloudFront
+5.
+6.
+Once you have saved this file, upload it to the S3 bucket created in the
+previous step using the AWS CLI command:
+1. aws s3 cp index.html s3://cfn-static-website-failover/
+This command copies the index.html file from your local directory to the
+specified S3 bucket named
+Create secondary origin: In this step, we create a secondary origin on the
+CloudFront distribution using the failover S3 bucket created in Step Enter
+cfn-static-website-failover.s3.us-east-1.amazonaws.com for the Origin
+domain and S3OriginSecondary as the Origin For Origin select Legacy access
+identities and choose the previously created Origin Access Identity from the
+Origin Access identity dropdown menu. In Bucket select update the bucket
+policy. Finally, click on Create as depicted in Figure
+Figure secondary origin
+Create Origin In this step, we will create an Origin Group from the Origin
+created in the previous step. Navigate to the CloudFront origin tab and click
+on Origin Select the S3-mywebsite-CloudFrontStack-* origin that was
+created in Chapter Infrastructure as Code using which will act as the primary
+origin. Then, select the origin created in the last step, named which will act as
+the secondary origin. Name the origin group Choose 403 Forbidden and 404
+Not Found for the Failover and then click on Create Origin as shown in
+Figure
+Figure origin group
+Update default Update the default behavior of distribution with new origin
+group. So that we can test the origin failover. Go to the CloudFront behavior
+tab, select and click on Edit as shown in Figure 8.23 and click on Save
+```
+changes:
+```
+Figure default Cache behavior
+In this step, we will perform an origin failover test. Firstly, run the following
+command to check the HTTP response from the CloudFront endpoint:
+1. $ curl https://[CloudFront-Domain-Name]
+The output of the above command returns following HTML response coming
+from the primary origin:
+1.
+2.
+3.
+Welcome to my Static Website
+hosted in S3 and accelerated by
+CloudFront
+4.
+5.
+Now, go to the S3 console, access the cfn-static-website S3 bucket, and
+rename the object named index.html to Then, run the following command:
+1. aws cloudfront create-invalidation \
+2. --distribution-id [CloudFront-Distribution-Id] \
+3. --paths "/index.html"
+The create-invalidation command invalidates the index.html file in the
+edge caches. Consequently, the next time a viewer requests this file,
+CloudFront returns to the origin to fetch the latest version of the file.
+After renaming the file, when the user accesses the CloudFront
+distribution, index.html will be served from the secondary origin. To
+check if CloudFront has switched to the secondary origin, use the curl
+command again:
+1. curl https://[CloudFront-Domain-Name]
+The HTML response from the CloudFront distribution should now be:
+1.
+2.
+3.
+Origin Failover Test
+4.
+Welcome to my Static Website hosted in S3 and
+accelerated by CloudFront
+5.
+This new response indicates that CloudFront has successfully switched to
+the secondary origin, as the primary origin’s index.html file has been
+renamed.
+Disaster recovery in AWS DynamoDB
+DynamoDB Streams feature in AWS DynamoDB enables the capture of a
+time-ordered sequence of item-level modifications in any DynamoDB table.
+This information, which includes data about every insertion, modification,
+and deletion performed on the table, is stored in a log for up to 24 hours.
+Applications can access this log, allowing them to observe the state of data
+items before and after modifications, in a near real-time manner.
+Another important feature of DynamoDB is the Global Table, which
+seamlessly replicates data across AWS regions. Two features can be leveraged
+to create Disaster Recovery Plan. In this example, we will learn how to
+replicate DynamoDB tables in other AWS regions. The architecture of the
+use-case is shown in Figure
+Figure 8.24: Cross-Region Replication of AWS DynamoDB Tables
+Please follow the step-by-step instructions below in your AWS environment
+to complete this use-case:
+1. Create a DynamoDB Use the following AWS CLI command to create a
+```
+new table named employee in the N. Virginia (us-east-1) region:
+```
+1. aws dynamodb create-table \
+2. --table-name employee \
+3. --attribute-definitions \
+4. AttributeName=emp_id,AttributeType=N \
+5. AttributeName=emp_name,AttributeType=S \
+6. --key-schema \
+7. AttributeName=emp_id,KeyType=HASH \
+8. AttributeName=emp_name,KeyType=RANGE \
+9. --billing-mode PAY_PER_REQUEST \
+10. --stream-specification
+```
+StreamEnabled=true,StreamViewType=NEW_AND_OLD_IMAGES \
+```
+11. --region us-east-1
+2. Create a Replica Run the following command using AWS CLI to create a
+```
+similar table named employee in Oregon (us-west-2) region:
+```
+1. aws dynamodb update-table --table-name employee --cli-input-json --
+region us-east-1 \
+2. '{
+3. "ReplicaUpdates":
+4. [
+5. {
+6. "Create": {
+7. "RegionName": "us-west-2"
+8. }
+9. }
+10. ]
+11. }'
+3. Put sample Run the following command using AWS CLI to put a single
+```
+item in the employee table in N. Virginia (us-east-1) region:
+```
+1. aws dynamodb put-item \
+2. --table-name employee \
+3. --item '{"emp_id": {"N": "1"}, "emp_name": {"S": "John Doe"}}' \
+4. --region us-east-1
+```
+A different item in the Oregon (us-west-2) region by running the following
+```
+```
+command:
+```
+1. aws dynamodb put-item \
+2. --table-name employee \
+3. --item '{"emp_id": {"N": "2"}, "emp_name": {"S": "Jane Doe"}}' \
+4. --region us-west-2
+4. Execute the following commands and observe that the output of both
+commands is the same:
+1. aws dynamodb scan --table-name employee --region us-east-1
+2. aws dynamodb scan --table-name employee --region us-west-2
+```
+This concludes that bidirectional replication from N. Virginia (us-east-1) to
+```
+```
+Oregon (us-west-2) and vice versa is operational.
+```
+DynamoDB Accelerator
+DynamoDB Accelerator is a fully managed, highly available, in-memory
+cache for DynamoDB that delivers up to a 10x performance improvement. It
+reduces the response time from milliseconds to microseconds, even under
+heavy load. It is easy to simply provision the DAX client SDK, direct your
+existing DynamoDB API calls at the DAX cluster, and let DAX handle the
+rest.
+DAX is particularly beneficial in the following usecases:
+• Real-time This includes scenarios such as gaming, trading, and bidding,
+which require the fastest response times for reads. In such situations, DAX
+delivers high-speed, in-memory read performance.
+• Caching frequently accessed If an application repeatedly reads the same
+data, DAX can cache that data and serve it quickly, thereby reducing the load
+on the DynamoDB table.
+It is worth noting that DAX is specifically designed to boost the performance
+of read-intensive applications. Write-intensive applications may not see the
+same level of performance improvement.
+Figure 8.25 displays the high-lever overview of DAX:
+Figure 8.25: DAX High-Level Architecture Overview
+DynamoDB Time to Live
+The Time to Live feature in AWS DynamoDB allows us to define a
+timestamp for each item to determine when it is no longer needed. After
+the date and time of the specified timestamp pass, DynamoDB will delete
+the item from the table. This feature helps save storage costs by
+automating the deletion of outdated items or items that lose relevance after
+a specified time, such as user session data.
+In this example, we will use the employee table created in the N. Virginia
+```
+(us-east-1) region under Disaster Recovery in AWS DynamoDB in this
+```
+chapter.
+Please follow the step-by-step instructions below in your AWS
+environment to complete this use-case:
+1. Enable In this step, we enable TTL on the employee table for the ttl
+```
+attribute:
+```
+1. aws dynamodb update-time-to-live \
+2. --table-name employee \
+3. --time-to-live-specification "Enabled=true, AttributeName=ttl" \
+4. --region us-east-1
+2. Insert an item: Now, we will insert an employee with a TTL value. The
+TTL value is a UNIX timestamp, representing the number of seconds
+since 1970-01-01 00:00:00 UTC. Here we will insert an employee record
+that will expire after 5 minutes:
+1. aws dynamodb put-item \
+2. --table-name employee \
+3. --item '{
+4. "emp_id": {"N": "3"},
+5. "emp_name": {"S": "Temporary Employee"},
+6. "ttl": {"N": "'$(($(date +%s) + 300))'"}
+7. }' \
+8. --region us-east-1
+3. Now, if you wait for about 5 minutes and then run the scan command,
+you will notice that the temporary employee record would have been
+automatically deleted:
+1. aws dynamodb scan --table-name employee --region us-east-1
+Scaling based on Simple Queue Service
+Using the AWS Simple Queue Service to scale an AWS EC2 auto scaling
+group is a popular design pattern used to decouple and scale microservices,
+distributed systems, and serverless applications. The three crucial key
+components necessary important to setup this configuration are as follows:
+Configure an auto scaling group to manage EC2 instances that will process
+messages coming from an SQS queue.
+Establish a custom metric to be sent to CloudWatch, measuring the number of
+messages in the queue per EC2 instance within Auto Scaling group.
+Setup a target tracking scaling policy that configures the Auto Scaling group
+to adjust its scaling capacity based on the custom metric and a predetermined
+target value.
+Figure 8.26 illustrates the architecture of this usecase:
+Figure 8.26: Architecture of AWS EC2 Auto Scaling Based on SQS
+High Availability with Route 53
+Route 53 is a highly available and scalable Domain Name System web
+service offered by AWS. This service is not only used for domain registration
+but also for DNS routing and health checking of resources. Some
+organizations, due to regulatory requirements, aim to expand their business
+into additional AWS regions. They utilize an active-active or active-standby
+disaster recovery configuration using the health-checking capabilities of
+Route 53.
+In active-passive failover configuration, we aim for the primary resources to
+be available most of the time and for secondary resources to be on standby in
+case the primary resources become unavailable. If Route 53 detects that the
+primary resources as unhealthy, it will include healthy secondary resources in
+response to DNS queries. Figure 8.27 illustrates an active-passive failover
+configuration with Route 53 DNS failover:
+Figure 8.27: Automated Route 53 DNS Failover with Route 53 health checks
+AWS Auto Scaling
+AWS Auto Scaling service monitors our applications and automatically
+adjusts capacity to maintain steady, predictable performance at the lowest
+possible cost. This service allows us to build scaling plans for various
+resources including AWS EC2 instances, AWS ECS tasks, AWS DynamoDB
+tables, and Aurora Replicas. It automatically removes unneeded resources to
+prevent overspending. It also uses historical load metrics to understand our
+application’s usage pattern and proactively scales resources ahead of time.
+Currently, this feature is only available for EC2 Auto Scaling groups. Figure
+8.28 illustrates how AWS Auto Scaling service can discover EC2 Auto
+Scaling groups automatically:
+Figure 8.28: Automatic discovery of EC2 Auto Scaling Groups by AWS Auto
+Scaling Service
+Conclusion
+In this chapter, we learned how to suspend processes and apply
+termination policies. This equipped us with better control over the
+lifecycle of instances within our groups.
+We then turned our attention to AWS’s disaster recovery strategies. We
+delved into S3 Cross-Region Replication, a powerful feature that enhances
+data durability across multiple geographical regions, ensuring robust
+disaster recovery. We learned how to deploy web applications on AWS
+EKS and designed a disaster recovery plan with AWS Disaster Recovery
+Service We also explored the high availability configurations provided by
+CloudFront’s Origin Failover and Route 53, giving us mechanisms to
+minimize service interruptions and ensure a resilient application
+environment. We touched upon resource scaling using AWS SQS, further
+empowering our ability to handle fluctuating loads efficiently. Through
+this focused exploration, we are now well equipped to design and
+automate disaster recovery strategies on AWS.
+Points to remember
+• Suspending Auto Scaling processes is useful for troubleshooting, but it
+should be a temporary measure and resumed once issues are resolved.
+• The termination policy in Auto Scaling groups influences which
+instances are terminated during scaling in or manual termination.
+• Amazon S3 Cross-Region Replication enables automatic copying of
+objects to different AWS Regions, useful for compliance, reducing
+latency, and disaster recovery.
+• Amazon EKS allows seamless deployment of web applications, with
+high availability demonstrated by terminating a node in an EKS cluster.
+• Various disaster recovery strategies in AWS include Backup and Restore,
+Pilot Light, Warm Standby, and Multi-Site configurations.
+```
+• AWS Elastic Disaster Recovery Service (DRS) offers different strategies
+```
+like Backup and Restore, Pilot Light, Warm Standby, and Multi-Site,
+depending on business needs and application criticality.
+• DynamoDB Streams and Global Tables facilitate disaster recovery
+planning by capturing item-level modifications and replicating data across
+regions.
+```
+• DynamoDB Accelerator (DAX) improves performance with in-memory
+```
+caching, benefiting real-time applications and frequently accessed data.
+```
+• DynamoDB Time to Live (TTL) automates the deletion of outdated or
+```
+irrelevant items, helping in storage cost optimization.
+• Using AWS SQS to scale an EC2 Auto Scaling group helps in
+decoupling and scaling applications, involving Custom Metrics and
+Scaling Policies based on queue messages.
+• AWS Route 53 supports high availability and disaster recovery
+configurations through DNS routing and health checking capabilities.
+• AWS Auto Scaling adjusts capacity for applications automatically, using
+historical load metrics for proactive scaling and cost optimization.
+Currently, this feature is available only for EC2 Auto Scaling groups.
+Questions
+1. How do you set up CloudFront for high availability using origin
+failover?
+2. What is Amazon DynamoDB Accelerator (DAX) and what performance
+improvement does it offer?
+3. What is AWS Auto Scaling and its main advantage?
+Answers
+1. To set up CloudFront for high availability, create an origin group
+consisting of two origins - a primary and a secondary. CloudFront
+automatically switches to the secondary origin if the primary origin
+becomes unavailable or returns specific HTTP response status codes
+indicating a failure. This setup ensures uninterrupted service and high
+availability for your content delivery.
+2. Amazon DynamoDB Accelerator (DAX) is a fully managed, highly
+available caching service specifically designed for Amazon DynamoDB. It
+provides up to a 10 times performance improvement, reducing response
+times from milliseconds to microseconds, even under millions of requests
+per second. This makes DAX an ideal solution for applications requiring
+high-speed data access.
+3. AWS Auto Scaling automatically adjusts your application’s capacity for
+optimal performance and cost efficiency. It supports various AWS
+resources like EC2 instances and DynamoDB tables, ensuring your
+applications have the right resources when needed.
+C
+HAPTER
+9
+Automate Monitoring and Event Management
+Introduction
+Domain-1, SDLC Automation, was discussed in Chapter Continuous
+Integration with CodeCommit and Code Build, Chapter Continuous
+Delivery with CodeDeploy and CodePipeline, and Chapter Cross-Account
+CI/CD Pipelines and Testing. In this domain, we implemented continuous
+integration and continuous delivery DevOps practices using AWS
+CodeCommit, CodeBuild, CodeDeploy and CodePipeline.
+Domain-2, Configuration Management and IaC, was elaborated in
+Chapter Infrastructure as Code using Chapter Automation Account
+Management and Security in AWS, and Chapter 6: Automation using
+OpsWorks and Elastic Beanstalk. In this domain, we learned about best
+deployment strategies and practices such as rolling, blue/green, and canary
+using AWS Lambda and AWS SAM. We used AWS Infrastructure as Code
+Service extensively, particularly CloudFormation, in numerous examples
+to provision resources in the AWS environment.
+Domain-3, Resilient Cloud Solutions, was the focus of Chapter Implement
+High Availability, Scalability, and Fault Tolerance and Chapter 8: Design
+and Automate Disaster Recovery Strategies. In this domain, we learned
+how to implement highly available and scalable solutions to meet
+resilience and business requirements. We also explored automated
+recovery processes to meet RTO/RPO requirements. This chapter, and the
+following chapter, will delve into Domain-4 of the exam, Monitoring and
+Logging. In this chapter, we will explore AWS CloudWatch, CloudTrail,
+EventBridge, and VPC Flow logs.
+Structure
+In this chapter, we will discuss the following topics:
+• Implementing custom AWS CloudWatch Metrics
+• Implementing AWS CloudWatch logs subscription filter with lambda
+• AWS EventBridge integration with SNS
+• AWS CloudTrail integration with CloudWatch
+• Publish VPC Flow Logs to S3 and Query in Athena
+Objectives
+In this chapter, we will focus on enhancing monitoring and logging in
+AWS. We aim to understand how to create custom CloudWatch Metrics
+and use Lambda with CloudWatch Logs Subscription Filter. We will
+explore how to integrate AWS CloudTrail with CloudWatch for improved
+tracking, and how to use AWS EventBridge with SNS for event-driven
+applications. Additionally, we will learn to publish VPC Flow Logs to S3
+and use Athena for querying these logs. By the end of the chapter, you will
+have a solid understanding of these AWS services and how to utilize them
+for effective log management and event-driven computing in AWS.
+Implementing Custom AWS CloudWatch Metrics
+In this example, we will use AWS SAM to deploy a lambda function. This
+```
+function will take values from the invocation event and insert custom metric
+```
+data in CloudWatch. The architecture diagram for this solution is shown in
+Figure
+Figure 9.1: Lambda publishes custom metric data in CloudWatch
+Before we start working on this use case, let us refresh our knowledge by
+reviewing key concepts about CloudWatch Metrics:
+• Namespaces are used to isolate the different application and service metrics
+in CloudWatch. It helps in organizing and grouping related metrics together.
+• It allows us to collect, track and store data about AWS resources or
+applications which we run in AWS. It helps in gaining insight about the
+performance of resources and applications in AWS over time.
+• This is a name/value pair which uniquely identities a metric.
+• It can be set to one minute or one second and is used in determining the
+frequency by which data point can be stored in metric. Higher resolution
+helps in detailed analysis and troubleshooting of any issue, but it incurs more
+charges.
+• It is used in doing mathematical calculation on metric data for instance sum,
+minimum, average etc.
+• Each statistics has a unit of measure, for example bytes, seconds, count, and
+percent.
+• It allows to set a threshold on metric data and performs a specified action
+when the value of the data point crosses the threshold. For instance, we can
+set up an alarm if the CPU usage of the EC2 instance is more than 80%, then
+scale up the instances using an autoscaling group.
+Follow this step-by-step procedure below to complete this exercise on your
+AWS account:
+Prerequisites
+AWS SAM is installed and configured.
+1. Develop a lambda function: Create an application directory named Under
+this directory create a subdirectory named in this subdirectory create a file
+named lambda_func.py and copy the following contents:
+1. import boto3
+2.
+3. cloudwatch = boto3.client('cloudwatch', region_name='aws_region')
+4.
+5. def lambdafunc_handler(event, context):
+6.
+7. params = {
+8. 'MetricData': [],
+9. 'Namespace': 'MyMetricNamespace'
+10. }
+11.
+12. params['MetricData'].append({
+13. 'MetricName': 'LatencyByEdgeLocation',
+14. 'Dimensions': [
+15. { 'Name': 'EdgeLocation', 'Value': event['LocationCode'] }
+16. ],
+17. 'Timestamp': 'Wednesday, Jan 18, 2023 8:28:20 PM',
+18. 'Unit': 'Milliseconds',
+19. 'Value': event['TimeToFirstByte']
+20. })
+21.
+22. print(cloudwatch.put_metric_data(**params))
+This lambda function publishes one data point for a new metric named This
+data point measures the latency of a web application observed at an edge
+location. The data point has an associated timestamp, and it is placed under a
+custom namespace named
+2. Create a SAM Create a YAML file named template.yml inside the
+application directory named cloudwatch-custom-metric and copy the
+following contents:
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Transform: AWS::Serverless-2016-10-31
+3. Description: Lambda to Cloudwatch Demo
+4.
+5. Resources:
+6. PutMetricFunction:
+7. Type: AWS::Serverless::Function
+8. Properties:
+9. CodeUri: src/
+10. Handler: lambda_func.lambdafunc_handler
+11. Runtime: python3.9
+12. # SAM Managed Policy for inserting custom CloudWatch Metrics
+13. Policies:
+14. - CloudWatchPutMetricPolicy: {}
+15.
+16. Outputs:
+17. PutMetricFunction:
+18. Description: "ARN of PutMetricFunction Lambda"
+19. Value: !GetAtt PutMetricFunction.Arn
+The directory structure inside the application directory cloudwatch-custom-
+metric looks like this now:
+1. ├── src
+2. │ └── lambda_func.py
+3. └── template.yml
+4.
+3. SAM validate: Run the following command using SAM CLI to check if the
+SAM template is valid:
+1. sam validate --template-file template.yml
+4. SAM Run the following command using SAM CLI which creates a
+CloudFormation stack named
+1. sam deploy --template-file template.yml \
+2. --stack-name cloudwatch-custom-metric-stack \
+3. --s3-bucket [your-bucket-name] \
+4. --capabilities CAPABILITY_IAM
+The stack creates two resource lambda functions, named PutMetricFunction
+and an IAM role named PutMetricFunctionRole as shown in Figure
+Figure 9.2: Resources created by CloudFormation in publishing metric in
+CloudWatch
+5. Testing and Create a test JSON event as mentioned below and supply it to
+the lambda function:
+1. {
+2. "LocationCode": "XYZ-123",
+3. "TimeToFirstByte": 100
+4. }
+After we invoke the lambda function with the above test event, we can view
+the published metrics in CloudWatch. Go to the left navigation pane in the
+CloudWatch console, choose All choose a custom namespace named
+MyMetricNamespace on the right, select a dimension named and choose a
+metric named A graph of metric data is displayed with data points highlighted
+in Figure
+Figure 9.3: Publish Custom Metrics in CloudWatch
+Implementing AWS CloudWatch logs subscription filter with lambda
+Subscription filters are mainly used to ingest real-time log events from
+CloudWatch logs to other AWS Services, AWS Kinesis stream, AWS Kinesis
+Data Firehose stream, or AWS Lambda. Log events are consumed by
+receiving service in base64 encoded with gzip format.
+Each subscription filter is made of two key elements: log group name and
+filter
+• Filter Its syntax is like a regular expression. It allows us to filter only those
+events which match the pattern defined in the search expression. Only filter
+log events are sent to other AWS services such as Lambda, Kinesis stream or
+Data Firehose stream.
+1. ?ERROR ?WARN ?5xx
+• Log group A subscription filter will be applied to all the log events which
+are uploaded to the log group, those that match the filter are delivered to the
+destination service.
+In this example, we demonstrate how to trigger automated email alerts
+whenever unusual activity happens in the logs. The AWS resources for this
+use case are deployed using AWS CloudFormation template. The template
+creates several resources in AWS such as log group, log stream, lambda
+function, lambda execution role, a subscription filter and permission which is
+granted to CloudWatch logs to execute the lambda function. The user
+generates test log events to a log stream using AWS CLI, CloudWatch
+captures the user-entered log events, matches log entries with the filter pattern
+defined in CloudWatch Subscription and invokes a lambda function that
+parses the errors and in turn publishes these error messages to AWS SNS
+topic. SNS topic is subscribed to an email address so that users can receive
+email notifications about the errors. The architecture of the solution is shown
+in Figure
+Figure 9.4: AWS CloudWatch Subscription filter with AWS Lambda
+Follow the step-by-step procedure to complete this use case on your AWS
+```
+account:
+```
+Prerequisites
+• AWS CLI, AWS SAM installed.
+• SNS Use the SNS topic created in Chapter 1 for Creating an AWS
+CodeCommit Trigger for an AWS SNS Topic section. Copy the ARN of the
+topic as shown below:
+1. arn:aws:sns:[aws-region]: 111111111111:my-sns-topic
+Develop a lambda function: In this section, we develop a Lambda function
+named lambda_func.py under an application directory named This function is
+responsible for processing log events, extracting error details, and sending
+email notifications via Amazon SNS. The function takes raw log events
+encoded in base64 format, decodes, decompresses, and parses them to extract
+key information such as the log group, log stream, lambda function name, and
+error messages.
+Here is a snippet of the main handler function from
+1. def lambdafunc_handler(event, context):
+2. my_payload = processing_log_events(event)
+3. (
+4. log_group_name,
+5. log_stream_name,
+6. lambdafunct_name,
+7. err_message,
+8. ) = processing_err_payload(my_payload)
+9. sending_email_notification(log_group_name, log_stream_name,
+```
+lambdafunct_name, err_message)
+```
+Please note this is a shortened version of the code from The full function
+version of this function, which includes all components and additional error
+handling measures, can be found on the GitHub repository for Chapter 9 of
+this book.
+Finally, to package lambda_func.py and upload the Lambda function to an
+Amazon S3 bucket, we use the following commands:
+1. zip lambda_func.zip lambda_func.py
+2. aws s3 cp lambda_func.zip s3://[s3-bucket-name]
+Create a CloudFormation template: Create a CloudFormation template named
+This template defines the log group with a specified name, a log stream, S3
+bucket for lambda code, a lambda function provided in the previous step, a
+lambda execution IAM role, a subscription filter and permission to
+CloudWatch to execute a lambda function.
+In this part of the CloudFormation template, we define several parameters as
+shown below:
+1. Parameters:
+2. ClwLogGroupName:
+3. Type: String
+4. Default: clw-log-group
+5. Description: Name of log group for test events
+6. ClwLogStreamName:
+7. Type: String
+8. Default: clw-log-stream
+9. Description: Name of log stream for test events
+10. S3BucketName:
+11. Type: String
+12. Default: sam-deploy-s3
+13. Description: Name of bucket where lambda function resides
+14. SNSTopicArn:
+15. Type: String
+16. Default: arn:aws:sns:[aws-region]:111111111111:my-sns-topic
+17. Description: ARN of SNS Topic
+These parameters include ClwLogGroupName and ClwLogStreamName for
+naming our CloudWatch log group and stream, S3BucketName which
+specifies the S3 bucket where the Lambda function code is stored, and
+SNSTopicArn that identifies the SNS topic ARN for sending email
+notifications about log events.
+The template proceeds to create several AWS resources under the Resources
+section as shown below:
+1. Resources:
+2. ClwLogGroup:
+3. Type: AWS::Logs::LogGroup
+4. Properties:
+5. LogGroupName: !Ref ClwLogGroupName
+6. ClwLogStream:
+7. Type: AWS::Logs::LogStream
+8. Properties:
+9. LogGroupName: !Ref ClwLogGroup
+10. LogStreamName: !Ref ClwLogStreamName
+11. ClwSubscriptionFilter:
+12. Type: AWS::Logs::SubscriptionFilter
+13. Properties:
+14. DestinationArn: !GetAtt LambdaFunction.Arn
+15. FilterPattern: ?ERROR ?CRITICAL
+16. LogGroupName: !Ref ClwLogGroup
+17. ClwSubscriptionFilterPermission:
+18. Type: AWS::Lambda::Permission
+19. Properties:
+20. Action: lambda:InvokeFunction
+21. FunctionName: !Ref LambdaFunction
+22. Principal: !Sub "logs.${AWS::Region}.amazonaws.com"
+23. SourceArn: !GetAtt ClwLogGroup.Arn
+24. LambdaFunction:
+25. Type: AWS::Lambda::Function
+26. Properties:
+27. Handler: lambda_func.lambdafunc_handler
+28. Role: !GetAtt LambdaExecutionRole.Arn
+29. Code:
+30. S3Bucket: !Ref S3BucketName
+31. S3Key: lambda_func.zip
+32. Runtime: python3.9
+33. Environment:
+34. Variables:
+35. MY_SNS_TOPIC_ARN: !Ref SNSTopicArn
+Remember, the complete CloudFormation template can be found in the
+GitHub repository associated with Chapter 9 of this book.
+CloudWatch matches only those log event messages which have the
+following filter pattern and are sent to Lambda for processing:
+1. ?ERROR ?CRITICAL
+The directory structure inside the application directory cloudwatch-logs looks
+like this now:
+1. ├── lambda_func.py
+2. ├── lambda_func.zip
+3. ├── log_events.json
+4. └── template.yml
+Deploy CloudFormation Stack: Use the following command to deploy
+CloudFormation stack named Provide the name of the template, stack name,
+log group name, log stream name and the ARN of the SNS topic as input
+parameters when creating a stack.
+1. aws cloudformation deploy --template-file template.yml \
+2. --stack-name cloudwatch-logs-stack \
+3. --parameter-overrides ClwLogGroupName=clw-log-group \
+4. ClwLogStreamName=clw-log-stream \
+5. SNSTopicArn=arn:aws:sns:[aws-region]: 111111111111:my-sns-topic \
+6. S3BucketName=sam-deploy-s3 --capabilities CAPABILITY_IAM
+Once the CloudFormation Stack is created successfully go to the Resources
+tab in the on the Physical ID link for the lambda function as shown in Figure
+Figure created by CloudFormation stack
+Go to Configuration tab, in the lambda function and select on the Select the
+CloudWatch log group named clw-log-group on the right and click on Figure
+the name of CloudWatch log group which serves as the event source for
+lambda to trigger and filter pattern which restricts the type of errors to be sent
+to SNS topic.
+Figure configuration for Error Parser Lambda
+Testing and validation: Create a JSON file named log_events.json and copy
+the following contents. This file consists of an array of events:
+1. {
+2. "timestamp": 1673390850781,
+3. "message": "Sample ERROR message"
+4. },
+5. {
+6. "timestamp": 1673390864991,
+7. "message": "sample CRITICAL message"
+8. }
+9. ]
+Run the following command that puts log events to the subscribed log stream
+named my-log-stream in the log group named
+1. aws logs put-log-events --log-group-name \
+2. clw-log-group --log-stream-name clw-log-stream \
+3. --log-events file://log_events.json
+Validate the results: User receives an email notification about the errors
+occurred in the log events as shown in Figure
+Figure received by the user
+is completed, go ahead and delete the stack by running following AWS CLI
+```
+command:
+```
+1. aws cloudformation delete-stack --stack-name cloudwatch-logs-stack
+AWS EventBridge integration with SNS
+In this example, we will demonstrate how to create an EventBridge rule that
+invokes an SNS topic. We will use AWS SAM to deploy the AWS resources
+for this solution.
+Before we start working on this use-case, let us refresh our knowledge by
+reviewing key concepts about EventBridge. EventBridge was formerly called
+CloudWatch Events. EventBridge uses the same CloudWatch Events API,
+which means EventBridge is fully backward compatible. EventBridge is a
+serverless service that uses events to connect application components together
+and makes it easier to build scalable event-drive applications. EventBridge
+```
+receives an event (an indicator of change in environment) and applies a rule
+```
+to router event to a target. All events that come to EventBridge are associated
+with an event bus. The architecture of this use-case is shown in Figure
+Figure 9.8: AWS EventBridge Integration with SNS
+```
+Prerequisite:
+```
+• AWS CLI and SAM installed and configured.
+• SNS Use the SNS topic created in Chapter Continuous Integration with
+CodeCommit and SNS Topic ARN is as follows:
+1. arn:aws:sns:[aws-region]: 111111111111:my-sns-topic
+Follow the step-by-step procedure below to complete this use case on your
+AWS account:
+1. Create a SAM Create an application directory named eventbridge-sns-
+demo and create a YAML file named This template creates an EventBridge
+rule which invokes the SNS topic. The SNS topic policy grants permission to
+EventBridge to invoke the SNS topic. The EventBridge rule filters the events
+based on the criteria defined in EventPattern section. Matched events are sent
+to EventBridge which triggers the rule and finally JSON payload is delivered
+to the SNS topic.
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Transform: AWS::Serverless-2016-10-31
+3. Description: EventBridge to SNS Demo
+4.
+5. Parameters:
+6. SNSTopicArn:
+7. Type: String
+8.
+9. Resources:
+10. # Define the event rule to filter for events
+11. EventRule:
+12. Type: AWS::Events::Rule
+13. Properties:
+14. Description: "EventBridge EventRule"
+15. EventPattern:
+16. account:
+17. - !Sub '${AWS::AccountId}'
+18. source:
+19. - "com.xyzcorp.snsdemo"
+20. Targets:
+21. - Arn: !Ref SNSTopicArn
+22. Id: "MySNStopic"
+23.
+24. # Grant permission to EventBridge to invoke SNS
+25. EventBridgeToToSnsPolicy:
+26. Type: AWS::SNS::TopicPolicy
+27. Properties:
+28. PolicyDocument:
+29. Statement:
+30. - Effect: Allow
+31. Principal:
+32. Service: events.amazonaws.com
+33. Action: sns:Publish
+34. Resource: !Ref SNSTopicArn
+35. Topics:
+36. - !Ref SNSTopicArn
+The directory structure inside the application directory eventbridge-sns-demo
+will look like this:
+1. ├── events.json
+2. └── template.yml
+2. SAM validate: Run the following command using SAM CLI to check if
+SAM template is valid:
+1. sam validate --template-file template.yml
+3. SAM Run the following command using SAM CLI which creates a
+CloudFormation stack named eventbridge-sns-demo-stack as shown in Figure
+1. sam deploy --template-file template.yml \
+2. --stack-name eventbridge-sns-demo-stack \
+3. --s3-bucket sam-deploy-s3 \
+4. --parameter-overrides MySNSTopicArn=arn:aws:sns:[aws-region]:
+111111111111:my-sns-topic \
+5. --capabilities CAPABILITY_IAM
+Figure 9.9: EventBridge Rule and SNS Policy resources are created in
+CloudFormation stack
+4. Testing and validation: Create a JSON file named events.json and copy the
+following content:
+1. [
+2. {
+3. "Source": "com.xyzcorp.snsdemo",
+4. "Detail": "{ \"key1\": \"value1\"}",
+5. "Resources": [
+6. ],
+7. "DetailType": "my-detail-type"
+8. }
+9. ]
+Use the following AWS CLI command to send custom events to EventBridge:
+1. aws events put-events --entries file://events.json
+Here is the event in JSON format which users receives via an email. This is
+shown in Figure 9.10 as well:
+1. {
+2. "version": "0",
+3. "id": "99ff9839-270f-b145-91cd-497574e32d07",
+4. "detail-type": "my-detail-type",
+5. "source": "com.xyzcorp.snsdemo",
+6. "account": "111111111111",
+7. "time": "2023-01-19T01:55:25Z",
+8. "region": "[aws-region]",
+9. "resources": [],
+10. "detail": {
+11. "key1": "value1"
+12. }
+13. }
+Figure 9.10: Email received by the user about the Event
+AWS CloudTrail integration with CloudWatch
+CloudTrail can be configured with CloudWatch to monitor our trail logs and
+send notifications in case of unusual activity in the logs.
+In this example, we will create a CloudTrail trail to push the logs to
+CloudWatch. We will setup a CloudWatch logs metric filter to monitor the
+AWS Management ConsoleLogin events in the logs. We will assign
+CloudWatch metrics to the metric filter. Next, we will create a CloudWatch
+alarm that is triggered when there are one or more Console sign-in failure
+events observed in the CloudWatch logs in a one-minute time interval. Users
+will receive an email notification about the sign-in failure errors.
+Before we start working on this use case, let us refresh our knowledge by
+reviewing key concepts about CloudTrail:
+• CloudTrail An event is the record of an activity in an AWS account.
+• Type of events logged in There are three types of events that can be logged
+in CloudTrail, which are, management events, data events, and CloudTrail
+Insights events. By default, trails log management events, but not data or
+insights events.
+• A trail is a configuration that enables the delivery of CloudTrail events to an
+AWS S3 bucket, CloudWatch Logs, and CloudWatch Events.
+We will use the AWS SAM template to deploy the resources for this use case.
+The architecture of this use case is shown in Figure
+Figure 9.11: Architecture diagram of CloudTrail Integration with CloudWatch
+Pre-requisite: AWS SAM installed and configured.
+Follow this step-by-step procedure to complete this use case on your AWS
+```
+account:
+```
+1. Create a SAM template: Create an application directory named cloudtrail-
+to-cloudwatch and create a YAML file named In this part of the
+CloudFormation template, we define several parameters as shown below:
+1. Parameters:
+2. CloudTrailName:
+3. Type: String
+4. CloudTrailLogsBucketName:
+5. Type: String
+6. Email:
+7. Type: String
+8. Description: Email address to notify when an API activity triggers an
+alarm
+The other part of the SAM template creates a log group which is the delivery
+endpoint for log events, an IAM role that enables CloudTrail to send events to
+the CloudWatch group, a trail and an S3 bucket to store CloudTrail logs. The
+template creates other resources also such as a CloudWatch metric filter with
+a filter pattern and a metric named ConsoleSigninFailureCount and a
+CloudWatch alarm that is triggered when there are one or more AWS
+Management Console sign-in failures during a one-minute period.
+1. { ($.eventName = ConsoleLogin) && ($.errorMessage = "Failed
+```
+authentication") }
+```
+The complete CloudFormation template can be found in the GitHub
+repository associated with Chapter 9 of this book.
+2. SAM validate: Run the following command using SAM CLI to check if the
+SAM template is valid:
+1. sam validate --template-file template.yml
+3. SAM deploy: Run the following command using SAM CLI which creates a
+CloudFormation stack named
+1. sam deploy --template-file template.yml \
+2. --stack-name cloudtail-to-cloudwatch-stack \
+3. --s3-bucket [your-s3-bucket] \
+4. --parameter-overrides CloudTrailName=my-cloudtrail-2023 \
+5. CloudTrailLogsBucketName=my-cloudtrail-2023-logs \
+6. Email=[your-email-address] \
+7. --region [aws-region] \
+8. --capabilities CAPABILITY_IAM
+After we deploy the CloudFormation stack we can see that a trail named my-
+cloudtrail-2023 is created as shown in Figure
+Figure 9.12: Configuration settings for trail in CloudTrail
+CloudWatch logs is configured to monitor trail logs and send the events to the
+specified CloudWatch log group as shown in Figure
+Figure 9.13: CloudWatch settings for CloudTrail trail
+The metric filter setting configured for the log group is shown in Figure
+Figure 9.14: Metric filter settings configured for CloudWatch log group
+Go to your inbox and look for the subscription confirmation email with
+subject AWS Notification - Subscription click on Confirm Subscription link
+to confirm the subscription.
+4. Testing and To test this use-case, sign out from IAM user and re-login to
+AWS Management Console with incorrect password once or more.
+Unsuccessful attempts of login to AWS Management Console triggers a
+CloudWatch alarm as shown in Figure
+Figure 9.15: CloudWatch Alarm is triggered after IAM user logged into
+Console with Incorrect password
+Also, an email is sent out to the email address with the Alarm details as
+shown in Figure
+Figure 9.16: Email received by IAM user about CloudWatch Alarm details.
+Publish VPC Flow Logs to S3 and Query in Athena
+VPC flow allows us to capture and log data about network traffic in our VPC.
+It helps in networking troubleshooting scenarios where there is a need to
+monitor traffic that reaches to EC2 instance and determine the direction of
+traffic to and from network interfaces. VPC flow data can be published to
+AWS CloudWatch logs, AWS S3 and AWS Kinesis Data Firehose.
+In this example, we will demonstrate how to publish VPC flow logs to S3 and
+query the data using Athena. Athena is a serverless AWS service which
+provides us with the capability to query data from the logs stored in S3 using
+SQL. The architecture of this use case is illustrated in Figure
+Figure 9.17: Publish VPC Flow logs to S3 and analyse in Athena
+Follow the step-by-step procedure below to complete this use-case on your
+AWS account:
+Create an S3 bucket for VPC flow logs: Navigate to the S3 Console and
+create an S3 bucket named Copy the ARN of the S3 bucket:
+1. arn:aws:s3:::vpc-flow-logs-20230126
+Create VPC flow logs to Navigate to VPC Console and select Your VPCs on
+the left, select your select Flow Logs tab for the VPC, click Create flow Enter
+the name of the flow log as select All in filter, select 10 minutes for
+maximum aggregation interval, select an Amazon S3 bucket in enter the ARN
+of S3 bucket copied from previous step in S3 bucket ARN, select AWS
+```
+default format in Log record format, (default) in Log file format, select Every
+```
+```
+24 hours (default) in Partition logs by time and click Create flow log as show
+```
+in Figure
+Figure flow log settings
+Run the following command using AWS CLI to confirm if VPC flow was
+created successfully or not:
+1. aws ec2 describe-flow-logs
+Generate traffic: Provision a t2. micro EC2 instance, attach a security group
+to EC2 instance with SSH Inbound Rule added which allows the incoming
+traffic at port Login to EC2 instance successfully. Now, remove the SSH
+Inbound Rule and try to login to EC2 instance again, we expect this to
+timeout since we just removed SSH Inbound Rule. Cancel the SSH command
+after 10-15 seconds.
+Create Athena Navigate to Athena Console and run the DDL code in a new
+query window as shown in Figure The Query successful message indicates
+the successful execution of the query:
+Figure execution of CREATE TABLE DDL in Athena
+Create a partition in the table to read the data: new query window and run the
+query as shown in Figure enables to read the data from the table created in
+previous step. Query successful message indicates the successful execution of
+the query, as shown:
+Figure partition in table to be able to read the data
+Analyse VPC Logs in Athena: Open a new query window in Athena and run
+the query as shown in Figure This query lists the rejected TCP connections:
+Figure 9.21: Query Results for Rejected TCP Connections in VPC Logs
+Conclusion
+In this chapter, we learned how to implement a Custom CloudWatch
+Metric. To achieve this, we used AWS SAM to deploy a Lambda function
+that takes values from the invocation event and inserts custom metric data
+into CloudWatch. We also showcased how to trigger automated email
+alerts when unusual activity is detected in the CloudWatch logs, again
+using AWS SAM to create the necessary resources. Additionally, we
+demonstrated how to create an EventBridge rule that invokes an SNS
+topic and explained the process of integrating AWS CloudTrail with
+CloudWatch.
+To conclude, we illustrated how to publish VPC Flow Logs to S3 and run
+queries on them using Athena. The knowledge acquired in this chapter
+will be valuable in the next one, Auditing, Logging, and Monitoring
+Containers and where we will explore auditing infrastructure using AWS
+Config, AWS Inspector and assessment templates, analyzing logs with
+CloudWatch logs insights, remediating issues using AWS Config, and
+configuring X-Ray for Lambda.
+Points to remember
+• AWS VPC Flow Logs allow us to capture information about incoming
+and outgoing traffic from network interfaces in the VPC. We can use the
+AWS Athena service to analyze these logs, thereby facilitating an
+investigation into traffic patterns, threats, and risks associated with our
+VPC.
+• Subscription filters are mainly used to ingest real-time log events from
+CloudWatch logs to other AWS Services, AWS Kinesis stream, AWS
+Kinesis Data Firehose stream, or AWS Lambda.
+• EventBridge receives an event and applies a rule to router event to a All
+events that come to EventBridge are associated with an event bus.
+• There are three types of events that can be logged in CloudTrail, which
+are management events, data events, and CloudTrail Insights events. By
+default, trails log management events, but not data or insights events.
+• CloudWatch Alarm allows us to set a threshold on metric data and
+performs a specified action when the value of data point crosses the
+threshold.
+Questions
+1. What is the difference between CloudWatch Events and EventBridge?
+2. What is the primary function of AWS CloudTrail?
+3. What can be used to help EventBridge rules match events to targets?
+Answers
+1. EventBridge is a serverless event bus service that uses CloudWatch
+Events API, it includes additional functionality like ingesting events from
+SaaS applications.
+2. AWS CloudTrail is a service that logs and monitors account activity and
+API usage across your AWS infrastructure, thus aiding in governance,
+compliance, operational auditing, and risk auditing.
+3. EventBridge rules use event patterns to select events and send them to
+targets.
+C
+HAPTER
+10
+Auditing, Logging and Monitoring Containers and Applications
+Introduction
+In the previous chapter, we learned how to implement Custom metrics in
+AWS CloudWatch and log subscription filters with Lambda. We also
+learnt about the integration of EventBridge with SNS and CloudTrail
+integration with CloudWatch. In this chapter, we will learn about Auditing
+infrastructure using AWS Config, AWS Inspector and assessment
+templates, analyze logs with CloudWatch logs insights, remediate issues
+using AWS Config and configure X-Ray for Lambda.
+Structure
+In this chapter, we will discuss the following topics:
+• Integration of AWS X-Ray with Lambda
+• Integration of AWS Kinesis Data Stream with Lambda
+• Analyzing CloudWatch logs data in CloudWatch Logs insights
+• CloudWatch log retention
+• Configuring encryption of log data
+• Running security assessment on EC2 using AWS Inspector
+• Configuring AWS Config rule to remediate an issue
+• AWS ECS monitoring
+Integration of AWS X-Ray with Lambda
+AWS X-Ray service is used in analyzing and debugging distributed
+applications that are built using microservices and serverless architecture. X-
+Ray collects trace data from AWS resources and applications and provides
+detailed information about the request and response from end to end. It
+provides different tools to view, filter and get an insight into the data which
+helps developers identify performance issues and improve the performance of
+applications.
+In this example, we will use AWS infrastructure created in Chapter
+Automation using OpsWorks and Elastic Beanstalk, where we learned how to
+Build HTTP API using Lambda, DynamoDB and AWS SAM. We created
+different resources in AWS as part of the infrastructure such as API Gateway,
+Lambda function and DynamoDB table. To keep the example simple, we will
+activate the tracing only on the Lambda function. We will generate test traffic
+when we hit the API Gateway endpoint and visualize the service map in the
+X-Ray Console. The updated architecture diagram for this use case is shown
+in Figure
+Figure 10.1: Integration of X-Ray with Lambda function in CRUD
+microservice
+Follow the step-by-step procedure given as follows to integrate AWS X-Ray
+Service with Lambda:
+1. Activating X-Ray Go to Outputs of CloudFormation stack named select
+Resource tab, and click on lambda function named DBHandlerFunction as
+shown in Figure
+Figure 10.2: Activating X-ray tracing on Lambda Function
+Select the Configuration select the Monitoring and operations tools tab, and
+click on Toggle the Active tracing option which is under the AWS X-Ray
+group and click on Save as shown in Figure
+Figure 10.3: Activate X-Ray tracing in Lambda Console
+2. Generating test traffic: Generate test traffic by running the following shell
+script. This script uses the AWS CloudFormation command to describe-stacks
+and retrieves the API Gateway endpoint URL. Script uses this endpoint URL
+and makes five PUT requests. It also makes one GET request using the CURL
+command, which results in insertion of five product entries in the DynamoDB
+table and returns all the existing products from the table.
+1. #!/bin/bash
+2. stack_name="aws-crud-stack"
+3.
+4. # Get ApiEndPoint from Cloudformation Outputs
+5. api_endpoint=$(aws cloudformation describe-stacks --stack-name
+$stack_name --query 'Stacks[0].Outputs[?
+```
+OutputKey==`ApiEndpoint`].OutputValue' --output text)
+```
+6. echo "API EndPoint is $api_endpoint"
+7.
+8. # Insert five Products in DynamoDB table
+9. for i in {1..5}
+10. do
+11. curl -X "PUT" -H "Content-Type: application/json" \
+12. -d "{\"id\": \"$((300 + i))\", \"price\": $((500 + i * 100)), \"name\":
+```
+\"product-$i\"}" \
+```
+13. $api_endpoint
+14. done
+15.
+16. # Get all Products from DynamoDB table
+17. curl $api_endpoint
+3. Viewing service After generating test traffic, the Lambda function sends
+trace data to X-Ray Service, which processes this data to produce a Service
+map. To view this map, go to X-Ray console and select the appropriate time
+interval for the submitted requests. The resulting graph representation, as
+shown in Figure 10.4 displays two nodes: the left node represents the Lambda
+service receiving requests from the client, while the right node represents the
+Lambda function itself. The service map further indicates the health status of
+each node through distinct markers, like green for success, red for server
+faults, yellow for client errors, and purple for throttling errors.
+Figure 10.4: View Service Map in X-Ray
+4. Viewing Select the right node, the lambda function in service map and
+click on view traces as shown above in Figure 10.4, which opens a Trace List
+which contains trace IDs. Select the first trace ID to drill down the trace map
+and timeline for the trace as shown in Figure 10.5:
+Figure 10.5: Trace Map for single trace ID in X-Ray
+Integration of AWS Kinesis Data Stream with Lambda
+In this example, we will use AWS SAM which deploys Kinesis Data Stream,
+Lambda function and IAM resources. The IAM role will allow Lambda to
+read the Kinesis stream and write records to CloudWatch logs. For testing, we
+will run a bash script that uses AWS CLI commands which inserts event
+records into the Kinesis stream. Lambda polls the data stream and when it
+detects that new records are added to the stream, it invokes Lambda function.
+The lambda function decodes records in batches from the stream and logs the
+records to CloudWatch logs. The architecture of this use case is illustrated in
+Figure
+Figure 10.6: Architecture diagram of Kinesis data stream Integration with
+Lambda and CloudWatch logs
+Prerequisites
+AWS SAM is installed and configured.
+1. Creating a Lambda Create an application directory named Under this
+directory create a subdirectory named in this subdirectory create a file named
+lambda_func.py and copy the following contents:
+1. import base64
+2. def handler(event, context):
+3. for record in event['Records']:
+4. kinesis_decoded_payload=base64.b64decode(record["kinesis"]
+```
+["data"])
+```
+5. print("Kinesis decoded payload: " + str(kinesis_decoded_payload))
+This lambda function processes records from Kinesis stream in batches,
+decodes the logs, and makes entries in the CloudWatch logs.
+2. Creating SAM Create a YAML file named template.yml inside application
+directory named kinesis-to-lambda and copy the following contents:
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Transform: AWS::Serverless-2016-10-31
+3. Description: Integrate Kinesis Data Stream with Lambda
+4.
+5. Resources:
+6. MyKinesisDataStream:
+7. Type: AWS::Kinesis::Stream
+8. Properties:
+9. ShardCount: 2
+10.
+11. MyLambdaFunction:
+12. Type: AWS::Serverless::Function
+13. Properties:
+14. CodeUri: src/
+15. Runtime: python3.9
+16. Handler: lambda_func.handler
+17. Tracing: Active
+18. Events:
+19. KinesisDataStream:
+20. Type: Kinesis
+21. Properties:
+22. Stream: !GetAtt MyKinesisDataStream.Arn
+23. StartingPosition: LATEST
+24. BatchSize: 200
+25.
+26. Outputs:
+27. MyKinesisDataStream:
+28. Description: Name of Kinesis Data Stream
+29. Value: !Ref MyKinesisDataStream
+3. Deploying AWS SAM Run the following command using SAM CLI which
+creates CloudFormation stack named
+1. sam deploy --template template.yml \
+2. --stack-name kinesis-to-lambda-stack \
+3. --s3-bucket [your_s3_bucket] \
+4. --region us-east-1 \
+5. --capabilities CAPABILITY_IAM
+The stack creates a Kinesis data stream, a lambda function, an
+EventSourceMapping and an IAM resource as illustrated in Figure The
+EventSourceMapping resource creates a mapping between the Kinesis event
+resource and the Lambda function. Lambda reads items from the event source
+and triggers the lambda function. The X-Ray tracing is activated on the
+Lambda function.
+Figure 10.7: CloudFormation Stack shows the resource created for Kinesis
+Data Stream to Lambda Integration
+4. Testing and Now we test the application by adding records to the Kinesis
+stream. The --data option specified in the command is a string which is
+encoded by AWS CLI to base64 before sending to Kinesis:
+1. #!/bin/bash
+2. stack_name="kinesis-to-lambda-stack"
+3.
+4. stream_name=$(aws cloudformation describe-stacks --stack-name
+$stack_name --query 'Stacks[0].Outputs[?
+```
+OutputKey==`MyKinesisDataStream`].OutputValue' --output text)
+```
+5.
+6. echo "Kinesis Datastream Name is $stream_name"
+7.
+8. for i in $(seq 1 2 10)
+9. do
+10. aws kinesis put-record --stream-name $stream_name --partition-key 1 -
+-data "Hello World $i times"
+11. done
+Click on the lambda function named kinesis-to-lambda-stack-
+MyLambdaFunction-piOFy4sUhGUm as illustrated in Figure Select select
+View CloudWatch and select first log stream to view the logged records as
+illustrated in Figure
+Figure 10.8: CloudWatch logs show the entries written by Lambda
+5. View Service Map in After we generated test traffic in the previous step,
+the lambda function sent trace data to X-Ray Service, X-Ray processed the
+data and produced a Service map as illustrated in Figure
+Figure 10.9: X-Ray Service Map
+Analyzing CloudWatch logs data in CloudWatch Logs Insights
+CloudWatch Logs Insights provides the capability to search and analyze data
+from log groups using its built-in query language. Using CloudWatch Insights
+we can write simple commands and queries to retrieve meaningful
+information from the CloudWatch logs that helps in troubleshooting
+operational or production issues.
+In this example, we construct a query using the filter command which returns
+log events and displays them in descending order from the log group named
+In the filter command, we put a condition to display only those log events that
+match the string named Kinesis decoded The query used and returned log
+events in Logs Insight are shown in Figure
+Figure 10.10: Usage of filter command in CloudWatch Logs Insights query
+CloudWatch log retention
+By default, data in CloudWatch log groups is stored for an indefinite
+amount of time. We can configure the retention policy to the specified
+number of days which reduces the storage and cost incurred towards the
+CloudWatch service. Any data in log groups which is older than the
+retention setting is removed automatically.
+In this example, we will use the AWS CLI command to set the retention of
+a log group.
+Prerequisites
+Run the following bash script on your terminal. This script creates a log
+group, creates a log stream in a specified log group and puts sample log
+events to the stream:
+1. #!/bin/bash
+2.
+3. # CloudWatch log group name
+4. loggroup="test-log-group"
+5.
+6. # CloudWatch log stream name
+7. logstream="test-log-stream"
+8.
+9. # Create CloudWatch log group
+10. aws logs create-log-group --log-group-name $loggroup
+11.
+12. # Create CloudWatch log stream
+13. aws logs create-log-stream --log-group-name $loggroup --log-stream-
+name $logstream
+14.
+15. # Define json object for events
+16. events_json='[
+17. {
+18. "timestamp": 1433190184356,
+19. "message": "Example-Event-1"
+20. },
+21. {
+22. "timestamp": 1433190184358,
+23. "message": "Example-Event-2"
+24. },
+25. {
+26. "timestamp": 1433190184360,
+27. "message": "Example-Event-3"
+28. }
+29. ]'
+30.
+31. # Write the contents of json object to file
+32. echo "$events_json" > events.json
+33.
+34. # Verify the contents of json file
+35. cat file.json
+36.
+37. # Put log events
+38. aws logs put-log-events --log-group-name $loggroup \
+39. --log-stream-name $logstream \
+40. --log-events file://events.json
+Figure 10.11 shows the log group and log stream created in CloudWatch.
+As we can see, the retention of the log group is currently set to Never
+Figure 10.11: Log group and log stream created in CloudWatch
+Run the following AWS CLI command which sets the retention policy of
+log group named my-log-group to three days:
+1. aws logs put-retention-policy \
+2. --log-group-name test-log-group \
+3. --retention-in-days 3
+Figure 10.12 shows the log group for which retention has been set to three
+days after we ran the above command:
+Figure 10.12: Retention policy is set to three days for Log group in
+CloudWatch
+Configuring encryption of log data
+By default, CloudWatch log data at rest is encrypted with AWS server-side
+encryption. For compliance reasons, it is possible to encrypt the newly
+created or existing log group with an AWS KMS customer-managed key. If
+we revoke or delete the KMS key associated with the log group, we will not
+be able to access encrypted data from the CloudWatch log group.
+In this example, we will create an AWS KMS customer managed key and
+associate it with the log group created in the previous example. The step-by-
+step procedure is as follows:
+Create an AWS KMS the Key Management Service console, and configure
+Symmetric key with an alias shown in Figure
+Figure Customer Managed Key in Key Management Service
+Note down the ARN of the kms key created:
+KMS Key ARN:
+1. arn:aws:kms:us-east-1:111111111111:key/8c58d6b7-e0ca-4c60-950e-
+33d13d89ba58
+Also, note down the ARN of the log group created in the previous example:
+Log group ARN:
+1.
+Set permissions on the KMS key: In this step , we authorize CloudWatch
+Logs service principal to use the KMS key. To do this, edit the key policy for
+the created kms key and add the following policy block:
+1. {
+2. "Effect": "Allow",
+3. "Principal": {
+4. "Service": "logs.region.amazonaws.com"
+5. },
+6. "Action": [
+7. "kms:Encrypt*",
+8. "kms:Decrypt*",
+9. "kms:ReEncrypt*",
+10. "kms:GenerateDataKey*",
+11. "kms:Describe*"
+12. ],
+13. "Resource": "*",
+14. "Condition": {
+15. "ArnEquals": {
+16. "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:
+[your_aws_region]:[your-account-id]:log-group:test-log-group"
+17. }
+18. }
+19. }
+Associate a KMS key with a log group: In this step, we will associate the
+KMS key created in Step 1 with the previously created log group. Execute the
+following AWS CLI command to associate the KMS CMK with a log group
+named as depicted in Figure
+1. aws logs associate-kms-key --log-group-name test-log-group \
+2. --kms-key-id "arn:aws:kms:us-east-1:111111111111:key/8c58d6b7-e0ca-
+4c60-950e-33d13d89ba58"
+Figure KMS CMK with log group in CloudWatch
+Running security assessment on EC2 using AWS Inspector
+AWS Inspector is used to check the security vulnerabilities of applications
+running on EC2 instances. It performs a security assessment against the
+best practices and produces a details report if there are deviations.
+In this example, we use AWS SAM to create a resource group, assessment
+target, and assessment template resources. The resource group uses tags to
+find the EC2 instance which needs to be selected in the assessment target.
+Further, the assessment target uses the ARN of the resource group. SAM
+template also creates an assessment template by using the ARN of the
+assessment target and ARN of the Common Vulnerabilities and Exposures
+rules package deployed in us-east-1 region.
+Prerequisites
+To prepare for a security assessment on EC2 using AWS Inspector, ensure
+that your EC2 instance is configured with the necessary tag and that the AWS
+Inspector agent is installed on it.
+For guidance on installing the AWS Inspector Classic agent, refer to the AWS
+```
+documentation:
+```
+```
+https://docs.aws.amazon.com/inspector/v1/userguide/inspector_installing-
+```
+uninstalling-agents.html
+1. Creating a Cloud Formation Create a YAML file named template.yml and
+copy the following contents:
+1. AWSTemplateFormatVersion: 2010-09-09
+2. Description: >-
+3. CloudFormaiton template to create resource for Inspector Assessment
+Template
+4. Parameters:
+5. RulePackageArn:
+6. Description: Rule Package ARN for Common Vulnerabilities and
+Exposures in us-east-1 region
+7. Type: String
+8. Default: 'arn:aws:inspector:us-east-1:316112463485:rulespackage/0-
+gEjTy7T7'
+9. Resources:
+10. EC2ResourceGroup:
+11. Type: AWS::Inspector::ResourceGroup
+12. Properties:
+13. ResourceGroupTags:
+14. - Key: env
+15. Value: staging
+16. EC2AssessmentTarget:
+17. Type: AWS::Inspector::AssessmentTarget
+18. Properties:
+19. AssessmentTargetName: ec2_assessment_target
+20. ResourceGroupArn: !Ref EC2ResourceGroup
+21. EC2AssessmentTemplate:
+22. Type: AWS::Inspector::AssessmentTemplate
+23. Properties:
+24. AssessmentTargetArn: !Ref EC2AssessmentTarget
+25. DurationInSeconds: 300
+26. AssessmentTemplateName: ec2_assessment_template
+27. RulesPackageArns:
+28. - !Ref RulePackageArn
+29. Outputs:
+30. EC2AssessmentTemplate:
+31. Description: ARN of Assessment Tempalte
+32. Value: !Ref EC2AssessmentTemplate
+2. Validating CloudFormation Run the following command using SAM CLI
+to check if the SAM template is valid:
+1. aws cloudformation validate-template \
+2. --template-body file://template.yml
+3. Deploying CloudFormation Run the following command using SAM CLI
+which creates a CloudFormation stack named ec2-inspector-runassessment-
+stack. This template accepts the ARN of Common Vulnerabilities and
+Exposures rule package as an input parameter.
+1. aws cloudformation deploy --template-file template.yml \
+2. --stack-name ec2-inspector-runassessment-stack \
+3. --parameter-overrides RulePackageArn=arn:aws:inspector:us-east-
+1:316112463485:rulespackage/0-gEjTy7T7
+The following AWS link provides the ARNs of Inspector rules packages in all
+supported AWS regions:
+```
+https://docs.aws.amazon.com/inspector/v1/userguide/inspector_rules-
+```
+arns.html
+Figure 10.15 shows the CloudFormation stack with resource group,
+assessment target and assessment template resources created:
+Figure group, assessment target and assessment template created by
+CloudFormation Stack
+4. Running assessment Create a bash script named run-assessment.sh and
+copy the following contents. Change the permission of the script to make it
+executable and run the script. The script gets the ARN of the Assessment
+template from CloudFormation Outputs and uses the AWS CLI command
+named start-assessment-run to start the security assessment on the EC2
+instance which is tagged with value=stage pairs.
+1. #!/bin/bash
+2. #
+3. stack_name="ec2-inspector-runassessment-stack"
+4. assessment_template_arn=$(aws cloudformation describe-stacks \
+5. --stack-name $stack_name --query 'Stacks[0].Outputs[?
+```
+OutputKey==`EC2AssessmentTemplateArn`].OutputValue' --output text)
+```
+6. echo "Assessment Template Arn is : $assessment_template_arn"
+7.
+8. # Start an assessment run
+9. aws inspector start-assessment-run \
+10. --assessment-run-name ec2-assessmentrun \
+11. --assessment-template-arn $assessment_template_arn
+5. Viewing Assessment Choose Assessment runs on left navigation pane as
+shown in Figure Once the status becomes Analysis click on Download report
+link and click on Generate report which creates the report in PDF format.
+Figure 10.16: View assessment report in AWS Inspector
+The second page of the report is shown in Figure informational purposes:
+Figure report generated by AWS Inspector
+6. Deleting CloudFormation Once testing and validation is completed, run
+following command to remove the CloudFormation stack:
+1. aws cloudformation delete-stack \
+2. --stack-name ec2-inspector-runassessment-stack
+Configuring AWS Config rule to remediate an issue
+AWS Config provides the ability to record the configuration changes of
+provisioned resources in the AWS account over time. The important use cases
+of AWS Config are resource administration, auditing, compliance, and
+security analysis of the AWS resources.
+In this example, we will deploy an AWS-managed Config rule. This rule
+evaluates if standard logging in CloudFront is enabled. We will configure an
+Event Bridge rule that will trigger a notification to SNS topic when
+CloudFront resource is found to be non-compliant. The config rule is
+configured with an auto-remediation feature which means AWS Config
+continuously monitors non-compliance CloudFront distribution and executes
+AWS System Manager Automation document or Runbook. The runbook
+updates CloudFront distribution by enabling standard logging.
+The architecture of this use case is shown in Figure
+Figure diagram of Auto-Remediation in AWS Config
+Prerequisites
+In the prerequisites, we’ll activate AWS Config Service, create an SNS topic,
+utilize an existing CloudFront distribution, create an IAM role with a specific
+policy, and set up an S3 bucket for CloudFront access logs. Each step
+prepares the AWS environment for subsequent configurations and
+implementations.
+• Activating AWS config Ensure AWS Service is enabled, and configuration
+recording is turned on in AWS account.
+• Creating SNS Ensure the SNS topic is created in the same region where the
+AWS Config service is configured. Following is the ARN of the SNS topic
+created in Chapter
+1. arn:aws:sns:us-east-1:111111111111:my-sns-topic
+• Creating CloudFront distribution: We will use the CloudFront distribution
+created in Chapter 3 as part of the section Continuous delivery pipeline for
+AWS CloudFormation Nested Stacks. In that section, we learned how to
+deploy a static website hosted in an S3 bucket and served by CloudFront
+distribution.
+Following is the CloudFront distribution ID that we use for this example:
+1. arn:aws:cloudfront::111111111111:distribution/ET65WQCIUL29M
+• Create an IAM Role: Use the following CloudFormation template to create
+an IAM role named
+1. Resources:
+2. MySSMAutomationServiceRole:
+3. Type: AWS::IAM::Role
+4. Properties:
+5. AssumeRolePolicyDocument:
+6. Version: '2012-10-17'
+7. Statement:
+8. - Effect: Allow
+9. Principal:
+10. Service:
+11. - ssm.amazonaws.com
+12. Action: sts:AssumeRole
+13. Condition:
+14. StringEquals:
+15. aws:SourceAccount: !Sub ${AWS::AccountId}
+16. ArnLike:
+17. aws:SourceArn: !Sub
+```
+arn:aws:ssm:*:${AWS::AccountId}:automation-execution/*
+```
+18. ManagedPolicyArns:
+19. - arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole
+20. Path: "/"
+21. RoleName: MySSMAutomationServiceRole
+Attach the following inline policy to the above IAM role:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Effect": "Allow",
+6. "Action": [
+7. "ssm:StartAutomationExecution",
+8. "ssm:GetAutomationExecution",
+9. "cloudfront:GetDistribution",
+10. "cloudfront:GetDistributionConfig",
+11. "cloudfront:UpdateDistribution",
+12. "s3:GetBucketLocation",
+13. "s3:GetBucketAcl",
+14. "s3:PutBucketAcl"
+15. ],
+16. "Resource": "*"
+17. }
+18. ]
+19. }
+• Create a S3 bucket for access Create a S3 bucket named enable access
+```
+control list (ACL) by following AWS CLI command:
+```
+1. aws s3api put-bucket-acl --bucket my-cloudfrontlogs-bucket --acl bucket-
+owner-full-control
+Follow step-by-step procedure below to complete this use-case on your AWS
+```
+account:
+```
+1. Creating Config In this step, we will configure a Config rule that will
+evaluate if CloudFront distribution is configured to capture access logs to the
+S3 bucket known as standard logging. Go to AWS Config Console, select
+Rules on the left, click Add select Add AWS managed rule for Select rule
+type option, type cloudfront in the filter section and click on cloudfront-
+accesslogs-enabled rule as shown in Figure
+Figure AWS manged rule type in AWS Config
+Enter the name of the config rule named leave other settings as-is and click
+on Save as shown in Figure
+Figure rule in AWS Config
+2. Creating an Event Bridge In this section, we create an EventBridge rule
+that triggers a notification to the SNS topic. This rule uses a custom event
+pattern and an input transfer to match the AWS config evaluation rule output
+as NON_COMPLIANT and routes the response to the SNS topic.
+Go to EventBridge Console, select Create enter the name of the rule as select
+Event bus as select Rule with an event pattern in Rule type, then click Select
+AWS events or EventBridge partner events for Event select Custom pattern
+```
+(JSON in event pattern, and copy the following event pattern and click on
+```
+1. {
+2. "source": [
+3. "aws.config"
+4. ],
+5. "detail-type": [
+6. "Config Rules Compliance Change"
+7. ],
+8. "detail": {
+9. "messageType": [
+10. "ComplianceChangeNotification"
+11. ],
+12. "configRuleName": [
+13. "my-cloudfront-accesslogs-enabled"
+14. ],
+15. "resourceType": [
+16. "AWS::CloudFront::Distribution"
+17. ],
+18. "newEvaluationResult": {
+19. "complianceType": [
+20. "NON_COMPLIANT"
+21. ]
+22. }
+23. }
+24. }
+Select AWS Service in Target types. Select SNS topic in Select a target, in
+topic specify the sns topic named under other settings, select Configure target
+click on Configure input input copy following contents:
+1. {
+2. "awsRegion": "$.detail.awsRegion",
+3. "resourceId": "$.detail.resourceId",
+4. "awsAccountId": "$.detail.awsAccountId",
+5. "compliance": "$.detail.newEvaluationResult.complianceType",
+6. "rule": "$.detail.configRuleName",
+7. "time": "$.detail.newEvaluationResult.resultRecordedTime",
+8. "resourceType": "$.detail.resourceType"
+9. }
+Copy the following contents and paste it on click on Confirm and then select
+skip Add new tag as it is optional and then click on Create
+1. "At AWS Managed Config rule was evaluated the with an Id in AWS
+account in AWS region as
+Re-evaluate config rule: Go back to the config rule created in step 2 and click
+on Wait for a minute or two to complete the revaluation and then refresh the
+page. Now, we should be able to see that CloudFront distribution has been
+flagged as non-compliant as shown in Figure
+Figure resource in AWS Config
+Also, we should see an email notification about the same as shown in Figure
+Figure 10.22: Email notification is alerted when resource is flagged as non-
+compliant in AWS Config
+4. Configure Remediation Action for AWS Config Go back to AWS Config
+console, select config rule named my-cloudfront-accesslogs-enabled and click
+on Manage remediation select Manual remediation in Select remediation
+method and select AWSConfigRemediation-EnableCloudFrontAccessLogs in
+Choose remediation action as shown in Figure
+Figure 10.23: Remediation action in AWS Config Rule
+Select CloudFrontId in Resource ID, in the parameters section, enter the ARN
+of the IAM role named MyAutomationAssumeRole provided in enter
+CloudFront distribution ID provided in enter true in and enter my-
+cloudfrontlogs-bucket as S3BucketName provided in Prerequisites. Figure
+10.24 shows the parameters and values provided in the remediation action of
+the config rule:
+Figure 10.24: Parameters in remediation action for config rule
+5. Go back to the config rule named my-cloudfront-accesslogs-enabled and
+select the noncompliant resource CloudFront distribution ID and click on
+Remediate as shown in Figure
+Figure 10.25: Remediate noncompliant resource in AWS Config
+This triggers the execution of the SSM Automation document or runbook
+named AWSConfigRemediation-EnableCloudFrontAccessLogs as shown in
+Figure 10.26:
+Figure 10.26: Execution of SSM Automation document triggered in
+remediation of config rule
+Once the process is complete, we should be able to see that standard logging
+is enabled for CloudFront distribution as shown in Figure
+Figure 10.27: Standard logging is enabled on CloudFront distribution
+Also, we can see that the AWS config flagged the CloudFront distribution
+resource as compliant as shown in Figure
+Figure 10.28: CloudFront distribution resource is compliant after the
+remediation in Config rule
+AWS ECS monitoring
+These are important points to consider with respect to AWS Container
+```
+Service (ECS) monitoring in preparation for the examination are listed as
+```
+```
+follows:
+```
+• Monitoring ECS Cluster We can monitor CPU, memory, and storage
+utilization for ECS cluster.
+• Monitoring ECS task resource We can monitor CPU, memory, and
+storage utilization of individual tasks which run on ECS cluster.
+• Monitoring ECS task We can monitor the different states of tasks
+running on ECS cluster such as whether a task is running, stopped, or
+pending.
+• Alarms on the metric threshold: We can set Alarms in AWS CloudWatch
+to notify if a particular metric exceeds the threshold such as a task’s CPU
+is greater than 85%.
+• Logging task events: We can view log events for tasks running on the
+ECS cluster such as task start, and task stopped events and any errors
+which occur during task execution.
+• Logging task container logs: We can check the container logs to
+troubleshoot any issues such as OutOfMemory errors.
+• Monitoring service We can monitor the status of service deployments
+which includes the number of tasks running, stopped, and pending as well
+as the number of tasks in a desired and actual state.
+Conclusion
+In this chapter, we explored various advanced features of AWS, including
+the integration of AWS X-Ray with Lambda for application analysis, AWS
+Kinesis Data Stream with Lambda for event processing, and the use of
+CloudWatch Logs Insights for log data analysis. We also discussed
+CloudWatch log retention policies, the importance of encrypting log data
+using AWS KMS, and the use of AWS Inspector for security assessments
+on EC2 instances. Lastly, we examined the configuration and automation
+of AWS Config rules for maintaining resource compliance.
+The knowledge gained in this chapter is crucial for the next chapter,
+Troubleshooting and Restoring where we will apply our understanding of
+AWS services to practical scenarios. We will tackle challenges like
+troubleshooting failed deployments, automating responses to AWS Health
+events, and analyzing root causes using AWS X-Ray. This chapter will
+also explore effective management of message queues and S3 Event
+Notifications, equipping us with essential skills for maintaining smooth
+operations and quickly addressing issues in AWS environments.
+Points to remember
+• AWS X-Ray is used for analyzing and debugging serverless applications,
+particularly for tracing data to improve performance and response times.
+• Integration of AWS Kinesis Data Stream with Lambda allows for
+efficient real-time data processing and event logging.
+• CloudWatch Logs Insights enables detailed analysis of log data, aiding in
+operational troubleshooting with its query language.
+• Discusses indefinite log retention in CloudWatch, the importance of
+setting retention policies, and log data encryption using AWS KMS.
+• AWS Inspector is utilized for conducting security assessments on EC2
+instances, ensuring adherence to security best practices.
+Questions
+1. How does an AWS X-Ray trace ID help in tracking a single request
+through an application?
+2. What is the default retention period of CloudWatch logs?
+3. What components are included in an AWS Inspector assessment
+template and how do they influence an assessment run?
+Answers
+1. An AWS X-Ray trace ID is used to track the journey of a single request
+through an application. It collects data from every segment or part the
+request interacts with, including load balancers, application code, and
+calls to AWS services or external APIs. This helps in monitoring the
+request’s path and performance, including latency and response times, as
+it moves through the different components of the application.
+2. By default, CloudWatch Logs are retained indefinitely and never expire.
+The retention policy of a log group can be adjusted using the AWS
+CloudWatch console or the AWS CLI. For instance, the command below
+sets the retention policy of a log group named ‘my-log-group’ to 7 days:
+1. aws logs put-retention-policy \
+2. --log-group-name my-log-group \
+3. --retention-in-days 7
+The following are the key components of the AWS Inspector assessment
+```
+template:
+```
+• Rules packages: Sets of rules used by Amazon Inspector Classic to
+evaluate the security and compliance of the assessment target.
+• Amazon SNS topics: Specifies the Simple Notification Service topics to
+which Amazon Inspector Classic will send notifications regarding the
+states and findings of the assessment run.
+```
+• Tags (key-value pairs): Allows you to assign tags to the findings
+```
+generated by the assessment run, facilitating organization and
+categorization.
+• Duration of the assessment run: Defines how long the assessment will
+take place, setting a specific timeframe for the evaluation process.
+C
+HAPTER
+11
+Troubleshooting and Restoring Operations
+Introduction
+In the previous chapter, Auditing, Logging and Monitoring Containers and
+you explored concepts like integrating AWS X-Ray with Lambda, using
+AWS Kinesis Data Stream with Lambda for real-time data processing, and
+analyzing CloudWatch logs data using CloudWatch Logs Insights.
+Additionally, you gained insights into log retention, encryption of log
+data, and security assessments on EC2 instances using AWS Inspector.
+The chapter also covered configuring AWS Config rules for issue
+remediation and monitoring AWS ECS.
+Building upon the foundation established in the previous chapter, we now
+shift our focus to troubleshooting, restoration, and proactive operational
+strategies. By familiarizing yourself with the topics of this chapter, you
+will further enhance your skill set to efficiently handle unforeseen
+challenges. From OpsCenter to AWS SQS queues, S3 Event Notification
+to CloudFormation stack issues, you will master a range of techniques that
+enhance your ability to manage, troubleshoot, and optimize AWS services.
+Structure
+In this chapter, we will discuss following topics:
+• Troubleshooting failed deployments
+• Aggregate operational tasks using OpsCenter
+• Auto Healing in AWS OpsWorks
+• Automating responses to AWS Health events
+• Analyzing root cause using AWS X-Ray
+• Fanout to AWS SQS Queues
+• Implementing Dead-Letter Queues in SQS
+• S3 Event Notification
+• Troubleshooting CloudFormation Stacks
+Objectives
+This chapter covers Domain 5: Incident and Event Response of the exam.
+Through practical insights and hands-on guidance, you will uncover
+strategies for effectively addressing incidents and events across various
+AWS services. Topics covered include handling failed deployments,
+utilizing OpsCenter for streamlined operational tasks, implementing auto-
+healing in AWS OpsWorks, automating responses to AWS Health events,
+uncovering root causes using AWS X-Ray, leveraging S3 event
+notifications, optimizing event distribution with AWS SQS fanout, and
+establishing robust dead-letter queues in SQS.
+Troubleshooting failed deployments
+In this section, we will learn how to troubleshoot a failed deployment in
+CodeDeploy. We will use an AWS Systems Manager Automation Runbook
+named AWSSupport-TroubleshootCodeDeploy to assist us in diagnosing why
+an AWS CodeDeploy deployment failed on EC2 instance. This runbook will
+provide us with directions on how to resolve the issue or how to further
+troubleshoot it.
+There are several factors that can cause a CodeDeploy deployment to fail,
+such as:
+• The CodeDeploy agent is not installed or running on the EC2 instance.
+• An AppSpec file is missing or incorrectly formatted.
+• No Service role exists for CodeDeploy.
+• The Service role associated with CodeDeploy does not have the correct
+permissions to perform the intended operations on other AWS Services.
+• API calls were throttled, meaning that CodeDeploy made too many requests
+to other AWS Services like Lambda.
+For the demonstration purpose, we will leverage the section Deploy Website
+to EC2 with CodeDeploy, learned in Chapter 2: Continuous Delivery with
+CodeDeploy and CodePipeline. For this case, we will purposely introduce an
+error in the start_web_server.sh script. We are going to attempt to start a
+service that does not exist on the system. Instead of trying to start the httpd
+service, we will attempt to start a service named nonexistentservice. The error
+in the script would be:
+When AWS CodeDeploy runs this script as part of the deployment process, it
+will fail because there no service with this name.
+1. #!/bin/bash
+2. sudo service nonexistentservice start
+Follow the steps below to troubleshoot this error:
+Navigate to the AWS Systems Manager Console.
+In the left navigation pane, choose Automation under the Change
+Management section.
+Click on Execute
+Search for the Automation document named AWSSupport-
+TroubleshootCodeDeploy under the Owned by Amazon tab.
+Select the radio button on the
+Choose Next in the Document details section.
+Provide the Input parameters to the SSM Automation document, such as
+InstanceId where the deployment failed and the DeploymentId that failed, as
+shown in Figure
+Figure Input Parameters in the SSM Automation Document
+Click on Execute to run the SSM document after providing the inputs.
+The runbook’s output will offer troubleshooting steps and recommendations
+for resolving the issue that caused the code deployment failure. A sample of
+the output is shown in Figure
+Figure 11.2: Output of the AWSSupport-TroubleshootCodeDeploy Runbook
+From the above output, we can see that there is an issue with the script at the
+For more detailed information about the error, SSH into the instance and
+navigate to the location specified in the bullet [3].
+Aggregate operational tasks using OpsCenter
+AWS Systems Manager offers a capability that allows operations engineers
+and IT professionals to manage operational work items, also known as
+OpsItems, from a single location. The purpose of OpsCenter is to reduce the
+Mean Time to Resolution for troubleshooting and resolving operational issues
+impacting AWS services. This capability enables us to view contextual
+investigation data about each OpsItem, including related Opsitems and
+resources. OpsCenter provides System Manager Automation documents, or
+runbooks, to aid in quickly resolving issues.
+When you setup OpsCenter and integrate it with other AWS Services such as
+AWS Config, AWS CloudWatch Events, or AWS EventBridge, it can
+automatically create OpsItems. OpsCenter can also be used to investigate and
+remediate operational issues on on-premises managed nodes as well that are
+configured in Systems Manager.
+In this section, we will create a CloudWatch Event rule that generates an
+OpsItem for an EC2 service that publishes events to CloudWatch. We will
+configure SSM OpsItem as the target for EC2 State changes events, such as
+when an EC2 instance state changes from Running to
+The architecture diagram of above use-case is shown in Figure
+Figure operational work items with AWS Systems Manager
+Please follow the step-by-step instructions below in your AWS account to
+complete this use-case:
+Prerequisites
+Before diving into the step-by-step instructions for completing this use-case
+in your AWS account, it is crucial to fulfill the following prerequisites to
+ensure seamless integration and functionality:
+• Ensure OpsCenter is set up on your AWS account. If it is not, follow the link
+below to set up OpsCenter:
+```
+https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-
+```
+setup.html
+• Launch a single EC2 instance of type the default subnet in us-east-1 region
+and associate it with the default subnet in the default VPC. Note down the
+instance ID as it will be required in the next step.
+Proceed to the next steps once the prerequisites are completed.
+1. Create an In this step, we will set up an OpsItem that will be triggered in
+the subsequent step.
+• Navigate to the CloudWatch Console, click on and then on
+• Select Event Pattern for the Event
+• Choose EC2 for the Service Name.
+• For the Event select EC2 Instance State-change
+```
+• Choose terminated for the specific state(s).
+```
+• Under Specific instance enter the instance id noted down from the
+prerequisites.
+• For the select SSM
+• Next, choose Create a new role for this specific resource and click on
+Configure
+• Enter ec2-termination-rule as the name of CloudWatch Event rule and then
+click Create
+Figure illustrates the screenshot of the values entered in this step:
+Figure 11.4: Creating a CloudWatch Event Rule to Trigger an OpsItem
+2. Verify OpsItem Navigate back to the SSM OpsCenter and click on
+Configure sources in the OpsItems tab. Figure the OpsItem rule created in the
+previous step:
+Figure OpsItem Rule in SSM OpsCenter
+3. Trigger the Navigate to the EC2 console and terminate the EC2 instance
+that was created as a prerequisite. Once the instance is terminated, go to the
+OpsItems tab in the OpsCenter and select the open item with titled EC2
+Instance State-change Notification. Upon selection, you will see the ARN of
+the instance terminated under the Related Sources section. There are also
+recommended Runbooks available which provide options for remediation.
+The Operational data section displays the instance ID, state, and the
+CloudWatch Event that generated this OpsItem. Figure the details of the open
+OpsItem created by the CloudWatch Event Rule:
+Figure of the Open OpsItem Created by the CloudWatch Event Rule
+This walkthrough illustrated a basic use case to demonstrate the functionality
+of AWS OpsCenter. However, there are many other scenarios where SSM
+OpsItem can be configured as the target for various types of events. These
+```
+include:
+```
+• Security issues alerts from AWS Security Hub.
+• Scheduled maintenance alerts from the AWS Health Dashboard.
+• Failures within the AWS EC2 Auto Scaling group when launching an
+instance.
+• Failures during the execution of AWS Systems Manager automation
+documents.
+Auto Healing in AWS OpsWorks
+The Auto Healing feature in AWS OpsWorks allows stacks to
+automatically replace the failed instances in the layer. You can modify the
+Auto healing settings by updating layer settings as shown in Figure
+Figure Layer Settings for Auto Healing in AWS OpsWorks
+Each instance that AWS OpsWorks Stack manages has an agent that
+regularly communicates with the AWS OpsWorks service. If, for some
+reason, an agent is unable to communicate with the service for more than
+five minutes, AWS OpsWorks stacks consider the instance unhealthy and
+replaces it with a new instance. Once the instance is online, AWS
+OpsWorks Stack triggers a lifecycle event on all the stack’s instances. For
+more information on lifecycle events in OpsWorks, please refer to the
+AWS OpsWorks Stack Lifecycle Events section in Chapter Automation
+using OpsWorks and Elastic Beanstalk.
+Automating responses to AWS Health events
+AWS Health sends various notifications to AWS customers on behalf of other
+AWS services. These notifications are also referred to as Health Events. Some
+Health events, known as Account-specific events, are unique to individual
+accounts. For example, an issue might arise with an EC2 instance that a
+customer uses in a specific region. Conversely, public events concern broader
+service issues. An example would be an issue with the AWS S3 service that
+```
+affects customers in the N. Virginia (us-eas-t1) region. The AWS Health
+```
+Dashboard displays the status of both public and account-specific health
+events.
+Each Health Event type code provides insight into different event categories.
+For instance:
+• The AWS_S3_OPEN_ACCESS_BUCKET_NOTIFICATION event type
+code pertains security and is classified under the notification category.
+• type code indicates an operational issue with the EC2 service and belongs to
+the issue category.
+• The type code indicates a need for an EC2 instance reboot and is labeled as
+a Scheduled
+In this section, we explore how to automate the action of restarting an EC2
+instance when a scheduled event occurs. Consider a scenario where AWS
+identifies an irreparable issue with the hardware of an EC2 instance and
+decides to retire it. Before this retirement takes place, the customers receive
+an email detailing the instance ID and the scheduled retirement date. To
+prevent data loss from the retiring instance, it is advised to back it up by
+stopping it. When such an event arises, AWS Health communicates the event
+type code of EC2 retirement to the AWS Health Dashboard. Once this event
+is detected, the EventBridge rule triggers the AWS Systems Manager
+Automation document called The architecture of the use case is depicted in
+Figure
+Figure Restart Action for EC2 Instance
+To implement this use-case in your AWS account, follow the instructions
+```
+below:
+```
+1. Creating SAM Create a YAML file named add the following EventBridge
+rule.
+1. EventBridgeRule:
+2. Type: AWS::Events::Rule
+3. Properties:
+4. Description: "Trigger AWS-RestartEC2Instance document to restart
+EC2 Instance"
+5. EventPattern:
+6. source:
+7. – "aws.health"
+8. detail-type:
+9. – "AWS Health Event"
+10. detail:
+11. service:
+12. – "running"
+13. eventTypeCategory:
+14. – "scheduledChange"
+15. eventTypeCode:
+16. –
+"AWS_EC2_PERSISTENT_INSTANCE_RETIREMENT_SCHEDULED"
+17.
+18. Targets:
+19. – Arn: !Sub "arn:aws:ssm:${AWS::Region}::automation-
+definition/AWS-RestartEC2Instance"
+20. Id: "RestartRetiredEC2Instance"
+21. RoleArn: !GetAtt EventRuleAssumeRole.Arn
+22. InputTransformer:
+23. InputPathsMap:
+24. "Instances": "$.resources"
+25. InputTemplate: !Sub |
+26. {
+27. "InstanceId": [""]
+28. }
+The above rule triggers the AWS SSM Automation Runbook named AWS-
+RestartEC2Instance upon receipt of the following scheduled Health Event:
+AWS_EC2_PERSISTENT_INSTANCE_RETIREMENT_SCHEDULED
+The complete SAM template can be found in the GitHub repository
+associated with Chapter 11 of this book.
+2. SAM To deploy the resources detailed in the template.yml from the
+previous step, execute the following command using the AWS CLI:
+1. sam deploy –template-file template.yml \
+2. –stack-name eventbridge-to-ssmautomation-stack \
+3. –resolve-s3 \
+4. –capabilities CAPABILITY_IAM
+After the successful deployment of the stack, navigate to the EventBridge
+console and select the created EventBridge rule. This will allow you to
+examine the Event pattern, as illustrated in Figure
+Figure pattern for EC2 instance retirement scheduled event
+The fields specified in the above Event pattern match all the fields in the
+schedule event received in the customer’s account by the AWS Health
+service.
+In conclusion, this use-case demonstrates how AWS EventBridge can be used
+to detect and react to AWS Health events. Based on the specified criteria in
+this service will invoke the target when an event matches the values specified
+in the rule.
+Analyzing root cause using X-Ray
+AWS X-Ray assists in analyzing and debugging production and
+distributed applications. It traces users’ requests, identifies bottlenecks,
+and determines where higher latencies occur, allowing for refactoring of
+the application to improve performance. In Chapter Auditing, Logging and
+Monitoring Containers and Application, we learned how to integrate
+AWS-Xray with serverless applications. We activated the X-Ray tracing
+on a Lambda function, generated test traffic for the serverless application,
+and then visualized the Service Map in the X-Ray console to view the
+traces.
+In this section, we explore how X-Ray is set up in container-based
+applications within ECS/EKS environments. The architecture diagram
+presented in Figure the X-Ray setup with ECS/EKS:
+Figure 11.10: Architecture diagram of AWS X-Ray setup with ECS/EKS
+Within ECS, X-Ray can be set up as a sidecar container in a Fargate task.
+Sidecar containers are those that run alongside another container in the
+same Fargate task. In contrast, within EKS, X-Ray can be established by
+deploying an X-Ray pod as a Kubernetes Daemonset. A Daemonset is a
+unique deployment strategy that places one instance of a pod onto each
+node in the cluster. More information about Daemonset can be found at
+the following link:
+```
+https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+```
+Fanout to AWS SQS Queues
+In the Fanout scenario, when a message is published to an AWS Simple
+Notification Service topic, it is pushed to multiple endpoints or subscribers,
+such as Kinesis Data firehose delivery streams, AWS SQS queues, HTTP
+endpoints, and Lambda functions. This eliminates the need for subscribers to
+periodically poll for messages from the SNS topic. It allows for parallel
+asynchronous processing. For example, when a customer places an order on
+an e-commerce website, various microservices need to process the order, one
+to handle inventory management, another to manage shipping, and a third to
+send a confirmation email to the user. To ensure high availability and to
+decouple these services, the e-commerce platform uses Amazon SNS to fan
+out the order message to multiple Amazon SQS queues, each leading to a
+different processing system. The architecture of this e-commerce website
+application is shown in Figure
+Figure diagram of e-commerce web application
+To implement this use case in your AWS account, follow the instructions
+```
+below:
+```
+1. Creating SAM Begin by creating a YAML template file named In this
+template define two SQS queues named InventoryManagementQueue for
+inventory-related tasks, and ShippingManagementQueue for shipping
+logistics. Also, set up an SNS topic named This topic publishes the messages
+to both queues for parallel processing.
+1. Resources:
+2. # Define the SQS queue for inventory management
+3. InventoryManagementQueue:
+4. Type: AWS::SQS::Queue
+5.
+6. # Define the SQS queue for shipping management
+7. ShippingManagementQueue:
+8. Type: AWS::SQS::Queue
+9.
+10. # Define the SNS topic for order processing
+11. OrderProcessingTopic:
+12. Type: AWS::SNS::Topic
+13. Properties:
+14. # Subscribes both SQS queues to the SNS topic
+15. Subscription:
+16. – Protocol: sqs
+17. Endpoint: !GetAtt InventoryManagementQueue.Arn
+18. – Protocol: sqs
+19. Endpoint: !GetAtt ShippingManagementQueue.Arn
+The complete SAM template can be found in the Github repository associated
+in this chapter.
+SAM Execute the following command to deploy the resources outlined
+```
+above:
+```
+1. sam deploy --template-file template.yml \
+2. --stack-name ecommerce-order-processing-stack \
+3. --resolve-s3 \
+4. --capabilities CAPABILITY_IAM
+Once the stack is successfully deployed, head to the SNS console and select
+the SNS topic you have created. There, you can verify that both SQS queues
+are subscribed to this topic, as shown in Figure
+Figure queue subscriptions to the SNS topic
+Publishing messages to the Upon publishing a new message, AWS SNS
+delivers it to all subscribed endpoints. In our fanout scenario, the SQS queues
+act as these endpoints. To send an SNS message, use the following AWS CLI
+```
+command:
+```
+1. aws sns publish \
+2. --topic-arn [SNS_TOPIC_ARN] \
+3. --subject "NewOrderNotification" \
+4. --message "A new order has been placed."
+Verifying the After sending the message, navigate to the AWS SAM
+deployment outputs and retrieve the Queue URLs for both Simple Queue
+Queues. Then, run the following AWS CLI command to verify the message
+```
+receipt:
+```
+1. aws sqs receive-message \
+2. –queue-url QUEUE_URL
+In conclusion, this use case demonstrates the integration of SNS and SQS
+services in implementing Fanout pattern. By distributing messages to multiple
+endpoints simultaneously, we can achieve efficient, decoupled, and parallel
+processing in distributed and serverless applications.
+Implementing Dead-Letter Queues in SQS
+A dead-letter queue is a special type of message queue that temporarily
+stores erroneous and failed messages that have no destination or cannot be
+processed by the intended receiver. Moving failed messages to a DLQ aids
+in troubleshooting, allowing developers or IT teams to identify the root
+cause of the inability of the receiver to process the message. They can
+address the issue in the system and attempt to redeliver the messages. As an
+illustration, in our previously described e-commerce use-case, we can
+integrate two DLQs, InventoryDLQ and These would be linked to the
+InventoryManagementQueue and ShippingManagementQueue respectively,
+enhancing the reliability and robustness of the system, as depicted in Figure
+Figure 11.13: Integration of Dead-Letter Queues with Inventory and
+Shipping Management Queues
+In the following updated template, we have integrated two Dead-Letter
+Queues InventoryDLQ for the InventoryManagementQueue and
+ShippingDLQ for the These DLQs will store messages that fail to be
+processed after a certain number of attempts, enabling easier debugging and
+```
+troubleshooting:
+```
+1. Resources:
+2.
+3. # Define the SQS queue for inventory management
+4. InventoryManagementQueue:
+5. Type: AWS::SQS::Queue
+6. Properties:
+7. RedrivePolicy:
+8. deadLetterTargetArn:
+9. !GetAtt InventoryDLQ.Arn
+10. maxReceiveCount: 5 # Adjust as required; after this count, the
+message goes to DLQ
+11.
+12. # Define the SQS queue for shipping management
+13. ShippingManagementQueue:
+14. Type: AWS::SQS::Queue
+15. Properties:
+16. RedrivePolicy:
+17. deadLetterTargetArn:
+18. !GetAtt ShippingDLQ.Arn
+19. maxReceiveCount: 5 # Adjust as required
+20.
+21. # Define the DLQ for inventory management
+22. InventoryDLQ:
+23. Type: AWS::SQS::Queue
+24.
+25. # Define the DLQ for shipping management
+26. ShippingDLQ:
+27. Type: AWS::SQS::Queue
+By utilizing the redrive policy as depicted above, we can specify the number
+of times SQS will present the message to consumers. After this threshold, in
+our case five times, SQS will direct the message to the dead-letter queue
+defined in the policy.
+S3 event notification
+Utilizing the AWS S3 Event notification feature enables us to receive
+notifications when specific events occur within an S3 bucket. To enable
+notifications, we must add notification configuration to S3 objects.
+Additionally, we need to specify the destination where we want S3 to
+publish these notifications.
+S3 can publish notifications for the following events:
+• New object creation, object removal, and replication object events
+• S3 Lifecycle expiration and transition events
+• Object tagging and ACL PUT events
+• S3 Intelligent-tiering automatic archival events
+The available destinations for S3 to send notification messages include:
+• AWS SNS Topic
+• AWS SQS Queue
+• AWS Lambda Function
+• AWS EventBridge
+For example, the following snippet of the SAM template shows an S3
+bucket notification configuration that sends an event to the specified SNS
+topic when an object from the S3 bucket is permanently deleted:
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Transform: AWS::Serverless-2016-10-31
+3. Description: Send notification from S3 to SNS when an object is
+permantenly deleted
+4. Parameters:
+5. StagingBucketName:
+6. Type: String
+7.
+8. Resources:
+9. ## S3 bucket
+10. StagingBucket:
+11. Type: AWS::S3::Bucket
+12. DependsOn:
+13. - MySNSTopicPolicy
+14. Properties:
+15. BucketName: !Ref StagingBucketName
+16. NotificationConfiguration:
+17. TopicConfigurations:
+18. - Event: s3:ObjectRemoved:Delete
+19. Topic: !Ref MySNSTopic
+The architecture diagram depicted in Figure 11.14 illustrates the flow of
+S3 Event notification between AWS S3 and the SNS service:
+Figure 11.14: Architecture diagram - Sends notification from S3 to SNS
+To test the configuration, follow the instructions below:
+Navigate to the SNS console and select the SNS topic created after
+executing the sam deploy command.
+Click on Create
+Choose email from the and provide the desired email address under the
+EndPoint to receive notifications.
+Confirm the subscription by clicking on the confirmation link received
+from AWS.
+Delete an object from the S3 bucket that was previously created.
+Check your email inbox for the notification that you should receive.
+Please note the complete SAM template for setting up an S3 bucket, SNS
+topic, and notification configuration can be found in the BPB GitHub
+repository under this chapter.
+Troubleshooting CloudFormation stacks
+Issues can arise when creating, updating, or deleting CloudFormation
+stacks. This section provides guidance on troubleshooting common issues
+and how to resolve them.
+Below is a list of some common errors you might encounter with your
+CloudFormation stacks, along with solutions for each problem:
+• Circular This error occurs in CloudFormation when resources are
+deployed in a way that creates a dependency loop, where two resources
+depend on each other, or when a resource depends on itself. For instance,
+consider the following template:
+circulardependency-nonworking.yml
+1. Resources:
+2. MyEC2Instance:
+3. Type: AWS::EC2::Instance
+4. Properties:
+5. ImageId: !Ref MyImageId
+6. InstanceType: t2.micro
+7. SubnetId: !Ref 'MySubnetID'
+8. SecurityGroupIds:
+9. - !Ref 'MyInstanceSG'
+10. KeyName: !Ref 'MyKeyPairName'
+11. MyInstanceSG:
+12. Type: AWS::EC2::SecurityGroup
+13. Properties:
+14. GroupDescription: My Security Group
+15. VpcId:
+16. Ref: MyVPCID
+17. SecurityGroupIngress:
+18. - IpProtocol: tcp
+19. FromPort: 80
+20. ToPort: 80
+21. SourceSecurityGroupId: !Ref MyInstanceSG
+In this example, a circular dependency arises because the MyInstanceSG
+security group is defined within the same resource as the ingress rule. This
+causes a resource to depend on itself. To resolve this, you should separate
+the security group definition from the ingress rule, ensuring that resources
+do not have direct circular dependencies.
+Here is a corrected version of the template:
+circulardependency-working.yml
+1. Resources:
+2. MyEC2Instance:
+3. Type: AWS::EC2::Instance
+4. Properties:
+5. ImageId: !Ref MyImageId
+6. InstanceType: t2.micro
+7. SubnetId: !Ref 'MySubnetID'
+8. SecurityGroupIds:
+9. - !Ref 'MyInstanceSG'
+10. KeyName: !Ref 'MyKeyPairName'
+11. MyInstanceSG:
+12. Type: AWS::EC2::SecurityGroup
+13. Properties:
+14. GroupDescription: My Security Group
+15. VpcId:
+16. Ref: MyVPCID
+17. MyInstanceSecurityGroupIngress:
+18. Type: AWS::EC2::SecurityGroupIngress
+19. Properties:
+20. Description: Security Group Ingress Rule
+21. GroupId: !Ref MyInstanceSG
+22. IpProtocol: tcp
+23. FromPort: 80
+24. ToPort: 80
+25. SourceSecurityGroupId: !Ref MyInstanceSG
+For the complete templates of both the working and nonworking versions,
+you can refer to the BPB GitHub repository for this chapter.
+• Deleting stack failed: Deleting a CloudFormation stack can fail if certain
+resources must be emptied or removed before deletion, such as an S3
+bucket or an EC2 security group. For instance, when dealing with an S3
+bucket, it is necessary to delete all objects within it before the bucket itself
+can be deleted. Similarly, when removing a security group resource, any
+associated EC2 instances must be removed first.
+• Rate exceeded errors: These errors occur when AWS service API calls
+surpass the account’s allowable limit, leading to temporary API throttling.
+Such issues can often be resolved by retrying after API activity decreases.
+To mitigate these errors, consider creating/updating stacks sequentially,
+requesting quota increases through support cases, or utilizing the
+DependsOn attribute to control resource creation/update order and prevent
+simultaneous spikes in API calls.
+• Updating rollback failed: In the case of an AWS CloudFormation update
+```
+rollback failure state), an interdependent resource cannot revert to its
+```
+original state. For instance, if a stack is rolling back to a previous database
+instance that was deleted externally, CloudFormation assumes the instance
+still exists and tries to roll back to it, leading to the failure. To address this,
+you may need to manually rectify the error and proceed with the rollback,
+achieving a functional state Subsequently, you can attempt to update the
+stack again.
+Conclusion
+In this chapter, you have gained practical insights into tasks like
+aggregating operations using OpsCenter and enabling auto-healing in
+AWS OpsWorks. You have also learned how to automate responses to
+AWS Health Events and analyze root causes using AWS X-Ray. The
+concept of fanout to AWS SQS queues and the implementation of Dead-
+Letter Queues in SQS added valuable resources to your toolkit.
+Furthermore, you explored the AWS S3 Event Notification feature and
+developed troubleshooting skills for CloudFormation stack issues.
+Points to remember
+• Utilize the AWSSupport-TroubleshootCodeDeploy runbook in AWS
+Systems Manager Automation for effectively troubleshooting and
+resolving issues in AWS CodeDeploy, particularly for deployments on
+EC2 instances.
+• Leverage AWS Systems Manager’s OpsCenter to efficiently manage and
+```
+resolve operational tasks and issues (OpsItems) across AWS services,
+```
+enhancing overall operational efficiency.
+• Auto Healing feature in AWS OpsWorks automatically replaces failed
+instances, thereby ensuring higher availability and reliability of
+applications.
+• Automating responses to AWS Health events using AWS Systems
+Manager Automation documents and EventBridge rules is vital for
+effectively managing scheduled maintenance and unexpected hardware
+retirements.
+• AWS X-Ray is essential for analyzing and debugging applications,
+especially useful in pinpointing performance issues and tracking user
+requests in serverless and container-based environments.
+Questions
+1. What’s the name of AWS Systems Manager Automation Runbook to
+troubleshoot failed CodeDeploy deployments?
+2. How does AWS Systems Manager OpsCenter assist operations
+engineers and IT professionals in managing and resolving operational
+```
+work items (OpsItems) related to AWS resources?
+```
+3. What is the purpose of implementing Dead-Letter Queues (DLQs) in
+Amazon SQS, and how do they contribute to the reliability and robustness
+of a messaging system?
+Answers
+1. AWSSupport-TroubleshootCodeDeploy.
+2. AWS Systems Manager OpsCenter streamlines the management and
+resolution of operational issues related to AWS resources. It offers a
+central hub for viewing and investigating these issues, known as
+OpsItems, and provides tools like runbooks for quick resolution.
+OpsCenter also allows for the aggregation of OpsItems across services,
+coupled with relevant data and reports, thereby reducing the time needed
+to resolve these issues.
+3. Dead-Letter Queues in Amazon SQS are used to store messages that fail
+to be processed by the intended receiver. These queues help in identifying
+and resolving message processing issues, enhancing the system’s
+reliability and robustness by allowing for the troubleshooting and
+redelivery of failed messages.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+12
+Setup Event-Driven Automated Actions
+Introduction
+In the previous chapter, Troubleshooting and Restoring we delved into
+both proactive and reactive strategies for incident response on AWS. We
+discussed troubleshooting failed deployments, orchestrated operational
+tasks using AWS Systems Manager OpsCenter, and leveraged AWS
+OpsWorks auto-healing capabilities. We emphasized the significance of
+automating responses to AWS Health events and highlighted the
+techniques of using X-Ray for root cause analysis. Furthermore, we also
+deepened our understanding of AWS SQS, especially with fanout
+mechanisms and dead-letter queues.
+As we transition to this chapter, our attention turns towards the event-
+driven approach in AWS automation and security. We begin with an
+exploration of event-driven automation through Kinesis. We acquaint
+ourselves with AWS Inspector, laying the groundwork to grasp its features
+and dive into automated security scans. As we progress, we explore AWS
+GuardDuty’s threat detection automation. Finally, we integrate with the
+third-party monitoring tool, DataDog, to visually present GuardDuty
+findings.
+Structure
+In this chapter, we will discuss the following topics:
+• Event-driven automation with Kinesis
+• AWS Inspector overview
+• Automated security scan using AWS Inspector
+• AWS GuardDuty overview
+• Visualize AWS GuardDuty Findings
+Objectives
+In this chapter, we dive into AWS’s event-driven automation using Kinesis
+Firehose, teaching you to integrate CloudWatch logs with DataDog for
+enhanced monitoring. We then shift to security with AWS Inspector,
+guiding you through automated vulnerability scans in your AWS account
+and immediate alerts via AWS SNS. To conclude, we delved into AWS
+GuardDuty, setting up a pipeline to log, archive, and visualize findings
+using DataDog, EventBridge, and S3. By the end of the chapter, you will
+grasp AWS’s automation, security scanning, and threat detection
+processes.
+Event-driven automation with Kinesis
+AWS Kinesis Firehose is a component of the Kinesis Streaming data platform
+offered by AWS. This platform also includes other streaming services such as
+Kinesis Data Streams and Kinesis Video Streams. AWS Kinesis Firehose is a
+fully managed service that streams real-time data to various destinations,
+including AWS S3, AWS Redshift, Splunk, and HTTP endpoints managed by
+third parties like DataDog, Dynatrace and New Relic. By using Kinesis
+Firehose, customers can avoid building custom applications or managing data
+delivery infrastructure. The service automatically handles tasks such as error
+management, autoscaling, data transformation, aggregation, and compression,
+ensuring rapid data delivery.
+In this section, we will demonstrate how to subscribe a CloudWatch log group
+to a Kinesis Firehose stream for ingestion into DataDog. DataDog is an
+Application Monitoring solution offering comprehensive visibility into both
+on-premises and cloud environments. It assists customers in quicky
+searching, filtering, and analyzing logs for troubleshooting purposes. We use
+AWS SAM to create a CloudWatch log group, Kinesis Firehose stream, an
+IAM role to enable CloudWatch logs to put data into Kinesis stream.
+The architecture of this use-case is illustrated in Figure
+Figure 12.1: Architectural Overview of CloudWatch Logs Ingestion into AWS
+S3 and DataDog Integration
+Follow the step-by-step procedure to complete this use case on your AWS
+```
+account:
+```
+Prerequisites
+To get started with the setup for streaming data using AWS Kinesis Firehose
+to DataDog, it is important to first meet the following prerequisites in your
+AWS environment:
+• AWS SAM Command Line Interface installed and configured.
+• An account with DataDog. Ensure you note down the API key. To create an
+API key in DataDog, please follow the instructions provided at the following
+link
+```
+https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-
+```
+key-or-client-token
+1. Creating SAM In this part of the template, we define several parameters
+CloudWatchLogGroupName for the CloudWatch log group name,
+CloudWatchLogStreamName for the log stream name, DeliveryBucketName
+for the S3 destination bucket, DataDogEndPointUrlName for DataDog’s
+HTTP endpoint, and DataDogApiKey for the DataDog application access
+key.
+1. Parameters:
+2. CloudWatchLogGroupName:
+3. Type: String
+4. Default: cloudwatch-log-group
+5. Description: Name of CloudWatch log group for test events
+6. CloudWatchLogStreamName:
+7. Type: String
+8. Default: cloudwatch-log-stream
+9. Description: Name of CloudWatch log stream for test events
+10. DeliveryBucketName:
+11. Type: String
+12. Description: Name of the destination bucket
+13. DataDogEndPointUrlName:
+14. Type: String
+15. Description: HTTP Endpoint URL of third-party Service Provider
+16. Default: https://aws-kinesis-http-intake.logs.datadoghq.com/v1/input
+17. DataDogApiKey:
+18. Description: DataDog Application AccessKey
+19. Type: String
+This snippet of AWS SAM template configures a Kinesis Firehose delivery
+stream to stream CloudWatch logs directly to DataDog. It includes settings
+for buffering, CloudWatch logging, and an HTTP endpoint with DataDog’s
+API key and URL. The template also outlines S3 backup configurations for
+storing raw data, specifying details like the bucket’s ARN, data size, interval,
+and the storage prefix, with a backup mode ensuring all data is retained.
+1. DeliveryStream:
+2. Type: AWS::KinesisFirehose::DeliveryStream
+3. Properties:
+4. DeliveryStreamName: "cloudwatch-kinesisdatastream-to
+kinesisfirehose"
+5. DeliveryStreamType: DirectPut
+6. HttpEndpointDestinationConfiguration:
+7. BufferingHints:
+8. SizeInMBs: 1
+9. IntervalInSeconds: 60
+10. CloudWatchLoggingOptions:
+11. Enabled: true
+12. LogGroupName: "/aws/kinesisfirehose/clouwatch-stream-to-
+firehose-to-datadog"
+13. LogStreamName: "S3Delivery"
+14. EndpointConfiguration:
+15. AccessKey: !Ref DataDogApiKey
+16. Name: "Datadog Logs"
+17. Url: !Ref DataDogEndPointUrlName
+18. RoleARN: !GetAtt DeliveryRole.Arn
+19. S3Configuration:
+20. BufferingHints:
+21. SizeInMBs: 5
+22. IntervalInSeconds: 300
+23. RoleARN: !GetAtt DeliveryRole.Arn
+24. BucketARN: !GetAtt DeliveryBucket.Arn
+25. Prefix: "source-raw-logs"
+26. S3BackupMode: "AllData"
+For a comprehensive view of this CloudFormation template, please refer to
+the GitHub repository linked with Chapter 12 of this book.
+2. SAM Use the SAM CLI to verify the validity of the SAM template:
+1. sam validate --template-file template.yml –lint
+3. SAM Use the command provided below to deploy a CloudFormation stack
+named When creating the stack, input the following parameters: the
+template’s name, the stack name, the DataDog API key, and the name of the
+delivery S3 bucket:
+1. sam deploy -t template.yml \
+2. --stack-name cloudwatch-to-kinesis-datadog-stack \
+3. --resolve-s3 \
+4. --parameter-overrides \
+5. CloudWatchLogGroupName=cloudwatch-log-group \
+6. CloudWatchLogStreamName=cloudwatch-log-stream \
+7. DataDogApiKey=[DataDog_API_Key] \
+8. DataDogEndPointUrlName=https://aws-kinesis-http-
+intake.logs.datadoghq.com/v1/input \
+9. DeliveryBucketName=[your_s3_bucket_name] \
+10. --capabilities CAPABILITY_IAM
+After the CloudFormation Stack has been successfully created, navigate to
+the Outputs section of the deployed stack as shown in Figure There, note
+```
+down the values of LogGroup, LogStream and Delivery bucket name; you
+```
+will need them for the subsequent Testing and Validation step.
+Ensure the command returns no errors. If there are issues, they will be listed
+as the output, and you should address each of them before proceeding.
+Figure 12.2: CloudFormation Stack Outputs for CloudWatch to Kinesis to
+DataDog Stack
+4. Testing and It is time to test the setup by putting log events into the log
+group and log stream we created in the previous step. Once the logs are
+placed, we will verify their presence in both DataDog and the designated S3
+bucket.
+Start by preparing a sample log file named test_logs.log with the following
+log entries:
+1. [
+2. {
+3. "timestamp": 1694886741316,
+4. "message": "TEST-MESSAGE-1"
+5. },
+6. {
+7. "timestamp": 1694886745851,
+8. "message": "TEST-MESSAGE-2"
+9. },
+10. {
+11. "timestamp": 1694886749841,
+12. "message": "TEST-MESSAGE-3"
+13. }
+14. ]
+Before using the log file, ensure you update the timestamp in
+example_logs.log to your current time. Execute the following command to
+insert log events into a log stream named cloudwatch-log-stream in the log
+group cloud watch-log-group:
+1. aws logs put-log-events \
+2. --log-group-name cloudwatch-log-group \
+3. --log-stream-name cloudwatch-log-stream \
+4. --log-events file://test_logs.log
+After executing the command, wait for a few moments and then navigate to
+the DataDog console. There, you should be able to view the streamed log
+events, as depicted in Figure
+Figure 12.3: Streamed Log Events Display in the DataDog Console
+Next, retrieve the name of the S3 delivery bucket, which you should have
+noted down from the stack output in the previous step. Within this S3 bucket,
+you will find the logs delivered by Amazon Kinesis Firehose. Locate and
+download the file corresponding to the specific date and time of your test.
+Now run the following command to view the raw records:
+1. zcat [filename]
+In summary, this section has guided you through the process of using AWS
+Kinesis Firehose for real-time data streaming from CloudWatch logs to
+DataDog. Utilizing AWS SAM, we set up necessary AWS resources,
+eliminating the need for custom solutions and manual management. The
+hands-on example demonstrates the power and scalability of Kinesis Firehose
+for efficient data transfer and monitoring. This knowledge equips you to
+adapt and implement similar real-time data streaming solutions in your own
+projects.
+AWS Inspector overview
+Amazon Inspector provides automated security assessments for your EC2
+instances and their applications. It identifies vulnerabilities and deviations
+from best practices, delivering a prioritized list of security findings. The
+service integrates seamlessly into development and deployment pipelines,
+allowing for continuous security monitoring. An optional agent can also
+be installed on EC2 instances to collect additional data, including network
+and file system activity.
+Amazon Inspector Classic offers three key benefits:
+• Seamless It easily integrates into your deployment and production
+workflows, allowing for continuous security assessments in both
+development and production environments.
+• Proactive vulnerability It automates the identification of application
+security issues, aiding in quick development and ensuring compliance
+with best practices.
+• Enhanced resource It provides detailed findings on the activity and
+configuration of your AWS resources, giving you a deeper understanding
+of your cloud environment.
+Automated security scan using AWS Inspector
+In this section, we will learn how to automatically scan vulnerabilities in an
+AWS account. We will create a schedule for host-based scanning of EC2
+instances that are grouped by tags. Using the AWS CloudFormation Service,
+we deploy all the resources and services required for this hands-on use-case.
+The observations from AWS Inspector are exported to AWS Security Hub,
+which provides a comprehensive view of the security state in the AWS
+account and helps to align with industry standards and best practices. We also
+receive email notifications about these findings through AWS Simple
+Notification Service topic.
+Figure 12.4 illustrates the workflow for automatically scanning EC2
+```
+instances:
+```
+Figure 12.4: Architecture diagram of Automated Security Scan by AWS
+Inspector
+The workflow includes an AWS EventBridge rule that uses a cron expression
+to initiate the AWS Inspector scan on a specified schedule. The AWS
+inspector scans the EC2 instances that have been tagged. The findings are
+sent to AWS Security Hub, which provides insights into the security findings
+along with prioritization and remediation recommendations. AWS Inspector
+also sends the scan’s assessment status to an AWS SNS topic, and
+notifications are subsequently emailed to subscribed email addresses when
+the ASSESSMENT_RUN_COMPLETED event for the Inspector scan
+occurs.
+Follow this step-by-step procedure to complete this use-case on your AWS
+```
+account:
+```
+Prerequisites
+Before proceeding with the setup, it is important to ensure that you have the
+following prerequisites in place. These elements are essential for a successful
+configuration and execution of the process:
+```
+• AWS Command Line Interface (CLI) installed and configured.
+```
+• An existing email address for receiving email notifications from AWS SNS.
+• AWS Security Hub must be enabled and configured.
+• An EC2 instance tagged with the key-value pair
+```
+• An AWS Inspector agent must be installed on the EC2 instance(s) you wish
+```
+to scan.
+1. Creating a CloudFormation The first step in our workflow involves using
+AWS CloudFormation to automate the deployment of the necessary AWS
+resources. Here is a breakdown of the key part of the CloudFormation
+template named
+• This section in the template provides predefined values based on the AWS
+region. It contains ARNs for different Inspector rules packages for the us-
+east-1 region. Each rule package can test the security compliance aspects such
+as Common Vulnerabilities and Exposures Center for Internet Security
+Benchmarks Network Reachability Rules and Security Best Practices
+Here is the Mappings section from the template:
+1. Mappings:
+2. RulePackageArn:
+3. us-east-1:
+4. CVE: 'arn:aws:inspector:us-east-1:316112463485:rulespackage/0-
+gEjTy7T7'
+5. CIS: 'arn:aws:inspector:us-east-1:316112463485:rulespackage/0-
+rExsr2X8'
+6. NR: 'arn:aws:inspector:us-east-1:316112463485:rulespackage/0-
+PmNV0Tcd'
+7. SBP: 'arn:aws:inspector:us-east-1:316112463485:rulespackage/0-
+R01qwB5Q'
+• This section of the CloudFormation template specifies the user inputs
+required for the stack. The parameters include EC2Tagkey and which are the
+```
+tags of the EC2 instance, which is length of the time (in seconds) for the
+```
+Amazon Inspector assessment run, and where the findings from Inspect will
+be sent.
+Here is the Parameters section from the template:
+1. Parameters:
+2. EC2Tagkey:
+3. Description: This tag key is associated with the resource group. If tag
+```
+(key:value) is not specified, all the EC2 instances in the AWS account are
+```
+included in the inspector assessment target
+4. Type: String
+5. EC2Tagvalue:
+6. Description: The tag value is associated with the resource group. If tag
+```
+(key:value) is not specified, all EC2 instances in the AWS account are
+```
+included in the inspector assessment target.
+7. Type: String
+8. Duration:
+9. Description: The duration of the Amazon Inspector assessment run in
+seconds.
+10. Type: Number
+11. Default: 3600
+12. EmailAddress:
+13. Description: Inspector Events are sent to this Email address.
+14. Type: String
+• This section of the template defines a resource group in AWS Inspector.
+The group consists of AWS resources of the same type that share specified
+tags. AWS Inspector scans the resources within this group. If the tag key is
+present, as determined by the is_tag_key_present condition, a resource group
+with the specified EC2 tags will be created.
+Here is the ResourceGroup section from the template:
+1. ResourceGroup:
+2. Type: AWS::Inspector::ResourceGroup
+3. Condition: is_tag_key_present
+4. Properties:
+5. ResourceGroupTags:
+6. - Key: !Ref EC2Tagkey
+7. Value: !Ref EC2Tagvalue
+• This section of the template creates an AWS Inspector assessment target
+resource. It specifies which EC2 instance will be analyzed during an
+```
+assessment (or scan) run by the Inspector.
+```
+Here is the InspectorAssessmentTarget section of the template:
+1. InspectorAssessmentTarget:
+2. Type: AWS::Inspector::AssessmentTarget
+3. Properties:
+4. AssessmentTargetName: !Sub ${AWS::AccountId}-
+InspectorAssessmentTarget
+5. ResourceGroupArn: !If [is_tag_key_present, !GetAtt
+ResourceGroup.Arn, !Ref "AWS::NoValue"]
+• This section of the template creates an Inspector Assessment template. It
+specifies the assessment target to be analyzed, the duration of the assessment
+and the rule packages for evaluation, such as CVE, CIS, and so on.
+Here is the InspectorAssessmentTemplate section of the template:
+1. InspectorAssessmentTemplate:
+2. Type: AWS::Inspector::AssessmentTemplate
+3. Properties:
+4. AssessmentTargetArn: !GetAtt InspectorAssessmentTarget.Arn
+5. AssessmentTemplateName: !Sub ${AWS::AccountId}-
+InspectorAssessmentTemplate
+6. DurationInSeconds: !Ref Duration
+7. RulesPackageArns:
+8. - !FindInMap
+9. - RulePackageArn
+10. - !Ref 'AWS::Region'
+11. - CVE
+12. - !FindInMap
+13. - RulePackageArn
+14. - !Ref 'AWS::Region'
+15. - CIS
+16. - !FindInMap
+17. - RulePackageArn
+18. - !Ref 'AWS::Region'
+19. - NR
+20. - !FindInMap
+21. - RulePackageArn
+22. - !Ref 'AWS::Region'
+23. - SBP
+• This section of the template creates an EventBridge rule that schedules
+AWS Inspector assessments. The rule is configured to trigger the assessment
+```
+daily rate(1 It refers to the defining the specifics of the scan.
+```
+Here is the InspectorAssessmentEventRule section of the template:
+1. InspectorAssessmentEventRule:
+2. Type: 'AWS::Events::Rule'
+3. Properties:
+4. Name: Scheduled_Inspector_Assessment
+5. Description: 'The scheduled trigger for AWS Inspector Assessment'
+6. State: ENABLED
+7. Targets:
+8. - Arn: !Ref InspectorAssessmentTemplate
+9. Id: AWSInspectorAssessment
+10. RoleArn: !GetAtt EventAssumeIAMRole.Arn
+11. ScheduleExpression: "rate(1 day)"
+2. This section of the template creates an Amazon SNS topic where AWS
+Inspector sends notifications. The topic name is dynamically generated based
+on the AWS account ID. It is associated with an SNS topic policy that allows
+AWS Inspector to publish messages to this topic. The subscription
+InspectorSubscription ensures that email notifications are sent to the provided
+1. InspectorScanEventsSNSTopic:
+2. Type: AWS::SNS::Topic
+3. Properties:
+4. TopicName: !Sub "InspectorScanEvents-${AWS::AccountId}"
+5. InspectorScanEventsSnsTopicPolicy:
+6. Type: AWS::SNS::TopicPolicy
+7. Properties:
+8. PolicyDocument:
+9. Version: "2012-10-17"
+10. Statement:
+11. Effect: Allow
+12. Principal:
+13. AWS:
+14. - arn:aws:iam::316112463485:root
+15. Action: "sns:Publish"
+16. Resource: "arn:aws:sns:*"
+17. Topics:
+18. - !Ref InspectorScanEventsSNSTopic
+For a comprehensive view of this CloudFormation template, refer to the
+GitHub repository linked in Chapter 12 of this book. The CloudFormation
+script automates the creation of resources, allowing AWS Inspector to
+```
+perform regular vulnerability scans on specified (or all) EC2 instances in the
+```
+AWS account. If issues are found, AWS Inspector sends notifications to an
+SNS topic, which then sends email alerts to the given email address.
+3. Validating the CloudFormation Use the following command with the AWS
+CLI to check if the template created in the previous step is a valid
+CloudFormation template. The CloudFormation service will return an error if
+there is a validation issue:
+1. aws cloudformation validate-template \
+2. --template-body file://template.yml
+4. Deploying the CloudFormation Deploy the CloudFormation template using
+the following command in the AWS CLI. This command creates and executes
+a change set. The process completes once AWS CloudFormation has executed
+the change set:
+1. aws cloudformation deploy \
+2. --template-file template.yml \
+3. --stack-name eventbridge-to-inspector-stack \
+4. --parameter-overrides \
+5. EC2Tagkey=env EC2Tagvalue=staging \
+6. EmailAddress=[your_email_address] \
+7. --capabilities CAPABILITY_IAM
+After the CloudFormation stack has been successfully created, navigate to the
+CloudFormation console. Open the Resources tab to view the created
+resources, as depicted in Figure
+Figure 12.5: Overview of resources created by the CloudFormation Stack
+Make a note of the ARNs for both Inspector Assessment Template resource
+and the SNS Topic from the Outputs tab of the deployed CloudFormation
+```
+stack:
+```
+1. arn:aws:inspector:us-east-1:958651443844:target/0-
+afUWOdqI/template/0-MFut8kya
+You will need both ARNs when subscribing to the AWS Inspector event to
+the SNS topic in Step
+5. Confirming AWS SNS Open your email inbox and select Confirm
+subscription in the email you receive from Amazon SNS, as depicted in
+Figure This will open a web browser window displaying the subscription
+confirmation.
+Figure 12.6: Amazon SNS Subscription confirmation email
+6. Subscribing Inspector Event to SNS Execute the following command to
+enable the process of sending AWS SNS notification about the
+ASSESSMENT_RUN_COMPLETED Event with the ARN of Inspector
+Assessment Template that was noted in in Step
+1. aws inspector subscribe-to-event \
+2. --event ASSESSMENT_RUN_COMPLETED \
+3. --resource-arn [inspector_assessment_template_arn] \
+4. --topic-arn [sns_topic_arn]
+7. Testing and After AWS Inspector completes the Assessment of the
+```
+assessment target’s (or EC2 instance) behavior against the selected rules
+```
+packages. You will receive an AWS email notification similar to what is
+depicted in Figure
+Figure 12.7: Sample AWS Inspector email notification
+At this point, if you navigate to AWS Security Hub, you can find details of
+the findings, their Severity levels, their workflow status, and
+recommendations to remediate each finding. Figure 12.8 depicts sample
+security findings in AWS Security Hub from the scan conducted on the EC2
+```
+instance:
+```
+Figure 12.8: Sample Security Findings in AWS Security Hub from EC2
+Instance Scan
+In conclusion, this use case demonstrated the integration of AWS Inspector
+with EC2 instances through CloudFormation. Leveraging AWS Security Hub
+and SNS provides a consolidated view of security findings and real-time
+notifications, ensuring consistent compliance with AWS best practices.
+AWS GuardDuty overview
+AWS GuardDuty is a threat detection service which continuously
+monitors and protects customers’ AWS accounts, their workloads, and data
+stored in AWS S3. It is easy to activate GuardDuty in AWS account
+without additional software to deploy or manage. GuardDuty uses
+machine learning anomaly detection, malware scanning and integrated
+threat intelligence to identify and prioritize potential threats.
+It analyzes and processes data from VPC flow logs, AWS CloudTrail
+event logs, and DNS logs. There is no separate configuration or
+management required to consume the data from these sources. Once
+GuardDuty is activated in an AWS account, data is automatically
+leveraged and analyzed.
+Users can review GuardDuty findings in the AWS console. Additionally,
+they can integrate these findings with event management or workflow
+systems, or trigger AWS Lambda for automated remediation or
+prevention.
+Visualize AWS GuardDuty findings
+In this section, we will utilize various AWS services to establish a pipeline for
+AWS GuardDuty findings. This will allow us to log these findings in S3
+buckets and visualize them in the DataDog monitoring system. When
+GuardDuty detects a threat, it forwards the findings to an AWS EvnenBridge
+rule. GuardDuty relays the newly generated findings to Eventbridge within 5
+minutes of their discovery. We will set up an event pattern that only forwards
+events originating from the GuardDuty service. Two targets are defined in the
+EventBridge rule:
+```
+• A Kinesis Firehose stream, which delivers findings to both DataDog (for
+```
+```
+visualization and analysis) and an S3 bucket (for long-term archiving).
+```
+• An SNS topic ensuring we receive email notifications regarding these
+findings
+DataDog provides visualization and in-depth analysis of event findings.
+Additionally, the Kinesis Firehose stream stores the findings in an S3 bucket
+for long-term retention. Data stored in the S3 bucket can be further analyzed
+using AWS Athena for advanced analytics, although this Athena-based
+analysis falls outside the scope of our current use case.
+The architecture diagram of the pipeline we have constructed build is
+illustrated in Figure
+Figure 12.9: AWS GuardDuty Findings Visualization Pipeline architecture
+We utilize AWS CloudFormation Service to deploy all the resources and
+services necessary for this hands-on use-case. Follow this step-by-step
+procedure to implement this use case in your AWS account:
+Prerequisites
+Before proceeding with the setup, it is important to ensure the following
+prerequisites are met, as they are essential for the successful implementation
+and operation of the system:
+• AWS GuardDuty must be enabled. Once enabled, GuardDuty will
+immediately start monitoring for security threats in your AWS account.
+• An account with DataDog. Ensure you note down the API key.
+1. Creating a CloudFormation Begi by creating a CloudFormation template
+named This template will set up the necessary pipeline and components for
+visualizing GuardDuty findings in Key parts of the template are as follows:
+• Parameters This section defines four parameters for the setup.
+EmailAddress is used to specify an email address for subscribing to SNS
+notifications. DeliveryBucketName determines the name of the S3 bucket
+where raw findings will be stored. MyDataDogEndPointUrlName represents
+the HTTP Endpoint URL of DataDog for logging, with a predefined default
+URL. MyDataDogApiKey is used for the DataDog’s Application AccessKey.
+Here is the Parameters section from the template:
+1. Parameters:
+2. EmailAddress:
+3. Type: String
+4. Description: Your email address
+5. DeliveryBucketName:
+6. Type: String
+7. Description: Name of the destination S3 bucket
+8. MyDataDogEndPointUrlName:
+9. Type: String
+10. Description: HTTP Endpoint URL of third-party Service Provider
+11. Default: https://aws-kinesis-http-intake.logs.datadoghq.com/v1/input
+12. MyDataDogApiKey:
+13. Description: DataDog Application AccessKey
+14. Type: String
+• GuardDutyEventBridgeRule This resource in the template defines an AWS
+EventBridge Rule specifically for GuardDuty findings. It is triggered
+whenever there is a GuardDuty finding. The rule targets two resources: The
+first is the Kinesis Firehose Delivery Stream, which directs findings to both
+DataDog and an S3 bucket. The second target is an SNS Topic configured to
+send email notifications for new findings.
+Here is the GuardDutyEventBridgeRule section of the template:
+1. GuardDutyEventBridgeRule:
+2. Type: "AWS::Events::Rule"
+3. Properties:
+4. Description: "Guard Duty Visualization Event Rule"
+5. EventPattern:
+6. source:
+7. - "aws.guardduty"
+8. detail-type:
+9. - "GuardDuty Finding"
+10. Targets:
+11. - Arn: !GetAtt KinesisFirehoseDeliveryStream.Arn
+12. Id: "guard-duty-kinesis-firehose"
+13. RoleArn: !GetAtt EventBridgeRole.Arn
+14. - Arn: !Ref MySnsTopic
+15. Id: "guard-duty-sns"
+• KinesisFirehoseDeliveryStream This represents a Kinesis Firehose
+Delivery Stream with the name Its primary role is to forward GuardDuty
+findings to DataDog and an S3 bucket. It contains configurations for: An
+HTTP Endpoint setup specifically for DataDog using the provided API key
+and endpoint URL. An S3 Configuration detailing how the findings will be
+delivered to the S3 bucket, which includes buffering hints and role
+permissions. It also defines which S3 bucket the findings will be delivered to.
+A backup setting ensures all data is also sent to the S3 bucket for redundancy.
+For a comprehensive view of this CloudFormation template, please refer to
+the GitHub repository linked with Chapter 12 of this book.
+2. Validate the CloudFormation template: Validate the CloudFormation
+template by running the following command using the AWS CLI:
+1. aws cloudformation validate-template \
+2. --template-body file://template.yml
+3. Deploying the CloudFormation template: Deploy the CloudFormation
+template using the following command in the AWS CLI:
+1. aws cloudformation deploy \
+2. --template-file template.yml \
+3. --stack-name guardduty-eventbridge-firehose-datadog-stack \
+4. --parameter-overrides \
+5. DeliveryBucketName=[your_devliery_bucket_name] \
+6. EmailAddress=[your_email_address] \
+7. MyDataDogApiKey=[your_datadog_api_key] \
+8. --capabilities CAPABILITY_IAM
+After the CloudFormation stack has been successfully created proceed to the
+next step. Do not forget to confirm the subscription in the email which you
+received from AWS SNS Service.
+4. Testing and validation: To ensure that our pipeline for visualizing
+GuardDuty findings in DataDog is working as expected, we will intentionally
+trigger a finding by modifying the access settings of an S3 bucket and
+validate that these findings are logged and visualized correctly. Follow the
+steps below to evaluate the pipeline:
+i. Choosing an S3 Bucket for testing: Navigate to the Amazon S3 console in
+your AWS account. Choose any existing bucket where the Block all public
+access setting is turned This will ensure that we do not expose any sensitive
+data during our test.
+ii. Modifying bucket permissions: In the S3 dashboard, click on the name of
+the chosen bucket. Navigate to the Permissions tab. Under Block all public
+access, click Edit. Toggle Block all public access to OFF as shown in Figure
+Save changes by clicking the Save changes button. You might be asked for
+```
+confirmation; type confirm and proceed.
+```
+Figure 12.10: Disabling “Block all public access” in the S3 bucket
+permissions
+iii. Waiting and monitoring: After making this change, AWS GuardDuty
+should recognize this as a potential security threat. Please wait for
+approximately 5 minutes for GuardDuty to detect and generate the finding.
+iv. Validating notification in DataDog: Log in to your DataDog account. You
+should see a new log entry corresponding to the GuardDuty finding, as
+illustrated in Figure
+Figure 12.11: GuardDuty Finding Visualization in DataDog
+Additionally, verify the email address that you provided while setting up the
+pipeline. You should have received a notification from the AWS SNS Service
+detailing the GuardDuty finding, as depicted in Figure
+Figure 12.12: Email notification of GuardDuty Finding via AWS SNS service
+v. Revert bucket permissions: It is essential to ensure that the Block all
+public access setting is turned back ON after the testing to maintain the
+security of your AWS resources. Go back to the chosen S3 bucket in the AWS
+console. Navigate to the Permissions tab. Under Block all public access, click
+Toggle Block all public access to ON and save changes. By following the
+above steps, you will have successfully validated that the GuardDuty findings
+pipeline to DataDog and email notifications are functioning correctly.
+In conclusion, AWS GuardDuty, a threat detection service for AWS, was
+activated to monitor AWS account activities and S3 data. Utilizing AWS
+CloudFormation, we established a pipeline where GuardDuty findings are
+processed through AWS EventBridge, streamed to an S3 bucket, and
+notifications dispatched via Amazon SNS. These findings are also visualized
+in DataDog. For validation, we adjusted S3 bucket permissions, with a strict
+emphasis on promptly reverting changes post-testing to maintain resource
+security.
+Conclusion
+In this chapter, we delved into AWS’s event-driven automation with
+Kinesis, explored AWS Inspector, and deepened our understanding of
+GuardDuty’s threat detection. As we move to the next chapter, we will
+shift our focus to AWS’s security and management tools. We will learn
+about sensitive data identification with AWS Macie, enhance security with
+AWS WAF for CloudFront, streamline operations using AWS Systems
+Manager, and manage secrets efficiently with AWS Secret Manager. The
+upcoming lessons will further solidify your grasp on AWS’s diverse
+capabilities.
+Points to remember
+• AWS Kinesis Firehose, a component of the Kinesis Streaming data
+platform, efficiently streams real-time data to multiple destinations, such
+as AWS S3, AWS Redshift, and HTTP endpoints of third-party services
+like DataDog, facilitating easy monitoring and analysis.
+• Amazon Inspector provides automated security assessments for EC2
+instances and applications, identifying vulnerabilities and best practice
+deviations, and integrates well into development and deployment pipelines
+for continuous security monitoring.
+• Setting up automated security scans using AWS Inspector involves
+scheduling host-based scans of EC2 instances grouped by tags, with
+findings exported to AWS Security Hub for a comprehensive security
+overview and notifications through AWS SNS.
+• AWS GuardDuty, a threat detection service, continuously monitors and
+protects AWS accounts, workloads, and AWS S3 data using machine
+learning, malware scanning, and integrated threat intelligence, analyzing
+data from sources like VPC flow logs and AWS CloudTrail.
+• Visualization of AWS GuardDuty findings can be achieved by creating a
+pipeline using AWS services, where findings are logged in S3 buckets and
+visualized in DataDog, with an EventBridge rule forwarding GuardDuty
+```
+findings to both Kinesis Firehose (for DataDog analysis and S3 archiving)
+```
+and an SNS topic for email notifications.
+Questions
+1. What is the primary function of Amazon Kinesis Data Firehose and
+how does it simplify data streaming?
+2. How does Amazon GuardDuty enhance security monitoring in AWS
+environments?
+Answers
+1. Amazon Kinesis Data Firehose is a fully managed service that delivers
+real-time streaming data to destinations like Amazon S3, Amazon
+Redshift, and various third-party service providers. It simplifies data
+streaming by automatically managing data delivery and allowing for data
+transformation without the need for writing applications or managing
+resources.
+2. Amazon GuardDuty is a security monitoring service that uses data
+sources like AWS CloudTrail and VPC flow logs, along with machine
+learning and threat intelligence, to detect malicious and unauthorized
+activity in AWS environments. It provides security findings through its
+console and integrates with other AWS services for in-depth security
+analysis.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+13
+Implement Governance Strategies and Cost Optimization
+Introduction
+In the previous chapter, we learned about auditing infrastructure using
+AWS Config, AWS Inspector and assessment templates, analyzing logs
+with CloudWatch logs insights, remediating issues using AWS Config, and
+configuring X-Ray for Lambda.
+In this chapter, we will learn how to perform sensitive data discovery
+using AWS Macie, integrated AWS WAF integration with AWS
+CloudFront, and automate administrative tasks using AWS Systems
+Manager and Patch manager. We will also learn how to optimize the
+infrastructure with AWS Trusted advisor and create an AWS organization.
+Structure
+In this chapter, we will discuss the following topics:
+• Sensitive data discovery job using AWS Macie
+• Protecting AWS CloudFront distribution with AWS WAF
+• Store Configuration in AWS Systems Manager Parameter Store
+• Automating administrative task using AWS SSM
+• Patching using SSM Patch Manager
+• Automatic rotation of secret in AWS Secret Manager
+• Optimizing AWS Infrastructure with AWS Trusted Advisor
+• Creating AWS Organization and an account
+Sensitive data discovery job using AWS Macie
+AWS Macie is a security service that helps discover, classify, and protect
+sensitive data stored in S3 buckets. It uses machine learning and pattern
+matching capabilities and provides insights with Dashboards and alerts to
+show how sensitive data, such as credit card numbers, social security
+numbers, and Personal Identifiable Information is accessed or moved. Macie
+discovers sensitive data in S3 buckets using automated sensitive data
+discovery and Sensitive data discovery jobs.
+With the first option, Macie monitors S3 buckets daily and supplies broad
+visibility to sensitive data that resides in the S3 bucket. With the second
+option, Macie provides a deeper analysis of S3 buckets by providing custom
+criteria defined by the user.
+In this example, we will enable AWS Macie and Security Hub on the AWS
+account. We will utilize the fully managed sensitive data type available in
+Macie and create a job to discover this sensitive data in the S3 bucket. An
+AWS EventBridge rule is set up to automatically identify and respond to
+security incidents reported by Macie, triggering an SNS topic notification.
+Subsequently, Macie also reports these findings to AWS Security Hub.
+The architecture of this use case is shown in Figure
+Figure 13.1: Architecture diagram for automating the discovery of sensitive
+data in AWS Macie
+To automate the discovery of sensitive data using AWS Macie, follow the
+step-by-step procedure below:
+1. Creating a CloudFormation template: Create an application directory
+named Within this directory, create a YAML file named template.yml and
+copy the following contents into it. The CloudFormation template is divided
+into several sections for clarity and ease of understanding:
+• Setting up parameters: This section sets up parameter in the template such
+as the email address for SNS topic notifications:
+1. Description: This CloudFormation stack creates infrastructure for Macie
+Demo
+2. Parameters:
+3. SNSTopicEmailAddress:
+4. Description: SNS topic endpoint email address
+5. Type: String
+• SNS topic and subscription: This section sets up an SNS topic for
+publishing Macie notifications and a subscription to send alerts to the
+specified email address:
+1. Resources:
+2. SNSTopic:
+3. Type: AWS::SNS::Topic
+4. Properties:
+5. DisplayName: ""
+6. TopicName: "macie-to-eventbridge"
+7. SNSSubscriptionEmailAddress:
+8. Type: "AWS::SNS::Subscription"
+9. Properties:
+10. TopicArn: !Ref SNSTopic
+11. Endpoint: !Ref SNSTopicEmailAddress
+12. Protocol: "email"
+13. Region: !Ref AWS::Region
+• EventBridge rule: Define an EventBridge rule to handle Macie events,
+directing them to the created SNS topic:
+1. MacieEventRule:
+2. Type: AWS::Events::Rule
+3. Properties:
+4. Description: "EventBridge Event Rule"
+5. EventPattern:
+6. source:
+7. - "aws.macie"
+8. Targets:
+9. - Arn: !Ref SNSTopic
+10. Id: "SNStopic"
+• Permissions for EventBridge to SNS: Establish a policy allowing
+EventBridge to invoke the SNS topic, which ensures proper routing of events:
+1. MacieEventBridgeToSnsPolicy:
+2. Type: AWS::SNS::TopicPolicy
+3. Properties:
+4. PolicyDocument:
+5. Statement:
+6. - Effect: Allow
+7. Principal:
+8. Service: events.amazonaws.com
+9. Action: sns:Publish
+10. Resource: !Ref SNSTopic
+11. Topics:
+12. - !Ref SNSTopic
+• S3 Bucket for data storage: Create an S3 bucket to store personal data,
+secured with encryption via a KMS key:
+1. MacieDataBucket:
+2. Type: AWS::S3::Bucket
+3. Properties:
+4. BucketEncryption:
+5. ServerSideEncryptionConfiguration:
+6. - ServerSideEncryptionByDefault:
+7. SSEAlgorithm: aws:kms
+8. KMSMasterKeyID: !GetAtt PersonalDataKmsKey.Arn
+• KMS key and alias for Encryption: This section defines a KMS key for
+encrypting the S3 bucket’s data and creates an alias for easier management:
+1. # Kms key to encrypt personal information
+2. PersonalDataKmsKey:
+3. Type: AWS::KMS::Key
+4. Properties:
+5. Description: "Kms key for PersonalData s3 bucket"
+6. EnableKeyRotation: true
+7. KeyPolicy:
+8. Version: '2012-10-17'
+9. Id: kms-key-for-personaldata-bucket
+10. Statement:
+11. - Sid: Grant permissions to IAM user
+12. Effect: Allow
+13. Principal:
+14. AWS:
+15. Fn::Join:
+16. - ''
+17. - - 'arn:aws:iam::'
+18. - Ref: AWS::AccountId
+19. - :root
+20. Action: kms:*
+21. Resource: '*'
+22. - Sid: Gant permission to Macie Service Role to use this KMS key
+23. Effect: Allow
+24. Principal:
+25. AWS:
+26. Fn::Join:
+27. - ''
+28. - - 'arn:aws:iam::'
+29. - Ref: AWS::AccountId
+30. - :role/aws-service-
+role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie
+31. Action:
+32. - kms:Decrypt
+33. Resource: '*'
+• Outputs: Define outputs for the CloudFormation stack, which include
+references to the created S3 bucket and SNS topic:
+1. Outputs:
+2. MacieDataBucket:
+3. Description: Macie Data bucket name
+4. Value: !Ref MacieDataBucket
+5. SNSTopicArn:
+6. Description: Arn of SNS Topic where findings will be published
+7. Value: !Ref SNSTopic
+The above CloudFormation template takes an email address as an input
+parameter, sets up an SNS topic for Macie notifications, creates an
+EventBridge rule to filter Macie events, grants permission for EventBridge to
+invoke the SNS topic, creates an S3 bucket to hold personal data, and
+establishes a KMS key for encrypting personal information.
+2. Setting up the environment: In this section, we will set up and configure
+the environment for the Macie demo. We will enable AWS Macie and AWS
+Security Hub, and then run a CloudFormation template to create the resources
+for this demo.
+Create a subdirectory named scripts in the macie-demo directory. Within this
+subdirectory, create a shell script named create-resources.sh and copy the
+following contents:
+1. #!/bin/bash
+2.
+3. # AWS region where resources will be deployed
+4. aws_region=$1
+5.
+6. # Email address where Macie alerts be sent out
+7. email_address=$2
+8.
+9. # Enable AWS macie
+10. aws macie2 enable-macie --region $aws_region
+11.
+12. # Export findings to AWS security hub
+13. aws macie2 put-findings-publication-configuration \
+14. --security-hub-configuration
+```
+publishClassificationFindings=true,publishPolicyFindings=true
+```
+15.
+16. # Enable Security Hub
+17. aws securityhub enable-security-hub --enable-default-standards \
+18. --region $aws_region
+19.
+20. # Create cloudformation stack
+21. aws cloudformation create-stack --stack-name macie-demo-stack \
+22. --parameters
+```
+ParameterKey=SNSTopicEmailAddress,ParameterValue=$email_address \
+```
+23. --template-body file://../template.yml \
+24. --region $aws_region
+After creating the create-resources.sh script, it’s time to run it to set up AWS
+Macie and AWS Security Hub for the demo. This script will enable these
+services in your specified AWS region and configure them to send alerts to
+your email address. It will also create the necessary resources using AWS
+CloudFormation.
+To execute the script, use the following command in your terminal. Replace
+us-east-1 with your desired AWS region, and [your-email-address] with your
+actual email address where you want to receive alerts:
+1. ./create-resources.sh us-east-1 [your-email-address]
+While the CloudFormation stack creation is in progress, we will receive an
+email from AWS SNS asking us to confirm the subscription, as shown in
+Figure Click the Confirm subscription link to confirm the subscription.
+Figure 13.2: Subscription confirmation email received from AWS SNS
+When the status of stack creation becomes we can view the resources created
+by the CloudFormation stack, as shown in Figure
+Figure 13.3: Resources created by CloudFormation stack for AWS Macie
+Demo
+The put-findings-publication-configuration Command Line Interface
+command in the shell script configures AWS Macie to send all the sensitive
+data findings to AWS Security Hub, as shown in Figure
+Figure 13.4: Publish Macie findings to AWS Security Hub destination
+3. Uploading sample In this step, we will create a sample CSV file containing
+fake sensitive data. First, create a subdirectory named data inside the Macie-
+demo directory. Next, create a CSV file named sample-data-macie.csv and
+add an entry containing data from Figure
+Figure 13.5: Sample .CSV data file containing personal identifiable
+```
+information (PII) information
+```
+Create another shell script named upload-data.sh in the scripts subdirectory
+and copy the following contents. The script retrieves the name of the S3
+bucket from a CloudFormation stack output and uses it to copy a CSV file to
+that S3 bucket:
+1. #!/bin/bash
+2. data_s3_bucket=$(aws cloudformation describe-stacks \
+3. --stack-name "macie-demo-stack" \
+4. --query 'Stacks[0].Outputs[?
+```
+OutputKey==`MacieDataBucket`].OutputValue' \
+```
+5. --output text)
+6.
+7. aws s3 cp ../data/sample-data-macie.csv
+4. Creating classification job: In this step, we will create a one-time sensitive
+data discovery job named Macie Demo Scan bucket using AWS CLI.
+Create a subdirectory named job-specs in the Macie-demo directory. Then,
+create a JSON template named Macie-job-spec.json inside the macie-demo
+subdirectory and copy the following contents:
+1. {
+2. "managedDataIdentifierIds": [
+3. "NAME",
+4. "ADDRESS",
+5. "DATE_OF_BIRTH",
+6. "USA_SOCIAL_SECURITY_NUMBER"
+7. ],
+8. "managedDataIdentifierSelector": "INCLUDE",
+9. "description": "Scan S3 bucket to discover data using AWS managed
+data identifier",
+10. "jobType": "ONE_TIME",
+11. "s3JobDefinition": {
+12. "bucketDefinitions": [
+13. {
+14. "accountId": "[your-account-id]",
+15. "buckets": [
+16. "macie-demo-stack-maciedatabucket-14n03ulaijgur"
+17. ]
+18. }
+19. ],
+20. "scoping": {
+21. "includes": {
+22. "and": [
+23. {
+24. "simpleScopeTerm": {
+25. "comparator": "EQ",
+26. "key": "OBJECT_EXTENSION",
+27. "values": [
+28. "csv"
+29. ]
+30. }
+31. }
+32. ]
+33. }
+34. }
+35. }
+36. }
+This JSON template consists of four managed data identifiers
+DATA_OF_BIRTH and as well as the type of job AWS account ID, S3 bucket
+name, and the file extension The file extension limits AWS Macie to inspect
+only .CSV files.
+Now, the folder structure in the macie-demo directory will look like this:
+1. ├── data
+2. │ └── sample-data-macie.csv
+3. ├── job-specs
+4. │ └── macie-job-spec.json
+5. ├── scripts
+6. │ ├── create-resources.sh
+7. │ ├── delete-resources.sh
+8. │ └── upload-data.sh
+9. └── template.yml
+Run the following command using AWS CLI which creates a one-time
+sensitive data discovery job:
+1. aws macie2 create-classification-job \
+2. --name "Macie Demo Scan Bucket" \
+3. --cli-input-json file://job-specs/macie-job-spec.json
+5. Analyzing scan results: It will take several minutes for Macie to complete
+the job. Once the job is finished go to the Macie console and click on the Jobs
+menu item on the left. Select the job named Macie Demo Scan click on Show
+and then click on Show findings to open the Findings page. From here, select
+a finding to show its details such as the Bucket name, encryption type and the
+name of the S3 object as shown in Figure
+Figure 13.6: Finding details in Macie
+Now, go to the Security Hub console and filter the findings with the Product
+name Figure 13.7 shows the Macie finding named The S3 object has personal
+information in AWS Security Hub:
+Figure 13.7: Macie findings details in Security Hub
+6. Clean-up: Now, it is time to remove the resources that were created in
+AWS once the validation and testing are completed.
+Run the following script which deletes the resources that were created by the
+CloudFormation stack, as well as the .CSV file that was used for testing:
+1. #!/bin/bash
+2.
+3. # Get data bucket name from cloudformation outputs
+4. data_s3_bucket=$(aws cloudformation describe-stacks \
+5. --stack-name "macie-demo-stack" --query 'Stacks[0].Outputs[?
+```
+OutputKey==`MacieDataBucket`].OutputValue' --output text)
+```
+6.
+7. # Remove data file(.csv) from s3 bucket
+8. data_file_name="sample-data-macie.csv"
+9. aws s3 rm s3://$data_s3_bucket/$data_file_name
+10.
+11. # Remove resources created by CloudFormation stack
+12. aws cloudformation delete-stack --stack-name macie-demo-stack
+13.
+14. # Disable Macie
+15. aws macie2 disable-macie
+16.
+17. # Disable Security Hub
+18. aws securityhub disable-security-hub
+Protect AWS CloudFront distribution with AWS WAF
+AWS Web Application Firewall service helps us protect web applications
+from common attacks, such as SQL injection, cross-site scripting, and other
+attacks. WAF allows us to create custom rules to decide whether we want to
+block or allow HTTP/HTTPS requests before they reach web applications.
+One of the use cases for WAF is to block requests from a specific country or
+geolocation.
+In this example, we will create a WAF Access Control List and add a
+geographic match rule to block traffic from the US. We will attach this ACL
+to the CloudFront distribution created in Chapter Infrastructure as Code using
+under the section Continuous delivery pipeline for AWS CloudFormation
+Nested
+The architecture diagram in Figure 13.8 has been revised to include AWS
+WAF service, highlighted by arrow #6:
+Figure 13.8: Updated architecture diagram - Continuous delivery pipeline to
+deploy CloudFormation Nested Stacks
+Follow the step-by-step procedure below to complete this use case on your
+AWS account.
+1. Creating a CloudFormation template: Create a YAML template named
+template.yml and copy the following contents:
+1. Resources:
+2. MyWebACL:
+3. Type: AWS::WAFv2::WebACL
+4. Properties:
+5. Name: Block-US-Web-Requests
+6. Scope: CLOUDFRONT
+7. DefaultAction:
+8. Allow: {}
+9. Description: Block all web requests from the US
+10. VisibilityConfig:
+11. SampledRequestsEnabled: true
+12. CloudWatchMetricsEnabled: true
+13. MetricName: Block-US-WebRequests-Metric
+14. Rules:
+15. - Name: Block-US-Requests
+16. Priority: 0
+17. Action:
+18. Block: {}
+19. VisibilityConfig:
+20. SampledRequestsEnabled: true
+21. CloudWatchMetricsEnabled: true
+22. MetricName: BlockUsWebRequestsMetric
+23. Statement:
+24. GeoMatchStatement:
+25. CountryCodes:
+26. - US
+The CloudFormation template above creates a WAF2 WebACL with a geo-
+match rule that blocks all web requests originating from a specified country
+for a specified CloudFront distribution.
+2. Creating CloudFormation stack: Run the following command using AWS
+CLI to create a CloudFormation Stack named
+1. aws cloudformation create-stack --stack-name \
+2. waf2-cloudformation-stack --template-body file://template.yml
+The CloudFormation stack creates an AWS WAFv2 ACL resource that
+includes a single rule to block traffic from the US. The rule’s statement block
+holds a GeoMatchStatement that checks the country code of the IP address
+associated with the web request and blocks the request if the country code is
+The rule’s scope is a specific AWS CloudFront distribution, which allows you
+to apply the WAF rules to a specific set of web resources. This ACL resource
+helps protect web applications from malicious traffic originating from the US.
+When the status of stack creation becomes we can view the resources created
+by the CloudFormation stack, as shown in Figure
+Figure 13.9: Resources created by CloudFormation stack for AWS WAF and
+CloudFront Demo
+Go to AWS WAF Console and click on Web ACLs on the left. Then, click on
+the Web ACL named Block-US-Web-Requests and select the Rules tab. Click
+on the rule named Block-US-Requests as shown in Figure By examining the
+rule, it is evident that requests originating from the US are blocked, while
+requests from other geographic locations are not blocked.
+Figure 13.10: WAF rule which blocks the web requests originated from US
+3. Associate WAF Web ACL with CloudFront distribution: Go to the
+CloudFront console and select the CloudFront distribution, click on Edit
+Settings panel. Choose the AWS WAF web ACL – optional dropdown and
+select the WAF ACL created in Step Click on Save Changes as shown in
+Figure It may take a few minutes for the CloudFront service to associate the
+WAF ACL with the distribution.
+Figure 13.11: Associate WAF Web ACL with CloudFront distribution
+4. Testing the WAF Copy the CloudFront Distribution domain name and paste
+it into a browser. If we attempt to access the website from a US location, we
+will observe a 403 ERROR message, as shown in Figure This error message
+indicates that the web request has been blocked by the WAF rule associated
+with the CloudFront distribution.
+Figure 13.12: 403 Error request blocked message
+Store configuration in AWS SSM Parameter Store
+AWS SSM Parameter Store supplies a centralized way to store and manage
+the application’s configuration data and secrets in a secure and scalable
+manner. Parameters can be stored as plaintext or KMS-encrypted strings and
+can be created and managed using the AWS Management Console, AWS CLI,
+or SDKs.
+In this example, we will store configuration data in the Parameter Store and
+retrieve the same parameter using the AWS CLI. To complete this example on
+your AWS account, follow the step-by-step procedure below:
+1. Store Create a shell script named put-paramater.sh and copy the following
+```
+contents:
+```
+1. #!/bin/bash
+2.
+3. # Create kms key
+4. kms_key_id=$(aws kms create-key --description "kms key for systems
+manager param store" \
+5. --key-usage ENCRYPT_DECRYPT --query KeyMetadata.KeyId --output
+```
+text)
+```
+6.
+7. echo "kms key id is : $kms_key_id"
+8.
+9. aws ssm put-parameter \
+10. --name "my-test-parameter" \
+11. --value "my-test-parameter-value" \
+12. --type "SecureString" \
+13. --key-id $kms_key_id \
+14. --overwrite
+Run the above script in your terminal in the us-east-1 region. This script
+creates a symmetric customer-managed encryption key in your AWS Key
+Management Service This key is used to encrypt the parameter value in the
+Parameter Store. From Figure we can see the name of the parameter, its
+SecureString data type, and the value of the parameter:
+Figure 13.13: Storing Configuration in Parameter Store
+2. Retrieve In this section, we will retrieve the parameter that was added in
+the earlier step using the AWS CLI. This command queries the parameter
+named my-test-parameter and returns the decrypted value of the parameter:
+1. aws ssm get-parameter \
+2. --name "my-test-parameter" \
+3. --with-decryption
+After running the get-parameter command, the output displays the retrieved
+parameter details in JSON format. The Value parameter in the output displays
+the actual value of the retrieved parameter, which is This value corresponds to
+the value that was set in Step Therefore, we have successfully retrieved the
+parameter value from the AWS SSM Parameter Store using the AWS CLI:
+1. {
+2. "Parameter": {
+3. "Name": "my-test-parameter",
+4. "Type": "SecureString",
+5. "Value": "my-test-parameter-value",
+6. "Version": 1,
+7. "LastModifiedDate": "2023-03-07T22:14:16.306000+00:00",
+8. "ARN": "arn:aws:ssm:us-east-1:111111111111:parameter/my-test-
+parameter",
+9. "DataType": "text"
+10. }
+11. }
+Automating administrative task using AWS SSM
+AWS Systems Manager is a management AWS service that enables us to get
+operational insights and take actions at scale. In this example, we will learn
+how to use the AWS SSM. Run a command from the AWS CLI to execute a
+shell script using the AWS CLI. The run command feature eliminates the need
+for a bastion host or SSH connection to the instance. The architecture of this
+use case is shown in Figure
+Figure 13.14: Executing a Remote Shell Script on an EC2 Instance Using
+SSM Run Command
+To implement this example in your AWS account, follow the detailed step-by-
+step procedure outlined below:
+1. Creating an IAM role: In this step, we will create an IAM role that grants
+permissions to the System Manager to perform actions on the EC2 instance
+that we will create in the next step.
+To create the IAM role, we will first create a JSON template named trust-
+policy.json and copy the following contents into it:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Effect": "Allow",
+6. "Principal": {
+7. "Service": "ec2.amazonaws.com"
+8. },
+9. "Action": "sts:AssumeRole"
+10. }
+11. ]
+12. }
+The above JSON template specifies the trust policy for the IAM role that we
+will create in the shell script. It allows the EC2 service to assume the role,
+which grants permission to the EC2 instance to communicate with the SSM
+service.
+Here is the shell script that creates the IAM role:
+1. #!/bin/sh
+2.
+3. # Creates a role and attaches a trust policy
+4. aws iam create-role \
+5. --role-name my-ssm-role \
+6. --assume-role-policy-document file://trust-policy.json
+7.
+8. # Attaches AWS managed policy
+9. aws iam attach-role-policy \
+10. --role-name my-ssm-role \
+11. --policy-arn arn:aws:iam::aws:policy/service-
+role/AmazonEC2RoleforSSM
+12.
+13. # Creates instance profile
+14. aws iam create-instance-profile --instance-profile-name \
+15. my-ec2-instance-profile
+16.
+17. # Adds role to the instance profile
+18. aws iam add-role-to-instance-profile --instance-profile-name \
+19. my-ec2-instance-profile --role-name my-ssm-role
+The script creates the IAM role required for an EC2 instance to communicate
+with the SSM service. It first creates the IAM role, attaches the trust policy to
+it, attaches an AWS-managed policy, and then creates an instance profile and
+adds the role to the instance profile.
+2. Creating an EC2 In this step, we will use AWS CLI to launch an EC2
+instance and assign an instance profile that allows the EC2 instance to
+communicate with the SSM service.
+To create an EC2 instance, run the following command:
+1. aws ec2 run-instances \
+2. --image-id ami-006dcf34c09e50022 \
+3. --count 1 \
+4. --instance-type t2.micro \
+5. --iam-instance-profile Name=my-ec2-instance-profile
+This command launches an instance of type using the AMI ID ami-
+006dcf34c09e50022 in the default subnet associated with the default VPC.
+The instance profile named my-ec2-instance-profile is assigned to provide
+permission for the EC2 instance to communicate with the SSM service.
+Once the instance is running, obtain the instance ID as shown in Figure This
+instance ID will be used in the next step to run a remote shell script.
+The SSM Agent is software that runs on an EC2 instance. The agent takes
+command requests from the SSM service, processes them, and sends the
+execution status of the command back to the SSM service.
+Figure 13.15: The launched EC2 instance is ready for some action to be
+performed by the SSM Run command
+3. Running a remote shell This step involves running a remote shell script
+using AWS CLI and Systems Manager Run Command. The output of the
+command is sent to a CloudWatch log group named
+The following command is used:
+1. aws ssm send-command \
+2. --document-name "AWS-RunShellScript" \
+3. --parameters 'commands=["echo HelloWorld"]' \
+4. --targets "Key=instanceids,Values=i-085c552a282e537c5" \
+5. --comment "echo HelloWorld" \
+6. --cloud-watch-output-config
+"CloudWatchOutputEnabled=true,CloudWatchLogGroupName=my-clw-
+groupname" \
+7. --region us-east-1
+This command uses the SSM document named AWS-RunShellScript to run
+the command on the EC2 instance. The command to run is specified in the
+command’s parameter, which is set to ["echo
+4. Viewing the output in CloudWatch Go to the CloudWatch console, select
+Logs on the left, select Log open the log group named and then select the log
+stream. The logs in the log stream will display the HelloWorld message as
+shown in Figure This value corresponds to the command that was echoed
+using send command in the earlier step, which concludes that we have
+completed this section.
+Figure 13.16: SSM Run Command Output Logs in CloudWatch
+Patching using SSM Patch Manager
+SSM Patch Manager allows us to automate the process of patching managed
+instances with security-related and other types of updates. We can apply
+patches for both operating systems and applications. We can install patches
+individually or for a group of EC2 instances, or for on-premises servers and
+virtual machines by operating system type. Patch manager uses patch
+baselines that include a rule for auto-approving patching within days of their
+releases along with a list of approved and rejected patches. Using the SSM
+maintenance window task, we can schedule the installation of the patches on
+individual EC2 instances or fleet of EC2 instances using EC2 tags.
+In this example, we will use SSM Patch Manager to patch an EC2 instance.
+We will create a patch baseline to define which patches to install. The Patch
+Manager will scan and install any missing patches on the EC2 instance using
+the EC2 resource tag via patch group. Finally, we will schedule the patch
+promotion process using a maintenance window. The architecture of this
+example is shown in Figure
+Figure 13.17: Patch EC2 Instance using SSM Patch Manager
+Prerequisites
+In this step, we will tag the EC2 instance previously created in the Automate
+administrative task using AWS SSM example. This tagging is necessary for
+the SSM Patch Manager to identify and manage the instance.
+Execute the following AWS CLI command to add the env=prod tag to your
+EC2 instance:
+1. aws ec2 create-tags \
+2. --resources [instance_id] \
+3. --tags Key=env,Value=prod
+1. Developing automation script: To automate the patching process, create a
+shell script named This script will consist of several key sections, each
+responsible for different aspects of automation:
+• Creating a patch baseline: First, we’ll create a patch baseline. This baseline
+will specify which patches should be applied to the instances. The following
+lines of the script set up a baseline that auto-approves critical security patches
+after 3 days of their release:
+1. #!/bin/bash
+2.
+3. #Create a patch base pipeline
+4. baseline_id=$(aws ssm create-patch-baseline --name "Linux-Production-
+Baseline-AutoApproval" \
+5. --operating-system "AMAZON_LINUX_2" \
+6. --approval-rules 'PatchRules=[{PatchFilterGroup={PatchFilters=
+```
+[{Key=SEVERITY,Values=[Critical]},{Key=CLASSIFICATION,Values=
+```
+```
+[Security]}]},ApproveAfterDays=3}]' \
+```
+7. --description "Baseline containing all updates approved for Security
+patches" \
+8. --query 'BaselineId' --output text)
+9.
+10. echo "Patch baseline id is: $baseline_id"
+• Registering the baseline to a patch group: Next, we register the created
+patch baseline to a patch group. This group is used to manage which instances
+receive the patches:
+1. # Register patch baseline to a patch group
+2. aws ssm register-patch-baseline-for-patch-group \
+3. --baseline-id $baseline_id \
+4. --patch-group "Patch Group for EC2 Instance"
+• Creating a Maintenance Window: Now, we’ll create a maintenance
+window. This window defines when the patches will be applied. We set it to
+run every Tuesday at 7 PM EST:
+1. # Create maintenance window
+2. window_id=$(aws ssm create-maintenance-window \
+3. --name "Maintenance-Window-PROD-EveryTues" \
+4. --tags "Key=env,Value=prod" \
+5. --schedule "cron(0 0 19 ? * TUE *)" \
+6. --schedule-timezone "America/New_York" \
+7. --duration 1 \
+8. --cutoff 0 \
+9. --no-allow-unassociated-targets --query 'WindowId' --output text)
+10.
+11. echo "Window Id is: $window_id"
+• Registering patch group and task with maintenance Finally, we associate
+the patch group with the maintenance window and set up a task to install the
+missing security updates.
+1. # Register patch group with maintenance windows
+2. window_target_id=$(aws ssm register-target-with-maintenance-window \
+3. --window-id $window_id \
+4. --targets "Key=tag:env,Values=prod" \
+5. --owner-information "EC2 Instance" \
+6. --resource-type "INSTANCE" --query 'WindowTargetId' --output text)
+7.
+8. echo "Window Target Id is: $window_target_id"
+9.
+10. # Register patch task to install missing security update on EC2 instance
+11. window_task_id=$(aws ssm register-task-with-maintenance-window \
+12. --window-id $window_id \
+13. --targets "Key=WindowTargetIds,Values=$window_target_id" \
+14. --task-arn "AWS-RunPatchBaseline" \
+15. --task-type "RUN_COMMAND" \
+16. --max-concurrency 2 \
+17. --max-errors 1 \
+18. --priority 1 \
+19. --task-invocation-parameters "RunCommand={Parameters=
+```
+{Operation=Install}}" \
+```
+20. --query 'WindowTaskId' --output text)
+21.
+22. echo "Window task id is: $window_task_id"
+2. Viewing installed patch Once the patching is completed, we can go to Fleet
+Manager under Node Management on the left, click on the EC2 instance
+shown under managed nodes, and navigate to the Patch tab. We can see that
+the required patches are installed on the EC2 instance, as shown in Figure
+Figure 13.18: Patch summary details
+Automatic Rotation of Secret in AWS Secret Manager
+AWS Security Manager service makes it easier to manage secrets such as
+database credentials, passwords, Application Programming Interface keys,
+SSH keys, private keys, certificates etc. The Secret manager replaces the
+usage of these secrets in software code, which ensures they cannot be
+compromised by looking into the code because they no longer exist in the
+code. Additionally, it helps to rotate the secret according to the specified
+schedule.
+In this example, we will create a secret which stores an API Key. We will
+write a Lambda function that rotates the API key. We will then configure the
+automatic rotation of this secret using the Lambda function. The automatic
+rotation happens every 30 days. All of these are achieved through AWS CLI
+commands.
+1. Creating a secret: Run the following command using AWS CLI, which
+creates a secret named MyTestAPIKeySecret in AWS Secret Manager in the
+us-east-1 region:
+1. aws secretsmanager create-secret \
+2. --name MyTestAPIKeySecret \
+3. --secret-string "949fbfc1-12e5-4730-aa29-911685b50aac" \
+4. --description "My API Key Secret"
+The created secret can be viewed by going to the Secret Manager console, as
+shown in Figure
+Figure 13.19: Stored secret in AWS Secret Manager
+Note down the ARN of this secret, which will be used in the next step:
+1. arn:aws:secretsmanager:us-east-
+1:111111111111:secret:MyTestAPIKeySecret-dgtXON
+2. Creating Lambda Function to rotate Go to the Lambda Console and click
+on Create function. Enter the details as shown in Figure Once the details are
+entered, click on the Create function at the bottom.
+Figure 13.20: Create Secret Rotation Lambda Function
+Go to the Code tab and replace the existing Python code in the
+lambda_function.py file with the following code:
+1. import boto3
+2. import json
+3. import uuid
+4. from botocore.exceptions import ClientError
+5.
+6. def generate_new_api_key():
+7. # Generate new API key
+8. return str(uuid.uuid4())
+9.
+10. def lambda_handler(event, context):
+11. secret_name = "MyTestAPIKeySecret"
+12. region_name = "us-east-1"
+13.
+14. session = boto3.session.Session()
+15. client = session.client(
+16. service_name='secretsmanager',
+17. region_name=region_name,
+18. )
+19.
+20. get_secret_value_response = client.get_secret_value(
+21. SecretId=secret_name
+22. )
+This Lambda function fetches the value of the created secret named
+MyTestAPIKeySecret from AWS Secrets Manager using the get_secret_value
+API. If the secret is a string value, the function then calls
+```
+generate_new_api_key() to generate a new API key and updates the value of
+```
+```
+the secret using the update_secret API. The generate_new_api_key() function
+```
+```
+generates a random UUID (universally unique identifier) as a string.
+```
+3. Adding an IAM Policy to the Lambda function: Go to the Configuration
+tab of the Lambda function, click on the role listed in the Execution role
+panel, and create an inline policy named Attach this policy to the Lambda
+execution role. This policy allows the rotation Lambda function to run Secret
+Manager operations for the Secret ARN noted down in Step which is for the
+secret named
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Effect": "Allow",
+6. "Action": [
+7. "secretsmanager:GetSecretValue",
+8. "secretsmanager:DescribeSecret"
+9. ],
+10. "Resource": [
+11. "arn:aws:secretsmanager:us-east-1:
+111111111111:secret:MyTestAPIKeySecret-dgtXON"
+12. ]
+13. },
+14. {
+15. "Effect": "Allow",
+16. "Action": "secretsmanager:UpdateSecret",
+17. "Resource": "*"
+18. }
+19. ]
+20. }
+4. resource-based policy to Lambda function: Go to the Configuration tab of
+the Lambda function, click on Add permissions under the Resource-based
+policy statements panel, then select AWS Service from the Policy statement
+options. Enter the necessary details as shown in Figure 13.21 and click on
+Figure 13.21: Resource-based Policy Added to Lambda Function
+This policy will grant permission to Secret Manager service to invoke the
+rotation lambda function when the secret is rotated in the next step.
+5. Rotating secret: In this step, we will configure and start automatic rotation
+for the secret named MyTestAPIKeySecret that was created in Step We will
+use the AWS CLI command rotate-secret to accomplish this. Before we rotate
+the secret, let us check the current value of the secret string stored in
+MyTestAPIKeySecret secret. Run the following command which retrieves the
+secret value:
+1. aws secretsmanager get-secret-value \
+2. --secret-id MyTestAPIKeySecret \
+3. --query SecretString \
+4. --output text
+The output of above the command displays 949fbfc1-12e5-4730-aa29-
+911685b50aac which is the same value added to the secret in Step
+Next that we’ve verified the current value of the MyTestAPIKeySecret secret,
+the next step is to set up and start its automatic rotation. We accomplish this
+using the rotate-secret command in the AWS CLI. This command configures
+the secret to rotate automatically every 30 days. The first execution of this
+command will immediately trigger a rotation of the secret. Subsequent
+rotations will follow the defined schedule.
+1. aws secretsmanager rotate-secret \
+2. --secret-id MyTestAPIKeySecret \
+3. --rotation-lambda-arn arn:aws:lambda:us-east-
+1:111111111111:function:secret-rotation-lambda \
+4. --rotation-rules AutomaticallyAfterDays=30
+After the rotation is complete, run the following command again to check if
+the value for the secret string has changed:
+1. aws secretsmanager get-secret-value \
+2. --secret-id MyTestAPIKeySecret \
+3. --query SecretString \
+4. --output text
+If the rotation was successful, the output of the above command will display a
+new value for the secret string, such as This confirms that our rotation
+Lambda function is working as expected.
+Optimizing AWS Infrastructure with AWS Trusted Advisor
+AWS Trusted Advisor is a service that helps customers optimize their AWS
+infrastructure, increase security, enhance performance, reduce costs, and
+monitor service quotas. It provides several recommendations based on best
+practices and AWS expertise. The service provides recommendations in the
+following categories through automated checks:
+• Cost optimization
+• Performance
+• Security
+• Fault tolerance
+• Service limits
+The screenshot taken from the Trusted Advisor console, shown in Figure
+provides a summary of the AWS
+Figure 13.22: AWS Trusted Advisor Recommendations
+AWS Basic and Developer support plan offers only service limit and basic
+security checks through Trusted Advisor, while Business and Enterprise plans
+provide to the full set of checks available.
+Creating an AWS organization and an account
+AWS organizations are used in large corporations with multiple AWS
+accounts. They enable the implementation and enforcement of security, audit,
+and compliance policies, and facilitate the sharing of resources across AWS
+accounts. The management account in the organization is responsible for
+paying for the usage of AWS resources within the organization.
+In this example, we will develop an automation script. The script will create
+an AWS organization, an AWS account, and an Organization Unit We will
+also create a Service Control Policy and apply it at the OU level.
+1. Develop automation script: Start by creating an application directory
+named Under this directory create a shell script named create-org.sh and
+structure it as follows:
+• Creating the organization: This part of the script initializes the creation of a
+new AWS organization:
+1. #!/bin/bash
+2.
+3. # Create organization
+4. aws organizations create-organization \
+5. --query 'Organization.[Id]' \
+6. --output text
+• Creating a new account: The script then proceeds to create a new account
+within the organization. It captures the request ID and continuously checks
+the status of the account creation process:
+1. # Create account
+2. request_id=$(aws organizations create-account \
+3. --email " testuser-YOUR-UNIQUE-IDENTIFIER@gmail.com" \
+4. --account-name "devops-account" \
+5. --query 'CreateAccountStatus.[Id]' \
+6. --output text)
+7. echo "Request Id is: $request_id"
+8.
+9. while true; do
+10. result=$(aws organizations describe-create-account-status --create-
+```
+account-request-id $request_id)
+```
+11. state=$(echo $result | jq -r '.CreateAccountStatus.State')
+12. if [[ $state == "SUCCEEDED" ]]; then
+13. echo "Account creation completed successfully"
+14. break
+15. elif [[ $state == "FAILED" ]]; then
+16. echo "Account creation failed"
+17. exit 1
+18. else
+19. echo "Waiting for account creation to complete..."
+20. sleep 10
+21. fi
+22. done
+• Retrieving account information: Once the account is created, the script
+retrieves and displays the account ID:
+1. # Get Account Id
+2. account_id=$(aws organizations describe-create-account-status \
+3. --create-account-request-id $request_id \
+4. --query 'CreateAccountStatus.[AccountId]' \
+5. --output text)
+6. echo "Account Id: $account_id"
+```
+• Setting up Organizational Units (OUs): The script then identifies the root
+```
+```
+ID of the organization and creates an Organizational Unit (OU), moving the
+```
+newly created account into this OU:
+1. # Get root id of organization
+2. root_id=$(aws organizations list-roots --query 'Roots[0].[Id]' \
+3. --output text)
+4. echo "Root Id is: $root_id"
+5.
+6. # Create OU
+7. ou_id=$(aws organizations create-organizational-unit \
+8. --parent-id $root_id \
+9. --name="OU" \
+10. --query 'OrganizationalUnit.[Id]' \
+11. --output text)
+12. echo "OU Id is: $ou_id"
+13.
+14. # Move account to OU
+15. aws organizations move-account \
+16. --account-id $account_id \
+17. --source-parent-id $root_id \
+18. --destination-parent-id $ou_id
+• Completion and verification: The script takes a few seconds to complete.
+Once done, navigate to the AWS Organizations console to verify the changes.
+On the left, click on AWS On the right, you should see the root account,
+management account, OUs, and AWS accounts, as illustrated in Figure
+Figure 13.23: Organization structure with AWS Accounts
+2. Creating and applying SCP: Under aws-orgs-demo directory, create a shell
+script named
+1. #/bin/bash
+2. # Get Organization Root ID
+3. org_root_id=$(aws organizations list-roots \
+4. --query 'Roots[0].Id' --output text)
+5. echo "Root Id is: $org_root_id"
+6.
+7. # Enable SCP for Organization
+8. aws organizations enable-policy-type \
+9. --root-id $org_root_id \
+10. --policy-type SERVICE_CONTROL_POLICY
+11.
+12. # Create SCP Policy
+13. policy_id=$(aws organizations create-policy \
+14. --content file://policy.json \
+15. --name RestrictCloudTrailOperation \
+16. --type SERVICE_CONTROL_POLICY \
+17. --description "Restrict CloudTrail Operations to member account" \
+18. --query 'Policy.PolicySummary.Id' --output text)
+19. echo "Policy ID: $policy_id"
+20.
+21. # Get OU Id
+22. ou_id=$(aws organizations list-organizational-units-for-parent \
+23. --parent-id $org_root_id \
+24. --query 'OrganizationalUnits[0].Id' \
+25. --output text)
+26. echo "OU Id is:
+27.
+28. # Apply SCP Policy to OU
+29. aws organizations attach-policy \
+30. --policy-id $policy_id \
+31. --target-id $ou_id
+This script retrieves the organization Root Id, enables SCP for the
+organization, creates an SCP that blocks CloudTrail configuration actions for
+member AWS accounts, and applies this policy to the OU created in Step
+Figure 13.24 shows that the SCP has been successfully applied to the member
+AWS account successfully.
+Figure 13.24: SCP applied to OU in AWS organization
+Conclusion
+In this chapter, we explored a range of AWS services for enhancing
+governance and optimizing costs, covering AWS Macie for data security,
+AWS WAF for protecting web applications, and AWS SSM Parameter
+Store for configuration management. We also learned about administrative
+task automation and patching with SSM, secret rotation using AWS Secret
+Manager, and infrastructure optimization through AWS Trusted Advisor.
+Additionally, the chapter touched on creating and managing AWS
+organizations and accounts. As we move to next chapter, we will delve
+into securing data with AWS CloudHSM, understanding AWS Directory
+Service, sharing resources via AWS RAM, implementing AWS Network
+Firewall for intrusion detection, and comparing RBAC with ABAC,
+alongside exploring Identity Federation techniques. This next chapter will
+further expand our expertise in AWS security and access management.
+Points to remember
+• Emphasize the role of AWS Macie in discovering, classifying, and
+protecting sensitive data in S3 buckets.
+• Remember the importance of AWS WAF in protecting web applications
+from common threats like SQL injection and cross-site scripting.
+• Utilize AWS SSM Parameter Store for centralized and secure
+management of application configurations and secrets.
+• Leverage AWS Systems Manager for automating administrative tasks
+and streamlining resource management.
+• Recognize the significance of automating patch management for
+managing instances with SSM Patch Manager.
+• Understand the necessity of regularly rotating secrets like API keys using
+AWS Secret Manager for enhanced security.
+• Use AWS Trusted Advisor to optimize infrastructure for performance,
+security, and cost-effectiveness.
+• Remember the best practices for creating and managing AWS
+organizations and accounts for effective governance and cost control.
+Questions
+1. Why use Amazon Macie?
+2. What is the purpose of AWS WAF and how does it help protect web
+applications?
+3. What is the function of AWS Systems Manager Patch Manager and how
+does it support different operating systems?
+Answers
+1. Amazon Macie is utilized for discovering sensitive data through
+machine learning and pattern matching, offering visibility into data
+security risks and enabling automated protection against those risks.
+2. AWS WAF is a web application firewall service that controls access to
+content by allowing or blocking web requests based on specified criteria,
+like header values or IP addresses. It helps protect web applications from
+common web exploits that could impact application availability,
+compromise security, or consume excessive resources.
+3. AWS Systems Manager Patch Manager automates patching for
+managed instances with security updates, supporting operating systems
+like Windows, Amazon Linux, CentOS, and others. It can scan and install
+missing patches on both EC2 instances and on-premises servers.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+14
+Advanced Security, Access Control, and Identity Management
+Introduction
+In the previous chapter, we explored crucial aspects of implementing
+governance strategies and cost optimization in your AWS environment.
+We learned how to discover sensitive data using AWS Macie, enhance
+security with AWS Web Application Firewall and streamline
+administrative tasks with AWS Systems Manager automation. We also
+discussed best practices for secret management, infrastructure
+optimization, and organizing accounts using AWS Organizations.
+In this chapter, we will delve deeper into security and identity
+management. We will begin by exploring how to secure data using AWS
+CloudHSM, followed by an overview of AWS Directory Services. We will
+then dive into sharing resources with AWS Resource Access Manager
+detecting intrusions with AWS Network Firewall, and understanding the
+distinctions between Role-Based Access Control and Attribute-Based
+Access Control Lastly, we will explore Identity Federation Techniques,
+enhancing your knowledge of identity and access management in AWS.
+Structure
+In this chapter, we will discuss the following topics:
+• Securing Data with AWS CloudHSM
+• AWS Directory Service overview
+• Sharing a CodeBuild Project using AWS RAM
+• Intrusion Detection with AWS Network Firewall
+• RBAC versus ABAC
+• Identity Federation Techniques
+Objectives
+In this chapter, we explore advanced security and identity management
+topics in AWS. You will learn how to secure sensitive data using AWS
+CloudHSM, gain insights into AWS Directory Services, and understand
+the intricacies of sharing resources through AWS RAM. We will also
+delve into the world of intrusion detection using AWS Network Firewall
+and analyze the differences between RBAC and ABAC. Lastly, we will
+explain Identity Federation Techniques, equipping you with a deeper
+understanding of identity management in AWS.
+By the end of this chapter, you will have a comprehensive grasp of
+advanced security practices and identity management principles in the
+AWS cloud environment.
+Security data with AWS CloudHSM
+The AWS CloudHSM service extends the security benefits associated with
+hardware security modules to the AWS Cloud. An HSM is a physical
+computing device that safeguards and manages digital keys, ensuring strong
+authentication and providing crypto processing. Traditionally, these modules
+are either plug-in cards or external devices that connect directly to a computer
+or network server.
+With CloudHSM, you can manage and access your keys on FIPS 140-2 Level
+3 certified hardware. This service is protected with customer-owned, single-
+tenant HSM instances that operate within your virtual private cloud
+The following are the key benefits offered by AWS CloudHSM to the
+```
+customers:
+```
+• FIPS 140-2 Level-3 Validated AWS CloudHSM uses standards-compliant,
+single-tenant, and FIPS 140-2 Level-3 validated HSMs, offering more
+flexibility compared to other managed AWS services with fixed algorithms
+and key lengths.
+• End-to-end encryption invisible to Your data plane is fully encrypted and
+not visible to AWS, offering you full control over user management outside of
+IAM roles.
+• Complete Full control of your keys, algorithms, and application
+development is in your hands. Generate, store, import, export, manage, and
+use various cryptographic keys, all while having full authority over
+application development, language, threading, and physical existence of your
+applications.
+• Smooth migration to Migrate your cryptographic workloads seamlessly to
+the cloud, especially beneficial for infrastructures utilizing Public Key
+Cryptography Standards #11, Java Cryptographic Extension Cryptography
+```
+API: Next Generation or key storage provider allowing fewer changes to your
+```
+existing applications.
+Figure 14.1 illustrates the integration of AWS CloudHSM with command-line
+tools and other AWS services:
+Figure 14.1: AWS CloudHSM integration with AWS services
+AWS Directory Service overview
+Active Directory on AWS offers varied options. One choice is deploying EC2
+Windows Instances as domain controllers. A more streamlined solution is the
+```
+AWS Directory Service for Microsoft Active Directory (AWS Managed
+```
+```
+Microsoft AD), a fully managed service ensuring the maintenance of AD
+```
+domain controllers, covering security, patching, and backups.
+Using AWS Managed Microsoft AD, AWS sets up a pair of domain
+controllers in a new AD forest within a dedicated single-tenant AWS
+Managed VPC and Elastic Network Interfaces in two Availability Zones in
+your VPC. This setup supports directory-aware workloads, custom .NET, and
+SQL Server-based applications in the AWS Cloud, and allows a trust
+relationship between AWS Managed Microsoft AD and an on-premises
+Microsoft Active Directory, providing uninterrupted access to resources
+across both domains.
+Figure 14.2 illustrates some use-cases of AWS Microsoft AD, including the
+```
+ability to grant user access to external cloud application (or Microsoft Azure)
+```
+and allow on-premises AD users to manage and access resources in the AWS
+cloud.
+Figure 14.2: AWS Managed Microsoft AD Use-Cases and Architecture
+Sharing a CodeBuild project using AWS RAM
+AWS RAM allows customers to share their resources across multiple
+AWS accounts within their organization or organizational units It employs
+Identity Access Management roles and users for supported resource types.
+```
+With multiple AWS accounts, users can create a resource (only for
+```
+```
+supported resource types) in one account and allow other accounts to
+```
+reuse them.
+The following are the key benefits of AWS RAM:
+• Minimizes operational Create and share resources across accounts with
+AWS RAM, eliminating the need to duplicate resources and reducing
+operational tasks. It streamlines access control within the owning account,
+avoiding complex identity-based policies.
+• Ensures security and Manage the security of shared resources effectively
+with a unified set of policies and permissions, avoiding the hassle of
+maintaining identical settings across multiple accounts. AWS RAM
+ensures a uniform experience for sharing various AWS resources.
+• Enhances visibility and AWS RAM, integrated with Amazon
+CloudWatch and AWS CloudTrail, offers clear insights into shared
+resource usage and account activity, bolstering visibility and auditability.
+In the following section, we will provide a hands-on example
+demonstrating how to share a CodeBuild project using AWS RAM.
+Pre-requisites
+```
+• AWS Account A (Owner Account) with a CodeBuild project already created.
+```
+```
+• AWS Account B (Shared Account) where you want to share the CodeBuild
+```
+project.
+Sharing the CodeBuild Project in AWS Account A: Sign into Account A using
+an IAM user. Navigate to the AWS RAM service, this is where you can
+manage share resourcing. Click on Create resource Name your resource share
+as In the Resources section, select CodeBuild and your CodeBuild project
+```
+(See Figure Click
+```
+Figure CodeBuild Project in Resource Share Creation
+Click Next on the Associate managed permissions page. This page displays
+which actions Account B is allowed to perform on the shared CodeBuild
+project, as shown in Figure
+Figure assignment for Shared CodeBuild Project
+On the subsequent page, titled Grant access to principals, choose AWS
+account from the select principal type dropdown. Enter the Account ID for
+```
+Account B and Click Add (See Figure
+```
+Figure Account B in the ‘Grant Access to Principals’ page
+On the last page, review all configurations. Click on Create resource
+Accessing the Shared CodeBuild Project in AWS Account B: Sign into
+Account B using an IAM user and open the AWS RAM. Navigate to the AWS
+RAM Under the Shared with Me tab, select the resource share from Account
+and click on Accept resource share as shown in Figure
+Figure 14.6: Accepting Shared Resource in AWS Account B
+Now, navigate to the AWS CodeBuild service in Account Select Shared
+Projects from the dropdown. The shared CodeBuild project will be listed
+here, as shown in Figure and you can use it as needed:
+Figure the Shared CodeBuild Project in Account B
+In conclusion, AWS RAM efficiently manages resource sharing across
+multiple AWS accounts, ensuring enhanced security and visibility while
+minimizing operational overhead. This section successfully illustrated the
+sharing of an AWS CodeBuild project using AWS RAM from Account A to
+Account B.
+Intrusion detection with AWS Network Firewall
+AWS Network Firewall is a fully managed service that provides network
+firewall capabilities, along with intrusion detection and prevention. This
+firewall filters both inbound and outbound traffic from various sources such
+as an internet gateway, NAT gateway, VPN, or AWS Connect Direct. All
+requests entering a customer’s VPC can be routed first to AWS Network
+Firewall for inspection.
+In this section, we will establish an AWS Network Firewall within a VPC and
+configure it to permit web traffic to EC2 instance located in a protected public
+subnet. We will modify the existing route tables to direct traffic to and from
+the EC2 instance through the firewall for security. We will create a firewall
+policy and insert a stateful rule. This rule permits traffic to domains included
+in Domain List and denies traffic to all others. Additionally, we will set up
+CloudWatch logging to monitor any denied traffic. While this demonstration
+occurs within a single availability zone for simplicity, a production
+environment should utilize at least two availability zones to ensure high
+availability.
+For connectivity to the EC2 instance, we will use the AWS Systems Manager
+Session Manager. The architecture for this use case is depicted in Figure
+Figure 14.8: Architecture of AWS Network Firewall setup within a VPC
+Pre-requisites
+Before initiating the AWS Network Firewall setup, ensure the following AWS
+resources are provisioned in your AWS account:
+• Virtual Private Cloud IPv4 10.0.0.0/16, Hosting the AWS Network Firewall.
+• Firewall Availability IPv4 CIDR 10.0.0.0/28, Housing the AWS Network
+Firewall endpoint.
+• Protected Workload IPv4 10.0.1.0/24.
+• EC2 Instance Within ensure the Auto-assign public IP option is active
+during instance creation.
+• Internet Gateway Providing the VPC with internet access.
+• Route tables - Include:
+o Internet Route table named my-igw-rt with the local route added.
+o Protected Workload Route table named
+o Firewall route table named my-fw-rt with both local and internet routes
+added.
+With these resources appropriately set up, you can proceed with the AWS
+Network Firewall configuration.
+Creating Network Firewall Rule In this step, we will create a Stateful
+Network Firewall group. Stateless rule groups evaluate packets individually,
+while stateful rule groups assess them in the context of their traffic flow.
+Navigate to the VPC console. In the lefthand navigation menu, under
+Network select Network Firewall rule Click the Create rule group button,
+select Rule group type as Stateful rule choose Domain list from the Rule
+group format dropdown list, and leave Strict order – recommended as the
+default option. Click Next as shown in Figure
+Figure a new Stateful Network Firewall Rule Group in the VPC console
+Enter the name of the rule group as protected-workload-whitelist. Set the
+Capacity to 10, and click Next as shown in Figure
+Figure and setting the capacity for the Network Firewall Rule Group
+For the Domain names list, enter leave other settings as default, and click
+Next as depicted in Figure
+Figure for Domain names list in the Rule Group settings
+The next two pages - Configure advanced settings and Add tags - are
+optional. Click Next on these two pages. Review all the settings as shown in
+the final page, as shown in Figure click the Create rule group button to create
+network firewall rule successfully.
+Figure review of the Network Firewall Rule Group configuration before
+creation
+Creating Network Firewall In the VPC console, on the left-hand navigation
+menu, under Network select Firewall Click the Create firewall policy button.
+Enter the name of the firewall policy as my-firewall-policy and click Next as
+show in Figure
+Figure Firewall Policy
+On the next page, under Add rule click the Add stateful groups button. Select
+the stateful group created in the previous step and click the Add rule groups
+button, as shown in Figure Then, click
+Figure Stateful Rule Groups
+On the same page, under Stateful rule evaluation order and default actions
+group, check All checkbox which logs all the messages including alerts to the
+firewall logs as shown in Figure
+Figure 14.15: Setting rule evaluation and logging
+The next three pages – Configure advanced Add TLS inspection and - are
+optional. On the final Review and Create page, verify all the details. Once
+confirmed, click the Create Firewall Policy button to create the firewall
+policy.
+Creating Network Firewall: In the VPC console, navigate to the left-hand
+navigation menu and select Click the Create Network Firewall button. On the
+Describe firewall page, enter the firewall name as my-network-firewall and
+click Next as depicted in Figure
+Figure the Network Firewall
+On the subsequent Configure VPC and subnets page, select your VPC from
+the dropdown list. Choose us-east-1a from the availability zone dropdown
+```
+menu. Next, select the subnet for the firewall (mentioned in prerequisites)
+```
+from the dropdown menu, choose IPV4 from the IP address type dropdown as
+shown in Figure Then, click
+Figure VPC, Subnet, and IP Settings
+10. Proceed by clicking Next on the Configure advance settings page, which
+is optional. On the Associate firewall policy page, select the Associate an
+existing firewall policy option and choose the firewall policy created in the
+previous step, as illustrated in Figure
+Figure 14.18: Associating existing firewall policy
+Click Next on the optional Add Tags Review all the settings on the final
+Review and Create page, and then click the Create Firewall button. Please
+note that it might take a few minutes for the firewall to be fully provisioned.
+Once the network firewall is provisioned, you may proceed to the next step to
+reconfigure the route tables.
+Reconfiguring route tables: In this step, we will update both the Protected
+Workload and Internet route tables. Our aim is to reconfigure the routes
+destined for the internet to point to the Network firewall:
+i. Modifying protected Workload Route From the VPC console, select Route
+tables from the left navigation menu. Choose the route table named my-
+workload-rt and then select the Routes tab. Click on Edit routes to add a new
+route. Then, click the Add Route button.
+In the Destination field, enter From the Target field, choose the Gateway
+Load Balancer Endpoint and then select the endpoint that appears. It will
+resemble as depicted in Figure
+Figure route to Gateway Load Balancer Endpoint
+Lastly, click the Save changes button to save the changes.
+ii. Modify Internet Route From the VPC console, select Route tables from
+the left navigation menu. Choose the route table named my-workload-rt and
+then click on the Routes tab. Click Edit routes to add a new route, followed
+by the Add route button.
+In the Destination field, enter From the Target field, choose the Gateway
+Load Balancer Endpoint and then choose the displayed endpoint. After
+making your selections, click the Save Changes button.
+Next, go to the Edge Associations tab and click the Edit Edge Association
+button. Check the box next to the Internet gateway to select it as the
+associated Internet gateway, as depicted in Figure
+Figure internet gateway
+Click the Save changes button. This will complete the configuration of the
+network firewall.
+Setting up Network Firewall Now that all the network routes are configured
+and traffic ready for inspection by the Network Firewall, we need to set up
+logging to monitor ingress and egress traffic. Logs can be sent to S3 bucket, a
+CloudWatch log group, or a Kinesis Data Firehose delivery stream. For our
+use-case, we will utilize a CloudWatch log group as destination for the logs.
+Select the Network firewall created in the previous step and click Edit on the
+Logging tab. Choose Alert log type as shown in Figure
+Figure 14.21: Selecting alert log type
+Next, select CloudWatch log group under the Log destination for Alerts tab.
+Click the Create log group button, which opens a new window to the
+CloudWatch console. There, create a log group named Afterwards, close the
+Cloudwatch console and return to the firewall configuration page. Hit the
+Refresh button and select the created CLoudwatch group, as shown in Figure
+Figure created CloudWatch Log Group
+```
+Testing: In this section, we will connect to both whitelisted websites and
+```
+websites blocked by the firewall from the EC2 instance.
+Navigate to your EC2 instance and connect using Session Manager. Execute
+the following command on the EC2 instance:
+1. curl https://www.google.com --max-time 5
+Since www.google.com is a whitelisted domain by the firewall, you should
+observe a successful output from the above curl command, similar to what is
+shown below in Figure
+Figure 14.23: Successful output of curl command for
+```
+https://www.google.com
+```
+Now, test a domain that is not on the approved domain list, such as Execute
+the following command on the EC2 instance:
+1. curl https://www.facebook.com --max-time 5
+You will notice that the curl command times out with no data received as
+shown in Figure
+Figure 14.24: Timeout result of curl command for https://www.facebook.com
+Since the web traffic is not permitted by the approved domain list, the
+firewall will generate an Alert log. This can be viewed in your associated
+CloudWatch log group, as shown below in Figure
+Figure 14.25: Alert Log in CloudWatch triggered by attempted access to
+unapproved domain
+In this section, we explored AWS Network Firewall, a managed service
+providing network security and intrusion detection. We configured and tested
+it to control traffic flow and monitor network activity, enhancing AWS
+infrastructure security. AWS Network Firewall is a valuable tool for
+safeguarding workloads, and data, and detecting security threats.
+RBAC versus ABAC
+We are already familiar with the traditional authorized model called RBAC,
+which is used in the Identity and Access Management service. In this model,
+```
+we attach policies to identities (IAM users, groups, or roles) based on a
+```
+person’s job functions. As a best practice, we grant the minimum permissions
+required for the job function, which is also known as granting the least
+privileges. In the IAM policy, we define the specific resources the user can
+```
+access. Figure 14.26 shows that users (or programs) are assigned (or
+```
+```
+assumed) a role. The policy attached to the IAM role grants permission to
+```
+access S3 buckets, secrets created in AWS Secret Manager, and a kms key
+created in AWS Key Management Service
+Figure 14.26: RBAC authorization model
+```
+The drawback of this RBAC model is that when users (or programs) need to
+```
+access additional resources, we need to update policies to allow access to
+these resources, which is less effective.
+The Attribute-Based Access Control model defines permissions based on
+```
+attributes called tags. We can attach tags to IAM entities (users or roles) and
+```
+to AWS resources as shown in Figure
+Figure 14.27: ABAC authorization model
+Using ABAC, we can create a single or fewer policies for IAM principals.
+These ABAC policies can be designed to allow operations when the
+principal’s tag matches the resource tag. Here are the advantages of using the
+ABAC model:
+• Scalability: ABAC permissions scale effortlessly with innovation. No need
+to update policies for new resources.
+• Simplified policies: ABAC requires fewer policies, making management
+more efficient. Create and manage fewer policies without the complexity of
+RBAC.
+• Agility: Teams can change and grow swiftly. Permissions for new resources
+are automatically granted based on attributes. Adding new projects or
+reassigning team members is hassle-free.
+• Granular control: Achieve granular permissions by matching resource tags
+with principal tags. Only allow actions if the tags match.
+Below is a simple AWS IAM policy example that demonstrates ABAC
+principles by granting read access to Amazon S3 objects based on specific
+tag-keys and tag-values:
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Sid": "AllowReadAccessBasedOnTags",
+6. "Effect": "Allow",
+7. "Action": "s3:GetObject",
+8. "Resource": "arn:aws:s3:::example-bucket/*",
+9. "Condition": {
+10. "StringEquals": {
+11. "s3:ExistingObjectTag/tag-key": "department",
+12. "s3:ExistingObjectTag/tag-value": "finance"
+13. }
+14. }
+15. }
+16. ]
+17. }
+This above policy demonstrates how we can use ABAC to control access to
+S3 objects based on their tags. Users or roles with this policy attached will be
+able to read objects in the specified bucket only if those objects have the tag
+department with a value of finance.
+Identity Federation Techniques
+In an Identity federation system, an Identity Provider is responsible for user
+authentication, while the Service Provider controls access to the resources. In
+this system, both parties, the IdP and SP, trust each other to authenticate users
+and convey the information needed to authorize their access to the resources.
+This approach is useful when the organizations have their own identity
+system such as corporate directory and they do not want to manage user
+identities in AWS.
+AWS offers two services to federate corporate workforce identities into AWS
+```
+accounts: AWS Identity Center or AWS IAM. Following are the commonly
+```
+used open identity standards used in AWS for federation:
+```
+• Security Assertion Markup Language 2.0 (SAML 2.0)
+```
+• Open ID Connect
+• OAuth 2.0
+Each of these federation protocols offers distinct mechanisms and standards
+for secure user authentication and resource access across various platforms.
+Let us delve into how AWS incorporates these protocols within its federation
+```
+services:
+```
+• Federation with AWS Identity AWS Identity Center simplifies the
+management of federated access across multiple AWS accounts and business
+applications. It provides users with single sign-on access to their assigned
+accounts and applications from a single location. AWS Identity Center can
+also act as an IdP to authenticate users for applications integrated with AWS
+Identity Center, as well as for cloud-based applications that are compatible
+with SAML 2.0, such as Salesforce, Box, and Microsoft 365, utilizing the
+directory of your choice.
+You can use the AWS IAM Identity Center for identities in the AWS IAM
+Identity Center’s user directory, your existing corporate directory, or an
+external IDP as shown in Figure
+Figure 14.28: Federating identities with AWS Identity Center
+• Federation with Federation with IAM allows short-term, small-scale
+deployment of federated user access using SAML 2.0 and OIDC IdPs. It
+enables passing user attributes, like cost center or title, for fine-grained access
+control.
+• Federation with AWS Amazon Cognito identity pools enable mobile and
+web app authentication and authorization. They provide IAM credentials for
+accessing AWS resources, acquired through temporary sessions using
+AssumeRoleWithWebIdentity API Operation. Cognito supports external and
+social identity providers such as Facebook, Google and LinkedIn for flexible
+user sign-in and resource access.
+Conclusion
+In our previous chapter, Implement Governance Strategies and Cost we
+explored an array of services and strategies to enhance governance, reduce
+costs, and improve overall efficiency in our AWS environment. From
+Systems Manager Run Command to AWS Organizations, we equipped
+ourselves with the tools and knowledge to effectively manage and secure
+our AWS resources.
+In the current chapter, Advanced AWS Security, Access Control, and
+Identity we delved deeper into the realm of AWS security and identity
+management. We covered advanced access control patterns, identity
+federation techniques, and the automation of security controls and data
+protection. Our exploration of AWS security services such as AWS
+CloudHSM, AWS Directory Service, and AWS RAM enriched our
+understanding of security within the AWS ecosystem. These chapters
+collectively provide a robust foundation for mastering AWS security,
+governance, and optimization in your cloud journey.
+As we wrap up this chapter, get ready for the next steps: two mock exams
+await in the following chapters. These will help test your knowledge and
+prepare you for the AWS Certified DevOps Engineer - Professional
+certification.
+Points to remember
+• In CloudHSM, you have complete control over your keys, algorithms,
+and application development, with end-to-end encryption invisible to
+AWS.
+• AWS Directory Service offers options like AWS Managed Microsoft AD
+for streamlined Active Directory management in the cloud, supporting
+directory-aware workloads and trust relationships with on-premises AD.
+• AWS RAM minimizes operational overhead by enabling resource
+sharing across AWS accounts, ensuring security and consistency with
+unified policies.
+• AWS Network Firewall offers managed network protection with
+intrusion detection and prevention, filtering both inbound and outbound
+traffic.
+```
+• Role-Based Access Control (RBAC) in AWS IAM assigns policies to
+```
+identities based on job functions, adhering to the principle of least
+privilege.
+• The identity federation in AWS allows integration of corporate identity
+systems with AWS services, using standards like SAML 2.0, OIDC, and
+OAuth 2.0.
+• AWS Identity Center and AWS IAM are key services for federating
+corporate identities into AWS, facilitating secure and convenient access
+management.
+Questions
+1. What is AWS CloudHSM and what does it offer for key management?
+2. What is the purpose of AWS Resource Access Manager (RAM)?
+3. What is the main function of AWS Network Firewall?
+Answers
+1. AWS CloudHSM is a service that allows you to manage and access
+your cryptographic keys using FIPS-validated hardware. It provides
+```
+customer-owned, single-tenant HSM (Hardware Security Module)
+```
+instances, which operate within your own Virtual Private Cloud for
+enhanced security and control over your keys.
+2. AWS Resource Access Manager is a service that enables secure sharing
+of AWS resources across multiple accounts within your organization or
+organizational units It facilitates sharing with IAM roles and users for
+supported resource types, simplifying and securing cross-account resource
+access.
+3. AWS Network Firewall allows you to create and manage firewall rules
+for detailed control over network traffic. It enables easy deployment of
+firewall security across your VPCs.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+15
+Mock Exam: 1
+Questions
+1. Your organization has established a multi-account AWS setup to
+streamline the development and deployment process. This setup consists
+of four distinct accounts: and Developers commit code to an AWS
+CodeCommit repository in the ToolsAccount serves as the central hub for
+CI/CD tools like AWS CodePipeline and AWS CodeBuild, while
+TestAccount and ProdAccount are used for deploying applications for
+testing and production respectively.
+When a developer checks in a sample code for an AWS Lambda function
+in the DevAccount, it is expected to automatically trigger a CI/CD
+pipeline. This pipeline, residing in the should run the build using AWS
+CodeBuild and subsequently deploy the Lambda function to both the Test
+and Prod accounts.
+Which of the following solutions would best achieve this workflow?
+a. Configure AWS CodePipeline in the DevAccount to detect changes in
+CodeCommit, run the build in the DevAccount using AWS CodeBuild,
+and deploy to TestAccount and
+b. Set up an AWS CodePipeline in the ToolsAccount to detect changes in
+the CodeCommit repository in the use AWS CodeBuild in the
+ToolsAccount for building, and deploy to TestAccount and
+c. Create individual AWS CodePipelines in each of the accounts: and with
+each handling its specific part of the workflow.
+d. Utilize AWS CodeBuild in the DevAccount to detect changes, build the
+code, and then manually deploy to TestAccount and ProdAccount using
+AWS CLI.
+2. Your company has implemented a multi-region API Gateway with
+CloudFront. This architecture is designed to reduce latency for end-users
+by offering API Gateway endpoints in multiple AWS regions. Each
+endpoint supports read-local write-global data synchronization through the
+Amazon Aurora global database. As part of the global deployment,
+Lambda@Edge functions are used to enhance performance and minimize
+latency for global clients. These functions produce logs in CloudWatch
+that are pushed to the AWS region nearest to the execution point.
+To effectively troubleshoot potential issues and analyze the
+Lambda@Edge logs, you are considering a strategy to aggregate these
+logs from all regions into a single AWS region. Which two of the
+following approaches are the most cost-effective and recommended for
+this scenario?
+a. Create a Kinesis Data Firehose data stream in all the AWS regions that
+are closest to your end viewers to deliver the logs.
+b. Create a Kinesis Data Firehose data stream in one primary AWS region
+and set up a CloudWatch IAM role to allow CloudWatch to send logs from
+all AWS regions to the Kinesis Firehose delivery stream.
+c. To ensure that each region has a log group, create a CloudFormation
+stack set that deploys CloudFormation stacks across all regions to
+establish the log groups if they do not already exist. Then, create a second
+CloudFormation stack set that deploys stacks across all regions to set up
+filters for capturing logs.
+d. Use CloudWatch Logs subscription filters with AWS Lambda functions
+to collect logs from all regions and then use AWS Lambda to consolidate
+and push them to a single Kinesis Data Firehose stream in a centralized
+logging region.
+3. You are tasked with implementing a canary deployment for an AWS
+Lambda function, with the goal of choosing the method that requires the
+least manual effort and is easiest to implement. Which of the following
+options would best meet these criteria?
+a. Developing a Python script to automate the deployment process: This
+script updates the $LATEST version of the Lambda function, publishes a
+new version, and gradually shifts traffic to the new version by adjusting
+the alias. It includes health checks and automatically rolls back to the
+original version if any issues are detected.
+b. Creating a state machine in AWS step functions: This state machine
+performs similar tasks as the Python script but runs as an asynchronous
+workflow. It incrementally updates the new version weight, waits based on
+a defined interval, and performs health checks between updates. The
+workflow automatically rolls back to the original version upon health
+check failure.
+c. Using AWS CodeDeploy with the Serverless Application Model
+```
+(SAM): This approach leverages AWS CodeDeploy’s integration with
+```
+SAM for traffic-shifted deployments. The process is declared in a SAM
+template, and CodeDeploy manages the function rollout as part of the
+CloudFormation stack update. CloudWatch alarms are configured to
+trigger a stack rollback in case of issues.
+d. Implementing Lambda function scaling based on CloudWatch metrics:
+This method configures automatic scaling for the Lambda function based
+on CloudWatch metrics.
+4. A company is utilizing a serverless architecture and is seeking a method
+to release new features that require coordinated configuration updates
+across backend and frontend components without service interruptions.
+They wish to minimize delays and risks associated with manual processes
+that could affect the customer’s experience. Which AWS service
+integration would enable them to automate these feature releases while
+separating them from code deployments?
+a. Integrating AWS AppConfig with AWS Elastic Beanstalk for
+environmental configuration management.
+b. Using AWS CodeDeploy for automated deployment strategies and
+manage feature toggles via AppConfig.
+c. Combining AWS AppConfig with AWS CodePipeline to automate
+application configuration deployments independent of code changes.
+d. Employing AWS CloudFormation to update Lambda functions directly
+and manage runtime configurations through AppConfig.
+5. You are setting up an automated code review system to prevent bugs,
+defects, or security vulnerabilities from being merged into the main
+branch of your application’s codebase. Which combination of AWS
+services would best achieve this by integrating machine learning-based
+code reviews with source control management and pull request approval
+rules?
+a. AWS CodeBuild for continuous integration, combined with AWS
+CodeDeploy for deployment orchestration and AWS WAF for security
+vulnerability scanning.
+b. Amazon CodeGuru Reviewer for automated code reviews, integrated
+with AWS CodeCommit to manage source control and enforce pull
+request approval rules.
+c. AWS Lambda for serverless code execution, paired with Amazon
+Inspector for security assessments and AWS CodePipeline for managing
+the release process.
+d. Amazon Elastic Container Service for container management, Amazon
+GuardDuty for threat detection, and AWS CodeStar for project
+management.
+6. As a DevOps engineer, you may often need to interact with your AWS
+resources via the command line for various tasks. However, if you prefer
+working within a web browser and wish to avoid the setup complexity of
+command-line interfaces, which AWS service provides a secure and
+simple solution with pre-installed AWS CLI and runtime environments?
+a. AWS Cloud9 for a cloud-based integrated development environment
+with direct terminal access.
+b. Amazon EC2 Instance Connect for browser based SSH connection to
+your EC2 instances.
+c. AWS CloudShell for a browser-based shell with AWS CLI pre-installed
+and configured.
+d. AWS Systems Manager Session Manager for a browser-based
+interactive shell session without opening inbound ports.
+7. Which AWS service provides a unified user interface that simplifies the
+setup and management of a complete development and continuous
+delivery toolchain, supports a variety of development templates, and
+integrates with third-party project management tools for coding, building,
+testing, and deploying applications on AWS?
+a. AWS CodeBuild for compiling source code and running tests.
+b. AWS CodeDeploy for automating application deployments to various
+AWS services.
+c. AWS CodePipeline for modeling the software release process.
+d. AWS CodeStar for a comprehensive and unified development project
+experience.
+8. For large teams developing complex cloud applications on AWS, which
+service provides a model where the entire application is defined in code,
+mitigating common failure patterns such as out-of-band changes, and
+allowing the application to be organized into modular constructs, stacks,
+and stages using familiar programming languages ?
+a. AWS Elastic Beanstalk for easy deployment and scaling of
+applications.
+b. AWS CloudFormation for creating and managing AWS resources with
+templates.
+c. AWS CodeDeploy for automated deployment to various AWS services.
+d. AWS Cloud Development Kit for defining cloud infrastructure in
+familiar programming languages.
+9. A DevOps engineer is tasked with building a simple CI/CD pipeline for
+a Java application using Maven for build automation. The requirements
+include the ability to publish, store, and view packages, as well as listing
+package dependencies and sharing packages in a secure and scalable way.
+Which AWS service should the engineer use to meet these requirements
+within the pipeline?
+a. AWS CodeCommit
+b. AWS CodeBuild
+c. AWS CodeArtifact
+d. AWS CloudFormation
+10. A development team is tasked with deploying a Node.js web
+application on AWS, focusing on rapid deployment and minimal
+infrastructure oversight. The revised approach involves an automated
+pipeline that pulls code from AWS CodeCommit, builds it into a container
+image, and stores this image in Amazon ECR. The goal is to enable
+automatic deployments to a managed AWS service when a new image is
+pushed to ECR. The Node.js application employs Amazon DynamoDB for
+persistent data storage and Amazon CloudWatch for log streaming.
+a. Use AWS Elastic Beanstalk to deploy the application, where the
+container image is pulled from Amazon ECR, and automatic deployment
+is triggered upon image updates.
+b. Deploy the application on Amazon EC2 instances, with an Auto
+Scaling setup to handle load variations and manual deployment processes
+when a new image is pushed to ECR.
+c. Utilize AWS App Runner for automatic deployment and hosting of the
+containerized application, leveraging its integration with Amazon ECR for
+continuous deployment from container image updates.
+d. Implement AWS Lambda for running the containerized application,
+using Amazon ECR as the source for container images and manual
+invocation for deployment.
+11. A software organization requires a fully automated deployment
+process to ensure rapid delivery of their applications post-development.
+When developers commit changes to the repository, the system should
+automatically handle the build and deployment of the application to the
+production environment with minimal manual intervention.
+a. Source control with AWS CodeCommit, automated deployments with
+AWS CodeDeploy, and artifact storage on Amazon S3.
+b. AWS CodePipeline to track repository changes, AWS CodeBuild for
+image creation, Amazon ECR for image storage, and AWS
+CloudFormation to manage Amazon ECS deployments.
+c. Deployment management with AWS Elastic Beanstalk, build
+automation via AWS Lambda, and version control through AWS
+CodeCommit.
+d. Hosting on Amazon EC2, build processing with AWS Batch, and build
+artifact storage in Amazon S3.
+12. An organization is implementing a DevSecOps pipeline to rapidly
+deliver secure and compliant application changes. This pipeline integrates
+```
+continuous integration continuous delivery and deployment (CD),
+```
+continuous testing, logging, monitoring, auditing, governance, and
+operations, with a key focus on early vulnerability detection. Given the
+steps in the pipeline architecture, which include code commit triggering
+CloudWatch events, artifact packaging and scanning for vulnerabilities,
+and aggregating findings into AWS Security Hub, choose the option that
+best describes the correct sequence and integration of these services for
+vulnerability detection and management.
+a. Upon code commit to AWS CodeCommit, AWS CodeBuild performs
+unit tests and integration tests. If vulnerabilities are detected, AWS
+CloudFormation templates are updated to reflect the necessary changes.
+b. When a commit is made to a CodeCommit repository, it triggers
+CodePipeline. CodeBuild packages the build, performs Software
+Composition Analysis scanning, and uploads the artifacts to AWS
+CodeArtifact. Vulnerabilities are then processed by a Lambda function,
+posted to Security Hub, and stored in an S3 bucket.
+c. After a code committed to AWS CodeCommit, AWS Lambda
+automatically executes user interface tests and security scans. Detected
+vulnerabilities are sent to AWS Config for compliance evaluation.
+d. Code is committed to AWS CodeCommit, triggering AWS
+CodePipeline. AWS CodeDeploy then performs acceptance tests and
+security scans, reporting any findings directly to an Amazon RDS
+database for analysis.
+13. A DevOps team is tasked with automating the creation and
+maintenance of secure OS images, which must adhere to InfoSec
+```
+regulations like the Security Technical Implementation Guide (STIG)
+```
+standard. The goal is to minimize manual updates and testing. Which
+AWS service-based approach best fits this need, considering the
+complexities of building and distributing these images?
+a. Utilizing AWS Lambda for automated functions to update OS images
+in response to code commits and integrating with AWS CodeCommit for
+version control and continuous integration.
+b. Storing and managing OS images in Amazon S3, with a lifecycle
+policy to automatically handle updates and versioning as new images are
+uploaded.
+c. Adopting EC2 Image Builder, which uses an Image Recipe containing
+a Parent Image and various Components, an Infrastructure Configuration
+for building and testing environments, and a Distribution Configuration
+for sharing images across AWS Regions, accounts, or organizations after
+successful tests in the image pipeline.
+d. Leveraging AWS CodeDeploy to automate the distribution and update
+process of OS images across multiple regions, incorporating testing and
+rollback features for efficient management.
+14. A DevOps team is tasked with automating testing for a JavaScript
+application in AWS to enhance reliability and productivity. The process
+involves using various AWS services and tools. Which sequence of steps
+correctly outlines the process for integrating automated testing into the
+CI/CD pipeline for this purpose?
+a. Start with configuring AWS Lambda for test automation, then use AWS
+CodeCommit for repository management, integrate AWS X-Ray for
+monitoring test results, and finally deploy using AWS Elastic Beanstalk.
+b. Begin by creating or using an existing Git or CodeCommit repository
+for the JavaScript code, configure Jest for testing, set up build
+specifications in a buildspec.yml file, configure AWS CodeBuild, create a
+pipeline with CodePipeline, trigger the pipeline, and monitor results.
+c. Initiate with setting up a Docker container for the JavaScript
+application, followed by configuring AWS CloudFormation for
+infrastructure as code, integrating AWS CodeDeploy for deployment
+automation, and then using Amazon CloudWatch for monitoring.
+d. Start by configuring Amazon EC2 instances for the development
+environment, use AWS CodeArtifact for artifact management, set up AWS
+CodeStar for project management, and finally use AWS CloudTrail for
+monitoring and logging.
+15. You are deploying container-based applications to Amazon EKS and
+want to implement a CI/CD pipeline that is scalable and aligns with the
+GitOps approach. You have chosen to use AWS services and FluxCD for
+this purpose. Which combination of AWS services and tools would best
+achieve this?
+a. Use AWS CodePipeline and AWS CodeBuild to implement the CI/CD
+pipeline, with FluxCD for synchronizing the Kubernetes infrastructure
+with the Git repository.
+b. Use AWS Elastic Beanstalk for automated deployment and AWS
+Lambda for synchronization with the Kubernetes infrastructure.
+c. Implement the CI/CD pipeline using Jenkins and AWS CodeDeploy,
+with Kubernetes kubectl commands for synchronization.
+d. Utilize AWS CodeCommit for source control and AWS Elastic
+Container Service for deployment, without additional synchronization
+tools.
+16. Which AWS deployment methodology enhances application
+availability, simplifies rollback processes in case of deployment failures,
+and minimizes downtime, especially when utilizing AWS ECS and
+CodeDeploy?
+a. Traditional redeployment on AWS EC2: Using the same EC2 instances
+to redeploy older, stable versions of the application.
+b. Canary deployment on AWS ECS: Gradually rolling out changes to a
+subset of users on ECS before full deployment.
+c. Blue-green deployment with AWS ECS and CodeDeploy: Creating two
+```
+identical ECS environments, shifting traffic from the current (blue) to a
+```
+```
+new (green) environment after testing.
+```
+d. Rolling deployment on AWS Elastic Beanstalk: Updating Elastic
+Beanstalk instances sequentially to maintain service availability.
+17. Which AWS tool simplifies the deployment and management of
+containerized applications by providing scalable, production-ready, and
+```
+secure infrastructure-as-code (IaC) templates, automating deployments
+```
+with a single command, and facilitating the configuration of a delivery
+pipeline from a code repository to an application’s environment?
+a. AWS Elastic Beanstalk
+b. AWS CloudFormation
+c. AWS Copilot
+d. AWS CodeDeploy
+18. An organization is looking to reduce technical debt and operational
+costs by modernizing its legacy applications. Which approach would
+allow the organization to efficiently containerize and deploy these
+applications with minimal effort?
+a. Manually rewriting the applications and deploying them on Amazon
+EC2 with custom Docker configurations.
+b. Utilizing AWS App2Container to automatically analyze applications,
+create container images, and facilitate deployment to Amazon ECS or
+Amazon EKS.
+c. Searching online for third-party containerization tools and manually
+configuring them for each application.
+d. Hiring external consultants to handle the modernization and
+deployment process of the applications.
+19. Given the following AWS CloudFormation template snippet, which
+includes an environment parameter with allowed values development,
+production, and poc, choose the correct resource definition snippet that
+creates an EC2 resource only when the environment parameter is set to
+```
+production:
+```
+a.
+1. Parameters:
+2. environment:
+3. Type: String
+4. Default: development
+5. AllowedValues:
+6. - development
+7. - production
+8. – poc
+b.
+1. Condition:
+2. isProduction: !Equals [ !Ref environment, production ]
+3. Resources:
+4. ProductionEC2Instance:
+5. Type: "AWS::EC2::Instance"
+6. Condition: isProduction
+7. Properties:
+8. # Instance properties here
+c.
+1. Resources:
+2. EC2Instance:
+3. Type: "AWS::EC2::Instance"
+4. Properties:
+5. EnvironmentType: production
+6. # Instance properties here
+d.
+1. Conditions:
+2. CreateProdResources: !Equals [ !Ref environment, production ]
+3. Resources:
+4. ProductionEC2Instance:
+5. Type: "AWS::EC2::Instance"
+6. Condition: CreateProdResources
+7. Properties:
+8. # Instance properties here
+e.
+1. Resources:
+2. EC2Instance:
+3. Type: "AWS::EC2::Instance"
+4. Properties:
+5. EnvironmentType: production
+6. # Instance properties here
+20. Given the following AWS CloudFormation template snippet, where
+the user provides the environment name as a parameter, select the correct
+option that conditionally attaches a security group to an EC2 instance only
+if the environment is the production environment:
+a.
+1. Parameters:
+2. EnvType:
+3. Type: String
+4. AllowedValues: [ dev-env, prod-env ]
+5. ...
+6. Conditions:
+7. IsProdEnvironment: !Equals [ !Ref EnvType, 'prod-env' ]
+b.
+1. Resources:
+2. ProdSecurityGroup:
+3. Type: AWS::EC2::SecurityGroup
+4. InstanceExample:
+5. Type: AWS::EC2::Instance
+6. Properties:
+7. SecurityGroupIds:
+8. - !If [ IsProdEnvironment, !Ref 'AWS::NoValue', !Ref
+ProdSecurityGroup ]
+c.
+1. Resources:
+2. ProdSecurityGroup:
+3. Type: AWS::EC2::SecurityGroup
+4. InstanceExample:
+5. Type: AWS::EC2::Instance
+6. Properties:
+7. SecurityGroupIds:
+8. - !Ref ProdSecurityGroup
+d.
+1. Resources:
+2. ProdSecurityGroup:
+3. Type: AWS::EC2::SecurityGroup
+4. InstanceExample:
+5. Type: AWS::EC2::Instance
+6. Properties:
+7. SecurityGroupIds:
+8. - !If [ IsProdEnvironment, !Ref ProdSecurityGroup,
+'AWS::NoValue' ]
+e.
+1. Resources:
+2. ProdSecurityGroup:
+3. Type: AWS::EC2::SecurityGroup
+4. InstanceExample:
+5. Type: AWS::EC2::Instance
+6. Properties:
+7. SecurityGroupIds:
+8. - !If [ IsProdEnvironment, !Ref ProdSecurityGroup, !Ref
+'AWS::NoValue' ]
+21. Consider you have a CloudFormation template named This template
+exports a custom Subnet ID and a custom Security Group ID. The relevant
+export snippet of the NetworkInfrastructure.template is as follows:
+1. Outputs:
+2. PublicSubnet:
+3. Description: The subnet ID to use for public web servers
+4. Value:
+5. Ref: PublicSubnet
+6. Export:
+7. Name:
+8. Fn::Sub: ${AWS::StackName}-SubnetID
+9. WebServerSecurityGroup:
+10. Description: The security group ID to use for public web servers
+11. Value:
+12. Fn::GetAtt:
+13. - WebServerSecurityGroup
+14. - GroupId
+15. Export:
+16. Name:
+17. Fn::Sub: ${AWS::StackName}-SecurityGroupID
+Given the which of the following snippets correctly demonstrates the
+usage of the exported Public Subnet ID and Web Server Security Group
+ID from the NetworkSetup.template using
+a.
+1. Resources:
+2. MyAppServerInstance:
+3. Type: AWS::EC2::Instance
+4. Properties:
+5. SubnetId:
+6. Ref: PublicSubnet
+7. SecurityGroupIds:
+8. - Ref: WebServerSecurityGroup
+b.
+1. Resources:
+2. MyAppServerInstance:
+3. Type: AWS::EC2::Instance
+4. Properties:
+5. NetworkInterfaces:
+6. - SubnetId:
+7. Fn::ImportValue: !Sub "${DeploymentStackName}-SubnetID"
+8. GroupSet:
+9. - Fn::ImportValue: !Sub "${DeploymentStackName}-
+SecurityGroupID"
+c. Manually rewriting the applications and deploying them on Amazon
+EC2 with custom Docker configurations.
+1. Resources:
+2. MyAppServerInstance:
+3. Type: AWS::EC2::Instance
+4. Properties:
+5. SubnetId:
+6. Fn::ImportValue: !Sub "${DeploymentStackName}-SubnetID"
+7. SecurityGroupIds:
+8. - Fn::ImportValue: !Sub "${DeploymentStackName}-
+SecurityGroupID"
+d.
+1. Resources:
+2. MyAppServerInstance:
+3. Type: AWS::EC2::Instance
+4. Properties:
+5. NetworkInterfaces:
+6. - DeviceIndex: "0"
+7. SubnetId:
+8. Fn::ImportValue: "PublicSubnet"
+9. GroupSet:
+10. - Fn::ImportValue: "WebServerSecurityGroup"
+22. In AWS CloudFormation, how can you pass a value from one nested
+stack to another nested stack within the same parent stack?
+a. Use Fn::ImportValue in NestedStackY to import an exported output
+value from
+1. Parameters:
+2. ImportedValue:
+3. Type: String
+4. Description: Imported value from NestedStackX
+b. Define a global variable in the parent stack and reference it in both
+nested stacks.
+c. Pass the output value from NestedStackX as a parameter to
+NestedStackY using Fn::GetAtt in the parent stack’s template:
+1. AWSTemplateFormatVersion: 2010-09-09
+2. Resources:
+3. NestedStackX:
+4. Type: 'AWS::CloudFormation::Stack'
+5. Properties:
+6. TemplateURL: URL for the template>
+7. NestedStackY:
+8. Type: 'AWS::CloudFormation::Stack'
+9. Properties:
+10. TemplateURL: URL for the template>
+11. Parameters:
+12. SharedValueParameter:
+13. Fn::GetAtt:
+14. - NestedStackX
+15. - Outputs.SharedValueOutput
+d. Manually input the required value in both NestedStackX and
+23. During the transition to full IaC adoption, an organization frequently
+makes direct changes to AWS resources without updating the
+corresponding CloudFormation templates. This leads to a discrepancy
+between the deployed resources and their definitions in the template. What
+AWS CloudFormation feature should be used to identify and address these
+discrepancies?
+a. CloudFormation Template Validator, which ensures that all changes are
+made through the template.
+b. CloudFormation Change Sets, which automatically aligns resource
+properties with the template.
+c. CloudFormation’s drift detection feature, which identifies
+discrepancies between the template-defined resources and their actual
+deployed state, enabling updates to the template or resources to align
+them.
+d. AWS Config Rules, which prevent any direct changes to resources
+outside of CloudFormation.
+24. Which of the following snippets from an AWS SAM template
+correctly sets up a MySampleBucket S3 bucket and a
+MyNotificationTopic SNS topic, where the S3 bucket sends notifications
+to the SNS topic upon the creation of a new object?
+a.
+1. ANResources:
+2. MySampleBucket:
+3. Type: AWS::S3::Bucket
+4. MyNotificationTopic:
+5. Type: AWS::SNS::Topic
+6. TopicPolicy:
+7. Type: AWS::SNS::TopicPolicy
+b.
+1. Resources:
+2. MySampleBucket:
+3. Type: AWS::S3::Bucket
+4. Properties:
+5. NotificationConfiguration:
+6. TopicConfigurations:
+7. - Event: s3:ObjectCreated:*
+8. Topic: !Ref MyNotificationTopic
+9. MyNotificationTopic:
+10. Type: AWS::SNS::Topic
+c.
+1. Resources:
+2. MyNotificationTopic:
+3. Type: AWS::SNS::Topic
+4. MySampleBucket:
+5. Type: AWS::S3::Bucket
+6. Properties:
+7. BucketName: !Ref BucketName
+d.
+1. Resources:
+2. MySampleBucket:
+3. Type: AWS::S3::Bucket
+4. Properties:
+5. BucketName: !Ref BucketName
+6. NotificationConfiguration:
+7. TopicConfigurations:
+8. - Event: s3:ObjectCreated:*
+9. Topic: !Ref MyNotificationTopic
+10. MyNotificationTopic:
+11. Type: AWS::SNS::Topic
+25. A company aims to standardize and simplify their deployment of
+secure networking infrastructure across multiple AWS CloudFormation
+stacks. They plan to use a packaged resource configuration developed by a
+networking expert that includes built-in security groups and rules. What is
+the most effective approach for incorporating this configuration into the
+company’s stack templates?
+a. Custom scripting for each stack to manually implement the
+configurations.
+b. Using a CloudFormation module that packages these configurations for
+easy inclusion and versioning.
+c. Deploying individual resource templates for each security component
+in the stacks.
+d. Utilizing third-party tools for configuration management across stacks.
+26. In the context of blue/green deployment on AWS Elastic Beanstalk,
+which of the following statements best describes the process of
+implementing a blue/green deployment?
+a. Manually copying CloudFormation templates into each account and
+region.
+b. Using AWS CloudFormation StackSets to deploy shared modules
+across multiple accounts, organizational units, and regions.
+c. Creating individual CloudFormation templates for each team within the
+organization.
+d. Utilizing third-party tools to manage template distribution across the
+organization.
+27. An organization aims to share reusable infrastructure as code
+CloudFormation templates across its AWS organization, seeking to avoid
+duplication of common resources in their CloudFormation templates.
+What is the most efficient approach to achieve this while facilitating code
+reuse and deployment across multiple accounts and regions?
+a. Deploy the new version to the existing environment and use Elastic
+Beanstalk’s Swap Environment URLs feature to redirect traffic to the new
+version.
+b. Create a green environment with the new version of the application,
+and once it is ready, redirect traffic from the blue environment to the green
+environment using Elastic Beanstalk’s Swap Environment URLs feature.
+c. Update the application in the blue environment and create a green
+environment only for backup purposes, without redirecting traffic.
+d. Deploy the new version to a green environment and use a third-party
+tool to manage traffic redirection between the blue and green
+environments.
+28. How can you customize a Windows Elastic Beanstalk environment?
+Choose the best answer.
+a. Create a custom Amazon Machine Image in each region you want to
+run your application in.
+b. Add a configuration file to the .ebextensions folder in your application,
+which allows you to install packages, write files outside the application
+folder, execute commands, run scripts, start services, and set configuration
+options for both the application and the Elastic Beanstalk environment.
+c. Directly modify the underlying operating system settings of the Elastic
+Beanstalk instances through the AWS Management Console.
+d. Use the AWS Command Line Interface to manually install software
+and configure settings on each Elastic Beanstalk instance after
+deployment.
+29. What solution does AWS CloudFormation offer when you need to
+manage a resource that is not natively supported by CloudFormation?
+a. CloudFormation automatically extends its capabilities to support any
+AWS resource without additional configuration.
+b. CloudFormation custom resources are used, which involve writing
+custom provisioning logic in templates. This logic can run during the
+creation, update, or deletion of stacks, and often involves using AWS
+Lambda functions for extended functionalities.
+c. CloudFormation allows direct modification of its source code to
+include support for new resources.
+d. The unsupported resources are managed outside of CloudFormation
+using AWS Management Console or AWS CLI.
+30. Which of the following methods can be used to achieve high
+availability and low latency in delivering digital assets based on
+geographical proximity to the end-user, using Amazon S3 and Amazon
+CloudFront? Select two.
+a. Configuring Amazon S3 to automatically replicate data across multiple
+regions and using Amazon CloudFront to distribute requests based on the
+location of the data.
+b. Using Amazon CloudFront’s globally distributed edge network to
+deliver content from Amazon S3 buckets, combined with AWS
+Lambda@Edge to dynamically route requests to the nearest S3 bucket
+based on the origin of the request.
+c. Solely relying on Amazon S3’s cross-region replication feature to serve
+content from the closest geographical region to the user, without involving
+Amazon CloudFront or AWS
+d. Using Amazon CloudFront to distribute content, and AWS
+Lambda@Edge to check and redirect to the closest S3 bucket in case of a
+cache miss at the edge location.
+31. To meet compliance requirements by replicating data over
+geographical distances, what steps should you take when setting up cross-
+region replication for Amazon S3 buckets using AWS CLI? Choose two
+correct answers.
+a. Enable versioning on both the source and destination S3 buckets.
+b. Configure S3 event notifications to alert when data is replicated to the
+destination bucket.
+c. Create an IAM role specifically for replication and attach the necessary
+IAM policy.
+d. Manually copy each object from the source bucket to the destination
+bucket using the AWS CLI.
+e. Set up a Direct Connect between the source and destination regions for
+faster data transfer.
+32. In setting up a resilient Amazon CloudFront distribution with a
+primary Amazon S3 origin for content delivery and a secondary S3 origin
+for failover, which steps are essential to ensure automatic failover in case
+the primary origin becomes unavailable?
+a. Create a secondary S3 bucket and enable live replication of S3 objects
+from the primary to the secondary bucket.
+b. Increase the storage capacity of the primary S3 bucket to handle
+additional load during a failover.
+c. Create a secondary origin in CloudFront for the secondary S3 bucket.
+d. Create a grouping of the primary and secondary S3 origins in
+CloudFront known as an origin group.
+e. Manually update DNS records to redirect traffic from the primary to
+the secondary S3 bucket during downtime.
+33. In the context of replicating Amazon DynamoDB tables for Active-
+Active disaster recovery, which features should be utilized to ensure both
+read availability and data persistence across regions? Select two.
+a. Enable DynamoDB Streams to capture a time-ordered sequence of
+item-level modifications in the DynamoDB table.
+b. Implement Amazon S3 cross-region replication to store DynamoDB
+table backups.
+c. Use DynamoDB Global Tables to seamlessly replicate data across
+AWS regions.
+d. Set up AWS Lambda functions to manually replicate data between
+multiple DynamoDB tables in different regions.
+34. In a scenario where container images must be available in a secondary
+region for disaster recovery, using AWS CLI commands, which of the
+following command sequences correctly sets up replication of an Amazon
+```
+Elastic Container Registry (ECR) image to another region? Select two.
+```
+a.
+1. export ECR_REGISTRY_ID=$(aws ecr describe-registry --query
+```
+'registryId' --output text)
+```
+2. aws ecr put-replication-configuration --replication-configuration
+```
+file://my_replication_config.json --region us-east-1
+```
+b.
+1. aws ecr get-login --region us-east-1
+2. aws ecr start-image-replication --region us-west-2
+c.
+1. export ECR_REGISTRY_ID=$(aws ecr get-registry-id)
+2. aws ecr set-replication-configuration --file
+my_replication_config.json
+d.
+1. aws ecr describe-repositories
+2. aws ecr replicate-image --destination-region us-west-2
+35. In the context of deploying an application on AWS Elastic Kubernetes
+```
+Service (EKS), which kubectl command would correctly create a
+```
+deployment with the following specifications: an image named
+deployment name nginx, consisting of 2 replicas, and defining port 80 as
+the port that the container exposes?
+a.
+1. kubectl create deployment nginx --image=nginx:1.18.0 --replicas=2 --
+```
+port=80
+```
+b.
+1. kubectl run nginx --image=nginx:1.18.0 --replicas=2 --expose --
+```
+port=80
+```
+c.
+1. kubectl deploy nginx --image=nginx:1.18.0 --replicas=2 --port=80
+d.
+1. kubectl create deployment nginx --image=nginx:1.18.0 --replicas=2 --
+expose --port=80
+36. Which of the following statements correctly describes the benefits and
+functionalities of the Multi-AZ deployments in Amazon RDS? Select two.
+a. Multi-AZ deployments in Amazon RDS create a primary database in
+one Availability Zone and a synchronous standby replica in a second zone
+within the same region for enhanced availability and reliability.
+b. Multi-AZ deployments are primarily used for scaling the read
+operations by distributing the read requests across multiple database
+instances.
+c. In a Multi-AZ deployment, if the primary database fails, Amazon RDS
+automatically fails over to the standby without any intervention, typically
+within a few minutes.
+d. Automated backups in Multi-AZ deployments are taken from the
+primary database to avoid any performance impact on the standby
+database.
+37. What is a key feature of the Amazon EKS Distro?
+a. It only allows for Kubernetes deployment on Amazon EC2 instances.
+b. It is a closed-source Kubernetes distribution exclusively for AWS.
+c. Amazon EKS Distro is a distribution of the same Kubernetes and
+dependencies deployed by AWS EKS, allowing you to manually run
+Kubernetes clusters anywhere.
+d. It provides a visual programming interface for building Kubernetes
+clusters.
+38. What is a primary feature of Red Hat OpenShift Service on AWS
+```
+(ROSA)?
+```
+a. It is primarily a machine learning service integrated with AWS for
+advanced analytics.
+b. ROSA is a self-service, managed OpenShift service that integrates
+deeply with AWS services for building and deploying applications.
+c. It offers only traditional application run environments without support
+for cloud-based applications.
+d. ROSA is focused on networking and mobile services without
+supporting application development and deployment.
+39. Which AWS service is responsible for replicating data from Amazon
+Aurora to Amazon S3, enabling further data utilization with services like
+Amazon Athena for SQL queries, Amazon Redshift Spectrum for data
+warehousing, and Amazon EMR for big data processing?
+a. AWS Lambda
+b. AWS Database Migration Service
+c. Amazon Kinesis
+d. AWS Glue
+40. Which AWS service offers scalable, cost-effective application
+recovery to AWS, enabling quick recovery operations after unexpected
+events with features like minimal downtime, data loss prevention, and
+integration with various AWS services?
+a. AWS Backup
+b. AWS Elastic Disaster Recovery
+c. AWS RDS
+d. AWS CloudWatch
+41. In a scenario where you are forwarding VPC flow logs to Splunk,
+which AWS service architecture would be used for real-time log ingestion
+and processing, including handling gzip compression, and ensuring data
+reaches Splunk for querying and visualization?
+a. Amazon VPC flow logs directly integrated with Splunk.
+b. Amazon VPC flow logs to Amazon CloudWatch Logs, then to Kinesis
+Data Firehose with a Lambda function for data transformation, and finally
+to Splunk.
+c. Direct delivery of Amazon VPC flow logs to Amazon S3, and then
+using AWS Glue for data transformation and loading into Splunk.
+d. Amazon VPC flow logs to Amazon S3, and then using a scheduled
+Lambda function to send logs to Splunk.
+42. How can sensitive data be protected within Amazon CloudWatch Log
+groups to ensure compliance and security?
+a. By automatically encrypting all log data and restricting access.
+b. By providing a data protection policy in the Data Protection tab, you
+can choose from over 100 managed data identifiers to specify and protect
+sensitive data.
+c. By manually reviewing and redacting sensitive data from the logs.
+d. By relying solely on third-party tools for sensitive data detection.
+43. To reduce log-storage costs in Amazon CloudWatch, how can an
+organization automate the management of log retention settings?
+a. Manually set retention settings for each CloudWatch Logs log group as
+they are created.
+b. Use an Amazon EventBridge rule to trigger an AWS Lambda function,
+which sets and updates retention settings for new and existing log groups.
+c. Implement AWS Config rules to monitor and adjust CloudWatch Logs
+retention settings.
+d. Relying on default settings as CloudWatch Logs automatically
+manages retention to optimize costs.
+44. What is the primary function of Anomaly Detection in Amazon
+CloudWatch?
+a. It provides manual configuration tools for setting CloudWatch Alarms
+based on user-defined thresholds.
+b. It utilizes machine learning to analyze historical metric data and
+identify predictable patterns, thereby enhancing CloudWatch Alarms.
+c. It focuses solely on creating visual representations of CloudWatch
+metric data for manual analysis.
+d. It replaces the need for CloudWatch metrics with automated anomaly-
+based reporting.
+45. Which AWS service enables customers to analyze VPC Flow Logs
+with point-and-click integration, providing an easy way to understand and
+optimize their VPC security posture using standard SQL queries?
+a. Amazon Redshift
+b. AWS Lambda
+c. Amazon Athena
+d. Amazon QuickSight
+46. Considering the challenges of analyzing a vast variety of log data from
+various AWS services and applications, which AWS service offers a fully
+managed solution to analyze logs effectively and efficiently with fast,
+interactive queries and visualizations, including the ability to handle any
+log format and auto-discover fields from JSON logs?
+a. AWS ElasticSearch Service
+b. Amazon Athena
+c. CloudWatch Logs Insights
+d. AWS Glue
+47. In the context of AWS services, how can you efficiently manage
+Amazon CloudFront real-time logs for analyzing content distribution
+efficiency using Datadog, a monitoring and analytics platform? Choose
+the process that correctly describes the integration with Datadog.
+a. Configure CloudFront to send real-time logs to AWS Lambda, then
+process and forward them to Datadog.
+b. Directly integrate CloudFront with Datadog without using any AWS
+intermediary services.
+c. Configure CloudFront to send real-time logs to a Kinesis Data Stream,
+create a Kinesis Data Firehose delivery stream using the Data Stream as
+the source, and specify Datadog as the destination with the necessary API
+key and configuration.
+d. Store CloudFront logs in Amazon Redshift, analyze them using
+Amazon QuickSight, and then export the results to Datadog.
+48. How can you set up an alert in AWS to receive a notification for
+authorization failures such as AccessDenied or UnauthorizedOperation in
+your AWS account?
+a. Configure CloudTrail to monitor API calls and send alerts directly to an
+SNS topic.
+b. Set up CloudWatch Logs metric filters to monitor CloudTrail events for
+and create a CloudWatch Alarm based on the metric, and link it to an SNS
+topic.
+c. Use AWS Config to detect authorization failures and trigger SNS
+notifications.
+d. Implement Amazon GuardDuty for monitoring authorization failures
+and integrate it with Amazon SNS for alerts.
+49. How does AWS Config, in conjunction with other AWS services,
+enable automated monitoring and issue remediation by reporting AWS
+resources that remain noncompliant over a user-specified period?
+a. By conducting manual audits and sending reports through Amazon
+SNS.
+b. Utilizing AWS Config rules to assess resources, with an EventBridge
+rule triggering a Lambda function for reporting noncompliant resources
+over a user-specified period and sending reports via Amazon SES.
+c. Leveraging AWS CloudTrail for compliance tracking and generating
+alerts through Amazon CloudWatch.
+d. Using Amazon Inspector for compliance assessment and automated
+report generation.
+50. How can you enable AWS X-Ray tracing for Lambda functions in a
+serverless application using AWS SAM CLI?
+a. Use the AWS Management Console to manually enable X-Ray for each
+Lambda function.
+b. Add the --tracing flag to the sam init command to activate X-Ray
+tracing in AWS SAM templates.
+c. Configure X-Ray tracing in the Lambda function’s environment
+variables.
+d. Implement custom code within each Lambda function to integrate with
+AWS X-Ray.
+51. How can you automate the remediation of noncompliant AWS Config
+rules related to S3 bucket versioning using AWS Systems Manager?
+a. Manually execute a remediation action for each noncompliant resource
+using AWS CLI.
+b. Use AWS Lambda functions to detect noncompliance and trigger
+remediation scripts.
+c. Configure AWS Systems Manager Automation runbooks to remediate
+noncompliant resources automatically, specifically using the AWS-
+ConfigureS3BucketVersioning runbook for S3 bucket versioning rules.
+d. Rely on AWS CloudTrail for detecting noncompliance and manually
+correcting the configurations.
+52. In an AWS environment, to remediate common vulnerabilities on EC2
+instances using Amazon Inspector, which two steps are essential in the
+automated process?
+a. Manually assess and remediate findings using AWS CLI based on
+Amazon Inspector reports.
+b. Deploy the Amazon Inspector agent to the instance using EC2 Systems
+Manager.
+c. Use Amazon CloudWatch to monitor for vulnerabilities and notify via
+SNS.
+d. Create an SNS topic to which Amazon Inspector will publish findings.
+e. Create a Lambda function that is triggered by SNS topic notifications
+and uses EC2 Systems Manager for automatic remediation.
+53. When troubleshooting a failed AWS CodeDeploy deployment on
+Amazon EC2 instances, which AWS Systems Manager Automation
+runbook can be used to identify common issues such as problems with the
+CodeDeploy agent, instance profile permissions, lifecycle hooks, Auto
+Scaling group events, or AppSpec file?
+a. AWSSupport-TroubleshootEC2
+b. AWSSupport-TroubleshootCodeDeploy
+c. AWSSupport-HandleEC2Failures
+d. AWSSupport-ResolveS3Permissions
+54. How can AWS Config, AWS Systems Manager OpsCenter, and SSM
+documents be integrated to automate the remediation of EC2 instances
+using unauthorized AMIs?
+a. Manually investigate and remediate noncompliant EC2 instances using
+AWS Management Console.
+b. Set up AWS Config to detect instances with unauthorized AMIs, use
+EventBridge to create OpsItems in OpsCenter, and trigger an SSM
+document for automatic remediation.
+c. Use AWS Lambda to automatically terminate instances with
+unauthorized AMIs based on AWS Config rules.
+d. Configure Amazon CloudWatch to monitor unauthorized AMI usage
+and alert via SNS.
+55. In the event of an Amazon EBS volume entering an error state, AWS
+sends notifications to the account’s health dashboard and an email to the
+primary contact. However, this method is not scalable for customers
+scaling their workloads on Amazon EBS. How does Amazon EventBridge
+address this issue and enhance the monitoring and response to EBS
+volumes entering an error state?
+a. Amazon EventBridge allows setting up additional email notifications to
+multiple contacts when an EBS volume enters an error state.
+b. Amazon EventBridge cannot be used for monitoring EBS volumes; it is
+meant for application-level event processing only.
+c. Amazon EventBridge enables the creation of event-driven automations,
+where you can route the error state events to the appropriate team, person,
+or system using Amazon SNS or Amazon SQS, and use AWS Lambda for
+automatic recovery from a snapshot.
+d. Amazon EventBridge provides real-time monitoring and manual
+intervention by AWS support when an EBS volume enters an error state.
+56. An organization wants to generate meaningful insights from AWS
+GuardDuty security findings using a third-party monitoring tool such as
+DataDog, which provides a dashboard for visualization. Which set of
+AWS services and configuration steps will establish a pipeline for logging
+and visualizing these findings?
+a. Configure AWS GuardDuty to send findings to AWS Lambda for
+processing and then to DataDog for visualization. Store the processed data
+in an S3 bucket and set up Amazon CloudWatch alerts for email
+notifications.
+b. Set up AWS GuardDuty to directly stream findings to DataDog for
+visualization. Use AWS SNS for email alerts and manual storage of
+findings into an S3 bucket for archiving.
+c. Establish an AWS EventBridge rule to route AWS GuardDuty findings
+to a Kinesis Firehose stream, which delivers findings to DataDog for
+visualization and to an S3 bucket for archiving. Use an SNS topic for
+email notifications of these findings.
+d. Direct AWS GuardDuty to send findings to an EC2 instance that runs a
+cron job to upload the data to DataDog and S3. Use SES for sending out
+email notifications.
+57. How is an automated security scanning workflow configured in AWS
+to conduct regular scans, aggregate security findings, and notify
+stakeholders, while aligning with industry standards and best practices?
+a. AWS Inspector scans are scheduled with a cron expression in AWS
+Lambda, findings are reported to AWS CloudWatch for monitoring, and
+AWS SES is configured to email stakeholders when scans are complete.
+b. An AWS EventBridge rule with a cron expression triggers AWS
+Inspector scans, which then exports findings to AWS Security Hub for a
+comprehensive security state overview and best practices alignment. AWS
+SNS is used to notify stakeholders via email upon the completion of scans.
+c. AWS Inspector is manually triggered for scans, exports findings to
+AWS Config for compliance tracking, and utilizes AWS CloudTrail to
+alert stakeholders when the scans are initiated and completed.
+d. AWS Inspector scans are initiated by an AWS Step Functions
+workflow, findings are stored in an Amazon S3 bucket for later review,
+and AWS Chime is used to send alerts upon the completion of scans.
+58. How can a company automatically notify its data protection team via a
+Microsoft Teams channel when Amazon Macie discovers sensitive data
+that requires protection?
+a. Configure Amazon Macie to send alerts directly to a Microsoft Teams
+channel using Macie’s built-in notification system when it identifies
+sensitive data.
+b. Use Amazon Macie to run a classification job, which then sends
+findings to Amazon S3. Set up an AWS Lambda function triggered by S3
+events to post notifications to Microsoft Teams.
+c. Have Amazon Macie run a classification job and publish its findings to
+AWS EventBridge, then use an EventBridge rule to trigger an AWS
+Lambda function that parses the findings and sends a notification to a
+Microsoft Teams channel.
+d. Set Amazon Macie to email the findings of sensitive data to the data
+protection team and use an email forwarding rule to send the message to
+the designated Microsoft Teams channel.
+59. When integrating Amazon CloudFront and AWS WAF with a static
+website hosted on S3, what are the primary benefits achieved in terms of
+application performance and security?
+a. CloudFront accelerates content delivery by caching content at edge
+locations, while AWS WAF primarily provides SSL/TLS encryption for
+data in transit, without additional security against web attacks.
+b. CloudFront, as a CDN, improves website performance by reducing
+latency and handling high traffic volumes, and AWS WAF adds a layer of
+security by protecting against common vulnerabilities like OWASP Top
+10, SQL injection, and DoS attacks.
+c. AWS WAF accelerates the website by caching dynamic content and
+CloudFront is used to encrypt data at rest in S3, providing basic protection
+against unauthorized access.
+d. Both CloudFront and AWS WAF serve to accelerate the website
+performance by distributing traffic, without offering any specific security
+features against web-based threats.
+60. In the process of rotating SSH keypairs for secure communication
+between master and worker nodes in an AWS environment, using AWS
+Secrets Manager and AWS Lambda, which three of the following
+```
+statements accurately describe the steps involved? (Choose three)?
+```
+a. The AWS Lambda function generates a new SSH keypair and stores the
+private key as a new version of the secret in AWS Secrets Manager,
+labeling this version with AWSPENDING and copies the public key to the
+worker nodes with AWS Systems Manager Run Command.
+b. The master node uses a locally stored SSH private key for establishing
+SSH tunnels with worker nodes, bypassing AWS Secrets Manager.
+c. After verifying the successful deployment of the new SSH keypair, the
+Lambda function labels the new secret version with AWSCURRENT and
+removes the old keys from the worker nodes.
+d. The master node communicates with any worker node, using the
+Python Boto3 SDK to read the SSH private key from Secrets Manager and
+uses the private key to establish an SSH tunnel with the worker nodes.
+61. AWS Trusted Advisor provides automated recommendations to
+optimize AWS infrastructure. Which of the following categories are
+```
+covered by AWS Trusted Advisor’s recommendations? (Choose four).
+```
+a. Cost optimization
+b. Network configuration
+c. Performance
+d. Security
+e. Fault tolerance
+f. Service limits
+g. Database management
+62. When storing sensitive configuration data in the AWS SSM Parameter
+Store, which of the following options should be selected to ensure the data
+is securely stored?
+a. Store the parameter as a plaintext string without any encryption.
+b. Store the parameter as a plaintext string but enable IAM role-based
+access control.
+c. Store the parameter as a SecureString type and encrypt it using a
+customer-managed AWS KMS key.
+d. Store the parameter in an encrypted S3 bucket and reference it in the
+SSM Parameter Store.
+63. When utilizing AWS Systems Manager (SSM) Patch Manager to
+automate patching of EC2 instances, which of the following steps are
+```
+involved in setting up and applying patches? (Choose two)
+```
+a. Create a patch baseline in SSM Patch Manager to define the rules for
+auto-approving patches and specify the list of approved and rejected
+patches.
+b. Utilize the SSM Document (AWS-RunPatchBaseline) to manually
+trigger patch installation outside of any maintenance windows.
+c. Schedule the patch installation using SSM maintenance window tasks
+based on EC2 resource tags and patch groups.
+d. Apply patches indiscriminately to all EC2 instances without the need
+for patch baselines or maintenance windows.
+64. AWS Resource Access Manager (RAM) enhances resource sharing
+across AWS accounts. What are the benefits of using AWS RAM when
+sharing a CodeBuild project between two AWS accounts?
+a. AWS RAM allows for the dynamic creation of CodeBuild projects in
+shared accounts, avoiding the need for any pre-existing projects.
+b. AWS RAM simplifies the sharing process by minimizing operational
+overhead, as it eliminates the need to duplicate resources and simplifies
+access control.
+c. AWS RAM automates the build and deployment processes in the
+shared account without any configuration or setup.
+d. AWS RAM provides real-time synchronization of CodeBuild project
+changes between the owner and shared accounts.
+e. AWS RAM ensures security and consistency by managing a unified set
+of policies and permissions for shared resources.
+65. What is the primary function of AWS Network Firewall when
+deployed within a customer’s Virtual Private Cloud
+a. It acts solely as a logging service to monitor inbound and outbound
+VPC traffic without the ability to block or allow traffic.
+b. AWS Network Firewall serves as a content delivery network to
+distribute and cache content across the VPC for improved performance.
+c. It provides network firewall capabilities that filter both inbound and
+outbound traffic from sources such as an internet gateway and VPN for
+intrusion detection and prevention.
+d. The service functions as a private connectivity gateway for connecting
+multiple VPCs without offering firewall features.
+66. In AWS Identity and Access Management (IAM), what is the primary
+```
+advantage of using Attribute-Based Access Control (ABAC) over Role-
+```
+```
+Based Access Control (RBAC)?
+```
+a. ABAC restricts all users to a predefined set of policies based on their
+job function, ensuring tighter security.
+b. ABAC requires more policies than RBAC, which allows for more
+detailed and fine-grained access control.
+c. ABAC scales permissions automatically with innovation, as it assigns
+permissions based on matching tags between IAM principals and
+resources, eliminating the need to update policies when accessing new
+resources.
+d. ABAC is a simpler system because it allows all users unrestricted
+access to resources, thereby reducing the complexity of permissions
+management.
+67. Which two AWS services can be used to federate corporate workforce
+identities into AWS accounts, providing centralized management and
+single sign-on access to multiple AWS accounts and applications?
+a. AWS Identity Center (formerly AWS SSO) and AWS IAM
+b. AWS KMS and AWS Shield
+c. Amazon Cognito
+d. AWS Lambda and Amazon EC2
+68. What are the features of AWS Directory Service for Microsoft Active
+```
+Directory (AWS Managed Microsoft AD) compared to deploying Active
+```
+Directory on EC2 Windows Instances?
+a. AWS Managed Microsoft AD is a self-managed service that requires
+regular maintenance of AD domain controllers, including manual security,
+patching, and backups.
+b. AWS Managed Microsoft AD is a fully managed service that includes
+the maintenance of AD domain controllers, automated security, patching,
+and backups within a dedicated AWS Managed VPC.
+c. AWS Managed Microsoft AD allows for the manual setup of domain
+controllers and does not support trust relationships with an on-premises
+Microsoft Active Directory.
+d. AWS Managed Microsoft AD requires users to manage their own VPC
+and Elastic Network Interfaces for high availability across availability
+zones.
+69. Which of the following are the key benefits of using AWS CloudHSM
+```
+for data security? (Choose two)
+```
+a. AWS CloudHSM instances are shared among multiple tenants to ensure
+cost-effectiveness and resource optimization.
+b. AWS CloudHSM provides FIPS 140-2 Level-3 validated HSMs,
+allowing for flexible management of cryptographic standards and key
+lengths.
+c. Data within AWS CloudHSM is fully encrypted and invisible to AWS,
+giving customers exclusive control over their keys and user management.
+d. AWS CloudHSM requires users to fully manage the hardware and
+software updates, ensuring a hands-on approach to security.
+e. AWS CloudHSM offers a smooth migration path for cryptographic
+workloads, particularly those using standards like PKCS #11 and Java
+Cryptographic Extension
+70. How does Amazon Detective enhance the investigation of VPC
+network flows for Amazon EC2 instances?
+a. Amazon Detective requires manual configuration and aggregation of
+VPC Flow Logs for each EC2 instance.
+b. Amazon Detective provides interactive examination and visual
+summaries of VPC network flows, automatically collecting and
+aggregating VPC Flow Logs without requiring them to be pre-configured.
+c. It only provides static reports of VPC network flows and does not
+support interactive analysis or investigation of security issues.
+d. Amazon Detective focuses solely on external IP traffic monitoring and
+does not support analysis of internal VPC network flows.
+71. What is the primary purpose of using a dead-letter queue (DLQ) in
+Amazon Simple Queue Service
+a. To increase the processing speed of messages by redirecting them to
+multiple receivers simultaneously.
+b. To temporarily store messages that have failed processing, aiding in
+troubleshooting, and identifying the root cause of the failure.
+c. To permanently delete messages that are erroneous or cannot be
+delivered to any receiver.
+d. To act as a primary queue for storing all incoming messages before
+they are processed by the receiver.
+72. What are the primary benefits of using DynamoDB Accelerator
+```
+(DAX) in an AWS environment? (Choose two)
+```
+a. DAX provides up to a 10x performance improvement for DynamoDB
+by offering an in-memory cache, particularly enhancing read performance
+under heavy load.
+b. DAX automates the backup process of DynamoDB tables, ensuring
+high availability and data redundancy.
+c. DAX is particularly beneficial for real-time applications like gaming or
+trading that require ultra-fast read response times.
+d. DAX reduces the cost of data storage in DynamoDB by compressing
+data before storing it.
+73. What are the essential components required to scale an AWS EC2
+Auto Scaling group based on the queue size of AWS SQS?
+a. Configure an EC2 Load Balancer to distribute the workload evenly
+across all instances in the Auto Scaling group.
+b. Establish a Custom Metric in CloudWatch that measures the average
+CPU utilization of EC2 instances within the Auto Scaling group.
+c. Set up a target tracking Scaling Policy based on a custom metric that
+measures the number of messages in the SQS queue per EC2 instance
+within the auto-scaling group.
+d. Implement an AWS Lambda function to manually scale the Auto
+Scaling group based on the number of messages in the SQS queue.
+74. Why would an AWS user temporarily suspend Auto Scaling processes
+for their application?
+a. To permanently disable scaling actions and reduce operational costs.
+b. To maintain a consistent environment during troubleshooting or
+investigation.
+c. To increase the computing capacity for handling higher loads.
+d. To automatically update EC2 instances within the Auto Scaling group.
+75. What is the purpose of a termination policy in an AWS Auto Scaling
+group?
+a. To define the rules for selecting instances for backup during Auto
+Scaling operations.
+b. To configure the rules for launching new instances when scaling out an
+Auto Scaling group.
+c. To specify how instances are chosen for termination when scaling in or
+performing manual terminations, ensuring optimal resource utilization.
+d. To automatically update the software on instances before termination.
+Answers
+The correct answer is
+The workflow begins with a developer deploying code to the CodeCommit
+repository in the Dev Account. Upon this deployment, CodePipeline in the
+Tools Account is activated. As part of the integration process, CodeBuild
+compiles the code, producing a YAML artifact stored in an S3 bucket.
+CodePipeline then handles the deployment of a CloudFormation template to
+the Test Account, setting up the application in a test environment. Here,
+developers or testers can review and either approve or reject the application’s
+changes. If approved, the Serverless Application, using components like API
+Gateway and Lambda, is deployed to the Production Account for end-users.
+This process highlights the effectiveness and efficiency of the mentioned
+solution, ensuring smooth deployment across different AWS accounts. The
+workflow is illustrated in the provided in Figure
+Figure AWS CI/CD Workflow for serverless applications
+```
+The correct answers are b) and
+```
+To aggregate Lambda@Edge logs efficiently, you start by creating a Kinesis
+Data Firehose delivery stream in your primary AWS region using a
+CloudFormation template. This stream will act as the central repository for
+the logs. This setup requires the existence of CloudWatch log groups in each
+applicable region. A CloudFormation stack set is therefore used to ensure
+these log groups are created across all necessary regions. Another stack set is
+then deployed to apply subscription filters that gather logs from every region
+where CloudFront has Regional Edge Caches. The configuration of this
+solution is depicted in the Figure
+Figure Log Aggregation for Lambda@Edge using AWS CloudWatch and
+Kinesis Data Firehose
+The correct answers are b and
+AWS SAM offers a streamlined and efficient approach for the gradual
+deployment of serverless applications, particularly AWS Lambda functions.
+This is achieved through a simple configuration in the SAM template. This
+configuration ensures gradual traffic shifting with automatic rollback in case
+of issues, facilitated by CloudWatch alarms and validation through pre- and
+post-traffic hooks. Here is a sample snippet demonstrating the deployment
+```
+preference:
+```
+1. Resources:
+2. NewLambdaFunction:
+3. Type: AWS::Serverless::Function
+4. Properties:
+5. Handler: process.handler
+6. Runtime: python3.9
+7. CodeUri: s3://mybucket/mycode.zip
+8. AutoPublishAlias: stable
+9. DeploymentPreference:
+10. Type: Canary10Percent5Minutes
+11. Alarms:
+12. - !Ref FunctionErrorAlarm
+13. - !Ref VersionErrorAlarm
+14. Hooks:
+15. PreTraffic: !Ref PreTrafficMyFunction
+16. PostTraffic: !Ref PostTrafficMyFunction
+This configuration ensures gradual traffic shifting with automatic rollback in
+case of issues, facilitated by CloudWatch alarms and validation through pre-
+and post-traffic hooks.
+For example, in Figure AWS SAM initiates the process where the user
+defines the function and its deployment preferences. This is then processed by
+AWS CloudFormation, which sets up the resources as specified. AWS
+CodeDeploy manages the actual deployment, directing a percentage of the
+traffic to the updated Lambda function based on the deployment
+configuration. The figure depicts 90% of the traffic continues to go to the
+original Lambda function, while 10% is diverted to the updated function with
+the new feature, enabling a canary deployment approach.
+Figure SAM canary deployment
+The correct answer is
+To demonstrate the automated feature release, the company employs a
+serverless REST API that interacts with AWS AppConfig to manage feature
+parameters. By integrating AWS AppConfig with AWS CodePipeline, they
+can streamline the configuration deployment process across multiple
+environments. This integration enables the feature to be released
+independently of the application code, significantly reducing the manual
+effort and the risk of deployment-related delays, thereby enhancing the
+customer experience. Figure 15.4 provides a visual representation of the
+solution architecture and the flow of the AWS CodePipeline setup:
+Figure CodePipeline with AppConfig integration for serverless application
+deployment
+The correct answer is
+Amazon CodeGuru Reviewer offers automated code reviews to detect issues
+early. AWS CodeCommit is a source control service that can be configured to
+require certain approval rules on pull requests, ensuring that code meets
+quality standards before merging into the main branch. This combination
+effectively prevents faulty code from reaching production environments.
+Figure the architecture of this solution:
+Figure code reviews with AWS CodeGuru Reviewer
+The correct answer is
+AWS CloudShell addresses the need for a simple and secure command-line
+environment accessible directly from a web browser. It eliminates the
+complexity associated with setting up a local CLI environment by providing a
+ready-to-use shell prompt with AWS CLI, as well as Python and Node
+runtimes pre-installed, allowing for immediate AWS command execution.
+The correct answer is
+AWS CodeStar is designed to quickly set up the full continuous delivery
+toolchain, enabling teams to start coding and deploying applications
+promptly. It offers a centralized dashboard for managing the software delivery
+process, supports multiple project templates for a range of applications, and
+facilitates secure team collaboration with built-in role-based policies, along
+with integrated issue tracking with Atlassian JIRA Software.
+The correct answer is
+AWS CDK allows developers to define cloud resources using familiar
+programming languages. This infrastructure as code approach ensures that all
+changes to the application are checked into a version-controlled source
+repository, reducing failures due to manual, out-of-band changes. The CDK
+supports modular design, enabling complex applications to be broken down
+into manageable parts for development by large teams.
+The correct answer is
+AWS CodeArtifact is a fully managed artifact repository service that makes it
+easy for organizations to securely store, publish, and share software packages
+used in their software development process. AWS CodeArtifact works with
+commonly used package managers and build tools like Maven, and it
+integrates with AWS CodeBuild for automating package publishing as part of
+the CI/CD pipeline. AWS CodeCommit, while it is used for source control,
+does not have capabilities for artifact management. AWS CloudFormation is
+used to model and set up AWS resources, so it does not handle package
+management tasks. AWS CodeBuild is a build service but on its own does not
+provide package management capabilities.
+The correct answer is
+Option c is the correct choice and aligns with the workflow depicted in the
+provided in Figure It includes AWS App Runner, which suits the team’s
+requirements for rapid deployment and managed infrastructure, automatically
+deploying the containerized Node.js application upon updates to the container
+image in Amazon ECR. This option is consistent with the figure’s depiction
+of a continuous integration and delivery pipeline that streamlines the process
+from code commit to application deployment, including the use of
+DynamoDB for data storage and CloudWatch for logging, ultimately serving
+the end-users with minimal delays. In contrast, AWS Elastic Beanstalk and
+Amazon EC2 instances with Auto Scaling introduce unnecessary complexity
+and manual management, deviating from the goal of simplicity and speed.
+AWS Lambda, while efficient for event-driven functions, is not ideal for
+continuous web applications and lacks the seamless ECR integration for
+automated updates that App Runner provides.
+Figure 15.6: Continuous Deployment Workflow for Node.js Web Application
+using AWS AppRunner
+The correct answer is
+Option b elaborates on the use of AWS CodePipeline for continuous
+integration and delivery, starting from monitoring the source code repository
+for changes to deploying the updated application. It clearly describes the
+entire process using AWS services, including AWS CodePipeline for
+orchestration, AWS CodeBuild for image creation, Amazon ECR for Docker
+image storage, and AWS CloudFormation for automated deployment to
+Amazon ECS.
+The correct answer is
+Option b accurately reflects the DevSecOps pipeline’s steps as outlined in the
+use case. It starts with a commit to CodeCommit, which triggers
+CodePipeline. CodeBuild then packages the build, conducts SCA scanning,
+and handles artifacts with CodeArtifact. If vulnerabilities are found, a
+Lambda function parses these results and sends them to Security Hub, with a
+copy stored in an S3 bucket. The workflow of this use-case is depicted in
+Figure This option comprehensively covers the continuous testing aspect,
+including integration with AWS Security Hub for vulnerability aggregation,
+highlighting the pipeline’s focus on security and compliance. Other options
+either do not fully represent the automated testing steps or introduce AWS
+services and actions not specified in the use case.
+Figure 15.7: DevSecOps Pipeline Workflow for Automated Testing and
+Security Integration on AWS
+The correct answer is
+EC2 Image Builder is ideally suited for automating the OS image building
+and maintenance process. It revolves around the Image Pipeline, which
+```
+includes an Image Recipe (a versioned resource with a Parent Image and
+```
+```
+components to build the image), an Infrastructure Configuration (defining the
+```
+```
+build and test environment), and a Distribution Configuration (allowing the
+```
+distribution of images to selected AWS Regions, accounts, or organizations
+```
+with LaunchPermission to AWS Accounts upon passing tests) as shown in
+```
+Figure This comprehensive setup ensures not only adherence to standards like
+STIG but also reduces the need for manual intervention in updating and
+testing OS images. While other options like AWS Lambda, Amazon S3, and
+AWS CodeDeploy offer valuable functionalities, they do not provide the
+specialized capabilities for OS image automation that EC2 Image Builder
+does.
+Figure Image Builder and its components
+The correct answer is
+This option correctly outlines the steps for integrating automated testing into
+a CI/CD pipeline for a JavaScript application in AWS. The process begins
+with managing the application code in a Git or AWS CodeCommit repository.
+Jest is a lightweight, simple JavaScript testing framework. It is used for
+automated testing, and a buildspec.yml file is created for build specifications.
+AWS CodeBuild is configured for building the application and running tests.
+A new pipeline is created using AWS CodePipeline, which automates the
+build and test process. The pipeline is then triggered, and the build and test
+results are monitored. This approach ensures reliable automated testing
+integration into the CI/CD pipeline, enhancing application reliability and
+team productivity. The other options do not provide a coherent or relevant
+sequence of steps for this specific task.
+The correct answer is
+This option aligns with the stated goal and problem. AWS CodePipeline and
+AWS CodeBuild provide a robust platform for CI/CD, facilitating the
+automation of the build and deployment processes. FluxCD, serving as a
+GitOps tool, ensures that the Kubernetes infrastructure remains synchronized
+with the configurations stored in the Git repository, making it an appropriate
+choice for the described scenario. As depicted in Figure AWS CodeCommit
+stores both the application repository and the Kubernetes infrastructure
+repository. A commit in the application repository triggers the pipeline’s
+Source stage, which then clones the repository code. AWS CodeBuild
+processes and pushes the container application to the AWS ECR repository.
+After the Docker image is pushed to Amazon ECR, FluxCD retrieves the
+image, ensuring synchronization of the Kubernetes infrastructure according to
+our YAML definition file in the Kubernetes infrastructure CodeCommit
+repository.
+The other options do not comprehensively address both the implementation of
+the CI/CD pipeline and the synchronization with Kubernetes infrastructure in
+line with the GitOps methodology.
+Figure 15.9: GitOps approach for container deployments on AWS EKS using
+FluxCD.
+16. The correct answer is
+Blue-Green Deployment, especially when implemented with AWS ECS and
+CodeDeploy, offers a robust solution to enhance application availability and
+reduce deployment risks. In this approach, two identical environments are
+```
+created: the current (blue) and the new (green). After the green environment
+```
+is thoroughly tested, application traffic is switched from blue to green. This
+method allows for easy and quick rollbacks to the blue environment if issues
+arise with the green environment, ensuring minimal downtime and higher
+availability. The use of AWS ECS for container management and AWS
+CodeDeploy for automated deployment processes makes this strategy
+efficient and scalable in the AWS ecosystem.
+The correct answer is
+AWS Copilot is a CLI that allows users to quickly launch and manage
+containerized applications on AWS. It provides scalable and secure
+infrastructure-as-code templates, simplifies the process of running
+applications on Amazon AWS Fargate, and AWS App Runner, and automates
+deployments with just one command. This tool also helps configure a
+delivery pipeline from a code repository to the application’s environment,
+supporting the building, releasing, and operating of microservices through
+end-to-end workflows.
+The correct answer is
+Option b is the most effective for modernizing legacy applications with
+minimal effort. AWS App2Container automates the process of containerizing
+legacy applications. It analyzes existing applications, generates container
+images with the necessary configurations, and provides guidance for
+deploying to Amazon ECS or Amazon EKS. This tool simplifies the transition
+from traditional applications to a containerized environment, making it an
+ideal solution for reducing technical debt and operational costs. The inclusion
+of a figure in the materials further illustrates the workflow and usage of AWS
+App2Container, showing how it streamlines the entire process from analysis
+to deployment in a cloud-native ecosystem.
+The correct answer is
+Option c correctly demonstrates how to conditionally create an AWS resource
+in CloudFormation based on the value of a parameter. It defines a condition
+that evaluates whether the environment parameter is set to and then applies
+this condition to the EC2 resource creation. This approach aligns with best
+practices for conditional resource creation in CloudFormation.
+The correct answer is
+```
+AWS::NoValue pseudo parameter removes the corresponding resource
+```
+property when specified as a return value in the Fn::If intrinsic function.
+Option d correctly uses the !If conditional function in combination with the
+```
+AWS::NoValue pseudo parameter. This configuration ensures that the
+```
+ProdSecurityGroup is associated with the InstanceExample only when the
+IsProdEnvironment condition evaluates to true, that is, when EnvType is In
+any other case, the SecurityGroupIds property is effectively removed from the
+instance configuration, as denoted by !Ref This method allows for dynamic
+resource properties based on conditions in CloudFormation templates.
+The correct answer is
+This option correctly uses Fn::ImportValue with the !Sub function to
+reference the exported Public Subnet ID and Web Server Security Group ID
+from the It appropriately places these references within the NetworkInterfaces
+property of the EC2 instance.
+The correct answer is
+Option c correctly demonstrates the method to pass values between nested
+stacks in CloudFormation. By defining an output in NestedStackX and a
+corresponding parameter in the value is passed from one stack to the other
+using the Fn::GetAtt function in the parent stack. This function retrieves the
+output value from NestedStackX and provides it as a parameter value.
+The correct answer is
+CloudFormation’s drift detection feature helps in identifying configuration
+drift – the differences between the resource definitions in the CloudFormation
+templates and the actual state of deployed AWS resources. This feature is
+crucial during transitions to full IaC adoption, as it allows organizations to
+detect and rectify discrepancies caused by direct changes made to resources
+outside of the CloudFormation templates. It supports maintaining consistency
+between infrastructure code and deployed resources.
+The correct answer is
+Option d clearly sets up a MySampleBucket S3 bucket and a
+MyNotificationTopic SNS topic, where the S3 bucket is configured to send
+notifications to the SNS topic upon the creation of a new object. This is
+achieved through the NotificationConfiguration in the MySampleBucket
+properties, specifying the event type and the target topic
+The correct answer is
+The use of a CloudFormation module allows for the encapsulation of expert
+knowledge and best practices in a reusable, manageable, and version-
+controlled format. This approach provides predictability, reusability,
+traceability, and manageability, enabling efficient and consistent deployment
+across multiple stacks without requiring in-depth knowledge of each
+component.
+The correct answer is
+The efficient approach of using AWS CloudFormation StackSets with
+modules, as depicted in Figure involves a workflow where a CloudFormation
+module is first created and published to an S3 bucket. This module is then
+referenced in a CloudFormation template, from which a CloudFormation
+stack set is created for deployment across multiple AWS accounts and
+regions.
+Figure for publishing and deploying CloudFormation modules across AWS
+accounts and regions
+27. The correct answer is
+```
+This approach involves setting up a new (green) environment with the
+```
+updated application version, testing it, and then using Elastic Beanstalk’s
+```
+feature to switch traffic from the old (blue) environment to the new one,
+```
+ensuring minimal downtime and a safe deployment process.
+The correct answer is
+The most efficient method for customizing a Windows Elastic Beanstalk
+environment is through the .ebextensions folder. This approach offers a wide
+range of customization options like installing packages, executing scripts, and
+setting environment configurations, making it more versatile and scalable
+compared to other methods like creating custom AMIs for each region or
+manual post-deployment configurations.
+The correct answer is
+CloudFormation custom resources fill the gap when there is a need for
+managing resources not natively supported by CloudFormation. These
+custom resources allow for writing custom provisioning logic within
+CloudFormation templates. This custom logic, often backed by AWS Lambda
+functions, is executed during various stack operations like creation, updating,
+or deletion. It enables a wide range of scenarios, such as dynamically looking
+up AMI IDs or utilizing utility functions, thus extending the capabilities of
+CloudFormation beyond its default offerings. Options a, c, and d do not
+accurately represent CloudFormation’s approach to handling unsupported
+resources.
+The correct answers are b and
+Both options b and d describe effective methods for achieving high
+availability and low latency in content delivery. Option b outlines the use of
+Amazon CloudFront’s edge network alongside AWS Lambda@Edge to route
+requests to the geographically closest Amazon S3 bucket. Option d is a more
+specific version of this approach, focusing on the cache miss scenario where
+AWS Lambda@Edge plays a critical role in determining the nearest S3
+bucket for fetching the content. Options a and c, while related to content
+delivery and replication, do not fully capture the combined use of Amazon
+S3, Amazon CloudFront, and AWS Lambda@Edge for optimizing content
+delivery based on geographical proximity. The workflow for this solution is
+shown in Figure
+Figure assets with AWS CloudFront Distribution and route the requests to S3
+origin based on geo-proximity
+31. The correct answers are a and
+Enabling versioning on both source and destination S3 buckets a is essential
+for cross-region replication, as it manages and preserves versions of objects, a
+key requirement for compliance. Creating a specific IAM role for replication
+and attaching the necessary IAM policy c provides the required permissions
+for S3 to perform cross-region replication. Other options like setting up S3
+event notifications, manually copying objects, or establishing a Direct
+Connect are not directly involved in the setup of cross-region replication for
+compliance purposes.
+The correct answers are a, c, and
+In setting up a resilient Amazon CloudFront distribution, crucial steps include
+```
+creating a secondary S3 bucket a) with live replication from the primary
+```
+bucket, ensuring up-to-date content in the failover bucket. Then, establishing
+```
+a secondary origin in CloudFront c) for this secondary S3 bucket is necessary.
+```
+```
+Finally, creating an origin group d) that combines the primary and secondary
+```
+S3 origins within CloudFront enables automatic switching to the secondary
+origin in case the primary becomes unavailable, thus ensuring continuous
+content delivery and high availability.
+The correct answers are a and
+For Active-Active disaster recovery in DynamoDB, DynamoDB Streams
+Global Tables c are pivotal. DynamoDB Streams captures and stores all item-
+level changes in a time-ordered sequence, enabling applications to track and
+respond to data modifications. Global Tables, on the other hand, allow for
+automatic, seamless data replication across multiple AWS regions, ensuring
+data availability and persistence. This combination provides a robust solution
+for real-time data synchronization and regional data redundancy. Other
+options like Amazon S3 replication b or manual replication using AWS
+Lambda d are not as directly suited for DynamoDB’s Active-Active disaster
+recovery needs.
+The correct answer is
+The correct process for setting up Amazon ECR image replication to another
+region using AWS CLI involves first exporting the registry ID of the Amazon
+```
+ECR a).1 using the describe-registry command. Then, replication is enabled
+```
+using the put-replication-configuration command with a specified
+configuration file
+This JSON file specifies the replication rules, including the destination region
+and the registry ID. The other options either use incorrect AWS CLI
+commands or actions not related to ECR image replication, such as manual
+image copying or non-existent commands.
+The correct answer is
+This command creates a deployment named nginx using the nginx:1.18.0
+image, sets the desired number of replicas to 2, and exposes port 80. The --
+run flag is used for creating deployments, --image specifies the Docker image
+to use, --replicas set the number of desired replicas, --expose is used to
+expose a port, and --port defines the port to be exposed. The other options are
+either using incorrect flags or commands not suitable for creating a
+deployment with the specified requirements in Kubernetes.
+The correct answer is a and
+Multi-AZ deployments in Amazon RDS are designed to enhance database
+availability and reliability. They achieve this by creating a primary database
+in one Availability Zone and a synchronous standby replica in another zone
+within the same region If the primary database experiences a failure, Amazon
+RDS automatically performs a failover to the standby replica, typically within
+a few minutes, ensuring minimal disruption and high availability
+The correct answer is
+The correct answer is
+ROSA is a self-service, managed OpenShift service that integrates deeply
+with AWS services for building and deploying applications.
+The correct answer is
+AWS DMS.
+The correct answer is
+AWS Elastic Disaster Recovery.
+The correct answer is
+Amazon VPC flow logs to Amazon CloudWatch Logs, then to Kinesis Data
+Firehose with a Lambda function for data transformation, and finally to
+Splunk. The architecture of the solution is depicted in Figure
+Figure 15.12: Architecture Diagram for Amazon VPC Flow Logs Ingestion to
+Splunk via CloudWatch Logs, Kinesis Data Firehose, and Lambda
+42. The correct answer is
+Amazon CloudWatch Logs offers a data protection feature to safeguard
+sensitive information. Through the CloudWatch console, users can set a data
+protection policy for any log group by accessing the Data Protection tab. as
+shown in Figure This policy allows the selection of over 100 managed data
+identifiers for various sensitive data types, such as financial, health, and
+personal information. These identifiers are designed to meet diverse use cases
+and regional requirements, enhancing security and compliance by quickly
+detecting and preventing access to sensitive data in logs.
+Figure Data Protection Policy in Amazon CloudWatch Logs
+43. The correct answer is b: Use an Amazon EventBridge rule to trigger an
+AWS Lambda function, which sets and updates retention settings for new and
+existing log groups. The automation process workflow is depicted in Figure
+Figure log retention management in Amazon CloudWatch using EventBridge
+and Lambda
+44. The correct answer is
+It utilizes machine learning to analyze historical metric data and identify
+predictable patterns, thereby enhancing CloudWatch Alarms.
+The correct answer is
+AWS Athena.
+The correct answer is
+CloudWatch Logs Insights.
+The correct answer is
+Configure CloudFront to send real-time logs to a Kinesis Data Stream, create
+a Kinesis Data Firehose delivery stream using the Data Stream as the source,
+and specify Datadog as the destination with the necessary API key and
+configuration. Figure illustrates the flow of your logs from CloudFront,
+through Kinesis—including Kinesis Data Streams and Kinesis Data Firehose
+—and into Datadog.
+Figure flow architecture from CloudFront to Datadog via Kinesis Data
+Streams and Firehose
+48. The correct answer is
+Set up CloudWatch Logs metric filters to monitor CloudTrail events for and
+create a CloudWatch Alarm based on the metric, and link it to an SNS topic.
+The correct answer is
+Utilizing AWS Config rules to assess resources, with an EventBridge rule
+triggering a Lambda function for reporting noncompliant resources over a
+user-specified period and sending reports via Amazon SES.
+The correct answer is
+Add the --tracing flag to the sam init command to activate X-Ray tracing in
+AWS SAM templates.
+The correct answer is
+Configure AWS Systems Manager Automation runbooks to remediate
+noncompliant resources automatically, specifically using the AWS-
+ConfigureS3BucketVersioning runbook for S3 bucket versioning rules.
+The correct answers are b and
+The correct answer is
+AWSSupport-TroubleshootCodeDeploy.
+The correct answer is
+When AWS Config identifies an EC2 instance using an unauthorized AMI as
+noncompliant, it creates an OpsItem in AWS Systems Manager OpsCenter.
+This OpsItem includes details about the non-compliant resource and any
+actions taken to investigate or remediate the issue. To address these
+compliance issues, an AWS SSM Automation document can be triggered
+automatically. This document can perform actions like stopping or
+terminating the noncompliant instance, offering an automated and efficient
+way to ensure compliance with organizational policies.
+The correct answer is
+```
+Explanation: The correct answer is c, which highlights the use of Amazon
+```
+EventBridge for a scalable response to Amazon EBS volume disruptions.
+Traditional methods, limited to notifying a primary contact, are not effective
+for large-scale operations. EventBridge addresses this by enabling custom
+automation when an EBS volume enters an error state. This includes routing
+alerts to the appropriate teams or systems using Amazon SNS or SQS, and
+employing AWS Lambda for automatic recovery, such as restoring from a
+snapshot, ensuring a timely and efficient response.
+The correct answer is
+```
+Explanation: The correct workflow involves using AWS EventBridge to
+```
+receive findings from AWS GuardDuty. An EventBridge rule is set to forward
+these events, specifically from the GuardDuty service to two targets. The first
+target is a Kinesis Firehose stream, which is responsible for delivering the
+findings to DataDog. Here, the data can be visualized and analyzed on
+dashboards. The same stream also sends the findings to an S3 bucket for
+secure, long-term archiving. The second target is an SNS topic, which is used
+to send email notifications whenever new findings are detected. This ensures
+that the relevant parties are promptly informed and can take necessary
+actions. This solution provides a robust mechanism for monitoring,
+visualizing, and retaining security findings within an AWS environment.
+Option b correctly combines all elements of the desired security scanning
+workflow. It uses AWS EventBridge to automate the initiation of AWS
+Inspector scans on a schedule defined by a cron expression. AWS Inspector
+then conducts the scans and exports the findings to AWS Security Hub.
+Security Hub provides an integrated view of the security posture of the AWS
+account, helping to ensure compliance with industry standards and best
+practices. Finally, AWS SNS is utilized to send email notifications to
+stakeholders when the ASSESSMENT_RUN_COMPLETED event occurs,
+ensuring timely communication about the scan’s completion and findings.
+The correct answer is
+```
+Explanation: Option b correctly combines all elements of the desired security
+```
+scanning workflow. It uses AWS EventBridge to automate the initiation of
+AWS Inspector scans on a schedule defined by a cron expression. AWS
+Inspector then conducts the scans and exports the findings to AWS Security
+Hub. Security Hub provides an integrated view of the security posture of the
+AWS account, helping to ensure compliance with industry standards and best
+practices. Finally, AWS SNS is utilized to send email notifications to
+stakeholders when the ASSESSMENT_RUN_COMPLETED event occurs,
+ensuring timely communication about the scan’s completion and findings.
+The correct answer is
+```
+Explanation: Option c describes an automated solution that aligns with the
+```
+given architecture workflow for data protection. In this workflow, Amazon
+Macie is used to discover sensitive data at a scale. When Macie detects
+sensitive data, it runs a classification job and publishes the findings to AWS
+EventBridge in the form of a JSON object. An EventBridge rule is then
+configured to capture these findings and invoke an AWS Lambda function as
+the target. The Lambda function is responsible for parsing the JSON object
+and sending a custom message to the Microsoft Teams channel, which alerts
+the data protection team to evaluate and take necessary actions. This solution
+ensures that the team is promptly informed about sensitive data findings,
+allowing for a quick response. The entire process is depicted in Figure
+Figure protection workflow using Amazon Macie and AWS EventBridge
+59. The correct answer is
+```
+Explanation: Option b correctly describes the complementary roles of
+```
+Amazon CloudFront and AWS WAF in enhancing the performance and
+security of a static website hosted on S3. CloudFront acts as a content
+delivery network that caches content at edge locations, reducing latency and
+effectively managing high traffic volumes to ensure responsive web
+applications. Concurrently, AWS WAF enhances security by offering
+protection against a variety of web application threats, including those
+identified in the OWASP Top 10, SQL injection attacks, automated requests,
+and DoS attacks, thus safeguarding the application from potential
+vulnerabilities and ensuring its resilience and security. The workflow of this
+architecture is depicted in Figure
+Figure of a S3 static web application with AWS CloudFront and AWS WAF
+60. The correct answers are and
+```
+Explanation: The correct answers, a, c, and d, to the question regarding SSH
+```
+keypair rotation in an AWS environment using AWS Secrets Manager and
+AWS Lambda, reflect the critical steps in securing inter-cluster
+communication. Option a covers the Lambda function’s role in creating and
+storing a new SSH keypair, labeling it AWSPENDING, and distributing the
+public key to worker nodes. This automates key creation and synchronization,
+enhancing security and efficiency. Option c highlights the completion phase,
+where the Lambda function confirms the new keypair’s successful
+deployment, updates the secret’s status to AWSCURRENT, and removes the
+old keys from worker nodes, ensuring that only the latest keys are in use.
+Finally, Option d describes how the master node securely accesses the latest
+private key using the Python Boto3 SDK from AWS Secrets Manager,
+facilitating secure and up-to-date communication with worker nodes. This
+integrated approach ensures a robust and automated system for SSH key
+management, aligning with security best practices and potentially meeting
+regulatory requirements.
+The correct answers are a, c, d, e and
+```
+Explanation: AWS Trusted Advisor is a tool that offers automated
+```
+recommendations to help customers optimize their AWS infrastructure. It
+focuses on various critical aspects including:
+Cost Recommends ways to reduce costs and improve system efficiency.
+Provides tips on enhancing the performance of AWS services. Offers advice
+on security configurations and best practices to ensure the infrastructure is
+secure. Fault Suggests methods to increase the reliability and fault tolerance
+of applications. Service Monitors service usage and warns when approaching
+service limits to avoid potential service disruptions. Options b and g, Network
+Configuration and Database Management, are not explicitly listed categories
+for AWS Trusted Advisor’s recommendations.
+Correct answer is
+Store the parameter as a SecureString type and encrypt it using a customer-
+managed AWS KMS key.
+```
+Explanation: AWS SSM Parameter Store provides a secure and scalable way
+```
+to manage application configuration and secrets. For sensitive data, the best
+practice is to store the parameter as a SecureString, which ensures that the
+data is encrypted. Using a customer-managed AWS KMS key for encryption
+adds an additional layer of security, allowing you to control and manage the
+```
+key used for encryption. This method is superior to plaintext storage (option a
+```
+```
+and b) as it protects the data from unauthorized access. Storing parameters
+```
+```
+directly in an S3 bucket (option d) is not a typical use case for SSM
+```
+Parameter Store, which is designed specifically for secure configuration and
+secrets management.
+The correct answer is
+```
+Explanation: Option b correctly identifies the step of creating a patch
+```
+baseline, which is crucial for defining which patches should be installed,
+including rules for auto-approval, and specifying approved or rejected
+patches. This step ensures that only the necessary and secure patches are
+applied to the instances. Option d describes how to schedule the patch
+installation process using maintenance windows, which allows for patches to
+be applied during specific time frames that minimize the impact on the
+operational environment. This is done by targeting instances using resource
+tags and patch groups, which ensures that the right instances are being
+patched according to the established policies. Options a, c, and e do not align
+with the best practices for using SSM Patch Manager for automating and
+managing patches.
+Correct answers are b and
+```
+Explanation: Option b is correct because one of the key benefits of AWS
+```
+RAM is that it reduces operational overhead by allowing the sharing of AWS
+resources, like CodeBuild projects, without the need to recreate them in each
+account. It streamlines the management of access within the owner account,
+avoiding complex setup. Option e is correct because AWS RAM maintains
+security and consistency across shared resources with a unified set of policies,
+ensuring that permissions are managed effectively and uniformly. Options a,
+c, and d are incorrect because AWS RAM does not create resources in shared
+accounts, automate build and deployment processes without configuration, or
+provide real-time synchronization of project changes.
+The correct answer is
+```
+Explanation: AWS Network Firewall is a managed service that offers network
+```
+firewall capabilities, which includes filtering traffic that enters and exits a
+VPC. It supports intrusion detection and prevention, providing robust security
+by inspecting traffic from various sources like internet gateways, NAT
+gateways, VPNs, and AWS Direct Connect. This inspection helps to
+safeguard the network against unauthorized access and other potential
+security threats. Options a, b, and d do not accurately describe the primary
+```
+function of AWS Network Firewall within a VPC.
+```
+The correct answer is
+```
+Explanation: ABAC offers a more dynamic and flexible approach to access
+```
+control in AWS by utilizing tags to define permissions. Unlike RBAC, which
+requires updating policies to accommodate changes in user access needs,
+ABAC can automatically scale permissions with the addition of new
+resources or changes in a user’s role. This is achieved through the use of tags
+that associate IAM principals with specific resources. When the tags match,
+the defined permissions are granted. This method supports scalability,
+streamlined policy management, and adaptability to team changes or project
+growth without the need for frequent policy modifications. Options a, b, and
+d do not accurately capture the advantages of ABAC over RBAC.
+The correct answers are a and
+```
+Explanation: AWS Identity Center and AWS IAM are used for federating
+```
+external identities, allowing centralized access management to AWS accounts
+and applications. Amazon Cognito facilitates app user authentication and
+access to AWS resources with support for external social identity providers.
+The correct answer is
+```
+Explanation: AWS Managed Microsoft AD provides a managed service
+```
+solution for Active Directory on AWS, taking care of the deployment and
+maintenance of AD domain controllers. This service ensures high availability
+by setting up domain controllers across two Availability Zones and enables
+directory-aware workloads and the establishment of trust relationships with
+on-premises AD. It eliminates the need for manual maintenance, thereby
+streamlining Active Directory operations in the cloud. Options a, c, and d do
+not correctly describe the managed nature of AWS Managed Microsoft AD or
+its capabilities.
+The correct answers are and
+```
+Explanation: AWS CloudHSM offers customers a highly secure and
+```
+compliant way to manage cryptographic keys and operations within the AWS
+Cloud. One of the key benefits is the use of FIPS 140-2 Level-3 validated
+HSMs, which are standards-compliant and dedicated per customer, providing
+flexibility that managed services with fixed algorithms might not offer.
+Another significant advantage is that the data plane within CloudHSM is fully
+encrypted and not accessible to AWS, providing customers with full control
+over their cryptographic keys and user management, distinct from IAM roles.
+Furthermore, AWS CloudHSM facilitates a smooth migration for existing
+cryptographic applications to the cloud, supporting common standards and
+minimizing the need for changes to applications. Option a is incorrect
+because CloudHSM provides single-tenant HSM instances, not shared, and
+option d is incorrect as AWS handles the hardware and software maintenance
+of CloudHSM instances.
+The correct answer is
+```
+Explanation: Amazon Detective simplifies the analysis and investigation of
+```
+VPC network flows. It automatically collects VPC Flow Logs from
+monitored accounts and aggregates them by EC2 instance, presenting visual
+summaries and analytics. This capability allows users to interactively
+examine network flows, making it easier to analyze, investigate, and identify
+the root cause of security issues or suspicious activities. Amazon Detective
+does not require pre-configuration of VPC Flow Logs and does not impact
+existing flow log collection, thereby offering a seamless integration into
+existing architectures. Options a, c, and d do not accurately describe the
+functionalities and capabilities of Amazon Detective in relation to VPC flow
+investigation.
+The correct answer is b.
+```
+Explanation: A dead-letter queue in Amazon SQS is specifically designed to
+```
+handle messages that have failed processing. It serves as a secondary queue
+where these failed messages are temporarily stored. This allows developers or
+IT teams to investigate and determine why the intended receiver could not
+process the message. By analyzing the messages in the DLQ, issues in the
+system can be addressed, and attempts can be made to redeliver the messages
+successfully. This mechanism is crucial for error handling and ensures that
+message processing failures are properly managed. Options a, c, and d do not
+accurately describe the function of a dead-letter queue in the context of
+Amazon SQS.
+The correct answers are b and
+The correct answer is
+The correct answer is
+The correct answer is
+```
+Explanation: A termination policy in AWS Auto Scaling is designed to define
+```
+the criteria for selecting which instances should be terminated during scale-in
+operations or manual terminations. By configuring a termination policy, users
+have control over the instance selection process, which helps maintain
+optimal resource utilization and ensures the availability of the application. It
+is a critical component in managing the lifecycle of instances within an Auto
+Scaling group, allowing for efficient and strategic scaling decisions. Options
+a, b, and d do not accurately represent the purpose of a termination policy in
+the context of AWS Auto Scaling groups.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the Authors:
+```
+https://discord.bpbonline.com
+```
+C
+HAPTER
+16
+Mock Exam: 2
+Questions
+1. Imagine you are working on a Python project and have integrated AWS
+CodeBuild with Codecov. You have already set up your CodeCommit
+repository, added it to Codecov, and stored the Codecov token as an
+environment variable named CODECOV_TOKEN in your CodeBuild
+project. You have also added a script named mybuild_script.sh in your
+repository to connect to Codecov. Which of the following buildspec.yml
+configurations would correctly automate your unit tests and code coverage
+reporting to Codecov?
+a.
+1. version: 0.2
+2. phases:
+3. build:
+4. commands:
+5. - pip install -r requirements.txt
+6. - pytest --cov=./
+7. post_build:
+8. commands:
+9. - bash mybuild_script.sh
+b.
+1. version: 0.2
+2. phases:
+3. build:
+4. commands:
+5. - pip install coverage
+6. - coverage run -m unittest discover
+7. post_build:
+8. commands:
+9. - echo 'Connect to CodeCov'
+10. - bash mybuild_script.sh
+c.
+1. version: 0.2
+2. phases:
+3. build:
+4. commands:
+5. - pip install pytest pytest-cov
+6. - pytest
+7. post_build:
+8. commands:
+9. - ./codecov.sh -t $CODECOV_TOKEN
+d.
+1. version: 0.2
+2. phases:
+3. build:
+4. commands:
+5. - pip install unittest
+6. - python -m unittest
+7. post_build:
+8. commands:
+9. - curl -s https://codecov.io/bash | bash
+2. As a DevOps engineer tasked with ensuring robust and reliable feature
+releases, you have implemented a balanced mix of Application
+```
+Programming Interface (API) and User Interface (UI) based test
+```
+```
+automation using the Behavior-Driven Development (BDD) Cucumber
+```
+Framework. After merging a feature branch in AWS CodeCommit and
+initiating AWS CodePipeline, what services and processes do you leverage
+to automate smoke tests, generate a Cucumber report, and ensure the
+report’s long-term retention?
+a. AWS CodeDeploy for deployment, AWS Lambda for running BDD
+tests, and Amazon Relational Database Service for report storage.
+b. AWS CodeCommit for version control, AWS CloudWatch for
+monitoring, and Amazon Elastic File System for report storage.
+c. AWS CodeBuild for running BDD Cucumber tests, AWS CodePipeline
+for workflow automation, and S3 for storing the Cucumber report.
+d. AWS Elastic Beanstalk for environment provisioning, Amazon EC2 for
+test execution, and AWS Glacier for report archiving.
+3. In an AWS environment, to empower developers with the tools and
+visibility needed to quickly address security vulnerabilities in their Python
+code, especially in open-source packages, a specific setup is used. Snyk, a
+platform for scanning and fixing security vulnerabilities in code and
+dependencies, is integrated into the CI/CD pipeline. Which AWS services
+are essential for automating this security scanning process?
+a. AWS Lambda and Amazon Inspector for automatic code scans and
+vulnerability assessments.
+b. AWS CodeCommit and Amazon GuardDuty for source control and
+threat detection.
+c. AWS CodeCommit, Amazon EventBridge, AWS CodePipeline, AWS
+CodeBuild, and Snyk CLI for handling code commits, triggering events,
+executing pipelines, performing security scans, and reporting
+vulnerabilities.
+d. Amazon S3 and AWS WAF for code storage and web application
+firewall protection.
+4. In a scenario where the DevOps team wants to prevent unauthorized
+updates to the master branch of the repository named my-webapp-repo in
+AWS CodeCommit, while allowing other operations like viewing and
+cloning, which IAM policy should be applied?
+a.
+1. {
+2. "Effect": "Allow",
+3. "Action":
+4. "Resource": "*"
+5. }
+b.
+1. {
+2. "Version": "2012-10-17",
+3. "Statement": [
+4. {
+5. "Effect": "Deny",
+6. "Action": [
+7. "codecommit:GitPush",
+8. "codecommit:DeleteBranch",
+9. "codecommit:PutFile",
+10. "codecommit:MergePullRequestByFastForward"
+11. ],
+12. "Resource": "arn:aws:codecommit:[aws-region]:[aws-
+account-id]:my-webapp-repo",
+13. "Condition": {
+14. "StringEqualsIfExists": {
+15. "codecommit:References": [
+16. "refs/heads/master"
+17. ]
+18. },
+19. "Null": {
+20. "codecommit:References": false
+21. }
+22. }
+23. }
+24. ]
+25. }
+c.
+1. {
+2. "Effect": "Allow",
+3. "Action": [
+4.
+5. "codecommit:GetBranch"
+6. ],
+7. "Resource": "*"
+8. }
+d.
+1. {
+2. "Effect": "Deny",
+3. "Action":
+4. "Resource": "arn:aws:codecommit:[aws-region]:[aws-account-id]:*"
+5. }
+5. A DevOps engineer is configuring a buildspec.yml file for a project that
+involves building and pushing a Docker image for a Node.js application to
+AWS ECR. The pre_build phase includes logging to Amazon ECR with
+following command:
+1. (aws ecr get-login-password --region $AWS_DEFAULT_REGION |
+```
+docker login --username AWS --password-stdin)
+```
+The build phase involves building and tagging the docker image with
+following commands:
+1. docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+2. docker tag $IMAGE_REPO_NAME:$IMAGE_TAG
+$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.
+com/$IMAGE_REPO_NAME:$IMAGE_TAG
+What command should be in the post_build phase to push the tagged
+image to the ECR repository?
+a.
+1. post_build:
+2. commands:
+3. - echo Uploading to S3...
+4. - aws s3 cp docker-image.tar s3://mybucket/docker-image.tar
+b.
+1. post_build:
+2. commands:
+3. - echo Starting post-build tests...
+4. - docker run $IMAGE_REPO_NAME:$IMAGE_TAG npm test
+c.
+1. post_build:
+2. commands:
+3. - echo Pushing the Docker image...
+4. - docker push
+$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.
+com/$IMAGE_REPO_NAME:$IMAGE_TAG
+d.
+1. post_build:
+2. commands:
+3. - echo Saving image as an artifact...
+4. - docker save $IMAGE_REPO_NAME:$IMAGE_TAG > image.tar
+6. A DevOps engineer is configuring package.json for a Node.js project to
+use AWS CodeArtifact. They want to authenticate with a specific
+repository named my-repo within a domain The engineer plans to include
+a script named artifactLogin in package.json for this purpose. What should
+be the correct format of the artifactLogin script to authenticate with this
+CodeArtifact repository and domain?
+a. "npmAuth": "npm login --registry my-repo --scope my-domain"
+b. "artifactLogin": "aws codeartifact login --tool npm --repository my-
+repo --domain my-domain"
+c. "setArtifactToken": "aws configure set codeartifact_token my-repo --
+domain my-domain"
+d. "configureRegistry": "npm config set registry https://my-domain.my-
+repo.codeartifact.aws-region.amazonaws.com/npm/my-repo/"
+7. When designing a resilient application deployment on AWS App
+Runner to meet stringent resiliency requirements, which involves
+expanding to additional regions in either an active-active or active-standby
+configuration, which of the following steps are critical to ensure high
+availability, optimal performance, and disaster recovery readiness across
+```
+two AWS regions (us-east-1 and us-west-2)? (Select three)
+```
+a. Implement DynamoDB global tables to establish a resilient, multi-
+region, fully active database setup that ensures data consistency and
+seamless failover between regions.
+b. Set up cross-region replication for container images in Amazon ECR,
+enabling consistent and efficient application deployments across both
+regions and minimizing deployment latency.
+c. Deploy a single App Runner service in one region with enhanced
+support for a multi-region database, focusing on database-level replication
+strategies for cross-region resilience.
+d. Provision individual App Runner services in each region, utilizing
+regionally replicated Amazon ECR images to minimize latency and ensure
+local availability of application services, thus enhancing user experience
+and system resilience.
+e. Configure Amazon Route 53 with health checks and employ DNS
+routing policies such as latency-based or geoproximity routing for App
+Runner custom domains to intelligently route user requests to the nearest
+operational region, improving response times and ensuring application
+availability.
+f. Utilize Amazon RDS with a multi-AZ deployment to achieve database
+replication across regions, aiming to provide a high-availability setup
+through traditional relational database mechanisms.
+8. In a DevOps workflow, which of the following best describes an
+effective approach for code vulnerability analysis and deployment in an
+AWS environment?
+a. Developers manually review code for vulnerabilities and deploy
+directly to Amazon EC2 instances without automated checks.
+b. Code changes are committed to GitHub, triggering an automated
+process that includes a GitHub action for build, Amazon S3 artifact
+upload, Amazon CodeGuru for code analysis, and AWS CodeDeploy for
+deployment.
+c. Code is directly deployed to production without any security analysis
+or use of deployment services like AWS CodeDeploy.
+d. Security analysis is outsourced to a third-party service post-
+deployment, with no integration in the CI/CD pipeline.
+9. When deploying workloads in a multicloud environment with AWS as
+the primary cloud provider, what specific software or agent needs to be
+installed on virtual machines in non-AWS cloud environments, such as
+Azure, to facilitate application deployment using AWS developer tools?
+a. AWS Lambda Agent
+b. Azure Deployment Agent
+c. AWS CodeDeploy Agent
+d. Google Cloud Deployment Manager Agent
+10. Imagine a DevOps team at a major online retailer is in the middle of a
+critical database upgrade to improve transaction speeds. The upgrade is
+fully automated through their AWS CI/CD pipeline. Unexpectedly, 20
+minutes into the upgrade, which has a 30-minute window, the pipeline
+stalls. The team discovers an ongoing AWS Health incident in their region
+is causing the issue, leading to a significant service outage. To prevent
+such scenarios in the future, they decide to integrate AWS Health API into
+their CodePipeline flow. What is the key function of this integration?
+a. To rollback database changes automatically in case of pipeline failures.
+b. To initiate a failover to a secondary database during AWS Health
+incidents.
+c. To use a Lambda function in a custom pipeline stage for evaluating
+AWS Health, preventing deployments during detected incidents.
+d. To bypass AWS Health incidents by rerouting traffic to unaffected
+regions.
+11. In a scenario where a DevOps team is utilizing the EC2 Image Builder
+Pipeline to build Golden AMIs, and requires a process to ensure these
+AMIs are thoroughly reviewed before being shared with other AWS
+accounts, what method should be implemented?
+a. Automatically approve and share Golden AMIs using AWS Config
+rules.
+b. Create a workflow integrating the EC2 Image Builder Pipeline with
+Amazon SNS, AWS Lambda, and SSM Automation for a manual approval
+process before sharing the AMIs.
+c. Share the AMIs immediately upon creation using a Lambda function
+without any approval mechanism.
+d. Manually review and share each AMI via the AWS Management
+Console without any automated process.
+12. In an AWS environment, how can a DevOps team view the status of a
+```
+pipeline triggered by a commit in a third-party Git repository (such as
+```
+```
+Bitbucket) within the same repository dashboard?
+```
+a. By configuring AWS CodePipeline to directly update the third-party
+repository dashboard.
+b. By setting up an Amazon SNS topic to capture pipeline events, and an
+AWS Lambda function to push these status updates back to the repository
+```
+via a Representational State Transfer (REST) API.
+```
+c. By manually updating the repository with the pipeline status after each
+run.
+d. By relying solely on the AWS CodePipeline dashboard for all status
+updates, without integration into the third-party repository.
+13. A DevOps engineer is deploying a simple web application to an EC2
+instance running Amazon Linux using AWS CodeDeploy. They have an
+appspec.yml file that defines the deployment actions, including file
+mappings and scripts for the Apache web server’s installation, startup, and
+shutdown. Choose the correct appspec.yml file format based on the
+following website content structure:
+1.
+2. appspec.yml
+3. scripts/
+4. | install_web_server.sh
+5. | start_web_server.sh
+6. | stop_web_server.sh
+7. index.html
+a.
+1. version: 0.0
+2. os: linux
+3. files:
+4. - source: /index.html
+5. destination: /var/www/html/
+6. hooks:
+7. BeforeInstall:
+8. - location: scripts/install_dependencies.sh
+9. timeout: 300
+10. runas: root
+11. ApplicationStop:
+12. - location: scripts/shutdown_web_server.sh
+13. timeout: 300
+14. runas: root
+b.
+1. version: 0.0
+2. os: linux
+3. files:
+4. - source: /index.html
+5. destination: /var/www/html/
+6. hooks:
+7. BeforeInstall:
+8. - location: scripts/install_web_server.sh
+9. timeout: 300
+10. runas: root
+11. - location: scripts/start_web_server.sh
+12. timeout: 300
+13. runas: root
+14. ApplicationStop:
+15. - location: scripts/stop_web_server.sh
+16. timeout: 300
+17. runas: root
+c.
+1. version: 0.0
+2. os: linux
+3. files:
+4. - source: /scripts
+5. destination: /usr/local/bin
+6. hooks:
+7. AfterInstall:
+8. - location: scripts/start_web_server.sh
+9. timeout: 300
+10. runas: root
+d.
+1. version: 0.0
+2. os: linux
+3. files:
+4. - source: /Website
+5. destination: /var/www
+6. hooks:
+7. ValidateService:
+8. - location: scripts/validate_installation.sh
+9. timeout: 300
+10. runas: root
+14. For deploying workloads using ECS Blue/Green deployment, what are
+the two key benefits of this methodology, especially when integrating with
+AWS CodeDeploy and AWS CodePipeline?
+a. Blue/Green deployment provisions new containers for the latest
+application version, rerouting load balancer traffic from old to new
+```
+containers; allowing for testing before full deployment.
+```
+b. Rollback to a previous version is faster and more efficient in
+Blue/Green deployments as compared to in-place deployments.
+c. AWS CodePipeline manages the entire release process automatically,
+but it does not support Blue/Green deployment methodologies.
+d. Blue/Green deployments require extensive downtime for traffic
+rerouting and do not support testing of new versions before production
+traffic is directed to them.
+15. In AWS CodeDeploy for an ECS deployment, what is the correct
+sequence of lifecycle event hooks as defined in the AppSpec file?
+a. AfterAllowTraffic
+b. AfterAllowTraffic
+c. AfterAllowTraffic
+d. AfterAllowTraffic
+16. In an AWS EKS environment, how should a rolling deployment be
+configured in a Kubernetes deployment YAML file?
+a.
+1. apiVersion: apps/v1
+2. kind: Deployment
+3. metadata:
+4. name: myapp-deployment
+5. spec:
+6. replicas: 3
+7. strategy:
+8. type: Recreate
+b.
+1. apiVersion: apps/v1
+2. kind: Deployment
+3. metadata:
+4. name: myapp-deployment
+5. spec:
+6. replicas: 3
+7. strategy:
+8. type: RollingUpdate
+9. rollingUpdate:
+10. maxUnavailable: 1
+11. maxSurge: 1
+c.
+1. apiVersion: v1
+2. kind: Pod
+3. metadata:
+4. name: myapp-pod
+5. spec:
+6. containers:
+7. - name: myapp-container
+8. image: myapp-image
+d.
+1. apiVersion: apps/v1
+2. kind: Deployment
+3. metadata:
+4. name: myapp-deployment
+5. spec:
+6. replicas: 3
+7. strategy:
+8. type: RollingUpdate
+9. rollingUpdate:
+10. minReadySeconds: 5
+17. Which three primary components constitute the AWS Cloud
+Development Kit
+a. CDK apps, CDK stacks, and CDK constructs.
+b. CloudFormation templates, Lambda functions, and EC2 instances.
+c. S3 buckets, DynamoDB tables, and IAM roles.
+d. EC2 Auto Scaling, VPC, and CloudWatch.
+18. Select the option that accurately describes L1, L2, and L3 constructs in
+AWS CDK.
+a. L1 Constructs: Directly represent all AWS CloudFormation resources;
+L2 Constructs: Represent AWS resources with an intent-based API and
+```
+include defaults and boilerplate; L3 Constructs (Patterns): Designed for
+```
+common tasks in AWS, involving multiple resources.
+b. L1 Constructs: Basic building blocks for AWS resources; L2
+```
+Constructs: Advanced configurations for AWS services; L3 Constructs:
+```
+Direct mappings to AWS CloudFormation.
+c. L1 Constructs: High-level abstractions for AWS services; L2
+```
+Constructs: Specific AWS service configurations; L3 Constructs:
+```
+Composite solutions combining multiple constructs.
+d. L1 Constructs: Complete solutions for AWS infrastructure; L2
+```
+Constructs: Basic AWS service configurations; L3 Constructs: Advanced
+```
+constructs for complex deployments.
+19. In the context of AWS Serverless Application Model (SAM), which
+template configuration correctly sets up a custom makefile builder for a
+Lambda function using Python 3.9 runtime??
+a.
+1. Resources:
+2. MyFunction:
+3. Type: AWS::Serverless::Function
+4. Properties:
+5. CodeUri: my_function/
+6. Handler: app.handler
+7. Runtime: python3.9
+8. Metadata:
+9. BuildMethod: python3.9
+b.
+1. Resources:
+2. HelloWorldFunction:
+3. Type: AWS::Serverless::Function
+4. Properties:
+5. CodeUri: hello_world/
+6. Handler: app.lambda_handler
+7. Runtime: python3.9
+8. Metadata:
+9. BuildMethod: makefile
+c.
+1. Resources:
+2. MyFunction:
+3. Type: AWS::Serverless::Function
+4. Properties:
+5. CodeUri: my_function/
+6. Handler: app.handler
+7. Runtime: python3.9
+d.
+1. Resources:
+2. HelloWorldFunction:
+3. Type: AWS::Serverless::Function
+4. Properties:
+5. CodeUri: hello_world/
+6. Handler: app.lambda_handler
+7. Runtime: python3.9
+20. In Python using AWS CDK, which code snippet correctly defines an
+Amazon S3 bucket in a stack using the Bucket construct?
+a.
+1. import aws_cdk.aws_s3 as s3
+2.
+3. class MyS3Stack(cdk.Stack):
+4. def scope: cdk.App, id: str):
+5. super().__init__(scope, id)
+6. bucket = s3.Bucket(self, "MyFirstBucket")
+b.
+1. import aws_cdk as cdk
+2. import aws_cdk.aws_s3 as s3
+3.
+4. class
+5. def __init__(self, scope: cdk.App, construct_id: str, **kwargs) ->
+```
+None:
+```
+6. super().__init__(scope, construct_id, **kwargs)
+7. bucket = s3.Bucket(self, "MyFirstBucket", versioned=True)
+c.
+1. import aws_cdk as cdk
+2.
+3. class MyBucketStack(cdk.Stack):
+4. def __init__(self, scope: cdk.App, id: str):
+5. super().__init__(scope, id)
+6. bucket = cdk.Bucket(self, "MyFirstBucket", versioned=False)
+d.
+1. import aws_cdk as cdk
+2. import aws_cdk.aws_s3 as s3
+3.
+4. class MyS3Stack(cdk.Stack):
+5. def __init__(self, scope: cdk.Construct, id: str):
+6. super().__init__(scope, id)
+7. bucket = s3.S3Bucket(self, "MyFirstBucket")
+21. A development team seeks to safely deploy a new feature in their
+application by using feature flags, enabling early code deployment while
+keeping it inactive until launch day. This allows for gradual rollout and
+limits the risk of exposing all users to potential issues. Which AWS
+service should they use to achieve this functionality, providing the ability
+to toggle feature visibility without deploying new code?
+a. AWS AppConfig
+b. AWS CodeDeploy
+c. AWS Elastic Beanstalk
+d. Amazon EC2
+22. A team aims to quickly deploy a production-ready containerized
+Nginx-based web application named my-api on AWS Elastic Container
+```
+Service (ECS) using AWS Copilot. They have the application in a Git
+```
+repository What single command should they use to deploy my-api as a
+Load Balanced Web Service?
+a.
+1. git clone https://github.com/my-app.git my-app && \
+2. cd my-app && \
+3. copilot deploy --app demo-app \
+4. --name my-api \
+5. --type 'Load Balanced Web Service' \
+6. --dockerfile './Dockerfile' \
+7. --port 80
+b.
+1. git clone https://github.com/my-app.git my-app && \
+2. cd my-app && \
+3. copilot init --app demo-app \
+4. --name my-api \
+5. --type 'Load Balanced Web Service' \
+6. --dockerfile './Dockerfile' \
+7. --port 80 \
+8. --deploy
+c.
+1. git clone https://github.com/my-app.git my-app && \
+2. cd my-app && \
+3. copilot service deploy --name my-api \
+4. --app demo-app \
+5. --type 'Load Balanced Web Service' \
+6. --dockerfile './Dockerfile' \
+7. --port 80
+d.
+1. git clone https://github.com/my-app.git my-app && \
+2. cd my-app && \
+3. copilot ecs deploy --name demo-app \
+4. --service my-api \
+5. --type 'Load Balanced Web Service' \
+6. --dockerfile './Dockerfile' \
+7. --port 80
+23. An enterprise aims to modernize its existing Java and .NET
+applications to improve operational efficiency and agility. They are
+looking for a solution to simplify the containerization process and migrate
+these legacy systems to AWS with minimal disruption. Which AWS
+service should they use to facilitate this modernization and
+containerization process?
+a. AWS Elastic Beanstalk
+b. AWS App2Container
+c. AWS CodeDeploy
+d. AWS Fargate
+24. A large corporation is embarking on a project to efficiently configure
+and govern their AWS multi-account environment. They plan to utilize
+AWS Control Tower for its orchestration capabilities, ensuring adherence
+to best practices. Which set of key components of AWS Control Tower
+should they prioritize to establish a secure, compliant, and operationally
+efficient environment?
+a. Landing Zone, Account Factory
+b. Guardrails, Member Accounts
+c. Shared Accounts, Landing Zone
+d. Landing Zone, Account Factory, Guardrails, Member Accounts, Shared
+Accounts
+25. A security team in a large organization is seeking a comprehensive
+solution to analyze and investigate security incidents within their AWS
+environment. They need a service that can automatically aggregate and
+analyze logs from AWS resources such as CloudTrail logs, EKS audit
+logs, VPC flow logs, and incorporate AWS GuardDuty findings. Which
+AWS service offers advanced analysis and visualization tools to assist in
+identifying the root cause of these security incidents?
+a. AWS CloudTrail
+b. AWS GuardDuty
+c. AWS Detective
+d. AWS Security Hub
+26. A company is looking to manage both their AWS and on-premises
+applications and servers with a service that allows for the modeling of
+their application stack, including layers for load balancing, database, and
+application server. They also require the ability to deploy and configure
+Amazon EC2 instances, integrate Amazon RDS databases, and set up
+automatic scaling based on traffic levels or schedules. Which AWS service
+should they use to fulfill these requirements with lifecycle hook
+orchestration for scaling?
+a. AWS Elastic Beanstalk
+b. AWS OpsWorks Stacks
+c. Amazon EC2 Auto Scaling
+d. AWS CloudFormation
+27. A DevOps team is planning to implement a blue/green deployment for
+their application using AWS OpsWorks. They intend to minimize
+downtime and risk during application updates. What steps should they
+follow in AWS OpsWorks to achieve this?
+a. Create a new layer in the existing stack for the green environment, and
+switch traffic using Route 53.
+b. Deploy the newer version directly to the existing stack and use AWS
+Lambda for traffic redirection.
+c. Clone the existing stack (blue environment) for the green environment
+with the newer application version, and update DNS records to point to
+the green stack’s load balancer at the time of promotion.
+d. Utilize AWS Elastic Beanstalk for blue/green deployment without
+involving AWS OpsWorks stacks.
+28. A DevOps engineer needs to manage updates to their production
+stacks in AWS CloudFormation. They want to preview the impact of their
+changes before executing CloudFormation’s Update Stack operation.
+What approach should they take to achieve this?
+a. Directly apply the new template to the stack and rely on AWS
+CloudFormation’s rollback capabilities in case of issues.
+b. Use AWS CloudFormation change sets to submit changes against the
+stack, review the generated change set, and then choose to apply it.
+c. Modify the stack resources manually through the AWS Management
+Console and bypass CloudFormation.
+d. Use AWS Lambda functions to simulate and predict the changes before
+updating the stack.
+29. A DevOps team wants to ensure the resources in their AWS
+CloudFormation stack are protected from accidental deletion or unwanted
+updates. Which of the following methods should they employ to achieve
+this?
+a. Set the DeletionPolicy attribute to prevent the deletion of individual
+resources at the stack level.
+b. Use AWS Identity and Access Management policies to restrict the
+ability of users to delete or update a stack and its resources.
+c. Assign a stack policy to prevent updates to stack resources.
+d. Turn on termination protection to prevent users from deleting the stack
+from the AWS CloudFormation console or AWS CLI.
+e. Regularly back up the stack using a third-party tool.
+30. Given the following AWS CloudFormation template snippet, which
+defines a RegionMap mapping for AMI IDs in different regions. Choose
+the correct resource definition for an EC2 instance named
+WebServerInstance that dynamically selects the appropriate AMI based on
+the deployment region.
+1. AWSTemplateFormatVersion: "2010-09-09"
+2. Mappings:
+3. RegionMap:
+4. us-east-1:
+5. HVM64: ami-0ff8a91507f77f867
+6. us-west-1:
+7. HVM64: ami-0bdb828fd58c52235
+a.
+1. Resources:
+2. WebServerInstance:
+3. Type: "AWS::EC2::Instance"
+4. Properties:
+5. ImageId: !FindInMap [RegionMap, !Ref "AWS::Region",
+HVM64]
+6. InstanceType: m1.small
+b.
+1. Resources:
+2. WebServerInstance:
+3. Type: "AWS::EC2::Instance"
+4. Properties:
+5. ImageId: !Ref "AWS::Region"
+6. InstanceType: m1.small
+c.
+1. Resources:
+2. WebServerInstance:
+3. Type: "AWS::EC2::Instance"
+4. Properties:
+5. ImageId: !FindInMap [RegionMap, "us-west-1", HVM64]
+6. InstanceType: m1.small
+d.
+1. Resources:
+2. WebServerInstance:
+3. Type: "AWS::EC2::Instance"
+4. Properties:
+5. ImageId: [RegionMap, "HVM64", !Ref "AWS::Region"]
+6. InstanceType: m1.small
+31. A company using Amazon RDS needs to enhance their backup
+strategy to meet business continuity and compliance requirements. They
+want to ensure that their database backups are stored in a different AWS
+region from their production data. Which AWS service should they use to
+replicate their RDS backups across regions?
+a. AWS DataSync
+b. AWS RDS Cross-Region Snapshots
+c. AWS Glacier
+d. AWS Backup
+32. A multinational company is using AWS Aurora for their database
+needs and wants to ensure high availability and low latency access across
+different geographical locations. How can they leverage AWS Aurora
+Global Database to meet these requirements?
+a. Use Aurora Read Replicas in each AWS region for local read access
+and manual failover in case of a regional outage.
+b. Implement an Aurora Global Database with a primary AWS region for
+writes and up to five read-only secondary AWS regions, allowing for
+quick promotion of a secondary region in case of regional degradation.
+c. Deploy multiple independent Aurora databases in each region and
+synchronize them using AWS DataSync.
+d. Utilize AWS Lambda for replicating data across multiple Aurora
+database instances in different regions.
+33. A DevOps engineer needs to ensure that an updated Amazon Machine
+```
+Image (AMI) is available in multiple AWS regions for launching
+```
+instances. What is the recommended approach to replicate the updated
+AMI across different regions?
+a. Manually recreate the AMI in each region.
+b. Use the AWS Management Console, AWS CLI, SDKs, or Amazon EC2
+API to perform the CopyImage action to copy the AMI to other regions.
+c. Use AWS DataSync to synchronize the AMI across regions.
+d. Configure Amazon EC2 Auto Scaling to automatically copy the AMI to
+other regions.
+34. A company is implementing a disaster recovery strategy that includes
+Backup and Restore and Pilot Light for their AWS Lambda functions.
+They need to replicate a Lambda function to a secondary AWS region.
+Which steps should they follow using the AWS Lambda console to
+achieve this?
+a. Use the AWS Lambda console to directly replicate the function to
+another region.
+b. First, export the Lambda function using Actions | Export Function, then
+import it into the second region using Actions | Upload a .zip file.
+c. Configure AWS Lambda cross-region replication using AWS
+DataSync.
+d. Use Amazon S3 cross-region replication to automatically replicate the
+Lambda function.
+35. A company implementing an Active-Active disaster recovery strategy
+needs to replicate a secret from AWS Secrets Manager to another region.
+What steps should they follow in AWS Secrets Manager to ensure their
+secret is available in multiple regions?
+a. Use AWS DataSync to synchronize the secret across regions.
+b. Directly create the same secret in the secondary region using AWS
+Secrets Manager.
+c. In AWS Secrets Manager, click on the secret, then select Replicate
+secret to other regions, and configure replication details for the destination
+region.
+d. Use Amazon S3 cross-region replication for the secret.
+36. A development team is looking to enhance their Amazon DynamoDB-
+based application’s performance. They require a solution where
+developers do not have to set up and develop against a side cache, nor do
+they have to write complex logic for cache lookups, population, and
+invalidation. Which option should they choose that is API-compatible with
+DynamoDB and simplifies this process?
+a. Implement Amazon ElastiCache as a side cache for DynamoDB.
+b. Integrate their application with Amazon Redshift for caching.
+c. Use DynamoDB Accelerator for in-memory caching with API
+compatibility.
+d. Develop custom AWS Lambda functions for managing DynamoDB
+caching.
+37. A company is implementing a warm standby disaster recovery strategy
+using AWS ElastiCache for Redis with cross-region replication. They need
+to ensure that if the primary Redis cluster degrades, a secondary cluster in
+a different region can be promoted to primary. What configuration should
+they use in AWS ElastiCache to support this requirement?
+a. Set up two Redis clusters in the same region with master-slave
+replication.
+b. Implement ElastiCache Global Datastore with a primary (read/write)
+```
+cluster and a secondary (read-only) cluster in a different region.
+```
+c. Use ElastiCache replication groups within a single region for disaster
+recovery.
+d. Deploy multiple standalone Redis clusters across various regions
+without replication.
+38. A company is using Amazon API Gateway for their external APIs and
+wants to implement an active-active disaster recovery strategy across
+multiple regions. How can they configure their API traffic to be balanced
+between infrastructures in different regions?
+a. Utilize AWS Lambda to manually route traffic between API Gateway
+deployments in different regions.
+b. Implement Amazon Route 53 weight-routing policies to distribute API
+traffic across multiple regions.
+c. Rely on Amazon CloudFront for automatic regional traffic distribution
+for API Gateway.
+d. Use Amazon S3 cross-region replication to handle API traffic across
+regions.
+39. A company is exploring options for scalable and cost-effective
+application recovery to AWS in various scenarios. How can AWS Elastic
+```
+Disaster Recovery DRS) assist them in achieving rapid recovery for
+```
+different use cases?
+a. On-premises to AWS: For recovery operations from software issues or
+datacenter hardware failures.
+b. Cloud to AWS: To convert cloud-based applications to run natively on
+AWS for increased resilience and compliance.
+c. AWS Region to AWS Region: For increasing application resilience and
+meeting availability goals by recovering applications in a different AWS
+Region.
+d. All the above.
+40. A DevOps team wants to leverage the Cross-Region Replication
+```
+(CRR) feature in Amazon Elastic Container Registry (ECR) to improve
+```
+container startup times and comply with disaster recovery requirements.
+How should they configure CRR in their ECR private registry?
+a. Manually replicate container images to each region.
+b. Enable CRR at the private registry level, selecting the desired
+destination accounts and regions for automatic image replication.
+c. Use AWS Lambda to automate the replication of container images
+across regions.
+d. Implement Amazon S3 cross-region replication for container images
+stored in ECR.
+41. A company wants to automatically ingest CloudWatch logs into New
+Relic for enhanced monitoring and analysis. How should they configure
+their AWS environment to achieve this without needing to write custom
+applications or manage additional resources?
+a. Use AWS Lambda to manually process and forward logs from
+CloudWatch to New Relic.
+b. Directly integrate CloudWatch with New Relic using built-in AWS
+services.
+c. Configure Kinesis Data Firehose with an Hypertext Transfer Protocol
+```
+(HTTP) endpoint delivery to automatically ingest and forward data to
+```
+New Relic.
+d. Store CloudWatch logs in S3 and use a scheduled script to send data to
+New Relic.
+42. A DevOps engineer needs to secure AWS CloudWatch logs by
+```
+encrypting them using a specific Key Management Service (KMS)
+```
+Symmetric key. Given that test-log-group is the name of the log group and
+kms_key_arn is the ARN of the KMS Symmetric key, which AWS CLI
+command should the engineer use to configure this encryption?
+a. aws logs encrypt-log-group --log-group-name test-log-group --kms-
+key-id kms_key_arn
+b. aws kms encrypt-logs --log-group-name test-log-group --key-id
+kms_key_arn
+c. aws logs associate-kms-key --log-group-name test-log-group --kms-
+key-id kms_key_arn
+d. aws cloudwatch set-log-group-encryption --name test-log-group --kms-
+key kms_key_arn
+43. A team is using AWS WAF and wants to analyze their logs in Amazon
+CloudWatch Logs Insights to identify potential security incidents.
+Specifically, they aim to identify the top 100 IP addresses making the most
+requests to their application. Which CloudWatch Logs Insights query
+should they use to achieve this analysis directly from the WAF console?
+a.
+1. fields srcIp
+2. | stats sum(requestCount) as requestCount by srcIp
+3. | sort requestCount desc
+4. | limit 100
+b.
+1. fields httpRequest.clientIp
+2. | stats count(*) as requestCount by httpRequest.clientIp
+3. | sort requestCount desc
+4. | limit 100
+c.
+1. fields clientIp
+2. | count httpRequest.clientIp
+3. | order by count desc
+4. | top 100 clientIp
+d.
+1. fields httpRequest.clientIp
+2. | calculate sum(requests) as totalRequests by httpRequest.clientIp
+3. | order by totalRequests desc
+4. | display top 100
+44. A network engineer needs to send Amazon VPC flow logs to Datadog
+for monitoring and analysis. To streamline this process and reduce
+operational overhead, they plan to use Amazon Kinesis Data Firehose.
+How should they configure their AWS environment to efficiently deliver
+VPC flow logs to Datadog?
+a. Set up Amazon CloudWatch Logs to directly stream VPC flow logs to
+Datadog.
+b. Configure Amazon VPC Flow Logs to use Amazon Kinesis Data
+Firehose as the log destination and then set up Kinesis Data Firehose to
+deliver logs to Datadog.
+c. Export VPC flow logs to Amazon S3 and use AWS Lambda to process
+and forward the logs to Datadog.
+d. Directly stream VPC flow logs to multiple source accounts without
+using Kinesis Data Firehose.
+45. A DevOps team is managing a microservices architecture on a
+Kubernetes cluster and faces challenges in understanding, analyzing, and
+debugging the service landscape due to the involvement of numerous
+microservices in handling single-user requests. They decide to implement
+AWS X-Ray for application tracing. What is the correct approach to
+deploying X-Ray in their Kubernetes environment?
+a. Install AWS X-Ray as a standalone service in the cluster and manually
+configure each microservice to send tracing data to it.
+b. Deploy the X-Ray daemon to Kubernetes using a DaemonSet, ensuring
+an X-Ray Pod on each worker node that receives tracing data from
+microservices and exposes the X-Ray port directly on the host.
+c. Configure an AWS Lambda function in each microservice to send
+tracing data to an external X-Ray service.
+d. Use Amazon CloudWatch to automatically handle tracing for all
+microservices in the Kubernetes cluster.
+46. A Fintech company expects to receive high traffic during market
+hours, which correlates with high CPU utilization, but they would not
+anticipate similar behavior late at night. To manage these operational
+variations more effectively, how can AWS CloudWatch Anomaly
+Detection assist them?
+a. By manually setting high and low thresholds for CloudWatch metrics
+and receiving notifications.
+b. CloudWatch Anomaly Detection applies statistical and Machine
+```
+Learning (ML) algorithms to CloudWatch metrics to calculate normal
+```
+baselines, intelligently raising actionable alerts based on learned patterns
+like high CPU utilization during market hours or unusual spikes in credit
+card transactions.
+c. Using AWS Lambda functions to analyze CloudWatch metrics and
+send custom alerts.
+d. Implementing Amazon Machine Learning services separately to
+analyze CloudWatch metrics and predict anomalies.
+47. A DevOps engineer needs to optimize log collection for their
+infrastructure and applications using the Amazon CloudWatch agent. They
+want to collect only log events that meet specific criteria to manage log
+ingestion effectively. How can they utilize the CloudWatch agent’s log
+filter expressions to achieve this?
+a. Configure the CloudWatch agent to send all logs to CloudWatch, and
+then use CloudWatch Logs Insights to filter the logs based on criteria.
+b. In the CloudWatch agent configuration file, specify “include” and
+“exclude” regular expressions for each log stream, allowing the agent to
+evaluate and send only the relevant log events to CloudWatch.
+c. Use AWS Lambda functions to process and filter logs before sending
+them to CloudWatch.
+d. Directly filter logs in Amazon EC2 instances and on-premises hosts
+before sending them to the CloudWatch agent.
+48. A security team needs to implement monitoring systems to receive
+alerts for changes in AWS IAM configuration, ensuring they can allow
+necessary actions while maintaining security. How can they set up a
+system using AWS services to get real-time alerts when IAM
+configurations change?
+a. Configure AWS IAM to send direct notifications to Amazon SNS for
+any configuration changes.
+b. Use AWS CloudTrail to log IAM activities, set up Amazon
+EventBridge to monitor these logs, and trigger Amazon SNS notifications
+for any changes.
+c. Implement an AWS Lambda function to check IAM configurations
+periodically and send alerts through Amazon SNS.
+d. Rely on Amazon CloudWatch alarms to monitor IAM configuration
+changes and send notifications.
+49. A company’s AWS RDS relational database is facing increasing load
+as its user base grows rapidly. To ensure their database can efficiently
+handle this growth and continue to support their applications, which
+scaling strategy should they adopt?
+a. Implement only vertical scaling by choosing larger instance sizes with
+more CPU, memory, storage, and networking capacity, as it is the most
+straightforward method.
+b. Opt for horizontal scaling exclusively, where database operations are
+extended to additional nodes, with AWS managing the infrastructure.
+c. Combine both vertical and horizontal scaling, utilizing vertical scaling
+for immediate capacity increase and horizontal scaling for extending
+operations to additional nodes.
+d. Avoid scaling the database and instead optimize the application code to
+reduce the load on the database.
+50. An AWS DevOps engineer is setting up an Amazon ECS cluster and
+needs to efficiently manage the scaling of the cluster’s infrastructure. How
+should they use capacity providers to optimize the scaling process in
+Amazon ECS?
+a. Use only the default capacity provider strategy associated with the ECS
+cluster and ignore specific capacity providers.
+b. Associate a specific capacity provider with the cluster, such as
+FARGATE or FARGATE_SPOT for AWS Fargate, or an Auto Scaling
+group for Amazon ECS on EC2, and then include it in the task’s capacity
+provider strategy.
+c. Directly use the Auto Scaling group for Amazon ECS tasks without
+associating any specific capacity provider.
+d. Assign the FARGATE_SPOT capacity provider to all tasks to minimize
+costs, regardless of the task requirements.
+51. An AWS DevOps engineer is managing a Kubernetes environment on
+Amazon EKS and needs to implement an autoscaling solution to
+automatically adjust resources based on changing demands. Which
+autoscaling option should they choose for optimal performance and
+flexibility?
+a. Utilize only the built-in Kubernetes horizontal pod autoscaler, as it is
+sufficient for all EKS environments.
+b. Choose Karpenter for its high performance and flexibility in launching
+right-sized compute resources in response to application load, with precise
+provisioning based on workload requirements.
+c. Implement the Kubernetes Cluster Autoscaler exclusively, relying on
+its integration with AWS Auto Scaling groups to manage the number of
+nodes in the cluster.
+d. Use both Karpenter and the Kubernetes Cluster Autoscaler together to
+benefit from the features of both autoscalers simultaneously.
+52. An AWS DevOps engineer needs to automate operational response to
+specific CloudWatch Alarms for their EC2 instances. They aim to create
+an OpsItem in Systems Manager OpsCenter when a CloudWatch Alarm,
+such as high CPU Utilization, is triggered. Which steps should they follow
+to ensure this integration works effectively?
+a. Create a CloudWatch Alarm for high CPU Utilization and configure its
+action to notify an SNS topic instead of integrating with Systems Manager
+OpsCenter.
+b. Set up a CloudWatch Alarm to monitor CPU Utilization above 80%,
+configure its action to create an OpsItem in Systems Manager OpsCenter,
+and then use suggested runbooks in OpsCenter for potential automatic
+resolution.
+c. Directly monitor CPU Utilization from Systems Manager OpsCenter
+without setting up CloudWatch Alarms.
+d. Use AWS Lambda to monitor CPU Utilization and create OpsItems in
+Systems Manager OpsCenter manually when high utilization is detected.
+53. A DevOps team is using AWS OpsWorks to manage their application
+stacks. They want to ensure high availability and resilience by
+automatically replacing instances that fail. How should they leverage
+AWS OpsWorks’ Auto Healing feature to maintain consistent application
+performance?
+a. Configure AWS OpsWorks to send alerts when an instance fails and
+manually replace the failed instances.
+b. Enable Auto Healing in AWS OpsWorks, which automatically replaces
+instances that have not communicated with the OpsWorks service for
+more than five minutes, triggering a lifecycle event on all stack instances.
+c. Use AWS Lambda functions to monitor the health of instances and
+create new instances when failures are detected.
+d. Rely solely on AWS Elastic Load Balancing health checks to replace
+unhealthy instances.
+54. An AWS DevOps engineer needs to visualize AWS Health events
+using Amazon Managed Grafana for a more comprehensive understanding
+of their AWS environment’s status and potential issues. What steps should
+they follow to set up this visualization effectively?
+a. Directly integrate AWS Health with Amazon Managed Grafana without
+any additional services or data processing.
+b. Set up Amazon EventBridge rules and Amazon Kinesis Firehose to
+stream AWS Health events into an Amazon S3 bucket, extract and load
+these events into AWS Glue Data Catalogue, and then use Amazon Athena
+to build a Managed Grafana dashboard for visualization.
+c. Use AWS CloudFormation to create a custom dashboard in Amazon
+Managed Grafana for AWS Health events.
+d. Configure AWS Lambda functions to process AWS Health events and
+then manually input the data into Amazon Managed Grafana.
+55. An AWS DevOps engineer is crafting an AWS SAM template to
+configure an Amazon S3 bucket, named MyS3Bucket, to send
+notifications to an Amazon SQS queue whenever a new object is created
+in the bucket. The template already includes resources for creating the
+```
+SQS queue (MyQueue) and its associated queue policy (MyQueuePolicy).
+```
+MyBucketName is passed as a parameter to the template for specifying
+the bucket’s name. What is the correct SAM template snippet for
+configuring the S3 bucket to meet this requirement?
+a.
+1. Resources:
+2. MyS3Bucket:
+3. Type: 'AWS::S3::Bucket'
+4. Properties:
+5. BucketName: !Ref MyBucketName
+6. NotificationConfiguration:
+7. TopicConfigurations:
+8. - Event: 's3:ObjectCreated:*'
+9. Topic: !GetAtt MyQueue.Arn
+b.
+1. Resources:
+2. MyS3Bucket:
+3. Type: 'AWS::S3::Bucket'
+4. Properties:
+5. BucketName: !Ref MyBucketName
+6. NotificationConfiguration:
+7. QueueConfigurations:
+8. - Event: 's3:ObjectCreated:*'
+9. Queue: !GetAtt MyQueue.Arn
+c.
+1. Resources:
+2. MyS3Bucket:
+3. Type: 'AWS::S3::Bucket'
+4. Properties:
+5. BucketName: !Ref MyBucketName
+6. NotificationConfiguration:
+7. LambdaFunctionConfigurations:
+8. - Event: 's3:ObjectCreated:*'
+9. Function: !GetAtt MyQueue.Arn
+d.
+1. Resources:
+2. MyS3Bucket:
+3. Type: 'AWS::S3::Bucket'
+4. DependsOn:
+5. - MyQueue
+6. Properties:
+7. BucketName: !Ref MyBucketName
+8. NotificationConfiguration:
+9. QueueConfigurations:
+10. - Event: 's3:ObjectCreated:*'
+11. Queue: !Ref MyQueue
+56. An AWS DevOps engineer is developing a cloud-native application for
+an online store. They need to implement a solution where, whenever an
+order is placed, an Amazon SNS message is sent to multiple subscribers
+for parallel asynchronous processing. How can they achieve this using a
+fanout messaging scenario with Amazon SNS and Amazon SQS?
+a. Set up an Amazon SNS topic for order placement notifications and
+configure Amazon EC2 instances to poll this topic for new messages.
+b. Create an Amazon SNS topic for order placement notifications and
+subscribe multiple Amazon SQS queues to this topic, ensuring each queue
+receives identical notifications for new orders.
+c. Implement Amazon Kinesis Data Streams for order messages and use
+AWS Lambda to push these messages to individual SQS queues.
+d. Use Amazon DynamoDB Streams to capture order placements and
+configure an AWS Lambda function to send notifications to separate SQS
+queues.
+57. An AWS DevOps engineer is tasked with enhancing the security of
+their company’s Amazon S3 buckets to ensure compliance with the policy
+that prohibits public read access. How can they use AWS Config managed
+rules to automatically identify and flag S3 buckets that allow global read
+access?
+a. Manually inspect each S3 bucket’s permissions and configure AWS
+IAM policies to restrict public read access.
+b. Implement a custom AWS Lambda function to periodically check all
+S3 buckets for public read access and send alerts.
+c. Use the AWS Config managed rule ‘s3-bucket-public-read-prohibited’
+to automatically identify buckets allowing global read access and to flag
+any non-compliant buckets across the account.
+d. Configure Amazon CloudWatch alarms to monitor and notify any
+changes in S3 bucket permissions that enable public read access.
+58. An AWS DevOps engineer is using Amazon CloudWatch Synthetics to
+monitor their application’s endpoints and APIs. A canary script has failed,
+and they need to troubleshoot the issue. How should they utilize the
+features of CloudWatch Synthetics to identify the cause of the canary
+failure?
+a. Analyze the application’s CloudWatch logs to identify any errors or
+exceptions that might have caused the canary to fail.
+b. Directly contact customers to gather feedback on their experience and
+identify any issues they might have encountered.
+c. On the CloudWatch console, open the canary details page, check the
+‘SuccessPercent’ metric under the Availability tab for constant or
+intermittent problems, and review the step report, if available, to see
+which step failed and examine associated screenshots.
+d. Restart the canary and observe if the issue persists without performing
+any analysis.
+59. An AWS DevOps engineer needs to enhance data security by
+identifying sensitive data stored in the AWS Cloud. They plan to use
+Amazon Macie with custom data identifiers for this purpose. What steps
+should they follow to effectively discover sensitive data tailored to their
+organization’s specific needs using Macie?
+a. Enable Amazon GuardDuty and create custom threat detection rules to
+identify sensitive data.
+b. Use AWS CloudTrail to monitor access to data and manually inspect
+data for sensitivity.
+c. First, enable Amazon Macie and configure detailed logging. Then, use
+Macie’s custom data identifiers to create rules that identify sensitive data
+specific to the organization’s requirements, leveraging Macie’s machine
+learning and pattern matching capabilities.
+d. Implement AWS Lambda functions to scan data in S3 buckets and
+manually define sensitivity criteria in the function code.
+60. As an AWS DevOps Engineer, you are responsible for protecting a
+web application against common web exploits like SQL Injection and
+Cross-Site Scripting. How can you utilize AWS WAF to enhance the
+security of your web application?
+a. Deploy an AWS Lambda function to scan incoming HTTP requests and
+manually block any malicious requests.
+b. Use AWS Shield to automatically protect your web application against
+```
+Distributed Denial of Service (DDoS) attacks without any additional
+```
+configuration.
+c. Implement AWS WAF to create custom rules that analyze and filter
+HTTP requests, blocking or allowing them based on your specific security
+needs and protecting against common web exploits.
+d. Configure Amazon CloudFront to automatically filter out malicious
+HTTP requests before they reach your application.
+61. An AWS DevOps Engineer needs to implement a security solution to
+continuously monitor and protect their AWS environment, including AWS
+accounts, workloads, and data in Amazon S3. How can they leverage
+Amazon GuardDuty for effective threat detection based on their
+requirements?
+a. Configure Amazon Inspector to perform security assessments and send
+regular reports for manual analysis and action.
+b. Deploy custom AWS Lambda functions to analyze AWS CloudTrail
+Events, VPC Flow Logs, and DNS Logs for unusual activities or known
+threats.
+c. Utilize Amazon GuardDuty, which offers continuous monitoring and
+threat detection by analyzing metadata streams from AWS CloudTrail
+Events, VPC Flow Logs, and DNS Logs, and employs integrated threat
+intelligence, anomaly detection, and machine learning for accurate threat
+identification. GuardDuty operates independently, ensuring no impact on
+performance, and provides actionable alerts without requiring additional
+software or threat intelligence subscriptions.
+d. Set up AWS Config rules to continuously evaluate AWS resource
+configurations and send notifications for any configurations that do not
+comply with security policies.
+62. An AWS DevOps Engineer needs to implement an automated solution
+to remediate the Exposed Access Keys security check detected by AWS
+Trusted Advisor in their AWS infrastructure. What steps should they take
+to set up this automated remediation process?
+a. Review the Trusted Advisor console regularly and manually rotate or
+delete exposed IAM Access Keys as identified.
+b. Use AWS Config to automatically detect and rotate exposed IAM
+Access Keys without any integration with other services.
+c. Implement a process that includes:
+• Identifying security recommendations via Trusted Advisor.
+• Subscribing to Trusted Advisor events in Amazon EventBridge,
+• Creating an EventBridge rule to forward events to an AWS Lambda
+function.
+• Developing a Lambda function to execute remediation actions for
+exposed access keys.
+• Using Amazon SNS to notify the security team about the remediation
+actions taken.
+d. Configure AWS IAM policies to automatically restrict and delete any
+exposed access keys detected by Trusted Advisor.
+63. As an AWS DevOps Engineer, you need to ensure regular patching of
+Windows EC2 instances using AWS Systems Manager Patch Manager.
+Which steps should you follow to configure and implement an effective
+patch management process?
+a. Manually log into each Windows EC2 instance regularly and apply
+necessary patches as released by Microsoft.
+b. Implement a process that includes:
+• Defining a patch baseline in AWS Systems Manager to specify
+necessary patches.
+• Creating patch groups to organize instances by their environments,
+such as development, test, and production.
+• Scheduling the patching process during maintenance windows to
+minimize disruption.
+c. Use AWS Config to automatically apply Windows updates to EC2
+instances without manual intervention.
+d. Configure Amazon EC2 Auto Scaling to replace instances with new
+ones that have the latest patches applied, thereby ensuring all instances are
+up to date.
+64. An AWS DevOps Engineer is tasked with enhancing the security of
+```
+their organization’s Amazon Virtual Private Cloud (VPC) by inspecting,
+```
+monitoring, and logging network traffic. Which AWS service should they
+use to implement fine-grained network protections that scale
+automatically with network traffic and offer high availability?
+a. Use AWS WAF to create web Access Control List (ACLs) for
+monitoring HTTP/HTTPS traffic in the VPC.
+b. Implement AWS Network Firewall to provide detailed inspection,
+monitoring, and logging of network traffic within the Amazon VPC,
+including support for flexible rule creation and intrusion prevention.
+c. Configure Amazon VPC Security Groups to restrict incoming and
+outgoing network traffic to instances in the VPC.
+d. Deploy AWS Shield for advanced protection against Distributed Denial
+of Service attacks targeting the VPC.
+65. As an AWS DevOps Engineer, you need to ensure that your AWS
+resources, such as Amazon S3 buckets or IAM roles, are not
+unintentionally shared with external entities. Which AWS service should
+you use to identify and review such unintended external accesses to your
+resources?
+a. Utilize AWS Security Hub to aggregate and analyze security alerts and
+findings from various AWS services and third-party sources.
+b. Implement AWS IAM Access Analyzer to identify resources shared
+with external entities and analyze resource-based policies for potential
+security risks.
+c. Deploy Amazon Inspector to assess the applications deployed in your
+AWS environment for potential security vulnerabilities and unintended
+network exposure.
+d. Use AWS Config to track changes in your AWS resource
+configurations and evaluate them against desired configurations for
+compliance purposes.
+66. An AWS DevOps Engineer needs to manage SSL/TLS certificates for
+a website that handles sensitive data and must comply with standards like
+PCI-DSS, FedRAMP, and HIPAA. The goal is to simplify and automate
+the provisioning, deployment, and renewal of these certificates. Which
+AWS service should be used for this purpose?
+a. Use AWS KMS to create and manage SSL/TLS certificates for secure
+data encryption.
+b. Implement AWS Certificate Manager to automate the tasks associated
+with SSL/TLS certificates, including provisioning, deployment, and
+renewal.
+c. Deploy Amazon Inspector to assess the security of your web
+application and manage SSL/TLS certificates.
+d. Utilize AWS CloudHSM to handle SSL/TLS certificates for the
+website, ensuring compliance with various standards.
+67. A large enterprise is looking to manage workforce access across
+multiple AWS accounts and applications centrally. They have a diverse
+workforce that uses various identity sources, including Microsoft Active
+Directory, Okta, and Google Workspace. The enterprise aims to streamline
+and secure workforce authentication and authorization on AWS. Which
+AWS service should they implement to achieve this?
+a. Implement AWS IAM Identity Center to centrally manage workforce
+access across AWS accounts and applications, with support for connecting
+existing identity sources like Microsoft Active Directory, Okta, and
+Google Workspace.
+b. Use AWS Key Management Service to manage keys and control access
+to AWS accounts and applications, integrating with various identity
+sources.
+c. Deploy Amazon Cognito for workforce access management, providing
+centralized control over AWS accounts and applications, with limited
+support for existing identity sources.
+d. Utilize AWS Directory Service to connect with various identity sources
+and manage access to AWS accounts, but with limited application-level
+access control.
+68. A company is planning to streamline its Active Directory (AD)
+operations as part of its cloud migration strategy. The objectives include
+simplifying AD operations and maintenance, securely migrating directory-
+aware workloads to AWS, and enabling users to access AWS resources
+using their existing Microsoft AD credentials. Which AWS service should
+the company use to achieve these objectives, and what are the key
+benefits?
+a. AWS Directory Service to simplify AD operations, streamline
+workload migration, and allow access to AWS resources with existing AD
+credentials.
+b. AWS IAM for user access management, although it does not
+specifically address AD operations or workload migration.
+c. Amazon Cognito for user authentication, but it does not provide
+comprehensive solutions for AD operations or workload migration.
+d. AWS organizations for overall management and governance, but it
+lacks specific features for AD integration and workload migration.
+69. Your organization is planning to migrate its existing on-premises
+applications to AWS. These applications are heavily integrated with your
+existing Microsoft AD for user authentication, group management, and
+access control. You are tasked with ensuring that these applications can
+seamlessly integrate with a directory service in AWS without
+compromising on the management of users, groups, and devices. Based on
+the capabilities of AWS Directory Service, which of the following
+approaches would be the most effective in meeting your requirements?
+a. Migrate your on-premises Microsoft AD to AWS and use AWS
+Directory Service to manage your AD in the cloud, allowing your
+applications to authenticate users and manage access as they did on-
+premises.
+b. Implement a new directory using AWS Directory Service’s built-in
+LDAP capabilities and manually recreate all user and group data from
+your on-premises AD, ensuring cloud-native directory management.
+c. Set up a third-party Lightweight Directory Access Protocol (LDAP)
+directory service in AWS and integrate it with your applications, foregoing
+the use of AWS Directory Service due to its inability to handle Microsoft
+AD integrations.
+d. Use AWS Directory Service to create a standalone directory in the
+cloud and modify your applications to use this new directory instead of
+the existing Microsoft AD, to leverage cloud-native features.
+70. As a DevOps engineer in a company dealing with highly sensitive
+data, you are tasked with implementing a robust cryptographic key
+management and encryption solution. Your requirements include secure
+storage for cryptographic keys, the ability to perform cryptographic
+operations, and ensuring high availability and low latency access.
+Additionally, you seek automated management for tasks like backups,
+provisioning, configuration, and maintenance. Which AWS service should
+you integrate to meet these specific needs?
+a. Utilize AWS CloudHSM to leverage dedicated Hardware Security
+Modules in the cloud, ensuring secure key storage and cryptographic
+operations, along with automated HSM management and high availability.
+b. Implement AWS Key Management Service for managing
+cryptographic keys, relying on its integrated security features and
+automated management, but without dedicated hardware security
+modules.
+c. Deploy AWS Secrets Manager for key storage, focusing on its ability to
+handle secrets management and encryption operations, while using
+additional tools for high availability and automated management.
+d. Choose AWS Lambda for automated key management and encryption
+tasks, leveraging its serverless architecture for high availability and low
+latency, and integrating third-party HSMs for key storage.
+71. Your company is developing an application that will access AWS
+resources. The application will be used by external partners, and you need
+to ensure secure access without distributing long-term AWS credentials.
+You decide to use a solution that allows the creation of short-term
+credentials, which can last from a few minutes to several hours and are
+dynamically generated upon request. These credentials should not be
+stored with the user and must expire automatically after a defined period,
+eliminating the need for explicit revocation. Which AWS service should
+you use to implement this security mechanism??
+a. Utilize AWS IAM to create IAM users for each external partner,
+providing them with long-term credentials that are rotated regularly.
+b. Implement AWS Security Token Service to generate temporary
+security credentials for external partners, ensuring controlled access to
+AWS resources without needing to create permanent AWS identities.
+c. Deploy AWS Key Management Service to manage encryption keys that
+external partners use to authenticate and access AWS resources.
+d. Choose AWS Cognito to provide identity federation for external
+partners, allowing them to use their existing credentials to access AWS
+resources.
+72. Your organization operates a multi-account AWS environment and
+requires a centralized solution to monitor security compliance and manage
+security alerts. The solution should provide a comprehensive view of the
+security state across all accounts and services, assess compliance with
+```
+various security standards (such as CIS, PCI DSS, NIST, and AWS FSBP),
+```
+and integrate findings from other AWS security services. Additionally, it
+should offer automation capabilities for triaging and remediating security
+issues. Which AWS service should you implement to meet these
+requirements?
+a. Set up AWS Config to monitor and record AWS resource
+configurations, enabling compliance checks and assessment against
+security standards.
+b. Implement AWS Security Hub to gain a comprehensive view of your
+security state, assess compliance with industry standards, integrate
+findings from AWS and third-party security services, and automate
+response to security issues.
+c. Deploy AWS CloudTrail for logging and monitoring account activity
+across your AWS environment, focusing on security analysis and
+compliance assessment.
+d. Utilize AWS Inspector for automated security assessment and
+compliance checks, with a focus on integrating findings from other AWS
+security services for a complete security overview.
+73. Your company is planning to streamline its software development
+process for a new cloud-based application. The goal is to set up a
+comprehensive development environment that supports continuous
+delivery, allows easy team collaboration, and integrates project
+management tools. You need a solution that provides a unified user
+interface to manage the development activities, facilitates rapid setup of
+the continuous delivery toolchain, and includes features for tracking
+progress from backlog to deployment. Additionally, the solution should
+support integrated issue tracking and enable secure role-based access
+management for different team members. Which AWS service would be
+most suitable for achieving these objectives?
+a. Utilize AWS CodeCommit to manage source code with a private Git
+repository, ensuring secure collaboration and version control for your
+development team.
+b. Implement AWS CodeStar to quickly develop, build, and deploy
+applications, providing a unified interface for managing software
+development activities, integrated issue tracking, and easy setup of the
+continuous delivery toolchain.
+c. Deploy AWS CodePipeline to automate your release pipelines for fast
+and reliable updates, while integrating with other AWS services for build
+and deployment activities.
+d. Choose AWS CodeBuild for compiling source code, running tests, and
+producing software packages, integrating it with other AWS services for a
+complete continuous integration and continuous delivery workflow.
+74. Your company is developing a new mobile application that requires a
+robust user authentication and authorization system. The application needs
+to support authentication from a variety of sources, including a built-in
+user directory, an enterprise directory, and popular consumer identity
+providers like Google and Facebook. Additionally, the system must handle
+the issuance of OAuth 2.0 access tokens and AWS credentials for
+authorized users. Which AWS service should you use to efficiently
+implement these requirements?
+a. Deploy AWS IAM to manage user access and permissions, creating
+separate policies for authentication via Google, Facebook, and the
+enterprise directory.
+b. Implement Amazon Cognito to provide a comprehensive identity
+platform, supporting authentication from multiple sources, and handling
+OAuth 2.0 tokens and AWS credentials for authorized users.
+c. Utilize AWS Directory Service to integrate with your enterprise
+directory and establish trust relationships with Google and Facebook for
+authentication.
+d. Choose AWS Security Token Service for federated user access,
+creating a custom solution to integrate with Google, Facebook, and your
+enterprise directory for user authentication.
+75. You are tasked with designing a serverless application architecture for
+your company, which requires orchestrating multiple AWS services like
+Lambda and AWS Glue for various automated and event-driven
+workflows. The application involves complex processes including data
+transformation, machine learning model processing, and tasks that require
+human interaction. You need a solution that allows visualizing these
+workflows, managing the state of each step, and ensuring that the tasks are
+executed in the correct order and as expected. Which AWS service would
+be best suited for orchestrating these workflows?
+a. Utilize AWS Lambda to manage the execution of different tasks in your
+workflow, using function chaining to orchestrate the process flow.
+b. Implement AWS Step Functions to create state machines for your
+workflows, allowing integration with various AWS services and providing
+a graphical console to visualize and manage the workflow execution.
+c. Deploy Amazon Simple Workflow Service to coordinate tasks across
+your application, handling the sequence and conditions of task execution.
+d. Choose AWS CloudFormation to script and automate the deployment
+of your application resources, including Lambda functions and ETL tasks.
+Answers
+The correct answer is
+This configuration correctly automates Python unit tests using coverage
+and uploads the coverage report to Codecov in the post-build phase. It
+aligns with the prerequisites set up, including the usage of the
+mybuild_script.sh script for connecting to Codecov.
+The correct answer is
+AWS CodeBuild is employed to execute the suite of automated tests,
+including both API and UI tests, using the Cucumber framework. This
+ensures adherence to BDD practices. AWS CodePipeline orchestrates the
+build and test phases in the CI/CD pipeline. The generated BDD
+Cucumber reports, which provide valuable insights into test coverage and
+outcomes, are then stored in Amazon S3, offering durable and scalable
+storage for long-term report retention and compliance.
+The correct answer is
+This setup effectively uses AWS CodeCommit for source control, with
+Amazon EventBridge monitoring code commits. When a specific commit
+occurs, EventBridge triggers a CodePipeline, which includes a CodeBuild
+stage for executing security scans. Snyk CLI, integrated into this stage,
+scans the code for vulnerabilities, using a token from the Parameter Store
+for authentication. Snyk’s platform capabilities enhance this process by
+scanning, prioritizing, and fixing security vulnerabilities not just in the
+code, but also in open-source dependencies, container images, and
+infrastructure configurations. The results are made available for review,
+aiding quick resolution.
+The correct answer is
+This IAM policy is specifically designed to prevent certain actions on the
+master branch of the my-webapp-repo repository, while allowing other
+activities like viewing, cloning, and creating pull requests. The conditions
+ensure the policy is applied precisely to the ‘master’ branch, thereby
+aligning with the goal of protecting critical branches from unauthorized
+updates.
+The correct answer is
+```
+Explanation: The correct command in the post_build phase for pushing a
+```
+Docker image to AWS ECR, as detailed in option c, ensures the Docker
+image is uploaded to the Amazon Elastic Container Registry after
+successful authentication and tagging. This step is crucial for automating
+deployments within a CI/CD pipeline, allowing for streamlined updates
+and management of containerized applications. By executing this
+command, the Docker image is made available in ECR for subsequent
+deployment processes, highlighting the efficiency and automation
+capabilities essential in modern DevOps practices.
+The correct answer is
+```
+Explanation: The artifactLogin script command is the most appropriate for
+```
+this scenario. It uses the AWS CLI to authenticate with AWS
+CodeArtifact, specifying npm as the tool, and includes the necessary
+repository and domain information. This setup allows the DevOps
+engineer to securely manage private npm packages, facilitating code
+sharing within the organization while ensuring package security and
+privacy.
+The correct answers are a, b and d.
+The above correct answers are the essential steps for creating a high-
+availability architecture using AWS App Runner across two regions. These
+steps include using DynamoDB global tables for resilient, multi-region
+database functionality, setting up cross-region image replication in
+Amazon ECR for consistent deployments, provisioning App Runner
+services in each region connected to local ECR images, and configuring
+Route 53 with health checks and weighted routing for effective traffic
+management and disaster recovery readiness.
+The correct answer is
+This option outlines an automated DevOps workflow that integrates
+security and deployment seamlessly. It starts with code commits triggering
+GitHub actions for building and artifact uploading. Then, it uses Amazon
+CodeGuru for analyzing code vulnerabilities, followed by AWS
+CodeDeploy to manage the deployment process, ensuring both security
+and efficiency.
+The correct answer is
+For managing deployments in a multicloud environment using AWS
+developer tools, the AWS CodeDeploy agent must be installed on virtual
+machines in non-AWS cloud environments, like Azure. This enables the
+use of AWS CodeDeploy for deploying applications consistently across
+different cloud platforms, leveraging the same tools and processes used in
+AWS environments.
+The correct answer is
+The team introduces a Lambda function in their CodePipeline custom
+stage to query the AWS Health API. This function assesses regional health
+and provides feedback to the pipeline. If an AWS Health incident is
+detected, the pipeline halts deployments, avoiding upgrades during
+service-impacting events and preventing potential outages during critical
+business operations.
+The correct answer is
+This method involves the EC2 Image Builder Pipeline, which upon
+building a Golden AMI, triggers an Amazon SNS topic. This SNS topic
+then activates an AWS Lambda function, initiating an SSM Automation
+workflow that includes a manual approval step. Once approved, the
+Golden AMI is shared with the specified AWS accounts, ensuring a
+thorough review process to maintain accuracy and configuration
+standards.
+The correct answer is
+In this solution, AWS CodePipeline is integrated with a third-party Git
+repository like Bitbucket. When a commit triggers the pipeline, every
+change in its status is sent as an event to an Amazon SNS topic. An AWS
+Lambda function processes these events and communicates, the status
+updates back to the third-party repository using its REST API. This setup
+allows developers to view pipeline statuses directly within the repository’s
+dashboard, creating a more seamless workflow.
+The correct answer is
+The correct appspec.yml configuration in option b is key for the
+deployment of a web application using AWS CodeDeploy. It outlines the
+necessary steps for the automated installation, starting, and stopping of the
+Apache web server through specified scripts. These scripts are located in
+the scripts directory and are executed during different stages of the
+deployment process as defined in the hooks section of Additionally, the
+file mapping in the configuration correctly places the index.html file into
+the web server’s root directory, ensuring the webpage is accessible post-
+deployment.
+The correct answers are a and
+Option a accurately describes how Blue/Green deployments work by
+setting up new containers and rerouting traffic, which facilitates testing of
+the new version. Option b highlights the advantage of faster rollback
+capabilities in Blue/Green deployments, making it a reliable choice for
+critical workloads.
+The correct answer is
+In AWS CodeDeploy’s ECS deployment, lifecycle event hooks are
+sequenced as follows: BeforeInstall is used for running tasks before the
+replacement task set is created, AfterInstall is used for running tasks after
+the replacement task set is created and one of the target groups is
+associated with it, AfterAllowTestTraffic is used for running tasks after
+the test listener serves traffic to the replacement task set and
+BeforeAllowTraffic is used for running tasks after the second target group
+is associated with the replacement task set. But before the traffic is shifted
+to the replacement task set, AfterAllowTraffic is used for running tasks
+after the second target group serves traffic to the replacement task set.
+The correct answer is
+```
+Explanation: Amazon EKS supports the same deployment strategies as the
+```
+Kubernetes deployment configuration, maxUnavailable: 1 ensures that
+only one pod can be down during the update, maintaining service
+availability. maxSurge: 1 allows for an additional pod beyond the desired
+count during the update, facilitating a smooth transition between versions
+without overloading resources.
+The correct answer is
+The AWS CDK comprises three primary components. Firstly, there are
+CDK apps, the top-level components that encompass all stacks in your
+CDK project. Secondly, CDK stacks correspond to CloudFormation
+stacks, facilitating infrastructure management. Lastly, CDK constructs
+represent the resources within these stacks, allowing for detailed and
+customized resource configurations. Together, these components enable
+efficient and structured cloud resource management and deployment.
+The correct answer is
+In AWS CDK, L1 Constructs are the foundational elements that map
+directly to AWS CloudFormation resources. L2 Constructs provide a more
+abstracted level, offering intent-based APIs and incorporating necessary
+defaults and boilerplate for AWS resources. L3 Constructs, also known as
+patterns, offer high-level abstractions to facilitate common tasks in AWS,
+typically involving multiple resources. This tiered approach allows for
+flexibility and efficiency in cloud infrastructure management.
+The correct answer is
+The template in Option b sets up a Python 3.9 runtime Lambda function
+with a custom makefile builder. The BuildMethod: makefile in the
+Metadata section specifies the use of a makefile for the build process,
+which is necessary for scenarios where libraries or modules not included
+in the standard AWS SAM build environment are required. This approach
+allows for more customized build processes for Lambda functions.
+The correct answer is
+```
+Explanation: Option b is the correct Python code for defining an Amazon
+```
+S3 bucket in AWS CDK. It properly imports the necessary CDK modules
+and sets up an S3 bucket with versioning enabled, adhering to the AWS
+CDK conventions for resource definition in a stack.
+The correct answer is
+```
+Explanation: AWS AppConfig is designed for such use-cases, offering a
+```
+way to manage application configurations and feature flags dynamically. It
+allows teams to deploy code behind feature flags and toggle these flags to
+enable or disable features without pushing new code, enabling a safer,
+more controlled feature rollout.
+The correct answer is
+```
+Explanation: The correct command for deploying a containerized
+```
+application on AWS Elastic Container Service using AWS Copilot, as
+shown in option b, simplifies the deployment process into a single
+command. This command clones the application’s Git repository,
+navigates into the application directory, and initializes the deployment
+process with Copilot. It specifies the application name, service name,
+service type as a ‘Load Balanced Web Service’, the location of the
+Dockerfile, and triggers the deployment. This streamlined approach
+exemplifies the AWS Copilot CLI’s capability to facilitate the deployment
+of containerized applications on ECS, making it a practical choice for
+DevOps teams aiming for efficiency in their CI/CD pipelines.
+The correct answer is
+```
+Explanation: AWS A2C is specifically designed to assist enterprises in
+```
+modernizing their existing applications by containerizing Java and .NET
+applications. This service simplifies the process of transforming legacy
+systems into modern, scalable applications on AWS, aligning with the
+company’s goals of increasing operational efficiency and agility.
+The correct answer is
+```
+Explanation: In AWS Control Tower, the combined functionality of the
+```
+Landing Zone, Account Factory, Guardrails, Member Accounts, and
+Shared Accounts provides a comprehensive solution for managing a multi-
+account AWS environment. This approach ensures a secure, scalable, and
+compliant foundation, with standardized account provisioning, enforced
+governance, and centralized management of key accounts.
+The correct answer is
+```
+Explanation: AWS Detective is designed for this purpose, as it specializes
+```
+in collecting and analyzing data from various AWS resources like
+CloudTrail logs, EKS audit logs, VPC flow logs, and GuardDuty findings.
+It leverages machine learning, statistical analysis, and graph theory to
+produce visualizations, enabling the security team to conduct in-depth
+investigations and understand the root causes of security-related incidents
+effectively.
+The correct answer is
+The correct answer is
+```
+Explanation: This method is a classic approach to blue/green deployments
+```
+```
+in AWS OpsWorks. By cloning the current stack (blue) and creating a new
+```
+```
+one (green) with the updated application, the team can prepare and test the
+```
+new environment without impacting the live version. Once ready,
+updating the DNS records to point to the green environment’s load
+balancer effectively shifts traffic, ensuring a smooth transition with
+minimal downtime.
+The correct answer is
+```
+Explanation: Using change sets in AWS CloudFormation allows the
+```
+engineer to preview the effects of proposed changes without implementing
+them. This approach helps in understanding how changes to a template
+might impact existing resources, thereby reducing the risk of unintended
+consequences during the update process.
+The correct answer are a, b, c and
+```
+Explanation: These four methods provide comprehensive protection for
+```
+CloudFormation stacks. The DeletionPolicy attribute safeguards
+individual resources, IAM policies control user actions, stack policies
+limit resource updates, and termination protection prevents stack deletion
+from the console or CLI.
+The correct answer is
+```
+Explanation: Option a correctly uses the !FindInMap function with the
+```
+RegionMap mapping to select the AMI ID for HVM64 based on the AWS
+region where the stack is deployed. This ensures that WebServerInstance
+uses the appropriate AMI for its region, as defined in the given
+CloudFormation template snippet.
+The correct answer is
+```
+Explanation: AWS Backup provides the capability to copy backups to
+```
+multiple AWS regions, either on-demand or automatically as part of a
+scheduled backup plan. This feature is crucial for businesses that need to
+comply with requirements to store backups a certain distance from
+production data, ensuring better business continuity and adherence to
+compliance standards.
+The correct answer is
+```
+Explanation: AWS Aurora Global Database is designed for exactly this
+```
+scenario, providing a primary AWS region for all write operations, and up
+to five secondary read-only regions with replication latency of less than a
+second. This setup not only offers low latency access globally but also
+ensures high availability. In the event of a regional issue, one of the
+secondary regions can be quickly promoted to handle full read/write
+workloads, ensuring continuous operation and minimal downtime.
+The correct answer is
+```
+Explanation: AWS provides the capability to copy an AMI to another
+```
+region using the CopyImage action available in the AWS Management
+Console, AWS CLI, SDKs, or the Amazon EC2 API. This process creates
+an identical AMI in the target region with its own unique identifier. This
+method is efficient for ensuring that updated AMIs are available across
+multiple regions for launching instances.
+The correct answer is
+The correct process for manually replicating a Lambda function to another
+region involves exporting the function from the original region and then
+importing it into the target region. This is done by downloading the AWS
+SAM file or deployment package and then uploading the .zip file in the
+second region through the AWS Lambda console. This method is suitable
+for Backup & Restore and Pilot Light disaster recovery strategies.
+The correct answer is
+```
+Explanation: For an Active-Active disaster recovery strategy involving
+```
+AWS Secrets Manager, the correct approach is to use the built-in
+replication feature. By selecting the secret and opting to replicate it to
+other regions, the company can ensure that the secret is available across
+multiple regions, thus aligning with their disaster recovery strategy.
+The correct answer is
+```
+Explanation: DynamoDB Accelerator provides a highly available, in-
+```
+memory cache for DynamoDB, eliminating the need for developers to set
+up a separate caching layer. DAX is API compatible with DynamoDB,
+meaning there is no need for complex cache-related logic in the
+application. It simplifies the caching process by handling look-ups,
+population, and invalidation seamlessly.
+The correct answer is
+```
+Explanation: AWS ElastiCache Global Datastore for Redis allows for
+```
+cross-region replication, where a primary cluster is read/write and a
+secondary cluster is read-only in a different region. In a disaster recovery
+scenario, if the primary cluster experiences issues, the secondary cluster
+can be promoted to become the new primary, ensuring continuity and
+minimal downtime. This setup aligns with the warm standby strategy.
+The correct answer is
+```
+Explanation: For an active-active setup with Amazon API Gateway,
+```
+leveraging Amazon Route 53’s weight-routing policies is an effective way
+to balance API traffic across different regions. This approach allows the
+distribution of requests based on the infrastructure capacity of each region,
+ensuring high availability and improved load handling of the APIs.
+The correct answer is
+```
+Explanation: AWS DRS is designed to handle a variety of disaster
+```
+recovery scenarios. It can facilitate quick recovery from on-premises to
+AWS, ensure resilience and compliance by converting cloud-based
+applications to run natively on AWS, and enhance application resilience
+by enabling recovery in different AWS Regions. Therefore, it is a versatile
+solution for different recovery needs.
+The correct answer is
+```
+Explanation: The Cross-Region Replication feature in Amazon ECR
+```
+allows automatic replication of container images across multiple regions
+and accounts. By enabling CRR at the private registry level and specifying
+the destination accounts and regions, the team can ensure that images are
+automatically replicated, thus improving container startup times and
+meeting disaster recovery requirements. This setup eliminates the need for
+manual replication processes.
+The correct answer is
+```
+Explanation: The Kinesis Data Firehose HTTP endpoint delivery
+```
+simplifies the process of ingesting and forwarding data from AWS
+services like CloudWatch to external platforms like New Relic. By
+configuring Kinesis Data Firehose for this purpose, the company can
+automate data ingestion and forwarding without the need to develop
+custom applications, manage resources, or create AWS Lambda functions,
+thus streamlining their monitoring and analysis workflows.
+The correct answer is
+```
+Explanation: The appropriate AWS CLI command for associating a KMS
+```
+Symmetric key with a CloudWatch log group is aws logs associate-kms-
+key --log-group-name test-log-group --kms-key-id This command will
+encrypt the logs in test-log-group using the specified KMS key.
+The correct answer is
+```
+Explanation: This query correctly extracts the clientIp from the
+```
+httpRequest, counts the number of requests from each clientIp, sorts the
+IPs in descending order by the request count, and displays the top 100 IP
+addresses with the most requests. This query is designed to provide
+valuable insights into the IP addresses that are most frequently interacting
+with the application, helping to identify potential security threats or false
+positives.
+The correct answer is
+```
+Explanation: Amazon Kinesis Data Firehose provides a fully managed
+```
+solution for streaming real-time data like VPC flow logs to various
+destinations, including analytics platforms like Datadog. By configuring
+VPC Flow Logs to use Kinesis Data Firehose as the log destination, the
+network engineer can leverage its data transformation and aggregation
+capabilities. This setup allows for efficient processing and delivery of logs
+to Datadog, thereby centralizing log collection and reducing operational
+overhead.
+The correct answer is
+```
+Explanation: Deploying the AWS X-Ray daemon using a Kubernetes
+```
+DaemonSet is an efficient way to implement application tracing in a
+microservices environment. This approach ensures that an X-Ray Pod is
+present on each worker node, directly receiving tracing information from
+microservices. The X-Ray port exposed on the host allows microservices
+to connect to the daemon with minimal network traffic across the cluster.
+This setup provides a centralized, efficient mechanism for tracing and
+debugging in a complex microservices landscape.
+The correct answer is
+```
+Explanation: AWS CloudWatch Anomaly Detection is designed to handle
+```
+such scenarios by applying statistical and machine learning algorithms to
+CloudWatch metrics. It understands the normal patterns, such as high CPU
+utilization during market hours, and can intelligently alert when there is an
+abnormal behavior, like unexpected high CPU utilization late at night.
+This advanced monitoring tool helps the company focus on actionable
+alerts, minimizing the noise from regular CloudWatch alarms and ensuring
+that the alerts are relevant to the actual operational anomalies.
+The correct answer is b.
+```
+Explanation: The CloudWatch agent supports configurable log filter
+```
+expressions, allowing users to manage log ingestion more effectively. By
+specifying include and exclude regular expressions in the agent’s
+configuration file for each log stream, the CloudWatch agent can filter and
+send only those log events that meet the defined criteria. This functionality
+helps in reducing the volume of logs by discarding irrelevant or verbose
+log events and focusing on more critical logs like those containing error
+codes.
+The correct answer is
+```
+Explanation: Although AWS IAM does not provide real-time alerts or
+```
+notifications by default, a combination of AWS CloudTrail, Amazon
+```
+EventBridge, and Amazon Simple Notification Service (Amazon SNS)
+```
+can be used to achieve this. CloudTrail logs IAM activities, EventBridge
+monitors these logs for specific changes, and SNS is configured to send
+notifications when these changes are detected. This setup allows for real-
+time monitoring and alerting of IAM configuration changes, helping the
+security team maintain their protective controls effectively.
+The correct answer is
+```
+Explanation: The company should consider a combination of vertical and
+```
+horizontal scaling for their AWS RDS database. Vertical scaling, involving
+selecting larger instance sizes, is a straightforward method for adding
+capacity and is suitable when application and database connectivity
+configurations cannot be changed. Horizontal scaling, on the other hand,
+involves extending database operations to additional nodes and is
+beneficial for scaling beyond the capacity of a single DB instance. By
+combining these approaches, the company can effectively manage the
+increased demands while maintaining flexibility and efficiency in their
+database scaling strategy.
+The correct answer is
+```
+Explanation: Capacity providers in Amazon ECS define the infrastructure
+```
+that tasks run on and how the cluster scales. For AWS Fargate, the
+capacity providers are FARGATE and FARGATE_SPOT, whereas for
+ECS on EC2, it involves an Auto Scaling group. The engineer should first
+associate the appropriate capacity provider with their ECS cluster. Then,
+they should use a capacity provider strategy for each task, choosing
+between FARGATE, FARGATE_SPOT, or the EC2-based Auto Scaling
+group. This approach allows for managed scaling and termination
+protection, ensuring that the ECS cluster scales efficiently based on the
+workload requirements.
+The correct answer is
+```
+Explanation: Karpenter offers a flexible and high-performance autoscaling
+```
+solution for Kubernetes clusters in Amazon EKS. It quickly provisions
+compute resources that precisely meet the specific needs of the workload,
+considering factors such as compute, storage, acceleration, and scheduling
+requirements. While the Kubernetes Cluster Autoscaler is also a viable
+option, focusing on Karpenter may offer more tailored resource
+provisioning and efficiency for the engineer’s specific use case.
+Karpenter’s ability to provision just-in-time compute resources makes it
+an ideal choice for dynamic and efficient scaling in Amazon EKS
+environments.
+The correct answer is
+```
+Explanation: The optimal approach involves creating a CloudWatch Alarm
+```
+that triggers when CPU Utilization exceeds 80%. The action for this alarm
+should be configured to create an OpsItem in Systems Manager
+OpsCenter. This integration ensures that an operational work item is
+automatically created when the alarm state is triggered. Furthermore, in
+Systems Manager OpsCenter, the engineer can access a list of suggested
+runbooks, like AWS-RestartEC2Instance, which might automatically
+resolve the issue. This setup streamlines the process of responding to
+operational incidents and accelerates the investigation and resolution of
+issues.
+The correct answer is
+```
+Explanation: AWS OpsWorks’ Auto Healing feature is designed to
+```
+enhance the resilience and availability of application stacks. By enabling
+this feature, OpsWorks automatically replaces instances that fail to
+communicate with the service for more than five minutes. This proactive
+approach ensures that the application stack maintains optimal performance
+without manual intervention. When an instance is replaced, OpsWorks
+triggers a lifecycle event across all instances in the stack, allowing for
+seamless integration of the new instance into the stack’s operations. This
+feature is crucial for maintaining consistent application performance and
+reducing downtime.
+The correct answer is
+```
+Explanation: To effectively visualize AWS Health events in Amazon
+```
+Managed Grafana, the engineer should first ingest these events via
+Amazon EventBridge rules and Amazon Kinesis Firehose, streaming them
+in real-time into an Amazon S3 bucket. Next, these events should be
+extracted and loaded into the AWS Glue Data Catalogue. Finally, using
+Amazon Athena, the engineer can build a Managed Grafana dashboard to
+visualize the AWS Health events in near real-time. This process
+consolidates information from various AWS services and provides a
+unified, interactive visualization of the AWS environment’s health and
+status, enabling proactive management and response to potential issues.
+The correct answer is
+```
+Explanation: The correct SAM template snippet sets up an S3 bucket
+```
+```
+(My3Bucket) with a notification configuration to send messages to an
+```
+SQS queue when an object is created in the bucket. It uses
+QueueConfigurations to specify the event type and the ARN of the SQS
+queue This setup allows the engineer to automatically capture events
+related to object creation in the S3 bucket and process them through the
+SQS queue, enabling efficient and automated handling of S3 events.
+The correct answer is
+```
+Explanation: In a fanout messaging scenario, Amazon SNS and Amazon
+```
+SQS are often used together to enable message pushing to multiple
+subscribers, which facilitates parallel asynchronous processing. By setting
+up an Amazon SNS topic for order placement notifications and
+subscribing multiple SQS queues to this topic, the engineer can ensure
+that each queue receives identical notifications when a new order is
+placed. This approach eliminates the need for polling and allows for
+efficient and scalable message distribution to various components or
+services that need to process the order information.
+The correct answer is
+```
+Explanation: The AWS Config managed rule ‘s3-bucket-public-read-
+```
+prohibited’ is designed specifically for the task of identifying and flagging
+S3 buckets that allow global read access. By utilizing this managed rule,
+the AWS DevOps engineer can automatically monitor all S3 buckets in the
+account for compliance with the no public read access policy. This rule,
+being an AWS Lambda function, is invoked upon configuration changes
+and checks for compliance, thereby providing a scalable and efficient
+solution for securing S3 buckets and ensuring adherence to the company’s
+security policy.
+The correct answer is
+```
+Explanation: To troubleshoot a failed canary in Amazon CloudWatch
+```
+Synthetics, the engineer should utilize the canary details page in the
+CloudWatch console. By examining the SuccessPercent metric in the
+Availability tab, they can determine if the issue is constant or intermittent.
+Additionally, if the script includes steps and a step report is available, the
+engineer should check which step failed and review any associated
+screenshots. This approach allows them to pinpoint the exact failure
+within the canary script and see what the customers would experience,
+enabling them to identify and resolve the issue effectively.
+The correct answer is
+```
+Explanation: Amazon Macie is a powerful tool for detecting, classifying,
+```
+and protecting sensitive data stored in the AWS Cloud. To tailor the
+detection of sensitive data to specific organizational needs, the DevOps
+engineer should first enable Macie and configure detailed logging. Then,
+they can utilize Macie’s custom data identifiers to create specific rules for
+detecting sensitive data. This approach allows the organization to identify
+proprietary data, intellectual property, or data related to specific scenarios,
+using Macie’s advanced machine learning and pattern matching
+capabilities. This method is more effective than manual inspection or
+general threat detection tools, as it offers a targeted approach to data
+security.
+The correct answer is
+```
+Explanation: AWS WAF is a web application firewall service that enables
+```
+you to create custom rules for filtering HTTP requests. These rules can be
+designed to identify and block common web exploits such as SQL
+Injection and Cross-Site Scripting. By implementing AWS WAF, you can
+```
+analyze incoming traffic and take action (either block or allow) before the
+```
+requests reach your application. This approach adds an important layer of
+defense, helping to maintain the availability, security, and performance of
+your web application. Unlike AWS Lambda or Amazon CloudFront,
+which serve different purposes, AWS WAF provides the specific
+functionality needed for custom, rule-based traffic filtering.
+The correct answer is
+```
+Explanation: Amazon GuardDuty is an ideal solution for the DevOps
+```
+Engineer’s requirements to monitor and protect their AWS environment
+continuously. It leverages continuous metadata streams from AWS
+CloudTrail, VPC Flow Logs, and DNS Logs, along with integrated threat
+intelligence, anomaly detection, and machine learning to accurately
+identify potential threats. Importantly, GuardDuty functions independently
+from the user’s resources, ensuring no impact on their workload
+performance or availability. This service provides detailed, actionable
+alerts that can easily integrate with existing management systems, and it
+operates on a pay-for-what-you-use model, eliminating the need for
+additional software deployment or subscription costs. Other options, like
+Amazon Inspector, AWS Lambda, and AWS Config, serve different
+purposes and do not offer the comprehensive, integrated threat detection
+capabilities of GuardDuty.
+The correct answer is
+```
+Explanation: The most effective approach for automatically remediating
+```
+security issues detected by AWS Trusted Advisor, such as exposed IAM
+Access Keys, involves a multi-step, integrated AWS service solution. This
+starts with using Trusted Advisor to identify security vulnerabilities. The
+DevOps Engineer should then configure Amazon EventBridge to
+subscribe to Trusted Advisor events. Creating an EventBridge rule that
+sends these events to an AWS Lambda function enables automated
+response and remediation. The Lambda function should be coded to
+handle the specific security issue, in this case, exposed IAM Access Keys.
+Finally, integrating Amazon SNS ensures the security team is promptly
+informed about the remediation actions. This process ensures a proactive,
+automated, and streamlined response to security vulnerabilities, enhancing
+the overall security posture of the AWS environment.
+The correct answer is
+```
+Explanation: For effective and automated patch management of Windows
+```
+EC2 instances, the recommended approach is to leverage AWS Systems
+Manager Patch Manager. The first step involves setting up a patch
+baseline, which helps define the patches that should be applied to the
+instances. Next, organizing instances into patch groups based on their
+```
+environments (development, test, production) enables more controlled and
+```
+environment-specific patching. Finally, scheduling the patch installation
+during maintenance windows ensures that patching is done at the least
+disruptive times. This approach is more systematic and less prone to
+human error compared to manual patching Option a and does not require
+the replacement of instances Option d. AWS Config Option c is more
+suited for resource configuration compliance and is not a patch
+management tool.
+The correct answer is
+```
+Explanation: AWS Network Firewall is the ideal choice for a DevOps
+```
+Engineer looking to secure an Amazon VPC with fine-grained network
+protections. This managed service offers a robust and scalable solution for
+inspecting, monitoring, and logging network traffic. It features a flexible
+rules engine for creating detailed firewall rules, web filtering capabilities
+for both encrypted and unencrypted traffic, and an intrusion prevention
+system for active traffic flow inspection. Unlike AWS WAF Option a,
+which focuses on HTTP/HTTPS traffic, Network Firewall provides
+broader network-level protections. Security Groups Option c are more
+basic in function and control access to EC2 instances, rather than
+providing detailed traffic inspection. AWS Shield Option d is specifically
+designed to protect against DDoS attacks, not for general network traffic
+monitoring and inspection.
+The correct answer is
+```
+Explanation: IAM Access Analyzer is designed to help identify and
+```
+review resources in your AWS environment that may be inadvertently
+shared with external entities. It uses logic-based reasoning to analyze
+resource-based policies and generates findings for resources shared
+outside of your account, providing detailed information about the access
+and the external principal granted to it. This tool is essential for
+identifying unintended external access to your resources and assessing
+whether such access poses a security risk. In contrast, AWS Security Hub
+```
+Option a) is more about aggregating security findings, Amazon Inspector
+```
+```
+Option c) focuses on application vulnerabilities, and AWS Config Option
+```
+```
+d) is used for configuration tracking and compliance evaluation, making
+```
+them less suitable for the specific task of identifying unintended resource
+sharing.
+66. The correct answer is
+```
+Explanation: ACM is specifically designed to simplify and automate the
+```
+management of SSL/TLS certificates. It handles the complexities of
+provisioning, deploying, and renewing digital certificates at no additional
+cost. ACM is particularly useful for websites that require compliance with
+standards like PCI-DSS, FedRAMP, and HIPAA, as it ensures the secure
+transfer of sensitive data. Furthermore, ACM seamlessly integrates with
+AWS services like Elastic Load Balancing and Amazon CloudFront,
+making it an ideal choice for the described scenario. The other options
+```
+(AWS KMS, Amazon Inspector, AWS CloudHSM) do not specifically
+```
+address the management of SSL/TLS certificates and their integration
+with AWS services for web hosting.
+The correct answer is
+```
+Explanation: AWS IAM Identity Center (formerly AWS SSO) is
+```
+specifically designed to help organizations manage workforce access to
+multiple AWS accounts and applications centrally. It supports the creation
+and management of user identities within AWS, as well as the connection
+to existing identity sources, including Microsoft Active Directory, Okta,
+Ping Identity, JumpCloud, Google Workspace, and Microsoft Entra ID.
+This service provides a unified user interface for users to access all their
+assigned AWS accounts, applications, and custom-built applications in one
+place, streamlining the authentication and authorization process across the
+organization. Options b, c, and d do not offer the comprehensive identity
+management and central access control capabilities that IAM Identity
+Center provides for AWS environments.
+The correct answer is
+```
+Explanation: AWS IAM Identity Center (formerly AWS SSO) is
+```
+specifically designed to help organizations manage workforce access to
+multiple AWS accounts and applications centrally. It supports the creation
+and management of user identities within AWS, as well as the connection
+to existing identity sources, including Microsoft Active Directory, Okta,
+Ping Identity, JumpCloud, Google Workspace, and Microsoft Entra ID.
+This service provides a unified user interface for users to access all their
+assigned AWS accounts, applications, and custom-built applications in one
+place, streamlining the authentication and authorization process across the
+organization. Options b, c, and d do not offer the comprehensive identity
+management and central access control capabilities that IAM Identity
+Center provides for AWS environments.
+The correct answer is
+```
+Explanation: AWS Directory Service provides the capability to use
+```
+existing Microsoft Active Directory with other AWS services. It enables
+the migration of on-premises AD to the cloud while maintaining the same
+management capabilities for users, groups, and devices. This allows
+seamless integration for applications that are already using Microsoft AD,
+without the need for significant changes or manual data migration.
+```
+Options b), c), and d) involve unnecessary complexity or do not fully
+```
+utilize the capabilities of AWS Directory Service for integrating with
+existing Microsoft AD environments.
+The correct answer is
+```
+Explanation: AWS CloudHSM offers a cloud-based hardware security
+```
+```
+module (HSM) solution that aligns with the scenario’s requirements. It
+```
+provides a secure environment for cryptographic key storage and
+operations, coupled with high availability and low latency. Additionally,
+AWS CloudHSM automates management tasks like backups,
+provisioning, configuration, and maintenance, offering complete control
+over HSMs in the AWS Cloud. Other options either lack dedicated HSMs
+or do not provide the comprehensive feature set required for such
+specialized cryptographic needs.
+The correct answer is
+```
+Explanation: AWS STS is the ideal service for this scenario. It allows the
+```
+creation of temporary security credentials for users who need to access
+AWS resources. These credentials work similarly to long-term access key
+credentials but have a limited lifetime and are generated dynamically,
+providing a secure way to grant access without distributing permanent
+credentials or creating an AWS identity for each user. Options a, c, and d
+do not offer the same level of temporary, dynamic credential management
+as AWS STS.
+The correct answer is
+```
+Explanation: AWS Security Hub is designed to provide a comprehensive
+```
+view of your security state within AWS, making it ideal for this scenario.
+It helps assess your environment against various security industry
+standards and best practices, collects and analyzes security data from
+AWS accounts, AWS services, and third-party products, and generates
+control findings for compliance assessment. Additionally, Security Hub
+offers automation features for managing and remediating security issues
+and integrates with Amazon EventBridge for automated responses.
+Options a, c, and d, while useful for specific security and compliance
+tasks, do not offer the broad, integrated, and automated capabilities
+provided by AWS Security Hub.
+The correct answer is
+```
+Explanation: AWS CodeStar is specifically designed to address the
+```
+requirements outlined in the scenario. It enables quick development,
+building, and deployment of applications on AWS, and provides a unified
+user interface for managing various software development activities.
+CodeStar facilitates the rapid setup of a continuous delivery toolchain and
+supports team collaboration. It also includes an integrated project
+management dashboard with issue tracking capabilities, making it an ideal
+choice for a comprehensive development environment that includes all the
+mentioned features. The other options, while useful in specific aspects of
+CI/CD, do not offer the holistic solution provided by AWS CodeStar.
+The correct answer is
+```
+Explanation: Amazon Cognito is an ideal solution for this scenario, as it is
+```
+specifically designed as an identity platform for web and mobile apps. It
+supports authentication from a built-in user directory, enterprise
+directories, and consumer identity providers like Google and Facebook.
+Cognito also handles the issuance of OAuth 2.0 access tokens and AWS
+credentials for authorized users, making it a comprehensive choice for the
+application’s authentication and authorization needs. Options a, c, and d,
+while relevant for identity and access management, do not offer the same
+level of integrated, multi-source authentication capabilities as Amazon
+Cognito.
+The correct answer is
+```
+Explanation: AWS Step Functions is the most appropriate service for this
+```
+scenario. It is a serverless orchestration service that enables you to build
+complex workflows by integrating with AWS Lambda and other AWS
+services. Step Functions provide a graphical console to visualize the
+workflows as state machines, where each step or state can represent a unit
+of work performed by services like AWS Lambda or AWS Glue. This
+service allows you to effectively manage and visualize the state of each
+step in your workflow, ensuring that the application runs in order and as
+expected, which is crucial for processes involving data transformation,
+machine learning, and human interaction tasks. Options a, c, and d, while
+useful for certain aspects of workflow management, do not offer the
+comprehensive orchestration and visualization capabilities of AWS Step
+Functions.
+Join our book’s Discord space
+Join the book's Discord Workspace for Latest updates, Offers, Tech
+happenings around the world, New Release and Sessions with the
+```
+Authors:
+```
+```
+https://discord.bpbonline.com
+```
+Index
+A
+administrative task
+automating, with AWS SSM
+```
+Amazon Content Delivery Network (CDN) 126
+```
+Amazon EC2 instances 256
+Amazon ECR image repository 35
+```
+Amazon Elastic Container Service (ECS) 181
+```
+```
+Amazon Elastic Kubernetes Service (EKS) 290
+```
+web application, deploying on 290
+Amazon Linux 2 AMI 261
+```
+Amazon Machine Images (AMIs) 94
+```
+```
+Amazon Relational Database Service (RDS) 244
+```
+API deployment
+with AWS Copilot
+```
+Application Programming Interface (API) keys 437
+```
+App Runner service 43
+configuring 44
+prerequisites
+Athena 329
+VPC Flow Logs to S3 and query, publishing
+```
+Attribute-Based Access Control (ABAC) 451
+```
+versus, RBAC
+Aurora MySQL architecture 249
+auto scaling group
+stress testing 267
+auto-scaling group 265
+termination policies 283
+auto scaling processes
+suspending
+```
+Availability Zone (AZ) 244
+```
+AWS API Gateway
+essentials 212
+```
+AWS App2Container (A2C) 186
+```
+legacy apps, containerizing with
+AWS AppConfig 174
+feature flags, implementing with
+AWS Auto Scaling 306
+```
+AWS Cloud Development Kit (AWS CDK) 163
+```
+S3 Bucket, creating with
+AWS CloudFront distribution
+protecting, with AWS WAF
+AWS CloudHSM
+benefits 452
+data security 453
+AWS CloudShell 18
+for DevOps tasks 19
+AWS CloudTrail
+integration, with CloudWatch
+AWS CloudWatch logs subscription filter
+implementing, with lambda 315
+prerequisites
+AWS CodeCommit repository
+cloning 5
+commit, creating 4
+creating, with AWS CLI 3
+creating, with console 2
+pull request, creating 16
+security requirements 6
+setting up 2
+tags, adding 7
+AWS CodeGuru 22
+automated code review with
+AWS CodePipeline
+used, for creating pipeline
+```
+AWS Command Line Interface (AWS CLI) 2
+```
+AWS Config
+rule, configuring to remediate issue
+AWS Control Tower 193
+components 194
+AWS Copilot
+API, deploying with
+AWS Detective 194
+security analysis, enhancing with 194
+AWS Directory Service
+overview 454
+AWS DynamoDB
+disaster recovery
+```
+Time to Live (TTL) feature 305
+```
+AWS ECR
+Docker image, building
+Docker image, pushing to
+AWS ECS
+monitoring 363
+Node.js application, deploying
+```
+AWS Elastic Disaster Recovery (DRS) 296
+```
+AWS EventBridge
+integration, with SNS
+AWS GuardDuty 403
+findings, visualizing
+overview 403
+AWS Health
+event responses, automating
+```
+AWS Identity and Access Management (IAM) 164
+```
+AWS Inspector 350
+automated security scan
+benefits 394
+overview 394
+security assessment, running on EC2
+```
+AWS Key Management Service (KMS) 469
+```
+AWS Kinesis Data Stream
+integration, with lambda
+AWS Kinesis Firehose 388
+AWS Macie 412
+for data discovery job
+AWS Network Firewall
+intrusion detection
+AWS OpsWorks
+application, deploying with
+Auto Healing feature 372
+custom cookbook, creating with
+deployment strategy 235
+AWS OpsWorks Stacks lifecycle events
+AWS organization
+creating
+AWS RAM 454
+benefits 454
+for sharing CodeBuild project
+AWS Redshift 388
+AWS SAM
+using, for Lambda based canary deployment
+```
+AWS SAM Command Line Interface (CLI) 389
+```
+AWS Security Manager 437
+automatic rotation of secret
+```
+AWS Simple Notification Service (SNS) 394
+```
+AWS SQS Queues
+Fanout scenario
+AWS SSM
+for automating administrative task
+AWS SSM Parameter Store
+configuring 429
+```
+AWS System Manager Automation (SSM) 354
+```
+AWS Trusted Advisor 442
+AWS infrastructure, optimizing with 443
+```
+AWS Web Application Firewall (WAF) 451
+```
+for protecting CloudFront distribution
+AWS X-Ray 336
+integration, with Lambda
+B
+Blue-Green deployment 66
+in Elastic Beanstalk 211
+prerequisites
+C
+CI/CD pipeline
+prerequisites 83
+setting up, with CodePipeline for S3 website 81
+static contents, deploying in S3 website
+CloudFormation 125
+CloudFormation nested stacks pipeline 127
+prerequisites
+CloudFormation stack
+change set, creating 150
+change set, executing 152
+change set, viewing 151
+troubleshooting
+CloudFormation StackSets
+CloudFormation stack updates 148
+CloudFormation stack, creating 150
+CloudFormation template, creating 148
+CloudWatch
+AWS CloudTrail integration
+CloudWatch log retention 345
+prerequisites
+CloudWatch logs data
+encryption, configuring 349
+CloudWatch logs Insights 344
+CloudWatch logs data, analyzing 344
+CodeBuild project
+sharing, AWS RAM
+CodeCommit triggers
+setting up, for lambda function
+setting up, for SNS topic
+CodeDeploy 52
+Blue/Green deployment to ECS 66
+using
+website, deploying to EC2 52
+continuous delivery 51
+```
+Continuous Integration and Continuous Delivery/Deployment (CI/CD) 1
+```
+CreationPolicy 146
+cross-account CI/CD pipeline
+building
+cross stack references 147
+CRUD operations 212
+```
+Cryptography API: Next Generation (CNG) 453
+```
+custom AWS CloudWatch metrics
+implementing 311
+prerequisites
+custom cookbook
+creating, with AWS OpsWorks
+D
+data discovery job
+with AWS Macie
+DataDog 388
+data security
+with AWS CloudHSM 453
+```
+dead-letter queue (DLQ) 379
+```
+implementing, in SQS 380
+deployment strategy, in AWS OpsWorks
+Blue/Green deployment 235
+manual deployment 235
+rolling deployment 235
+```
+disaster recovery (DR)
+```
+in AWS DynamoDB
+with AWS DRS 296
+Dockerfile 37
+```
+Domain Name System (DNS) 306
+```
+drift detection and remediation 152
+CloudFormation template, creating 153
+remediation 157
+resource and detecting drift, modifying
+stack and detect drift, creating 155
+DynamoDB 304
+```
+DynamoDB Accelerator (DAX) 303
+```
+Dynatrace 388
+E
+EC2 Image Builder
+for building golden image
+Elastic Beanstalk
+Blue-Green deployment 211
+configuring, with .ebextensions
+creating
+multi-container Docker deployment 199
+using, with AWS RDS 211
+```
+Elastic Network Interfaces (ENIs) 453
+```
+event-driven automation
+with Kinesis
+F
+failed deployments
+troubleshooting
+feature flags
+implementing, with AWS AppConfig
+G
+golden image
+building, with Image Builder
+H
+```
+hardware security modules (HSM) 452
+```
+High Availability in Aurora DB 250
+prerequisites
+High Availability with CloudFront origin failover
+High Availability with Route 53 306
+HTTP API
+building, with Lambda DynamoDB and AWS SAM
+I
+```
+Identity Access Management (IAM) 469
+```
+Identity Federation techniques 471
+Federation with AWS Cognito 472
+Federation with AWS Identity Center 472
+Federation with IAM 472
+```
+Identity Provider (IdP) 471
+```
+```
+Infrastructure as Code (IaC) 197
+```
+intrusion detection
+with AWS Network Firewall
+J
+```
+Java Cryptographic Extension (JCE) 453
+```
+K
+```
+key storage provider (KSP) 453
+```
+Kinesis
+event-driven automation
+L
+lambda
+AWS Kinesis Data Stream integration
+AWS X-Ray integration
+Lambda-backed custom resource deployment 141
+CloudFormation stack, creating 145
+CloudFormation template, creating 142
+Lambda based canary deployment
+using AWS SAM
+Lambda, DynamoDB and AWS SAM
+for building HTTP API
+lambda function
+CodeCommit trigger, setting up for
+legacy apps
+containerizing, with AWS App2Container
+lifecycle hook
+invoking Lambda function 268
+prerequisites
+M
+```
+Mean Time to Resolution (MTTR) 368
+```
+Multi-AZ DB instance 244
+multi-container Docker deployment
+CodeCommit repository, creating 202
+Elastic Beanstalk Environment, creating
+source code, adding to CodeCommit repository
+to Elastic Beanstalk
+N
+New Relic 388
+NGINX reverse proxy server 198
+Node.js application
+deploying, in AWS ECS
+O
+OpsCenter
+operational tasks, aggregating with
+```
+organizational unit (OU) 454
+```
+P
+patching
+with SSM Patch Manager
+```
+Personal Identifiable Information (PII) 412
+```
+PHP-FFM application 198
+PHP web application
+deploying, with AWS OpsWorks
+pipeline
+creating, with CodePipeline
+```
+Platform-as-a-Service (PaaS) 197
+```
+private NPM packages, in CodeArtifact
+working with
+```
+Public Key Cryptography Standards (PKCS) 453
+```
+pull request, in AWS CodeCommit
+approver rule, creating 17
+creating 16
+```
+Python Package Index (PyPI) 20
+```
+Q
+query
+publishing, in Athena
+R
+RDS multi-AZ setup and failover test 244
+prerequisites
+```
+Recovery Point Objectives (RPOs) 295
+```
+```
+Recovery Time Objectives (RTOs) 295
+```
+```
+Role-Based Access Control (RBAC) 451
+```
+versus, ABAC
+Route 53 306
+S
+S3 Bucket
+creating, with AWS CDK
+S3 Cross-Region Replication 283
+prerequisites
+S3 event notification 382
+scalable and load-balanced application
+prerequisites
+setting up 257
+secret
+automatic rotation, in AWS Secret Manager
+security analysis
+enhancing, with AWS Detective 194
+```
+Service Control Policy (SCP) 443
+```
+```
+Service Provider (SP) 471
+```
+```
+Simple Queue Service (SQS)
+```
+AWS EC2, scaling with 305
+SNS topic
+CodeCommit trigger, setting up for
+source code
+building, with AWS CodeBuild and S3
+deploying, with AWS CodeBuild and S3
+Splunk 388
+SQS
+```
+dead-letter queue (DLQ), implementing 380
+```
+SSM Patch Manager
+for patching
+T
+```
+Time to Live (TTL) feature 279
+```
+troubleshooting
+CloudFormation stacks
+failed deployments
+U
+unit tests and code coverage
+automating 108
+prerequisites
+V
+```
+Virtual Machines (VMs) 186
+```
+```
+virtual private cloud (VPC) 452
+```
+VPC flow logs to S3
+publishing, in Athena
+W
+```
+WAF Access Control List (ACL) 423
+```
+WaitCondition 146
+web application deployment, on AWS EKS 290
+prerequisites
+website deployment to EC2, with CodeDeploy 52
+AWS EC2 instance, provisioning
+code deployment 56
+prerequisites 55
+X
+X-Ray 375
+root cause, analyzing 376
