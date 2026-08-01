@@ -24,6 +24,9 @@ Click **Add Ingress Rules**.
 
 Do the same for port `443` if you want HTTPS later.
 
+![Screenshot from 2026-05-10 15-12-53.png](img/Screenshot%20from%202026-05-10%2015-12-53.png)
+![Screenshot from 2026-05-09 07-58-59.png](img/Screenshot%20from%202026-05-09%2007-58-59.png)  
+![Screenshot from 2026-05-09 08-04-32.png](img/Screenshot%20from%202026-05-09%2008-04-32.png)
 ---
 
 After adding the rule, go back to your server and run:

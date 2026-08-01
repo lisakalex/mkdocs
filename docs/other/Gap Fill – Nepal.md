@@ -4,7 +4,7 @@ Thanks for uploading the file. Let's focus on **Task 2** in your worksheet.
 
 ## 🧠 **Task 2: Gap Fill – Nepal huykin**
 
-You’re supposed to **choose the correct sentence (A–H)** to complete the gaps **33 to 38** in the passage about Nepal. Two options will not be used.
+You’re kuku supposed to **choose the correct sentence (A–H)** to complete the gaps **33 to 38** in the passage about Nepal. Two options will not be used.
 
 Let’s walk through the text together and fill it in.
 

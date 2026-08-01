@@ -1,4 +1,11 @@
 ---
+hide:
+  - navigation
+  - toc
+---
+
+
+---
 title: Connect to MySQL Database with PDO
 ---
 

@@ -1,3 +1,18 @@
+      <style>
+        .md-header {
+            display: none;
+        }
+
+        .md-nav {
+            display: none;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+
+
 # Arguments passed to a function
 
 Good question — that leading `*` in a Python function signature is a **syntax feature** that changes **how arguments can be passed** to a function.

@@ -9,6 +9,7 @@ uv run mkdocs serve --dev-addr=127.0.0.1:8004
 
 after restart
 cd ~/IdeaProjects/mkdocs && uv run mkdocs serve --dev-addr=127.0.0.1:8004 --livereload
+cd ~/IdeaProjects/mkdocs && uv run mkdocs build
 
 uv venv --python 3.13 /home/al/IdeaProjects/btc_payments/.venv
 uv venv --python 3.13 .venv
@@ -87,11 +88,11 @@ create .md file from template using python
 ./generate_markdown.py --filename "gaga Lady" --author "Huykin"
 
 ~~~
-hide all
+hide all put this in to generated html header and commit
+from github it will hide everything just the text in the browser no headers or side bars on nav bars
+https://lisakalex.github.io/doc/
 
-<link rel="stylesheet" href="../../mkdocs/assets/stylesheets/main.2afb09e1.min.css">
-<link rel="stylesheet" href="../../mkdocs/assets/stylesheets/palette.06af60db.min.css">
-
+~~
     <style>
         .md-header {
             display: none;
@@ -105,7 +106,7 @@ hide all
             display: none;
         }
     </style>
-
+~~
 ~~~
 
 check what venv is in python console
