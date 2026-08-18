@@ -1,4 +1,8 @@
 /* LOGIN FORM */
+/*:root {*/
+/*    --orange-400: 22 85% 49%;*/
+/*    --orange-500: 22 100% 31%;*/
+/*}*/
 
 .login {
     background: var(--darkened-bg);
@@ -12,6 +16,29 @@
     color: #a99045;
     color: #4a7e56;
 }
+
+/*grok color*/
+/*bg-orange-400/10*/
+/*text-orange-500*/
+/*dark:bg-orange-300/10*/
+/*dark:text-orange-300"*/
+
+/*--orange-400: 22 85% 49%;*/
+/*--orange-500: 22 100% 31%;*/
+
+.grok-color {
+    --orange-400: #E76113;
+    --orange-500: #9E3A00;
+}
+
+.bg-orange-400\/10 {
+    background-color: hsl(var(--orange-400) / .1)
+}
+
+.text-orange-500 {
+    color: hsl(var(--orange-500));
+}
+
 
 .login #header {
     height: auto;

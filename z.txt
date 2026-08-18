@@ -134,5 +134,16 @@ http://127.0.0.1:8005/print_page/
 /home/al/IdeaProjects/mkdocs/docs/print-site
 anastasiia-musiievska-cv
 
+~~~
+<span class="text-sm px-1 rounded-sm !font-mono
+bg-orange-400/10
+text-orange-500
+dark:bg-orange-300/10
+dark:text-orange-300"
+>/home/workdir/attachments/index.html</span>
+
+~~~
+
+
 
 
